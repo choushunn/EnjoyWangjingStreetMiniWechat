@@ -2,6 +2,7 @@
 Component({
   options: {
     addGlobalClass: true,
+    
   },
   data: {
     starCount: 0,
