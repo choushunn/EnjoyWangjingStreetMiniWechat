@@ -82,7 +82,7 @@ git checkout -b develop
 5. 当修改完成后，将修改提交到 develop 分支，并推送到自己的 GitHub 仓库：
 
 ```
-gitadd .
+git add .
 git commit -m "提交修改信息"
 git push origin develop
 ```
