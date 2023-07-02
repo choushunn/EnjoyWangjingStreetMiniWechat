@@ -30,11 +30,13 @@
 ├── app.json                // 小程序全局配置文件
 ├── app.wxss                // 小程序全局样式文件
 ├── pages                   // 小程序页面文件夹
-│   ├── index               // 首页
+│   ├── index               // 导航页
+│   ├── basics              // 首页
 │   ├── map                 // 地图导航页面
 │   ├── merchant            // 商家介绍页面
-│   ├── scenic              // 景点介绍页面
+│   ├── service             // 服务导航页面
 │   ├── food                // 美食推荐页面
+│   ├── logs                // 日志页面
 │   └── user                // 个人中心页面
 ├── images                  // 小程序图片资源文件夹
 ├── utils                   // 小程序工具库文件夹
@@ -47,7 +49,7 @@
 
 1. Clone 项目到本地：
 
-```
+```bash
 git clone git@github.com:choushunn/EnjoyWangjingStreetMiniWechat.git
 ```
 
@@ -63,35 +65,67 @@ git clone git@github.com:choushunn/EnjoyWangjingStreetMiniWechat.git
 
 我们欢迎您为本项目作出贡献！您可以通过以下步骤参与贡献：
 
-1. Fork 本仓库到自己的 GitHub 账号下。
+1. 贡献者需要将主项目的代码 Fork 到自己的 GitHub 账号下。
 
 2. Clone 自己的 GitHub 仓库到本地开发环境中：
 
-```
+```bash
 git clone https://github.com/your-username/EnjoyWangjingStreetMiniWechat.git
 ```
 
-3. 创建一个新的本地分支，用于开发和修改：
+3. 贡献者创建一个新的本地分支，用于开发和修改：
 
-```
+```bash
 git checkout -b develop
 ```
 
-4. 在 develop 分支上进行代码开发和修改。
+4. 在 develop 分支上进行代码开发和修改,将修改提交到 develop 分支，并推送到自己的 GitHub 仓库的 develop 分支上：
 
-5. 当修改完成后，将修改提交到 develop 分支，并推送到自己的 GitHub 仓库：
-
-```
-gitadd .
+```bash
+git add .
 git commit -m "提交修改信息"
 git push origin develop
 ```
 
-6. 在自己的 GitHub 仓库页面上创建一个 Pull Request，将 develop 分支合并到本仓库的 develop 分支上。
+5. 贡献者在自己的 fork 仓库页面上创建一个 Pull Request，将自己的 develop 分支合并到主项目的 develop 分支上。
 
-7. 等待 Pull Request 被审核和合并。如果有需要，您可能需要根据审核人员的反馈进行修改和调整。
+6. 等待 Pull Request 被审核和合并。当 Pull Request 被合并后，您的修改将被包含在本仓库的 develop 分支中。
 
-8. 当 Pull Request 被合并后，您的修改将被包含在本仓库的 develop 分支中。
+7. 主项目维护者将 develop 分支上的代码合并到 main 分支上，并推送到主项目的远程仓库
+
+```bash
+git checkout main
+git pull origin main
+git merge develop
+git push origin main
+```
+
+8. 本地分支落后于远程分支解决方法。
+
+```bash
+# 拉取远程分支的最新代码。
+git fetch
+# 合并远程分支的最新代码到本地分支。
+git merge origin/develop
+# 解决合并冲突。提交合并后的代码，并推送到远程分支。
+git push
+```
+
+9. 同步主项目分支代码
+
+```bash
+# 确认自己的 fork 仓库是否已经同步了主项目的远程分支。
+git fetch upstream
+# 切换到自己的 develop 分支，并将主项目的远程分支合并到本地分支上：
+git checkout develop
+git merge upstream/develop
+# 提交更新后的代码，并将代码推送到自己的 fork 仓库的 develop 分支上：
+git add .
+git commit -m "提交更新后的代码"
+git push origin develop
+```
+
+
 
 注意：在贡献代码之前，请确保您的代码符合本项目的代码规范和最佳实践。如果您不确定如何贡献代码，请参考 GitHub 的 Pull Request 流程和相关文档，或者向项目维护者咨询和寻求帮助。同时，为了保证代码质量和稳定性，我们建议您在修改代码之前先进行测试和调试。
 
