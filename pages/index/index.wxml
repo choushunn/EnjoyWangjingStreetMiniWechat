@@ -10,7 +10,7 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <!-- 首页 -->
   <view class="action" bindtap="NavChange" data-cur="basics">
-      <view class="cuIcon-homefill"></view>      
+      <view class="cuIcon-home"></view>      
       <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
         首页
       </view>   
@@ -33,11 +33,11 @@
 
   <!-- 志愿者中心 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="volunteer">
-    <view class="cuIcon-cart">
-      <view class="cu-tag badge">99</view>
+    <view class="cuIcon-friendfavor">
+      <!-- <view class="cu-tag badge"></view> -->
     </view>
     <view class="{{PageCur=='volunteer'?'text-green':'text-gray'}}">
-      志愿者</view>
+      志愿服务</view>
   </view>
 
   <!-- 个人中心 -->

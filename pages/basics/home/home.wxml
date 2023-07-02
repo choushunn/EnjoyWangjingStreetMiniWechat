@@ -5,15 +5,14 @@
 </cu-custom>
 <!-- 功能列表 -->
 <scroll-view scroll-y class="scrollPage">
-
-<swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key>
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-  </swiper-item>
-</swiper>
-
-  
+  <!-- 轮播图 -->
+  <swiper class="screen-swiper" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </swiper-item>
+  </swiper>
+  <!-- 导航卡片 -->
   <view class='nav-list'>
     <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
       <view class="nav-title">{{item.title}}</view>
@@ -21,5 +20,88 @@
       <text class='cuIcon-{{item.icon}}'></text>
     </navigator>
   </view>
+  <!-- 搜素框 -->
+  <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round">搜索</button>
+    </view>
+  </view>
+  <!-- 文章列表 -->
+  <view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+          <view>
+            <view class="margin-top-sm flex justify-between">
+              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="text-gray text-sm text-left">2018年12月4日</view>
+              <view class="text-gray text-sm text-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 文章2 -->
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+          <view>
+            <view class="margin-top-sm flex justify-between">
+              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="text-gray text-sm text-left">2018年12月4日</view>
+              <view class="text-gray text-sm text-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 文章3 -->
+
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+          <view>
+            <view class="margin-top-sm flex justify-between">
+              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="text-gray text-sm text-left">2018年12月4日</view>
+              <view class="text-gray text-sm text-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
   <view class='cu-tabbar-height'></view>
+
 </scroll-view>

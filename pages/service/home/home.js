@@ -6,7 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+  },
+  isCard(e) {
+    this.setData({
+      isCard: e.detail.value
+    })
   },
   searchIcon(e) {
     console.log("搜索。。。。。")
