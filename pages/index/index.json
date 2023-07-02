@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "basics": "/pages/component/home/home",
+    "user": "/pages/user/user",
+    "service": "/pages/service/service",
+    "logs": "/pages/logs/logs"
+  }
+}

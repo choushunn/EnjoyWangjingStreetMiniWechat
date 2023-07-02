@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<!-- 跳转页面 -->
+<component wx:if="{{PageCur=='component'}}"></component>
+<!-- 顶部标题 -->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">乐享王井街</view>
+</cu-custom>
+
+<!-- 底部导航栏 -->
+<view class="cu-bar tabbar margin-bottom-xl bg-white foot" style="position: fixed; left: 0rpx; top: 1234rpx">
+  <!-- 首页 -->
+  <view class="action" bindtap="NavChange" data-cur="basics">
+    <view class="action text-green">
+      <view class="cuIcon-homefill"></view>
+      <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
+        首页
+      </view>
+    </view>
+  </view>
+  <!-- 便民服务 -->
+  <view class="action text-gray" bindtap="NavChange" data-cur="logs">
+    <view class="cuIcon-similar"></view>
+    <view class="{{PageCur=='logs'?'text-green':'text-gray'}}">
+      便民服务
+    </view>
+  </view>
+
+  <!-- 发布动态 -->
+  <view class="action text-gray add-action">
+    <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    发布
+  </view>
+
+  <!-- 志愿者中心 -->
+  <view class="action text-gray" bindtap="NavChange" data-cur="service">
+    <view class="cuIcon-cart">
+      <view class="cu-tag badge">99</view>
+    </view>
+    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
+      志愿者</view>
+  </view>
+
+  <!-- 个人中心 -->
+  <view class="action text-gray" bindtap="NavChange" data-cur="user">
+    <view class="cuIcon-my">
+      <view class="cu-tag badge"></view>
+    </view>
+    <view class="{{PageCur=='user'?'text-green':'text-gray'}}">
+      我的</view>
+  </view>
+</view>
