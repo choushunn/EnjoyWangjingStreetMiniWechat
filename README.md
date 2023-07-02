@@ -1,7 +1,7 @@
 
-# EnjoyWangjingStreetMiniWechat
+# Enjoy Wangjing Street MiniWechat
 
-这是一个基于微信小程序开发的王井街道应用。该应用提供了王井街道的地图导航、商家介绍、景点介绍、美食推荐等功能，帮助用户更好地了解和体验王府井街道的文化和生活。
+`Enjoy Wangjing Street MiniWechat`是一个基于微信小程序开发的王井街道应用。该应用提供了王井街道的地图导航、商家介绍、景点介绍、美食推荐等功能，帮助用户更好地了解和体验王府井街道的文化和生活。
 
 ## 功能列表
 
