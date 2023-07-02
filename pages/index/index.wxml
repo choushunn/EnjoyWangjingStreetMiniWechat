@@ -6,13 +6,8 @@
 <volunteer wx:if="{{PageCur=='volunteer'}}"></volunteer>
 <about wx:if="{{PageCur=='about'}}"></about>
 
-<!-- 顶部标题 -->
-<!-- <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">乐享王井街</view>
-</cu-custom> -->
-
 <!-- 底部导航栏 -->
-<view class="cu-bar tabbar margin-bottom-xl bg-white foot" style="position: fixed; left: 0rpx; top: 1234rpx">
+<view class="cu-bar tabbar bg-white shadow foot">
   <!-- 首页 -->
   <view class="action" bindtap="NavChange" data-cur="basics">
     <view class="action text-green">
@@ -29,7 +24,7 @@
       便民服务
     </view>
   </view>
-
+  
   <!-- 发布动态 -->
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="about">
     <button class="cu-btn cuIcon-add bg-green shadow"></button>
@@ -56,3 +51,4 @@
       我的</view>
   </view>
 </view>
+
