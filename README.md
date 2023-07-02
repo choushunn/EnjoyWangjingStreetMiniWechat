@@ -63,7 +63,7 @@ git clone git@github.com:choushunn/EnjoyWangjingStreetMiniWechat.git
 
 我们欢迎您为本项目作出贡献！您可以通过以下步骤参与贡献：
 
-1. Fork 本仓库到自己的 GitHub 账号下。
+1. 贡献者需要将主项目的代码 Fork 到自己的 GitHub 账号下。
 
 2. Clone 自己的 GitHub 仓库到本地开发环境中：
 
@@ -71,15 +71,13 @@ git clone git@github.com:choushunn/EnjoyWangjingStreetMiniWechat.git
 git clone https://github.com/your-username/EnjoyWangjingStreetMiniWechat.git
 ```
 
-3. 创建一个新的本地分支，用于开发和修改：
+3. 贡献者创建一个新的本地分支，用于开发和修改：
 
 ```
 git checkout -b develop
 ```
 
-4. 在 develop 分支上进行代码开发和修改。
-
-5. 当修改完成后，将修改提交到 develop 分支，并推送到自己的 GitHub 仓库：
+4. 在 develop 分支上进行代码开发和修改,将修改提交到 develop 分支，并推送到自己的 GitHub 仓库的 develop 分支上：
 
 ```
 git add .
@@ -87,11 +85,18 @@ git commit -m "提交修改信息"
 git push origin develop
 ```
 
-6. 在自己的 GitHub 仓库页面上创建一个 Pull Request，将 develop 分支合并到本仓库的 develop 分支上。
+5. 贡献者在自己的 fork 仓库页面上创建一个 Pull Request，将自己的 develop 分支合并到主项目的 develop 分支上。
 
-7. 等待 Pull Request 被审核和合并。如果有需要，您可能需要根据审核人员的反馈进行修改和调整。
+6. 等待 Pull Request 被审核和合并。当 Pull Request 被合并后，您的修改将被包含在本仓库的 develop 分支中。
 
-8. 当 Pull Request 被合并后，您的修改将被包含在本仓库的 develop 分支中。
+7. 主项目维护者将 develop 分支上的代码合并到 main 分支上，并推送到主项目的远程仓库
+
+```
+git checkout main
+git pull origin main
+git merge develop
+git push origin main
+```
 
 注意：在贡献代码之前，请确保您的代码符合本项目的代码规范和最佳实践。如果您不确定如何贡献代码，请参考 GitHub 的 Pull Request 流程和相关文档，或者向项目维护者咨询和寻求帮助。同时，为了保证代码质量和稳定性，我们建议您在修改代码之前先进行测试和调试。
 
