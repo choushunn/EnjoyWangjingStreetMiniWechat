@@ -1,2 +1,2 @@
 <!--pages/user/home/home.wxml-->
-<text>pages/user/home/home.wxml</text>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">个人中心</view></cu-custom>

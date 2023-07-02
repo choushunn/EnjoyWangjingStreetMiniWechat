@@ -1,10 +1,15 @@
 <!--index.wxml-->
 <!-- 跳转页面 -->
-<component wx:if="{{PageCur=='component'}}"></component>
+<basics wx:if="{{PageCur=='basics'}}"></basics>
+<user wx:if="{{PageCur=='user'}}"></user>
+<service wx:if="{{PageCur=='service'}}"></service>
+<volunteer wx:if="{{PageCur=='volunteer'}}"></volunteer>
+<about wx:if="{{PageCur=='about'}}"></about>
+
 <!-- 顶部标题 -->
-<cu-custom bgColor="bg-gradual-blue">
+<!-- <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
-</cu-custom>
+</cu-custom> -->
 
 <!-- 底部导航栏 -->
 <view class="cu-bar tabbar margin-bottom-xl bg-white foot" style="position: fixed; left: 0rpx; top: 1234rpx">
@@ -18,25 +23,27 @@
     </view>
   </view>
   <!-- 便民服务 -->
-  <view class="action text-gray" bindtap="NavChange" data-cur="logs">
+  <view class="action text-gray" bindtap="NavChange" data-cur="service">
     <view class="cuIcon-similar"></view>
-    <view class="{{PageCur=='logs'?'text-green':'text-gray'}}">
+    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
       便民服务
     </view>
   </view>
 
   <!-- 发布动态 -->
-  <view class="action text-gray add-action">
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="about">
     <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">
     发布
+    </view>
   </view>
 
   <!-- 志愿者中心 -->
-  <view class="action text-gray" bindtap="NavChange" data-cur="service">
+  <view class="action text-gray" bindtap="NavChange" data-cur="volunteer">
     <view class="cuIcon-cart">
       <view class="cu-tag badge">99</view>
     </view>
-    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
+    <view class="{{PageCur=='volunteer'?'text-green':'text-gray'}}">
       志愿者</view>
   </view>
 
