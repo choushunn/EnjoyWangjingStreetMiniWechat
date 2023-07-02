@@ -1,8 +1,9 @@
 <!--pages/basics/home/home.wxml-->
 <!-- 顶部标题 -->
-<!-- <cu-custom bgColor="bg-gradual-blue">
+<cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
-</cu-custom> -->
+</cu-custom>
+<!-- 功能列表 -->
 <scroll-view scroll-y class="scrollPage">
   <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
   <view class='nav-list'>

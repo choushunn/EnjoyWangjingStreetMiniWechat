@@ -10,12 +10,10 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <!-- 首页 -->
   <view class="action" bindtap="NavChange" data-cur="basics">
-    <view class="action text-green">
-      <view class="cuIcon-homefill"></view>
+      <view class="cuIcon-homefill"></view>      
       <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
         首页
-      </view>
-    </view>
+      </view>   
   </view>
   <!-- 便民服务 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="service">
