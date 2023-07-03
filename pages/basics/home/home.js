@@ -5,7 +5,6 @@ Component({
   },
   data: {
     elements: [{
-
         title: '办事指南',
         name: 'layout',
         color: 'cyan',
