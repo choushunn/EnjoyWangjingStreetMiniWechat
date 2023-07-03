@@ -1,80 +1,87 @@
 // pages/about/home/home.js
+import {
+  AMapWX
+} from '../../../libs/amap-wx.130.js';
+import {
+  Config
+} from '../../../libs/config.js';
+
 Component({
-  options: {
-    addGlobalClass: true,
-    
-  },
   data: {
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+    markersData: [],
+    markers: [],
+    latitude: '',
+    longitude: '',
+    textData: {}
   },
-  attached() {
-    console.log("success")
-    let that = this;
-    wx.showLoading({
-      title: '数据加载中',
-      mask: true,
-    })
-    let i = 0;
-    numDH();
-    function numDH() {
-      if (i < 20) {
-        setTimeout(function () {
-          that.setData({
-            starCount: i,
-            forksCount: i,
-            visitTotal: i
+  created: function () {
+    var that = this;
+    var myAmapFun = new AMapWX({
+      key: Config.key
+    });
+
+    wx.startLocationUpdate({
+      success: function () {
+        wx.onLocationChange(function (res) {
+          // 获取最新的位置信息
+          var latitude = res.latitude;
+          var longitude = res.longitude;
+
+          // 调用高德地图 API 获取周边 POI 数据
+          myAmapFun.getPoiAround({
+            location: longitude + ',' + latitude,
+            success: function (data) {
+              that.setData({
+                markersData: data.markers,
+                markers: data.markers,
+                latitude: latitude,
+                longitude: longitude
+              });
+              that.showMarkerInfo(data.markers, 0);
+            },
+            fail: function (info) {
+              wx.showModal({
+                title: info.errMsg
+              })
+            }
           })
-          i++
-          numDH();
-        }, 20)
-      } else {
-        that.setData({
-          starCount: that.coutNum(3000),
-          forksCount: that.coutNum(484),
-          visitTotal: that.coutNum(24000)
+        })
+      },
+      fail: function (info) {
+        wx.showModal({
+          title: info.errMsg
         })
       }
-    }
-    wx.hideLoading()
+    })
   },
   methods: {
-    coutNum(e) {
-      if (e > 1000 && e < 10000) {
-        e = (e / 1000).toFixed(1) + 'k'
-      }
-      if (e > 10000) {
-        e = (e / 10000).toFixed(1) + 'W'
-      }
-      return e
+    makertap: function (e) {
+      var index = e.markerId;
+      this.showMarkerInfo(this.data.markersData, index);
+      this.changeMarkerColor(this.data.markersData, index);
     },
-    CopyLink(e) {
-      wx.setClipboardData({
-        data: e.currentTarget.dataset.link,
-        success: res => {
-          wx.showToast({
-            title: '已复制',
-            duration: 1000,
-          })
+    showMarkerInfo: function (markers, index) {
+      this.setData({
+        textData: {
+          name: markers[index].name,
+          desc: markers[index].address
         }
-      })
+      });
     },
-    showModal(e) {
+    changeMarkerColor: function (markers, index) {
+      var newMarkers = [];
+      for (var i = 0; i < markers.length; i++) {
+        var marker = markers[i];
+        if (i == index) {
+          // marker.iconPath = "选中 marker 图标的相对路径"; //如：..­/..­/img/marker_checked.png
+        } else {
+          // marker.iconPath = "未选中 marker 图标的相对路径"; //如：..­/..­/img/marker.png
+        }
+        // newMarkers.push(marker);
+      }
       this.setData({
-        modalName: e.currentTarget.dataset.target
-      })
-    },
-    hideModal(e) {
-      this.setData({
-        modalName: null
-      })
-    },
-    showQrcode() {
-      wx.previewImage({
-        urls: ['https://image.weilanwl.com/color2.0/zanCode.jpg'],
-        current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
-      })
-    },
+        markers: newMarkers
+      });
+    }
   }
 })
