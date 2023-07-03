@@ -9,25 +9,26 @@
 <!-- 底部导航栏 -->
 <view class="cu-bar tabbar bg-white shadow foot">
   <!-- 首页 -->
-  <view class="action" bindtap="NavChange" data-cur="basics">
+  <view class="action" bindtap="NavChange" data-cur="service">
       <view class="cuIcon-home"></view>      
-      <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
-        首页
+      <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
+        
+        办事
       </view>   
   </view>
   <!-- 便民服务 -->
-  <view class="action text-gray" bindtap="NavChange" data-cur="service">
+  <view class="action text-gray" bindtap="NavChange" data-cur="about">
     <view class="cuIcon-similar"></view>
-    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
-      便民服务
+    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">
+      社区
     </view>
   </view>
   
   <!-- 发布动态 -->
-  <view class="action text-gray add-action" bindtap="NavChange" data-cur="about">
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="basics">
     <button class="cu-btn cuIcon-add bg-green shadow"></button>
-    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">
-    发布
+    <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
+      首页
     </view>
   </view>
 
@@ -37,7 +38,7 @@
       <!-- <view class="cu-tag badge"></view> -->
     </view>
     <view class="{{PageCur=='volunteer'?'text-green':'text-gray'}}">
-      志愿服务</view>
+      发现</view>
   </view>
 
   <!-- 个人中心 -->
