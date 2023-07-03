@@ -1,4 +1,4 @@
-/* pages/about/home/home.wxss */
+/* pages/around/home/home.wxss */
 .map_container{
   position: absolute;
   top: 0;

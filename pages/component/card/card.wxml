@@ -1,2 +1,0 @@
-<!--pages/component/card/card.wxml-->
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">卡片</view></cu-custom>

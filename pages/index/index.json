@@ -1,10 +1,10 @@
 {
   "usingComponents": {
-    "basics": "/pages/basics/home/home",
+    "home": "/pages/home/home/home",
     "user": "/pages/user/home/home",
     "service": "/pages/service/home/home",
-    "about": "/pages/about/home/home",
-    "logs": "/pages/logs/logs",
-    "volunteer":"/pages/volunteer/home/home"
+    "around": "/pages/around/home/home",
+    "community":"/pages/community/home/home",
+    "logs": "/pages/logs/logs"
   }
 }

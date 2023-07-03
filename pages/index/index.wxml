@@ -1,45 +1,45 @@
 <!--index.wxml-->
 <!-- 跳转页面 -->
-<basics wx:if="{{PageCur=='basics'}}"></basics>
+<home wx:if="{{PageCur=='home'}}"></home>
 <user wx:if="{{PageCur=='user'}}"></user>
 <service wx:if="{{PageCur=='service'}}"></service>
-<volunteer wx:if="{{PageCur=='volunteer'}}"></volunteer>
-<about wx:if="{{PageCur=='about'}}"></about>
+<around wx:if="{{PageCur=='around'}}"></around>
+<community wx:if="{{PageCur=='community'}}"></community>
 
 <!-- 底部导航栏 -->
 <view class="cu-bar tabbar bg-white shadow foot">
-  <!-- 首页 -->
+ <!-- 办事服务 -->
   <view class="action" bindtap="NavChange" data-cur="service">
-      <view class="cuIcon-home"></view>      
-      <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
-        
-        办事
-      </view>   
-  </view>
-  <!-- 便民服务 -->
-  <view class="action text-gray" bindtap="NavChange" data-cur="about">
-    <view class="cuIcon-similar"></view>
-    <view class="{{PageCur=='about'?'text-green':'text-gray'}}">
-      社区
-    </view>
-  </view>
-  
-  <!-- 发布动态 -->
-  <view class="action text-gray add-action" bindtap="NavChange" data-cur="basics">
-    <button class="cu-btn cuIcon-add bg-green shadow"></button>
-    <view class="{{PageCur=='basics'?'text-green':'text-gray'}}">
-      首页
+    <view class="cuIcon-home"></view>
+    <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
+      办事
     </view>
   </view>
 
-  <!-- 志愿者中心 -->
-  <view class="action text-gray" bindtap="NavChange" data-cur="volunteer">
+   <!-- 周边服务 -->
+   <view class="action text-gray" bindtap="NavChange" data-cur="around">
     <view class="cuIcon-friendfavor">
       <!-- <view class="cu-tag badge"></view> -->
     </view>
-    <view class="{{PageCur=='volunteer'?'text-green':'text-gray'}}">
+    <view class="{{PageCur=='around'?'text-green':'text-gray'}}">
       发现</view>
   </view>
+
+  <!-- 首页 -->
+  <view class="action text-gray add-action" bindtap="NavChange" data-cur="home">
+    <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    <view class="{{PageCur=='home'?'text-green':'text-gray'}}">
+      首页
+    </view>
+  </view>
+ <!-- 社区服务 -->
+ <view class="action text-gray" bindtap="NavChange" data-cur="community">
+    <view class="cuIcon-similar"></view>
+    <view class="{{PageCur=='community'?'text-green':'text-gray'}}">
+      社区
+    </view>
+  </view>
+
 
   <!-- 个人中心 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="user">
@@ -50,4 +50,3 @@
       我的</view>
   </view>
 </view>
-

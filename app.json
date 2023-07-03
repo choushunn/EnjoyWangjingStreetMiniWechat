@@ -1,15 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/basics/home/home",
-    "pages/user/home/home",
+    "pages/index/index", 
+    "pages/home/home/home",
     "pages/service/home/home",
-    "pages/volunteer/home/home",
-    "pages/about/home/home",
-    "pages/logs/logs",
-    "pages/component/bar/bar",
-    "pages/component/card/card",
-    "pages/component/home/home"
+    "pages/community/home/home",    
+    "pages/around/home/home",    
+    "pages/user/home/home",       
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,6 +24,14 @@
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "requiredPrivateInfos": ["chooseLocation", "getLocation","onLocationChange","startLocationUpdate","startLocationUpdateBackground"]
+  "requiredPrivateInfos": [
+    "chooseLocation", 
+    "getLocation",
+    "onLocationChange",
+    "startLocationUpdate",
+    "startLocationUpdateBackground",
+    "chooseAddress",
+    "choosePoi"
+  ]
 
 }
