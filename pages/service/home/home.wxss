@@ -2,3 +2,33 @@
 item.none{
   display: none;
 }
+.nav-li2 {
+  padding: 15rpx;
+  border-radius: 20rpx;
+  width: 45%;
+  margin: 0 2.5% 40rpx;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+.nav-li3 {
+  padding: 15rpx;
+  border-radius: 20rpx;
+  width: 28%;
+  margin: 0 2.5% 40rpx;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+}
+.nav-title1 {
+  font-size: 40rpx;
+  font-weight: 300;
+}
+.nav-name1 {
+  font-size: 30rpx;
+  /* text-transform: Capitalize; */
+  margin-top: 20rpx;
+  position: relative;
+}
