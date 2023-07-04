@@ -1,2 +1,4 @@
 <!--pages/community/home/home.wxml-->
-<text>pages/community/home/home.wxml</text>
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">社区</view>
+</cu-custom>
