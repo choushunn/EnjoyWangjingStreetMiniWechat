@@ -1,40 +1,66 @@
 // pages/user/home/home.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    iconList: [{
+      icon: 'cardboardfill',
+      color: 'red',
+      badge: 120,
+      name: 'VR'
     }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+      icon: 'recordfill',
+      color: 'orange',
+      badge: 1,
+      name: '录像'
     }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+      icon: 'picfill',
+      color: 'yellow',
+      badge: 0,
+      name: '图像'
     }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+      icon: 'noticefill',
+      color: 'olive',
+      badge: 22,
+      name: '通知'
     }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+      icon: 'upstagefill',
+      color: 'cyan',
+      badge: 0,
+      name: '排行榜'
     }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+      icon: 'clothesfill',
+      color: 'blue',
+      badge: 0,
+      name: '皮肤'
     }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+      icon: 'discoverfill',
+      color: 'purple',
+      badge: 0,
+      name: '发现'
+    }, {
+      icon: 'questionfill',
+      color: 'mauve',
+      badge: 0,
+      name: '帮助'
+    }, {
+      icon: 'commandfill',
+      color: 'purple',
+      badge: 0,
+      name: '问答'
+    }, {
+      icon: 'brandfill',
+      color: 'mauve',
+      badge: 0,
+      name: '版权'
     }],
+    gridCol:3,
+    skin: false
   },
 
   /**

@@ -7,8 +7,12 @@ import {
   Config
 } from '../../../libs/config.js';
 
+const app = getApp();
+
 Component({
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     markersData: [], // 存储获取到的周边POI数据
     markers: [], // 存储地图上的标记点
     latitude: '', // 当前位置的纬度

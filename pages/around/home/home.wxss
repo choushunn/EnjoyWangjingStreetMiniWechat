@@ -1,30 +1,390 @@
 /* pages/around/home/home.wxss */
-.map_container{
+.map_container {
   position: absolute;
   top: 0;
   bottom: 80px;
   left: 0;
   right: 0;
+  display: flex;
 }
-.map{
+
+.map {
   width: 100%;
-  height: 100%;
+  height: 101%;
 }
-.map_text{
+
+.map_text {
   position: absolute;
-  left: 0;
+  justify-content: center;
+  align-items: center;
+  left: 10%;
   right: 0;
   bottom: 0px;
-  height: 80px;
-  background: #fff;
+  height: 10%;
+  width: 80%;
+  background:#ffffff;
   padding: 0 15px;
+  border-radius: 20rpx;
+  top: 85%;
 }
-text{
+.tool_text{
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 90%;
+  right: 0;
+  bottom: 0px;
+  height: 21.5%;
+  width: 10%;
+  background:#ffffff;
+  padding: 0 15px;
+  border-radius: 15rpx;
+  top: 40%;
+}
+
+.tool{
+  width: 55rpx;
+  position: relative; 
+  left: -15rpx;
+  margin-top: 80%;
+  border-bottom: 1px solid;
+  font-size: 200%
+}
+.tool:last-child {
+  border-bottom: none;
+}
+text {
   margin: 5px 0;
   display: block;
-  font-size:12px;
+  font-size: 12px;
 }
-.h1{
+
+.h1 {
   margin: 15px 0;
-  font-size:15px;
+  font-size: 15px;
+}
+
+.search_container{
+  z-index: 999;
+  left: 50%;
+  top: 80%;
+}
+
+.search {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  box-sizing: border-box;
+  top: 10%;
+} 
+
+.cu-bar .search-form {
+	background-color: #f5f5f5;
+	line-height: 64rpx;
+	height: 64rpx;
+	font-size: 24rpx;
+	color: var(--black);
+	flex: 1;
+	display: flex;
+	align-items: center;
+  margin: 0 30rpx;
+  border-radius: 20rpx;
+}
+
+.cu-bar .search-form+.action {
+  margin-right: 30rpx;
+  
+}
+
+.cu-bar .search-form input {
+	flex: 1;
+	padding-right: 30rpx;
+	height: 64rpx;
+	line-height: 64rpx;
+	font-size: 26rpx;
+  background-color: transparent;
+  
+}
+
+.cu-bar .search-form [class*="cuIcon-"] {
+  margin: 0 0.5em 0 0.8em;
+  
+}
+
+.cu-bar .search-form [class*="cuIcon-"]::before {
+  top: 0rpx;
+  
+}
+
+.cu-btn {
+	position: relative;
+	border: 0rpx;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	padding: 0 30rpx;
+	font-size: 28rpx;
+	height: 64rpx;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	overflow: visible;
+	margin-left: initial;
+	transform: translate(0rpx, 0rpx);
+	margin-right: initial;
+}
+
+.cu-btn::after {
+	display: none;
+}
+
+.cu-btn:not([class*="bg-"]) {
+	background-color: #f0f0f0;
+}
+
+.cu-btn[class*="line"] {
+	background-color: transparent;
+}
+
+.cu-btn[class*="line"]::after {
+	content: " ";
+	display: block;
+	width: 200%;
+	height: 200%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1rpx solid currentColor;
+	transform: scale(0.5);
+	transform-origin: 0 0;
+	box-sizing: border-box;
+	border-radius: 12rpx;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.cu-btn.round[class*="line"]::after {
+	border-radius: 1000rpx;
+}
+
+.cu-btn[class*="lines"]::after {
+	border: 6rpx solid currentColor;
+}
+
+.cu-btn[class*="bg-"]::after {
+	display: none;
+}
+
+.cu-btn.sm {
+	padding: 0 20rpx;
+	font-size: 20rpx;
+	height: 48rpx;
+}
+
+.cu-btn.lg {
+	padding: 0 40rpx;
+	font-size: 32rpx;
+	height: 80rpx;
+}
+
+.cu-btn.icon.sm {
+	width: 48rpx;
+	height: 48rpx;
+}
+
+.cu-btn.icon {
+	width: 64rpx;
+	height: 64rpx;
+	border-radius: 500rpx;
+	padding: 0;
+}
+
+button.icon.lg {
+	width: 80rpx;
+	height: 80rpx;
+}
+
+.cu-btn.shadow-blur::before {
+	top: 4rpx;
+	left: 4rpx;
+	filter: blur(6rpx);
+	opacity: 0.6;
+}
+
+.cu-btn.button-hover {
+	transform: translate(1rpx, 1rpx);
+}
+
+.block {
+	display: block;
+}
+
+.cu-btn.block {
+	display: flex;
+}
+
+.cu-btn[disabled] {
+	opacity: 0.6;
+	color: var(--white);
+}
+
+.bg-green {
+	background-color: var(--green);
+	color: var(--white);
+}
+
+.bg-blue {
+	background-color: var(--blue);
+	color: var(--white);
+}
+.round {
+	border-radius: 5000rpx;
+}
+
+.cu-card {
+	display: flex;
+  /* overflow: hidden; */
+  z-index: 999;
+  width: 80px;
+  left: 10%;
+  border-radius: 100rpx;
+}
+
+.cu-card>.cu-item {
+	display: block;
+	background-color: var(--white);
+	overflow: hidden;
+	border-radius: 10rpx;
+	margin: 30rpx;
+}
+
+.cu-card>.cu-item.shadow-blur {
+	overflow: initial;
+}
+
+.cu-card.no-card>.cu-item {
+	margin: 0rpx;
+	border-radius: 0rpx;
+}
+
+.cu-card .grid.grid-square {
+	margin-bottom: -20rpx;
+}
+
+.cu-card.case .image {
+	position: relative;
+}
+
+.cu-card.case .image image {
+	width: 100%;
+}
+
+.cu-card.case .image .cu-tag {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.cu-card.case .image .cu-bar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background-color: transparent;
+	padding: 0rpx 30rpx;
+}
+
+.cu-card.case.no-card .image {
+	margin: 30rpx 30rpx 0;
+	overflow: hidden;
+	border-radius: 10rpx;
+}
+
+.cu-card.dynamic {
+	display: block;
+}
+
+.cu-card.dynamic>.cu-item {
+	display: block;
+	background-color: var(--white);
+	overflow: hidden;
+}
+
+.cu-card.dynamic>.cu-item>.text-content {
+	padding: 0 30rpx 0;
+	max-height: 6.4em;
+	overflow: hidden;
+	font-size: 30rpx;
+	margin-bottom: 20rpx;
+}
+
+.cu-card.dynamic>.cu-item .square-img {
+	width: 100%;
+	height: 200rpx;
+	border-radius: 6rpx;
+}
+
+.cu-card.dynamic>.cu-item .only-img {
+	width: 100%;
+	height: 320rpx;
+	border-radius: 6rpx;
+}
+
+.cu-card.article {
+	display: block;
+}
+
+.cu-card.article>.cu-item {
+	padding-bottom: 30rpx;
+}
+
+.cu-card.article>.cu-item .title {
+	font-size: 30rpx;
+	font-weight: 900;
+	color: var(--black);
+	line-height: 100rpx;
+	padding: 0 30rpx;
+}
+
+.cu-card.article>.cu-item .content {
+	display: flex;
+	padding: 0 30rpx;
+}
+
+.cu-card.article>.cu-item .content>image {
+	width: 240rpx;
+	height: 6.4em;
+	margin-right: 20rpx;
+	border-radius: 6rpx;
+}
+
+.cu-card.article>.cu-item .content .desc {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cu-card.article>.cu-item .content .text-content {
+	font-size: 28rpx;
+	color: #888;
+	height: 4.8em;
+	overflow: hidden;
+}
+
+
+.cuIcon-cascades:before {
+	content: "\e67c";
+}
+.cuIcon-location:before {
+	content: "\e651";
+}
+.cuIcon-sort:before {
+	content: "\e700";
+}
+.cuIcon-roundadd:before {
+	content: "\e6d9";
 }

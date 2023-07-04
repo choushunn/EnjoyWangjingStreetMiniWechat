@@ -10,7 +10,7 @@
 <view class="cu-bar tabbar bg-white shadow foot">
  <!-- 办事服务 -->
   <view class="action" bindtap="NavChange" data-cur="service">
-    <view class="cuIcon-home"></view>
+    <view class="cuIcon-list"></view>
     <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
       办事
     </view>
@@ -18,7 +18,7 @@
 
    <!-- 周边服务 -->
    <view class="action text-gray" bindtap="NavChange" data-cur="around">
-    <view class="cuIcon-friendfavor">
+    <view class="cuIcon-search">
       <!-- <view class="cu-tag badge"></view> -->
     </view>
     <view class="{{PageCur=='around'?'text-green':'text-gray'}}">
@@ -27,7 +27,7 @@
 
   <!-- 首页 -->
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="home">
-    <button class="cu-btn cuIcon-add bg-green shadow"></button>
+    <button class="cu-btn cuIcon-home bg-blue shadow"></button>
     <view class="{{PageCur=='home'?'text-green':'text-gray'}}">
       首页
     </view>
