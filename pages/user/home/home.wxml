@@ -24,7 +24,19 @@
   <view class="cu-item arrow">
       <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
         <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">工单派发</text>
+        <text class="text-grey">管理员工单审核派发</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">社工工单处理</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+        <text class="cuIcon-creativefill text-orange"></text>
+        <text class="text-grey">用户工单提交与确认</text>
       </navigator>
     </view>
     <view class="cu-item arrow">

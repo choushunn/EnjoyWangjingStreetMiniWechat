@@ -12,32 +12,32 @@ Page({
       icon: 'cardboardfill',
       color: 'red',
       badge: 120,
-      name: 'VR'
+      name: '我的收藏'
     }, {
       icon: 'recordfill',
       color: 'orange',
       badge: 1,
-      name: '录像'
+      name: '我的上报'
     }, {
       icon: 'picfill',
       color: 'yellow',
       badge: 0,
-      name: '图像'
+      name: '我的反馈'
     }, {
       icon: 'noticefill',
       color: 'olive',
       badge: 22,
-      name: '通知'
+      name: '使用帮助'
     }, {
       icon: 'upstagefill',
       color: 'cyan',
       badge: 0,
-      name: '排行榜'
+      name: '常用功能'
     }, {
       icon: 'clothesfill',
       color: 'blue',
       badge: 0,
-      name: '皮肤'
+      name: '我的工单'
     }, {
       icon: 'discoverfill',
       color: 'purple',

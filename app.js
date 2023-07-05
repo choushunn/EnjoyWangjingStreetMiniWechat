@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -11,6 +11,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
+
     })
     // 获取用户信息
     wx.getSetting({
@@ -38,15 +39,46 @@ App({
         this.globalData.StatusBar = e.statusBarHeight;
         let capsule = wx.getMenuButtonBoundingClientRect();
         if (capsule) {
-         	this.globalData.Custom = capsule;
-        	this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+          this.globalData.Custom = capsule;
+          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
         } else {
-        	this.globalData.CustomBar = e.statusBarHeight + 50;
+          this.globalData.CustomBar = e.statusBarHeight + 50;
         }
       }
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    ColorList: [{
+        title: '便民电话',
+        name: 'red',
+        color: '#e54d42'
+      },
+      {
+        title: '特色服务',
+        name: 'orange',
+        color: '#f37b1d'
+      },
+      {
+        title: '问题上报',
+        name: 'yellow',
+        color: '#fbbd08'
+      },
+      {
+        title: '投诉公示',
+        name: 'olive',
+        color: '#8dc63f'
+      },
+      {
+        title: '志愿者',
+        name: 'green',
+        color: '#39b54a'
+      },
+      {
+        title: '工单提交',
+        name: 'cyan',
+        color: '#1cbbb4'
+      }
+    ]
   }
 })

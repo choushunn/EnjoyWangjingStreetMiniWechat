@@ -1,4 +1,33 @@
 <!--pages/community/home/home.wxml-->
-<cu-custom bgColor="bg-gradual-blue">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
   <view slot="content">社区</view>
 </cu-custom>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>功能列表1
+  </view>
+</view>
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{ColorList}}" wx:key wx:if="{{index<12}}">
+    <view class="bg-{{item.name}} padding radius text-center light">
+      <view class="text-lg">{{item.title}}</view>
+      <view class="margin-top-sm text-Abc">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>功能列表2
+  </view>
+</view>
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{ColorList}}" wx:key wx:if="{{index<12}}">
+    <view class="bg-{{item.name}} padding radius text-center light">
+      <view class="text-lg">{{item.title}}</view>
+      <view class="margin-top-sm text-Abc">{{item.name}}</view>
+    </view>
+  </view>
+</view>

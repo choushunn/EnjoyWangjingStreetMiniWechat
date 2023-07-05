@@ -37,19 +37,19 @@ Page({
 
   elements2: [{
 
-    title: '办事指南',
-    name: 'layout',
+    title: '指南',
+    name: 'lay',
     color: 'cyan',
     icon: 'newsfill'
   },
   {
-    title: '办事大厅',
+    title: '办事',
     name: 'background',
     color: 'blue',
     icon: 'servicefill'
   },
   {
-    title: '政民互动',
+    title: '互动',
     name: 'text',
     color: 'purple',
     icon: 'group'
