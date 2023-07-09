@@ -1,11 +1,11 @@
 {
   "pages": [
-    "pages/index/index", 
+    "pages/index/index",
     "pages/home/home/home",
     "pages/service/home/home",
-    "pages/community/home/home",    
-    "pages/around/home/home",    
-    "pages/user/home/home",       
+    "pages/community/home/home",
+    "pages/around/home/home",
+    "pages/user/home/home",
     "pages/logs/logs"
   ],
   "window": {
@@ -25,7 +25,7 @@
     }
   },
   "requiredPrivateInfos": [
-    "chooseLocation", 
+    "chooseLocation",
     "getLocation",
     "onLocationChange",
     "startLocationUpdate",
@@ -33,5 +33,4 @@
     "chooseAddress",
     "choosePoi"
   ]
-
 }
