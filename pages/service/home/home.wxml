@@ -21,11 +21,12 @@
 </view>
 
 <!-- 卡片1 -->
-<view class='nav-list'>
+<view class='nav-list' style="background-color: white; border-bottom: 1px solid  lightgrey;">
     <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li2 bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <text class='cuIcon-{{item.icon}}' style="font-size: 50rpx;"></text>
       <view class="nav-title">{{item.title}}</view>
-      <view class="nav-name">{{item.name}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
+      <!-- <!-- <view class="nav-name">{{item.name}}</view> -->
+      
     </navigator>
   </view>
 
@@ -36,10 +37,11 @@
     <text class='cuIcon-titles text-blue '></text> 社区指南
   </view>
 </view>
-<view class='nav-list'>
+<view class='nav-list' style="background-color: white;border-bottom: 1px solid  lightgrey;">
     <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li3 bg-{{item.color}}" wx:for="{{elements2}}" wx:key>
+      <text class='cuIcon-{{item.icon}}' style="font-size: 50rpx;"></text>
       <view class="nav-title1">{{item.title}}</view>
-      <view class="nav-name1">{{item.name}}</view>
+      <!-- <view class="nav-name1">{{item.name}}</view> -->
       <!-- <text class='cuIcon-{{item.icon}}'></text> -->
     </navigator>
   </view>
@@ -50,11 +52,11 @@
     <text class='cuIcon-titles text-green'></text> 在线监督
   </view>
 </view>
-<view class='nav-list'>
+<view class='nav-list' style="background-color: white;">
     <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
       <view class="nav-title">{{item.title}}</view>
       <view class="nav-name">{{item.name}}</view>
-      <text class='cuIcon-{{item.icon}}'></text>
+      <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 214rpx; top: 21rpx"></text>
     </navigator>
   </view>
-  <view class='cu-tabbar-height'></view>
+  <view class='cu-tabbar-height' style="background-color: white;"></view>

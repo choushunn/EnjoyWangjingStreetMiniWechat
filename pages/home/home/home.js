@@ -6,25 +6,25 @@ Component({
   data: {
     elements: [{
         title: '办事指南',
-        name: 'layout',
+        name: '|',
         color: 'cyan',
         icon: 'newsfill'
       },
       {
         title: '办事大厅',
-        name: 'background',
+        name: '|',
         color: 'blue',
         icon: 'servicefill'
       },
       {
         title: '政民互动',
-        name: 'text',
+        name: '|',
         color: 'purple',
         icon: 'group'
       },
       {
         title: '预约服务 ',
-        name: 'icon',
+        name: '|',
         color: 'mauve',
         icon: 'post'
       },

@@ -74,7 +74,11 @@
         <view class="desc">
         <view class="flex">
           <image src="https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
+<<<<<<< HEAD
           <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">近日，受强降雨突袭影响，我市部分区域发生洪水险情，长江干流及85条中小河流出现涨水，部分河水区域漂浮物聚集。</view>
+=======
+          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">近日，受强降雨突袭影响，我市部分区域发生洪水险情，长江干流及85条中小河流出现涨水。</view>
+>>>>>>> origin/main
         </view>
           <view>
             <view class="margin-top-sm flex justify-between">
@@ -103,7 +107,11 @@
         <view class="desc">
         <view class="flex">
           <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
+<<<<<<< HEAD
           <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+=======
+          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">金山街道民心佳园夜市。此起彼伏的吆喝声和璀璨的灯光，让夏日的夜晚更加热闹。</view>
+>>>>>>> origin/main
         </view>
           <view>
             <view class="margin-top-sm flex justify-between">

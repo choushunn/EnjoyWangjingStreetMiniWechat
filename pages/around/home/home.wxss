@@ -90,3 +90,11 @@ text {
 .cuIcon-roundadd:before {
 	content: "\e6d9";
 }
+
+.map_button{
+  width: 30%;
+  font-size: small;
+  left: 35%;
+  background-color:#39b54a;
+
+}
