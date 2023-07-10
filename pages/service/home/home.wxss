@@ -6,6 +6,7 @@ item.none{
   padding: 15rpx;
   border-radius: 20rpx;
   width: 45%;
+  height: 150rpx;
   margin: 0 2.5% 40rpx;
   background-size: cover;
   background-position: center;
@@ -23,7 +24,7 @@ item.none{
   z-index: 1;
 }
 .nav-title1 {
-  font-size: 40rpx;
+  font-size: 35rpx;
   font-weight: 300;
 }
 .nav-name1 {

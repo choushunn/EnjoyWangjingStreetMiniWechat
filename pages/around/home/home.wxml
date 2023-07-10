@@ -22,6 +22,7 @@
   <view class="map_text">
     <text class="h1">{{textData.name}}</text>
     <text>{{textData.desc}}</text>
+    <button class="map_button" style="color: white;">查看详情</button>
   </view>
 
   <view class="tool_text">

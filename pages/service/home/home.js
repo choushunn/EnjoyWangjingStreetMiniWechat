@@ -37,38 +37,35 @@ Page({
 
   elements2: [{
 
-    title: '指南',
-    name: 'lay',
+    title: '便民电话',
     color: 'cyan',
-    icon: 'newsfill'
+    icon: 'dianhua'
   },
   {
-    title: '办事',
+    title: '社区公示',
     name: 'background',
     color: 'blue',
-    icon: 'servicefill'
+    icon: 'calendar'
   },
   {
-    title: '互动',
+    title: '知识科普',
     name: 'text',
     color: 'purple',
-    icon: 'group'
+    icon: 'read'
   },
 
 ],
 
 elements3: [{
 
-  title: '办事指南',
-  name: 'layout',
+  title: '投诉公示',
   color: 'cyan',
-  icon: 'newsfill'
+  icon: 'text'
 },
 {
-  title: '办事大厅',
-  name: 'background',
+  title: '问题上报',
   color: 'blue',
-  icon: 'servicefill'
+  icon: 'upload'
 },
 ],
   },

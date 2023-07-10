@@ -13,15 +13,15 @@
     </swiper-item>
   </swiper>
   <!-- 导航卡片 -->
-  <view class='nav-list'>
-    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+  <view class='nav-list' style="background: white;">
+    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}">
       <view class="nav-title">{{item.title}}</view>
       <view class="nav-name">{{item.name}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
     </navigator>
   </view>
   <!-- 搜素框 -->
-  <view class="cu-bar search bg-white">
+  <view class="cu-bar search bg-white" style="border-bottom: #e7ebed solid 1px;">
     <view class="search-form round">
       <text class="cuIcon-search"></text>
       <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
@@ -31,63 +31,54 @@
     </view>
   </view>
   <!-- 文章列表 -->
-  <view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-new text-blue" style="font-size: 50rpx;"></text>社区新闻
+    </view>
+  </view>
+  <view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
     <view class="cu-item shadow">
       <view class="title">
-        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+        <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">重庆日报：朝天门大桥即将建成投用</view>
       </view>
-      <view class="content">
+      <view class="content flex justify-between">
         <view class="desc">
-          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+        <view class="flex">
+          <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
+          <view class="text-content flex-sub" style="font-size: 30rpx;margin-left: 2%;">7月3日，朝天门大桥南侧公园基本完工，即将建成投入使用。</view>
+        </view>
           <view>
             <view class="margin-top-sm flex justify-between">
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="text-gray text-sm text-left">2018年12月4日</view>
+              <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
+              <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2018年12月4日</view>
               <view class="text-gray text-sm text-right flex justify-between">
-                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+                <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;"></text> 30
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-    <!-- 文章2 -->
+  </view>
+  <!-- 文章2 -->
+  <view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
     <view class="cu-item shadow">
       <view class="title">
-        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
+        <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">城市管理局强化主汛期应急清漂操作业成效明显</view>
       </view>
-      <view class="content">
+      <view class="content flex justify-between">
+
         <view class="desc">
-          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
-          <view>
-            <view class="margin-top-sm flex justify-between">
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="text-gray text-sm text-left">2018年12月4日</view>
-              <view class="text-gray text-sm text-right flex justify-between">
-                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
-              </view>
-            </view>
-          </view>
+        <view class="flex">
+          <image src="https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
+          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">近日，受强降雨突袭影响，我市部分区域发生洪水险情，长江干流及85条中小河流出现涨水，部分河水区域漂浮物聚集。</view>
+
         </view>
-      </view>
-    </view>
-
-    <!-- 文章3 -->
-
-    <view class="cu-item shadow">
-      <view class="title">
-        <view class="text-cut">无意者 烈火焚身;以正义的烈火拔出黑暗。我有自己的正义，见证至高的烈火吧。</view>
-      </view>
-      <view class="content">
-        <view class="desc">
-          <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
           <view>
             <view class="margin-top-sm flex justify-between">
-              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="cu-tag  light sm round">重庆日报</view>
               <view class="text-gray text-sm text-left">2018年12月4日</view>
               <view class="text-gray text-sm text-right flex justify-between">
                 <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
@@ -100,8 +91,34 @@
       </view>
     </view>
   </view>
+  <!-- 文章3 -->
+  <view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">人民日报：重庆两江新区金山街道——奔着问题去</view>
+      </view>
+      <view class="content flex justify-between">
+        <view class="desc">
+        <view class="flex">
+          <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
 
-
+          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+        </view>
+          <view>
+            <view class="margin-top-sm flex justify-between">
+              <view class="cu-tag  light sm round">重庆日报</view>
+              <view class="text-gray text-sm text-left">2018年12月4日</view>
+              <view class="text-gray text-sm text-right flex justify-between">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   <view class='cu-tabbar-height'></view>
 
 </scroll-view>
