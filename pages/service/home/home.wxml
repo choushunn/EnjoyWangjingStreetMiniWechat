@@ -1,6 +1,5 @@
 <!--pages/service/home/home.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
-  <view slot="backText">返回</view>
+<cu-custom bgColor="bg-gradual-blue">
   <view slot="content">便民服务</view>
 </cu-custom>
 
