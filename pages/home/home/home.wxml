@@ -1,4 +1,6 @@
 <!--pages/basics/home/home.wxml-->
+<!-- 页面跳转 -->
+<instruction wx:if="{{PageCur=='instruction'}}"></instruction>
 <!-- 顶部标题 -->
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
@@ -14,7 +16,7 @@
   </swiper>
   <!-- 导航卡片 -->
   <view class='nav-list' style="background: white;">
-    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}">
+    <navigator open-type="navigate" hover-class='none' url="/pages/home/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}">
       <view class="nav-title">{{item.title}}</view>
       <view class="nav-name">{{item.name}}</view>
       <text class='cuIcon-{{item.icon}}'></text>
@@ -52,9 +54,9 @@
               <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
               <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2018年12月4日</view>
               <view class="text-gray text-sm text-right flex justify-between">
-                <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;"></text> 10
-                <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;"></text> 30
+                <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
+                <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
+                <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
               </view>
             </view>
           </view>
@@ -81,9 +83,9 @@
               <view class="cu-tag  light sm round">重庆日报</view>
               <view class="text-gray text-sm text-left">2018年12月4日</view>
               <view class="text-gray text-sm text-right flex justify-between">
-                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+                <text class="cuIcon-attentionfill margin-lr-xs">10</text>
+                <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
+                <text class="cuIcon-messagefill margin-lr-xs">30</text>
               </view>
             </view>
           </view>
@@ -102,16 +104,16 @@
         <view class="flex">
           <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill flex-sub"  style="width: 300rpx; height: 200rpx;"></image>
 
-          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！</view>
+          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">这里是重庆两江新区金山街道民心佳园夜市。此起彼伏的吆喝声和璀璨的灯光,让夏日的夜晚更加热闹。</view>
         </view>
           <view>
             <view class="margin-top-sm flex justify-between">
               <view class="cu-tag  light sm round">重庆日报</view>
               <view class="text-gray text-sm text-left">2018年12月4日</view>
               <view class="text-gray text-sm text-right flex justify-between">
-                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
-                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
-                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+                <text class="cuIcon-attentionfill margin-lr-xs">10</text>
+                <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
+                <text class="cuIcon-messagefill margin-lr-xs">30</text>
               </view>
             </view>
           </view>

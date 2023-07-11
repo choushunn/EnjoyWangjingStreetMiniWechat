@@ -29,7 +29,7 @@
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="home">
     <button class="cu-btn cuIcon-home bg-blue shadow"></button>
     <view class="{{PageCur=='home'?'text-green':'text-gray'}}">
-      首页
+      王井街
     </view>
   </view>
  <!-- 社区服务 -->

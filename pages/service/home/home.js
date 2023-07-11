@@ -8,6 +8,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    ColorList:app.globalData.ColorList,
     elements: [{
 
       title: '办事指南',
@@ -58,13 +59,19 @@ Page({
 
 elements3: [{
 
-  title: '投诉公示',
-  color: 'cyan',
+  title: '电费',
+  color: 'white',
   icon: 'text'
 },
 {
-  title: '问题上报',
-  color: 'blue',
+  title: '水费',
+  color: 'white',
+  icon: 'upload'
+},
+
+{
+  title: '物业费',
+  color: 'white',
   icon: 'upload'
 },
 ],

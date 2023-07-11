@@ -2,6 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/home/home/home",
+    "pages/home/instruction/instruction",
+    "pages/home/office/office",
+    "pages/home/interaction/interaction",
+    "pages/home/appointment/appointment",
     "pages/service/home/home",
     "pages/community/home/home",
     "pages/around/home/home",
