@@ -5,7 +5,7 @@ Component({
     addGlobalClass: true,
   },
   data: {
-    ColorList:app.globalData.ColorList,
+    ColorList: app.globalData.ColorList,
     TabCur: 0,
     scrollLeft: 0,
     elements: [{
@@ -50,7 +50,7 @@ Component({
       type: 'image',
       url: 'https://image.scol.com.cn/data/attachment/forum/202105/25/1621945509990.jpg'
     }],
-    newsData:[{
+    newsData: [{
 
     }]
   },
@@ -59,6 +59,16 @@ Component({
       this.setData({
         TabCur: e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+      })
+    },
+    linkNews(e) {
+      console.log(e);
+      // 执行页面跳转
+      // wx.navigateTo({
+      //     url: '/user/home/home'
+      //   })
+      wx.switchTab({
+        url: '/pages/user/home/home'
       })
     }
   }

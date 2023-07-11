@@ -2,9 +2,8 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">便民服务</view>
 </cu-custom>
-
-<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <!-- 搜索框 -->
+<view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索服务" confirm-type="search" bindinput="searchIcon"></input>
@@ -13,43 +12,51 @@
 <!-- 服务列表 -->
 <view class="cu-bar bg-white solid-bottom" style="top:{{CustomBar}}rpx;">
 </view>
-<view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
+<view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 办事指南
+    <text class='cuIcon-titles text-orange '></text> 功能类别1
+  </view>
+</view>
+<!-- 功能区 -->
+<view class="grid col-3 bg-white padding-sm solid-bottom">
+  <view class="padding-sm" wx:for="{{elements}}" wx:key wx:if="{{index>=0}}">
+    <navigator class="bg-{{item.color}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
+      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
+      <view class="text-lg">{{item.title}}</view>
+      <view></view>
+    </navigator>
   </view>
 </view>
 
-<!-- 卡片1 -->
-<view class='nav-list '>
-  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
-    <view class="nav-title1">{{item.title}}</view>
-    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
-  </navigator>
-</view>
-
-<!-- 卡片2 -->
-<view class="cu-bar bg-white solid-bottom shadow {{isCard?'margin-top':''}}">
+<view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 社区指南
+    <text class='cuIcon-titles text-blue '></text> 功能类别2
+  </view>
+</view>
+<!-- 功能区 -->
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{elements1}}" wx:key wx:if="{{index>=0}}">
+    <navigator class="bg-{{item.color}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
+      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
+      <view class="text-lg">{{item.title}}</view>
+      <view></view>
+    </navigator>
   </view>
 </view>
 
-<view class='nav-list '>
-  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
-    <view class="nav-title1">{{item.title}}</view>
-    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
-  </navigator>
-</view>
-<!-- 卡片3 -->
-<view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
+<view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-green'></text> 在线监督
+    <text class='cuIcon-titles text-green '></text> 功能类别3
   </view>
 </view>
-<view class='nav-list '>
-  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
-    <view class="nav-title1">{{item.title}}</view>
-    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
-  </navigator>
+<!-- 功能区 -->
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{elements2}}" wx:key wx:if="{{index>=0}}">
+    <navigator class="bg-{{item.color}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
+      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
+      <view class="text-lg">{{item.title}}</view>
+      <view></view>
+    </navigator>
+  </view>
 </view>
 <view class='cu-tabbar-height'> </view>

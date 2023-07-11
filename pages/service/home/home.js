@@ -29,47 +29,100 @@ Component({
         icon: 'post'
       },
     ],
-    elements2: [{
-        title: '便民电话',
+    elements1: [{
+        title: '办事指南',
+        name: 'layout',
         color: 'cyan',
-        icon: 'dianhua'
+        icon: 'newsfill'
       },
       {
-        title: '社区公示',
+        title: '办事大厅',
         name: 'background',
         color: 'blue',
-        icon: 'calendar'
+        icon: 'servicefill'
       },
       {
-        title: '知识科普',
+        title: '政民互动',
         name: 'text',
         color: 'purple',
-        icon: 'read'
-      },
-    ],
-    elements3: [{
-        title: '电费',
-        color: 'white',
-        icon: 'text'
+        icon: 'group'
       },
       {
-        title: '水费',
-        color: 'white',
-        icon: 'upload'
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
       },
       {
-        title: '物业费',
-        color: 'white',
-        icon: 'upload'
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
       },
     ],
+    elements2: [{
+        title: '办事指南',
+        name: 'layout',
+        color: 'cyan',
+        icon: 'newsfill'
+      },
+      {
+        title: '办事大厅',
+        name: 'background',
+        color: 'blue',
+        icon: 'servicefill'
+      },
+      {
+        title: '政民互动',
+        name: 'text',
+        color: 'purple',
+        icon: 'group'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+      {
+        title: '预约服务 ',
+        name: 'icon',
+        color: 'mauve',
+        icon: 'post'
+      },
+    ]
   },
   methods: {
-    isCard(e) {
-      this.setData({
-        isCard: e.detail.value
-      })
-    },
     searchIcon(e) {
       console.log("搜索。。。。。")
     },
