@@ -1,0 +1,5 @@
+<!--pages/community/upload/upload.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">信息上报</view>
+</cu-custom>

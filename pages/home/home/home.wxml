@@ -1,6 +1,5 @@
 <!--pages/basics/home/home.wxml-->
-<!-- 页面跳转 -->
-<instruction wx:if="{{PageCur=='instruction'}}"></instruction>
+
 <!-- 顶部标题 -->
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
