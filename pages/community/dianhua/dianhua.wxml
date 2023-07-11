@@ -3,3 +3,85 @@
   <view slot="backText">返回</view>
   <view slot="content">便民电话</view>
 </cu-custom>
+<!-- 搜素框 -->
+<view class="cu-bar search bg-white" style="border-bottom: #e7ebed solid 1px;">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-blue shadow-blur round">搜索</button>
+  </view>
+</view>
+
+<!-- 导航栏 -->
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - 375rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}" style="font-size: 45rpx;">
+      {{item.name}}
+    </view>
+  </scroll-view>
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+      <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-green'></text> {{item.name}}
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+
+        <view class="cu-item">
+          <view class="content_1 ">
+              <text class="name_text">重庆火车南站</text>
+              <text class="num_text">023-61649492</text>
+              <text class="address_text">九龙坡黄角坪铁路二村龙吟路附近</text>
+          </view>
+          <view class="action">
+            <view class="cuIcon-dianhua text-blue"></view>
+          </view>
+        </view>
+
+        <view class="cu-item">
+          <view class="content">
+
+          </view>
+          <view class="action">
+
+            <view class="cuIcon-dianhua text-blue"></view>
+          </view>
+        </view>
+
+        <view class="cu-item">
+          <view class="content">
+
+          </view>
+          <view class="action">
+
+            <view class="cuIcon-dianhua text-blue"></view>
+          </view>
+        </view>
+
+        <view class="cu-item">
+          <view class="content">
+
+          </view>
+          <view class="action">
+
+            <view class="cuIcon-dianhua text-blue"></view>
+          </view>
+        </view>
+
+        <view class="cu-item">
+          <view class="content">
+
+          </view>
+          <view class="action">
+
+            <view class="cuIcon-dianhua text-blue"></view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>
