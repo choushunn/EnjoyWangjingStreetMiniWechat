@@ -1,0 +1,5 @@
+<!--pages/home/interaction/interaction.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">政民互动</view>
+</cu-custom>

@@ -22,12 +22,12 @@
   left: 10%;
   right: 0;
   bottom: 0px;
-  height: 10%;
+  height: 12%;
   width: 80%;
   background:#ffffff;
   padding: 0 15px;
   border-radius: 20rpx;
-  top: 85%;
+  top: 80%;
 }
 .tool_text{
   position: absolute;
@@ -50,7 +50,7 @@
   left: -15rpx;
   margin-top: 80%;
   border-bottom: 1px solid;
-  font-size: 200%
+  font-size: 100%
 }
 .tool:last-child {
   border-bottom: none;
@@ -58,7 +58,7 @@
 text {
   margin: 5px 0;
   display: block;
-  font-size: 12px;
+  font-size: 25rpx;
 }
 
 .search_container{
@@ -92,9 +92,14 @@ text {
 }
 
 .map_button{
-  width: 30%;
+  display: flex;
+  position: absolute;
+  justify-content: right;
+  align-items: right;
+  width: 155rpx;
+  height: 60rpx;
   font-size: small;
-  left: 35%;
+  left: 70%;
+  top: 60%;
   background-color:#39b54a;
-
 }

@@ -5,7 +5,7 @@
 </cu-custom>
 
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
-<!-- 搜索框 -->
+  <!-- 搜索框 -->
   <view class="search-form round">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索服务" confirm-type="search" bindinput="searchIcon"></input>
@@ -21,42 +21,36 @@
 </view>
 
 <!-- 卡片1 -->
-<view class='nav-list' style="background-color: white; border-bottom: 1px solid  lightgrey;">
-    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li2 bg-{{item.color}}" wx:for="{{elements}}" wx:key>
-      <text class='cuIcon-{{item.icon}}' style="font-size: 50rpx;"></text>
-      <view class="nav-title">{{item.title}}</view>
-      <!-- <!-- <view class="nav-name">{{item.name}}</view> -->
-      
-    </navigator>
-  </view>
-
+<view class='nav-list '>
+  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
+    <view class="nav-title1">{{item.title}}</view>
+    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
+  </navigator>
+</view>
 
 <!-- 卡片2 -->
-<view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
+<view class="cu-bar bg-white solid-bottom shadow {{isCard?'margin-top':''}}">
   <view class='action'>
     <text class='cuIcon-titles text-blue '></text> 社区指南
   </view>
 </view>
-<view class='nav-list' style="background-color: white;border-bottom: 1px solid  lightgrey;">
-    <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li3 bg-{{item.color}}" wx:for="{{elements2}}" wx:key>
-      <text class='cuIcon-{{item.icon}}' style="font-size: 50rpx;"></text>
-      <view class="nav-title1">{{item.title}}</view>
-      <!-- <view class="nav-name1">{{item.name}}</view> -->
-      <!-- <text class='cuIcon-{{item.icon}}'></text> -->
-    </navigator>
-  </view>
 
+<view class='nav-list '>
+  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
+    <view class="nav-title1">{{item.title}}</view>
+    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
+  </navigator>
+</view>
 <!-- 卡片3 -->
 <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
   <view class='action'>
     <text class='cuIcon-titles text-green'></text> 在线监督
   </view>
 </view>
-<view class='nav-list' style="background-color: white;">
-    <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
-      <view class="nav-title">{{item.title}}</view>
-      <view class="nav-name">{{item.name}}</view>
-      <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 214rpx; top: 21rpx"></text>
-    </navigator>
-  </view>
-  <view class='cu-tabbar-height' style="background-color: white;"></view>
+<view class='nav-list '>
+  <navigator open-type="navigate" hover-class='none' url="/pages/service/{{item.name}}/{{item.name}}" class="nav-li2 shadow bg-{{item.color}}" wx:for="{{elements3}}" wx:key>
+    <view class="nav-title1">{{item.title}}</view>
+    <text class='cuIcon-{{item.icon}}' style="position: absolute; left: 85%; top: 15%"></text>
+  </navigator>
+</view>
+<view class='cu-tabbar-height'> </view>

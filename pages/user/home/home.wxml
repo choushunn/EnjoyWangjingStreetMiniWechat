@@ -1,7 +1,7 @@
 <!--pages/user/home/home.wxml-->
-<view class="UCenter-bg">
+<view class="UCenter-bg" style="background: lightskyblue;">
     <image src="/images/logo.png" class="png" mode="widthFix"></image>
-    <view class="text-xl" style="color: lightskyblue;">乐享王井街
+    <view class="text-xl" style="color:white;">乐享王井街
       
     </view>
     <view class="margin-top-sm">
