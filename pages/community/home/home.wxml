@@ -1,38 +1,23 @@
 <!--pages/community/home/home.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
-  <view slot="backText">返回</view>
+<cu-custom bgColor="bg-gradual-blue">
   <view slot="content">社区</view>
 </cu-custom>
-
-<image class="background" src="/images/4.jpg"></image>
-
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
+<!-- 背景 -->
+<image src='/images/4.jpg' mode='widthFix' class='png margin-0  padding-0' style='width:100%;height:100%'></image>
+<!-- 标题 -->
+<view class="cu-bar bg-white solid-bottom  margin-0 padding-0" style="margin-top: -12rpx;">
+  <view class="action  margin-0 padding-0">
     <text class="cuIcon-group text-blue" style="font-size: xx-large;"></text>社区共治
   </view>
 </view>
+<!-- 功能区 -->
 <view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{ColorList}}" wx:key wx:if="{{index<12}}">
+  <view class="padding-sm" wx:for="{{elements}}" wx:key wx:if="{{index<12}}">
     <navigator class="bg-{{item.name}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
       <view></view>
-      <!-- <view class="margin-top-sm text-Abc">{{item.name}}</view> -->
     </navigator>
   </view>
 </view>
-
-<!-- <view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-title text-blue"></text>功能列表2
-  </view>
-</view> -->
-<!-- <view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{ColorList}}" wx:key wx:if="{{index<12}}">
-    <view class="bg-{{item.name}} padding radius text-center light">
-      <view class="text-lg">{{item.title}}</view>
-      <view class="margin-top-sm text-Abc">{{item.name}}</view>
-    </view>
-  </view>
-</view> -->
 <view class="cu-tabbar-height"></view>

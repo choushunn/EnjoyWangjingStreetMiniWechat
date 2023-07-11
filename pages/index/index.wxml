@@ -5,26 +5,23 @@
 <service wx:if="{{PageCur=='service'}}"></service>
 <around wx:if="{{PageCur=='around'}}"></around>
 <community wx:if="{{PageCur=='community'}}"></community>
-
 <!-- 底部导航栏 -->
 <view class="cu-bar tabbar bg-white shadow foot">
- <!-- 办事服务 -->
+  <!-- 办事服务 -->
   <view class="action" bindtap="NavChange" data-cur="service">
     <view class="cuIcon-list"></view>
     <view class="{{PageCur=='service'?'text-green':'text-gray'}}">
       办事
     </view>
   </view>
-
-   <!-- 周边服务 -->
-   <view class="action text-gray" bindtap="NavChange" data-cur="around">
+  <!-- 周边服务 -->
+  <view class="action text-gray" bindtap="NavChange" data-cur="around">
     <view class="cuIcon-search">
       <!-- <view class="cu-tag badge"></view> -->
     </view>
     <view class="{{PageCur=='around'?'text-green':'text-gray'}}">
       发现</view>
   </view>
-
   <!-- 首页 -->
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="home">
     <button class="cu-btn cuIcon-home bg-blue shadow"></button>
@@ -32,15 +29,13 @@
       王井街
     </view>
   </view>
- <!-- 社区服务 -->
- <view class="action text-gray" bindtap="NavChange" data-cur="community">
+  <!-- 社区服务 -->
+  <view class="action text-gray" bindtap="NavChange" data-cur="community">
     <view class="cuIcon-similar"></view>
     <view class="{{PageCur=='community'?'text-green':'text-gray'}}">
       社区
     </view>
   </view>
-
-
   <!-- 个人中心 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="user">
     <view class="cuIcon-my">

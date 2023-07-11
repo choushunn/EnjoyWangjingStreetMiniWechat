@@ -1,11 +1,9 @@
 <!--pages/around/home/home.wxml-->
-
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
 </cu-custom>
 
 <view class="map_container">
-
   <view class="search_container">
     <view class="cu-bar search bg-ghostwhite">
       <view class="search-form round">
