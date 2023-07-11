@@ -3,12 +3,8 @@
     "pages/index/index",
     "pages/home/home/home",
     "pages/home/instruction/instruction",
-    "pages/home/office/office",
-    "pages/home/interaction/interaction",
-    "pages/home/appointment/appointment",
     "pages/service/home/home",
     "pages/community/home/home",
-    "pages/community/dianhua/dianhua",
     "pages/community/edit/edit",
     "pages/community/comment/comment",
     "pages/community/newshot/newshot",
@@ -17,8 +13,7 @@
     "pages/community/notice/notice",
     "pages/community/upload/upload",
     "pages/around/home/home",
-    "pages/user/home/home",
-    "pages/logs/logs"
+    "pages/user/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",

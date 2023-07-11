@@ -1,8 +1,11 @@
 /* pages/user/home/home.wxss */
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
 .UCenter-bg {
   /* background-image: url(https://image.weilanwl.com/color2.0/index.jpg); */
+  background-color: lightskyblue;
   background-size: cover;
-  height: 550rpx;
+  height: 500rpx;
   display: flex;
   justify-content: center;
   padding-top: 40rpx;

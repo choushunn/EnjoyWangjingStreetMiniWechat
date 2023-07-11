@@ -1,22 +1,30 @@
 <!--pages/user/home/home.wxml-->
-<view class="UCenter-bg" style="background: lightskyblue;">
-    <image src="/images/logo.png" class="png" mode="widthFix"></image>
-    <view class="text-xl" style="color:white;">乐享王井街
-      
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">个人中心</view>
+</cu-custom>
+<!-- 个人信息显示块 -->
+<view class="UCenter-bg">
+  <!-- 微信头像 -->
+  <view class="padding">
+    <view class="cu-avatar round xl margin-left" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000.jpg);">
+      <!-- 性别 -->
+      <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
-    <view class="margin-top-sm">
-      
-    </view>
-    <image src="https://raw.githubusercontent.com/weilanwl/ColorUI/master/demo/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
-    <button wx:if="{{!userInfo}}" bindtap="login">授权登录</button>
-<view wx:else class="root">
-  <image class="touxiang" src="{{userInfo.avatarUrl}}"></image>
-  <text class="nicheng">{{userInfo.nickName}}</text>
-  <button bindtap="loginOut">退出登录</button>
-</view>
   </view>
+  <!-- 登录了就显示欢迎您 -->
+  <view class="text-xl" style="color:white;">
+    微信昵称
+  </view>
+  <view class="grid padding-sm">
+    <view class="margin-tb-sm text-center">
+      <button class="cu-btn round bg-green">授权微信登录</button>
+    </view>
+  </view>
+  <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+</view>
+<!-- 功能块 -->
 <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
-  <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<iconList.length}}">
     <view class="cuIcon-{{item.icon}} text-{{item.color}}">
       <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
         <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
@@ -26,44 +34,45 @@
   </view>
 </view>
 
+<!-- 功能列表 -->
+
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
   <view class="cu-item arrow">
-      <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">管理员工单审核派发</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">社工工单处理</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">用户工单提交与确认</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-writefill text-cyan"></text>
-        <text class="text-grey">意见反馈</text>
-      </button>
-    </view>
-  
-    <view class="cu-item arrow">
-      <navigator class="content flex" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
-      </navigator>
-    </view>
-    <view class="cu-item arrow">
-      <view class="content flex" bindtap="showQrcode">
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">赞赏支持</text>
-      </view>
-    </view>
-    
+    <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+      <text class="cuIcon-creativefill text-orange"></text>
+      <text class="text-grey">管理员：工单审核</text>
+    </navigator>
   </view>
-  <view class="cu-tabbar-height"></view>
+  <view class="cu-item arrow">
+    <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+      <text class="cuIcon-creativefill text-orange"></text>
+      <text class="text-grey">社工：工单处理</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+      <text class="cuIcon-creativefill text-orange"></text>
+      <text class="text-grey">用户：工单提交</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="feedback">
+      <text class="cuIcon-writefill text-cyan"></text>
+      <text class="text-grey">意见反馈</text>
+    </button>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class="content flex" url="/pages/about/log/log" hover-class="none">
+      <text class="cuIcon-formfill text-green"></text>
+      <text class="text-grey">开发日志</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <view class="content flex" bindtap="showQrcode">
+      <text class="cuIcon-appreciatefill text-red"></text>
+      <text class="text-grey">赞赏支持</text>
+    </view>
+  </view>
+
+</view>
+<view class="cu-tabbar-height"></view>

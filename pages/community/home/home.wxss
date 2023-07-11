@@ -1,14 +1,8 @@
 /* pages/community/home/home.wxss */
 @import "/colorui/main.wxss";
 @import "/colorui/icon.wxss";
+@import "/colorui/animation.wxss";
 
-.background{
-  width: 100%;
-  height: 500rpx;
-  /* background-image: url('/images/20230709170011.jpg'); */
-  background-size: cover;
-  background-position: center;
-}
 .radius-social {
 	border-radius: 30rpx;
 }

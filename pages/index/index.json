@@ -5,6 +5,6 @@
     "service": "/pages/service/home/home",
     "around": "/pages/around/home/home",
     "community":"/pages/community/home/home",
-    "logs": "/pages/logs/logs"
+    "cu-custom": "/colorui/components/cu-custom"
   }
 }
