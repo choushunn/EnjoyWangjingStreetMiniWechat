@@ -13,12 +13,12 @@
 </view>
 <view class="grid col-3 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{ColorList}}" wx:key wx:if="{{index<12}}">
-    <view class="bg-{{item.name}} padding radius-social text-center light">
+    <navigator class="bg-{{item.name}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
       <view></view>
       <!-- <view class="margin-top-sm text-Abc">{{item.name}}</view> -->
-    </view>
+    </navigator>
   </view>
 </view>
 
