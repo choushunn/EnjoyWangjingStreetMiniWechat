@@ -1,13 +1,38 @@
 // pages/community/copy/copy.js
+const app = getApp();
+var now = new Date();
+// 格式化时间
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+var day = now.getDate();
+var hour = now.getHours();
+var minute = now.getMinutes();
+var second = now.getSeconds();
+// 将时间格式化为字符串
+var timeStr =  hour + ':' + minute ;
+var dateStr =  year + '-' + month + '-' + day ;
 Page({
+
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
+    time: timeStr,
+    date: dateStr,
   },
-
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  DateChange(e) {
+    this.setData({
+      date: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
