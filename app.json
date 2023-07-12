@@ -6,6 +6,7 @@
     "pages/home/instruction/instruction",
     "pages/service/home/home",
     "pages/community/home/home",
+    "pages/community/dianhua/dianhua",
     "pages/community/edit/edit",
     "pages/community/comment/comment",
     "pages/community/newshot/newshot",
