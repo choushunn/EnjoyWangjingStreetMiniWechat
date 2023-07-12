@@ -3,3 +3,15 @@
   <view slot="backText">返回</view>
   <view slot="content">咨询服务</view>
 </cu-custom>
+<view class="bg-white padding-lr">
+<view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-left">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold cuIcon-dianhua">电话咨询</text>
+      </view>
+      <view class="padding text-lg">社区电话 1234567789</view>
+      <view class="padding text-lg">心理服务中心 1623165125</view>
+      <view class="padding text-lg">维修中心 1235446541</view>
+    </view>
+  </view>
+</view>
