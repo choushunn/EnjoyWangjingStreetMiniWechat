@@ -118,3 +118,5 @@
     </view>
   </view>
 </view>
+<view class='cu-tabbar-height bg-white text-sm justify-center text-center padding-top'>已经到底啦~ ~</view>
+<view class='cu-tabbar-height bg-white'> </view>

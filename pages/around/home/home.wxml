@@ -4,7 +4,7 @@
 </cu-custom>
 <!-- 搜索组件 -->
 <view class="cu-bar search bg-ghostwhite map_cover">
-  <view class="search-form round">
+  <view class="search-form round line-red">
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索周边药店、医院、学校、商店" confirm-type="search1"></input>
   </view>
@@ -17,30 +17,69 @@
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
   </map>
 </view>
+<!-- 左侧工具条 -->
+<view class="map_cover flex justify-start left-tool-margin">
+  <view class="bg-white line-black left-tool-radius">
+    <view class="left-tool-flex margin-lr">
+      <!-- 服务点 -->
+      <view class="text-right-xl text-center ">
+        <view class="cuIcon-cascades"></view>
+        <view class="text-sm text-center text-balck">服务点</view>
+      </view>
+      <!-- 图标 -->
+      <view class="cuIcon-right"></view>
+    </view>
+  </view>
+</view>
 <!-- 右侧工具条 -->
-<view class="map_cover flex justify-end">
-  <view class="bg-green">
-    <view class="cuIcon-cascades tool"></view>
-    <view class="cuIcon-location tool"></view>
-    <view class="cuIcon-sort tool"></view>
-    <view class="cuIcon-roundadd tool"></view>
+<view class="map_cover flex justify-end right-tool-margin">
+  <view class="bg-white line-black right-tool-radius">
+    <view class="solid-bottom text-right-xl text-center">
+      <navigator url="">
+        <view class="cuIcon-cascades"></view>
+        <view class="text-sm text-center text-balck">筛选</view>
+      </navigator>
+    </view>
+    <view class="solid-bottom text-right-xl text-center">
+      <navigator url="">
+        <view class="cuIcon-location"></view>
+        <view class="text-sm text-center text-balck">定位</view>
+      </navigator>
+    </view>
+    <view class="solid-bottom text-right-xl text-center">
+      <navigator url="">
+        <view class="cuIcon-sort"></view>
+        <view class="text-sm text-center text-balck">列表</view>
+      </navigator>
+    </view>
+    <view class="solid-bottom text-right-xl text-center">
+      <navigator url="">
+        <view class="cuIcon-roundadd"></view>
+        <view class="text-sm text-balck">新增</view>
+      </navigator>
+    </view>
   </view>
 </view>
 <!-- 地点详情卡片 -->
-<view class="flex align-end justify-center map_cover margin-top-xl" style="top:600rpx">
-  <!-- <view class="cu-card article">
-    <text class="text-m">{{textData.name}}</text>
-    <text>{{textData.desc}}</text>
-    <button class="cu-btn line-red round shadow">查看详情</button>
-  </view> -->
+<view class="flex align-end justify-center map_cover location-margin-top">
   <view class="cu-card article">
     <view class="cu-item shadow">
       <view class="title">
-        <view class="text-cut">{{textData.name}}</view>
+        <block wx:if="{{textData.name}}">
+          <view class="text-cut">{{textData.name}}</view>
+        </block>
+        <block wx:else>
+          <view class="text-cut">暂未获取定位</view>
+        </block>
       </view>
       <view class="content">
         <view class="desc">
-          <view class="text-df margin-bottom"> {{textData.desc}}</view>
+          <block wx:if="{{textData.desc}}">
+            <view class="text-df margin-bottom"> {{textData.desc}}</view>
+          </block>
+          <block wx:else>
+            <view class="text-df margin-bottom"> 暂未获取定位</view>
+          </block>
           <view class="flex justify-end">
             <view class="cu-tag bg-green light sm round">查看详情</view>
           </view>

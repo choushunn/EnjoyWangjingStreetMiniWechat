@@ -59,4 +59,5 @@
     </navigator>
   </view>
 </view>
-<view class='cu-tabbar-height'> </view>
+<view class='cu-tabbar-height bg-white text-sm justify-center text-center'>已经到底啦~ ~</view>
+<view class='cu-tabbar-height bg-white'> </view>

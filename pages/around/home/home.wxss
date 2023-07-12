@@ -18,3 +18,35 @@
   position: relative;
   z-index: 9999; /* 将 z-index 属性值调整为比地图组件低 */
 }
+
+.text-right-xl {
+  font-size: 65rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.left-tool-radius {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.left-tool-margin{
+  margin-top: 50rpx;
+}
+.left-tool-flex{
+  display: flex;flex-direction: row;align-items: center;
+}
+.right-tool-radius {
+	border-radius: 20rpx;
+}
+
+.right-tool-margin{
+  margin-top: 150rpx;
+  margin-right: 30rpx;
+}
+
+.location-margin-top{
+  margin-top: 100rpx;
+}
