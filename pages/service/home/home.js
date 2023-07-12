@@ -34,108 +34,126 @@ Component({
       },
     ],
     elements1: [{
-        title: '办事指南',
+        title: '居民办事',
         name: 'layout',
         color: 'cyan',
         icon: 'newsfill',
         url:'https://www.baidu.com'
       },
       {
-        title: '办事大厅',
+        title: '邻里空间',
         name: 'background',
         color: 'blue',
         icon: 'servicefill',
         url:'https://www.baidu.com'
       },
       {
-        title: '政民互动',
+        title: '物业服务',
         name: 'text',
         color: 'purple',
         icon: 'group',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '公共事务 ',
         name: 'icon',
         color: 'mauve',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '在线咨询 ',
         name: 'icon',
-        color: 'mauve',
+        color: 'pink',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
-        color: 'mauve',
+        color: 'brown',
         icon: 'post',
         url:'https://www.baidu.com'
       },
     ],
     elements2: [{
-        title: '办事指南',
+        title: '功能点',
         name: 'layout',
-        color: 'cyan',
+        color: 'red',
         icon: 'newsfill',
         url:'https://www.baidu.com'
       },
       {
-        title: '办事大厅',
+        title: '功能点',
         name: 'background',
-        color: 'blue',
+        color: 'orange',
         icon: 'servicefill',
         url:'https://www.baidu.com'
       },
       {
-        title: '政民互动',
+        title: '功能点',
         name: 'text',
-        color: 'purple',
+        color: 'yellow',
         icon: 'group',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
-        color: 'mauve',
+        color: 'olive',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
-        color: 'mauve',
+        color: 'green',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
-        color: 'mauve',
+        color: 'cyan',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
-        color: 'mauve',
+        color: 'blue',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
-        color: 'mauve',
+        color: 'purple',
         icon: 'post',
         url:'https://www.baidu.com'
       },
       {
-        title: '预约服务 ',
+        title: '功能点',
         name: 'icon',
         color: 'mauve',
+        icon: 'post',
+        url:'https://www.baidu.com'
+      }, {
+        title: '功能点',
+        name: 'icon',
+        color: 'pink',
+        icon: 'post',
+        url:'https://www.baidu.com'
+      }, {
+        title: '功能点',
+        name: 'icon',
+        color: 'brown',
+        icon: 'post',
+        url:'https://www.baidu.com'
+      }, {
+        title: '功能点',
+        name: 'icon',
+        color: 'grey',
         icon: 'post',
         url:'https://www.baidu.com'
       },

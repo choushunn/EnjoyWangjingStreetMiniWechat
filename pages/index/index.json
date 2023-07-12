@@ -4,7 +4,6 @@
     "user": "/pages/user/home/home",
     "service": "/pages/service/home/home",
     "around": "/pages/around/home/home",
-    "community":"/pages/community/home/home",
-    "cu-custom": "/colorui/components/cu-custom"
+    "community":"/pages/community/home/home"
   }
 }
