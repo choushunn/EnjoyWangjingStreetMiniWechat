@@ -2,31 +2,50 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
 </cu-custom>
-
+<!-- 搜索组件 -->
+<view class="cu-bar search bg-ghostwhite map_cover">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" confirm-type="search1"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-blue shadow-blur round">搜索</button>
+  </view>
+</view>
+<!-- 地图组件 -->
 <view class="map_container">
-  <view class="search_container">
-    <view class="cu-bar search bg-ghostwhite">
-      <view class="search-form round">
-        <text class="cuIcon-search"></text>
-        <input type="text" placeholder="搜索周边药店、医院、学校、商店" confirm-type="search1"></input>
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  </map>
+</view>
+<!-- 右侧工具条 -->
+<view class="map_cover flex justify-end">
+  <view class="bg-green">
+    <view class="cuIcon-cascades tool"></view>
+    <view class="cuIcon-location tool"></view>
+    <view class="cuIcon-sort tool"></view>
+    <view class="cuIcon-roundadd tool"></view>
+  </view>
+</view>
+<!-- 地点详情卡片 -->
+<view class="flex align-end justify-center map_cover margin-top-xl" style="top:600rpx">
+  <!-- <view class="cu-card article">
+    <text class="text-m">{{textData.name}}</text>
+    <text>{{textData.desc}}</text>
+    <button class="cu-btn line-red round shadow">查看详情</button>
+  </view> -->
+  <view class="cu-card article">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{textData.name}}</view>
       </view>
-      <view class="action">
-        <button class="cu-btn bg-blue shadow-blur round">搜索</button>
+      <view class="content">
+        <view class="desc">
+          <view class="text-df margin-bottom"> {{textData.desc}}</view>
+          <view class="flex justify-end">
+            <view class="cu-tag bg-green light sm round">查看详情</view>
+          </view>
+        </view>
       </view>
     </view>
-  </view>
-  <!-- 地图 -->
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" ></map>
-  <view class="map_text">
-    <text class="h1">{{textData.name}}</text>
-    <text>{{textData.desc}}</text>
-    <button class="map_button" style="color: white;">查看详情</button>
-  </view>
-
-  <view class="tool_text">
-      <view class="cuIcon-cascades tool"></view>
-      <view class="cuIcon-location tool"></view>
-      <view class="cuIcon-sort tool"></view>
-      <view class="cuIcon-roundadd tool"></view>
   </view>
 </view>

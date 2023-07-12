@@ -16,13 +16,63 @@
 <!-- 类别切换 -->
 <scroll-view scroll-x class="bg-white nav text-left text-lg">
   <view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0">
-    新闻
+    社区信息
   </view>
   <view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1">
-    通知
+    新闻公告
   </view>
   <view class="cu-item {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2">
-    文件
+    活动通知
   </view>
 </scroll-view>
+
+<block wx:if="{{TabCur==0}}">
+  <view class="cu-bar bg-white margin-top solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>比例布局
+    </view>
+  </view>
+  <view class="padding bg-white">
+    <view class="flex">
+      <view class="flex-sub bg-grey padding-sm margin-xs radius">1</view>
+      <view class="flex-sub bg-grey padding-sm margin-xs radius">1</view>
+    </view>
+    <view class="flex  p-xs margin-bottom-sm mb-sm">
+      <view class="flex-sub bg-grey padding-sm margin-xs radius">1</view>
+      <view class="flex-twice bg-grey padding-sm margin-xs radius">2</view>
+    </view>
+    <view class="flex  p-xs margin-bottom-sm mb-sm">
+      <view class="flex-sub bg-grey padding-sm margin-xs radius">1</view>
+      <view class="flex-twice bg-grey padding-sm margin-xs radius">2</view>
+      <view class="flex-treble bg-grey padding-sm margin-xs radius">3</view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{TabCur==1}}">
+
+  <view class="cu-bar bg-white margin-top solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>等高
+    </view>
+    <view class="action"></view>
+  </view>
+  <view class="bg-white padding">
+    <view class="grid col-4 grid-square">
+      <view class="bg-img" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{TabCur==2}}">
+  <view class="cu-bar bg-white margin-top solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>浮动
+    </view>
+  </view>
+  <view class="bg-white padding">
+    <view class=" cf padding-sm">
+      <view class="bg-grey radius fl padding-sm">ColorUi fl</view>
+      <view class="bg-grey radius fr padding-sm">ColorUi fr</view>
+    </view>
+  </view>
+</block>
 <view class='cu-tabbar-height'></view>

@@ -5,25 +5,26 @@ Component({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     elements: [{
-        title: '办事指南',
+        title: '电费',
         name: 'layout',
         color: 'cyan',
-        icon: 'newsfill'
+        icon: 'newsfill',
+        url:'https://www.baidu.com'
       },
       {
-        title: '办事大厅',
+        title: '水费',
         name: 'background',
         color: 'blue',
         icon: 'servicefill'
       },
       {
-        title: '政民互动',
+        title: '物业费',
         name: 'text',
         color: 'purple',
         icon: 'group'
       },
       {
-        title: '预约服务 ',
+        title: '其他费 ',
         name: 'icon',
         color: 'mauve',
         icon: 'post'

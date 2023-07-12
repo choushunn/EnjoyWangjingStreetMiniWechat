@@ -1,105 +1,20 @@
 /* pages/around/home/home.wxss */
 @import "/colorui/main.wxss";
 @import "/colorui/icon.wxss";
+
 .map_container {
   position: absolute;
   top: 0;
-  bottom: 80px;
+  bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
 }
 
 .map {
   width: 100%;
-  height: 101%;
+  height: 100%;
 }
-
-.map_text {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  left: 10%;
-  right: 0;
-  bottom: 0px;
-  height: 12%;
-  width: 80%;
-  background:#ffffff;
-  padding: 0 15px;
-  border-radius: 20rpx;
-  top: 80%;
-}
-.tool_text{
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  left: 90%;
-  right: 0;
-  bottom: 0px;
-  height: 21.5%;
-  width: 10%;
-  background:#ffffff;
-  padding: 0 15px;
-  border-radius: 15rpx;
-  top: 40%;
-}
-
-.tool{
-  width: 55rpx;
-  position: relative; 
-  left: -15rpx;
-  margin-top: 80%;
-  border-bottom: 1px solid;
-  font-size: 100%
-}
-.tool:last-child {
-  border-bottom: none;
-}
-text {
-  margin: 5px 0;
-  display: block;
-  font-size: 25rpx;
-}
-
-.search_container{
-  z-index: 999;
-  left: 50%;
-  top: 80%;
-}
-
-.search {
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 10%;
-  display: flex;
-  box-sizing: border-box;
-  top: 10%;
-} 
-
-.cuIcon-cascades:before {
-	content: "\e67c";
-}
-.cuIcon-location:before {
-	content: "\e651";
-}
-.cuIcon-sort:before {
-	content: "\e700";
-}
-.cuIcon-roundadd:before {
-	content: "\e6d9";
-}
-
-.map_button{
-  display: flex;
-  position: absolute;
-  justify-content: right;
-  align-items: right;
-  width: 155rpx;
-  height: 60rpx;
-  font-size: small;
-  left: 70%;
-  top: 60%;
-  background-color:#39b54a;
+.map_cover {
+  position: relative;
+  z-index: 9999; /* 将 z-index 属性值调整为比地图组件低 */
 }

@@ -21,7 +21,7 @@ Component({
         icon: 'servicefill'
       },
       {
-        title: '政民互动',
+        title: '工单预约',
         name: 'interaction',
         color: 'green',
         icon: 'group'
