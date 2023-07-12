@@ -19,7 +19,7 @@
 </view>
 <!-- 功能区 -->
 <view class="grid col-3 bg-white padding-sm solid-bottom">
-  <view class="padding-sm" wx:for="{{elements}}" wx:key wx:if="{{index>=0}}">
+  <view class="padding-sm" wx:for="{{elements}}" wx:key="name" wx:if="{{index>=0}}">
     <navigator class="bg-{{item.color}} padding radius-social text-center light"  url="https://www.baidu.com">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
@@ -35,7 +35,7 @@
 </view>
 <!-- 功能区 -->
 <view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{elements1}}" wx:key wx:if="{{index>=0}}">
+  <view class="padding-sm" wx:for="{{elements1}}" wx:key="name" wx:if="{{index>=0}}">
     <navigator class="bg-{{item.color}} padding radius-social text-center light"  url="https://www.baidu.com">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
@@ -51,7 +51,7 @@
 </view>
 <!-- 功能区 -->
 <view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{elements2}}" wx:key wx:if="{{index>=0}}">
+  <view class="padding-sm" wx:for="{{elements2}}" wx:key="name" wx:if="{{index>=0}}">
     <navigator class="bg-{{item.color}} padding radius-social text-center light" url="https://www.baidu.com">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
