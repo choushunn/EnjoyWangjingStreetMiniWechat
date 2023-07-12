@@ -22,7 +22,6 @@
     </navigator>
   </view>
 </view>
-
 <!-- 新闻bar -->
 <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
   <view class='action'>
@@ -30,14 +29,14 @@
   </view>
   <navigator url="/pages/home/news/news">
     <view class='action text-df' bindtap="linkNews">
-
       更多
       <text class="cuIcon-right"></text>
     </view>
   </navigator>
 </view>
 <!-- 文章列表 -->
-<view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
+<view class="padding bg-white solid-bottom">
+<navigator url="/pages/home/news/detail">
   <view class="cu-item shadow">
     <view class="title">
       <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">重庆日报：朝天门大桥即将建成投用</view>
@@ -51,7 +50,7 @@
         <view>
           <view class="margin-top-sm flex justify-between">
             <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
-            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2018年12月4日</view>
+            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年7月4日</view>
             <view class="text-gray text-sm text-right flex justify-between">
               <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
               <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
@@ -61,10 +60,11 @@
         </view>
       </view>
     </view>
-  </view>
+  </view></navigator>
 </view>
+
 <!-- 文章2 -->
-<view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
+<view class="padding bg-white solid-bottom">
   <view class="cu-item shadow">
     <view class="title">
       <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">城市管理局强化主汛期应急清漂操作业成效明显</view>
@@ -78,7 +78,7 @@
         <view>
           <view class="margin-top-sm flex justify-between">
             <view class="cu-tag  light sm round">重庆日报</view>
-            <view class="text-gray text-sm text-left">2018年12月4日</view>
+            <view class="text-gray text-sm text-left">2023年6月29日</view>
             <view class="text-gray text-sm text-right flex justify-between">
               <text class="cuIcon-attentionfill margin-lr-xs">10</text>
               <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
@@ -106,7 +106,7 @@
         <view>
           <view class="margin-top-sm flex justify-between">
             <view class="cu-tag  light sm round">重庆日报</view>
-            <view class="text-gray text-sm text-left">2018年12月4日</view>
+            <view class="text-gray text-sm text-left">2023年5月26日</view>
             <view class="text-gray text-sm text-right flex justify-between">
               <text class="cuIcon-attentionfill margin-lr-xs">10</text>
               <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
