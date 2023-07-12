@@ -12,25 +12,29 @@ Component({
         title: '办事指南',
         name: 'red',
         color: 'red',
-        icon: 'newsfill'
+        icon: 'newsfill',
+        url:'https://www.baidu.com'
       },
       {
         title: '办事大厅',
         name: 'purple',
         color: 'orange',
-        icon: 'servicefill'
+        icon: 'servicefill',
+        url:'https://www.baidu.com'
       },
       {
         title: '工单预约',
         name: 'interaction',
         color: 'green',
-        icon: 'group'
+        icon: 'group',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'appointment',
         color: 'pink',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
     ],
     swiperList: [{

@@ -15,111 +15,129 @@ Component({
         title: '水费',
         name: 'background',
         color: 'blue',
-        icon: 'servicefill'
+        icon: 'servicefill',
+        url:'https://www.baidu.com'
       },
       {
         title: '物业费',
         name: 'text',
         color: 'purple',
-        icon: 'group'
+        icon: 'group',
+        url:'https://www.baidu.com'
       },
       {
         title: '其他费 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
     ],
     elements1: [{
         title: '办事指南',
         name: 'layout',
         color: 'cyan',
-        icon: 'newsfill'
+        icon: 'newsfill',
+        url:'https://www.baidu.com'
       },
       {
         title: '办事大厅',
         name: 'background',
         color: 'blue',
-        icon: 'servicefill'
+        icon: 'servicefill',
+        url:'https://www.baidu.com'
       },
       {
         title: '政民互动',
         name: 'text',
         color: 'purple',
-        icon: 'group'
+        icon: 'group',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
     ],
     elements2: [{
         title: '办事指南',
         name: 'layout',
         color: 'cyan',
-        icon: 'newsfill'
+        icon: 'newsfill',
+        url:'https://www.baidu.com'
       },
       {
         title: '办事大厅',
         name: 'background',
         color: 'blue',
-        icon: 'servicefill'
+        icon: 'servicefill',
+        url:'https://www.baidu.com'
       },
       {
         title: '政民互动',
         name: 'text',
         color: 'purple',
-        icon: 'group'
+        icon: 'group',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
       {
         title: '预约服务 ',
         name: 'icon',
         color: 'mauve',
-        icon: 'post'
+        icon: 'post',
+        url:'https://www.baidu.com'
       },
     ]
   },
