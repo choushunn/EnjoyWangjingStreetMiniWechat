@@ -3,3 +3,28 @@
   <view slot="backText">返回</view>
   <view slot="content">社区通知</view>
 </cu-custom>
+<view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text>社区通知
+    </view>
+  </view>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{10}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url(https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg);"></view>
+      <view class="content">
+        <view class="text-grey">社区通知</view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-infofill text-red"></text> 消息未送达</view>
+      </view>
+      <view class="action">
+        <view class="text-grey text-xs">{{date}} {{time}}</view>
+        <view class="cu-tag round bg-grey sm">5</view>
+      </view>
+      <view class="move">
+        <view class="bg-grey">置顶</view>
+        <view class="bg-red">删除</view>
+      </view>
+    </view>
+  </view>
+
+
