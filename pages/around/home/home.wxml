@@ -14,11 +14,11 @@
 </view>
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" style="position: relative; left: 0rpx; top: 0rpx">
   </map>
 </view>
 <!-- 左侧工具条 -->
-<view class="map_cover flex justify-start left-tool-margin">
+<view class="map_cover flex justify-start left-tool-margin left-tool" >
   <view class="bg-white line-black left-tool-radius">
     <view class="left-tool-flex margin-lr">
       <!-- 服务点 -->
@@ -32,7 +32,7 @@
   </view>
 </view>
 <!-- 右侧工具条 -->
-<view class="map_cover flex justify-end right-tool-margin">
+<view class="map_cover flex justify-end right-tool-margin right-tool">
   <view class="bg-white line-black right-tool-radius">
     <view class="solid-bottom text-right-xl text-center">
       <navigator url="">
@@ -61,8 +61,8 @@
   </view>
 </view>
 <!-- 地点详情卡片 -->
-<view class="flex align-end justify-center map_cover location-margin-top">
-  <view class="cu-card article">
+<view class="flex align-end justify-center map_cover location-margin-top location-card margin-top">
+  <view class="cu-card article" style="position: relative;  top: 70rpx">
     <view class="cu-item shadow">
       <view class="title">
         <block wx:if="{{textData.name}}">

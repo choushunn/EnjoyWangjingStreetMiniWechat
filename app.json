@@ -40,5 +40,6 @@
     "startLocationUpdateBackground",
     "chooseAddress",
     "choosePoi"
-  ]
+  ],
+  "lazyCodeLoading": "requiredComponents"
 }
