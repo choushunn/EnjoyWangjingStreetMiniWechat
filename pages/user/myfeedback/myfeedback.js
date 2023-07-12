@@ -1,4 +1,4 @@
-// pages/around/question/question.js
+// pages/user/myfeedback/myfeedback.js
 Page({
 
   /**

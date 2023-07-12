@@ -13,28 +13,28 @@ Component({
         name: 'red',
         color: 'red',
         icon: 'newsfill',
-        url:'https://www.baidu.com'
+        url:'/pages/community/phone/phone'
       },
       {
         title: '办事大厅',
         name: 'purple',
         color: 'orange',
         icon: 'servicefill',
-        url:'https://www.baidu.com'
+        url:'/pages/service/home/home'
       },
       {
         title: '工单预约',
         name: 'interaction',
         color: 'green',
         icon: 'group',
-        url:'https://www.baidu.com'
+        url:'/pages/community/repair/repair'
       },
       {
         title: '预约服务 ',
         name: 'appointment',
         color: 'pink',
         icon: 'post',
-        url:'https://www.baidu.com'
+        url:'/pages/community/appointment/appointment'
       },
     ],
     swiperList: [{

@@ -4,7 +4,7 @@
     "pages/home/home/home",
     "pages/home/news/news",
     "pages/home/news/detail",
-    "pages/home/instruction/instruction",
+    "pages/home/guideline/guideline",
     "pages/service/home/home",
     "pages/community/home/home",
     "pages/community/notice/notice",
@@ -18,7 +18,10 @@
     "pages/community/feedback/feedback",
     "pages/around/home/home",
     "pages/user/home/home",
-    "pages/user/timeline/timeline"
+    "pages/user/timeline/timeline",
+    "pages/user/myfaver/mymessage",
+    "pages/user/myfeedback/myfeedback",
+    "pages/user/myappointment/myappointment"
   ],
   "window": {
     "backgroundTextStyle": "light",

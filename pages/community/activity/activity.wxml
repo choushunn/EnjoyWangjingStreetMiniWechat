@@ -1,5 +1,5 @@
 <!--pages/community/activity/activity.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">意见反馈</view>
+  <view slot="content">社区活动</view>
 </cu-custom>

@@ -15,7 +15,7 @@
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key="id" wx:if="{{index<12}}">
-    <navigator class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" url="/pages/community/{{item.icon}}/{{item.icon}}">
+    <navigator class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" url="{{item.url}}">
       <text class='cuIcon-{{item.icon}}'></text>
       <view class="text-lg">{{item.title}}</view>
       <view></view>

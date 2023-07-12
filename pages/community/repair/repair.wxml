@@ -1,7 +1,7 @@
 <!--pages/community/repair/repair.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">用户工单</view>
+  <view slot="content">居民报修</view>
 </cu-custom>
 <form>
 <!-- 申请人 -->

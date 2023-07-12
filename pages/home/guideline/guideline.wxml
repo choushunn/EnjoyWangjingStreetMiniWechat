@@ -1,5 +1,6 @@
-<!--pages/home/instruction/instruction.wxml-->
+<!--pages/home/guideline/guideline.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
   <view slot="content">办事指南</view>
 </cu-custom>
+
