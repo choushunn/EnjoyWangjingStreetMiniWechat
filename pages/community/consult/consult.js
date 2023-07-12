@@ -1,4 +1,5 @@
-// pages/community/consult/consult.js
+// pages/community/comment/comment.js
+const app = getApp();
 Page({
 
   /**
