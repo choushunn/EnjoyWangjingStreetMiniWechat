@@ -1,0 +1,92 @@
+<!--pages/community/question/question.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">意见反馈</view>
+</cu-custom>
+<form>
+  <!-- 标题 -->
+  <view class="cu-form-group">
+    <view class="title">标题:</view>
+    <input placeholder="请输入"></input>
+  </view>
+  <!-- 联系电话 -->
+  <view class="cu-form-group">
+    <view class="title">联系电话</view>
+    <input placeholder="输入手机电话号码"></input>
+    <view class="cu-capsule radius">
+      <view class="cu-tag bg-blue">
+        +86
+      </view>
+      <view class="cu-tag line-blue">
+        中国大陆
+      </view>
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <text class="title">反馈类型</text>
+  </view>
+  <!-- <view class="padding grid col-3 bg-white">
+  <button class="cu-btn rudis">功能异常</button>
+  <button class="cu-btn rudis">业务咨询</button>
+  <button class="cu-btn rudis">产品建议</button>
+  <button class="cu-btn rudis">安全分类</button>
+  <button class="cu-btn rudis">社区服务</button>
+  <button class="cu-btn rudis">其他问题</button>
+</view> -->
+  <view class="bg-white padding  solid-bottom">
+    <view class="grid col-3  text-center">
+      <view>
+        <button class="cu-btn ">功能异常</button>
+      </view>
+      <view>
+        <button class="cu-btn ">业务咨询</button>
+      </view>
+
+      <view>
+        <button class="cu-btn ">产品建议</button>
+      </view>
+      <view>
+        <button class="cu-btn ">安全分类</button>
+      </view>
+      <view>
+        <button class="cu-btn ">社区服务</button>
+      </view>
+      <view>
+        <button class="cu-btn ">其他问题</button>
+      </view>
+    </view>
+  </view>
+  <!-- 图片上传 -->
+  <view class="cu-bar bg-white">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action" style="font-size: 30rpx;">
+      {{imgList.length}}/4
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+  <!-- 备注信息 -->
+  <view class="cu-form-group align-start">
+    <view class="title">备注</view>
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="输入备注信息"></textarea>
+  </view>
+  <!-- 保存提交按钮 -->
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue lg" bindtap="save_data">保存</button>
+    <button class="cu-btn bg-red margin-tb-sm lg" bindtap="submit_data">提交</button>
+  </view>
+
+</form>

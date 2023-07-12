@@ -1,0 +1,6 @@
+<!--pages/community/consult/consult.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">咨询服务</view>
+</cu-custom>
+
