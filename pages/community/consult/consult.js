@@ -1,9 +1,5 @@
-<<<<<<< HEAD:pages/community/comment/comment.js
 // pages/community/comment/comment.js
 const app = getApp();
-=======
-// pages/community/consult/consult.js
->>>>>>> origin/develop:pages/community/consult/consult.js
 Page({
 
   /**

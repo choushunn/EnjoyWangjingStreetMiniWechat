@@ -3,9 +3,9 @@
   <view slot="backText">返回</view>
   <view slot="content">咨询服务</view>
 </cu-custom>
-<<<<<<< HEAD:pages/community/comment/comment.wxml
+
 <view class="bg-white padding-lr">
-<view class="solids-bottom padding-xs flex align-center">
+  <view class="solids-bottom padding-xs flex align-center">
     <view class="flex-sub text-left">
       <view class="solid-bottom text-xl padding">
         <text class="text-black text-bold cuIcon-dianhua">电话咨询</text>
@@ -16,6 +16,3 @@
     </view>
   </view>
 </view>
-=======
-
->>>>>>> origin/develop:pages/community/consult/consult.wxml
