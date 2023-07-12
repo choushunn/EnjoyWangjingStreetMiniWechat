@@ -1,0 +1,5 @@
+/* pages/user/timeline/timeline.wxss */
+page {
+  background: #fff;
+  font-size: 24rpx;
+}

@@ -13,7 +13,7 @@
 <!-- 功能区 -->
 <view class="grid col-3 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key wx:if="{{index<12}}">
-    <navigator class="bg-{{item.name}} padding radius-social text-center light" url="/pages/community/{{item.icon}}/{{item.icon}}">
+    <navigator class="bg-{{item.name}} padding radius-social text-center light" url="/pages/community/{{item.url}}/{{item.url}}">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
       <view class="text-lg">{{item.title}}</view>
       <view></view>

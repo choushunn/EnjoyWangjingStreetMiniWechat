@@ -46,6 +46,12 @@
   <view class="cu-item arrow">
     <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
+      <text class="text-grey">管理员：查看数据</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
+      <text class="cuIcon-creativefill text-orange"></text>
       <text class="text-grey">社工：工单处理</text>
     </navigator>
   </view>
@@ -56,13 +62,7 @@
     </navigator>
   </view>
   <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="feedback">
-      <text class="cuIcon-writefill text-cyan"></text>
-      <text class="text-grey">意见反馈</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <navigator class="content flex" url="/pages/about/log/log" hover-class="none">
+    <navigator class="content flex" url="/pages/user/timeline/timeline" hover-class="none">
       <text class="cuIcon-formfill text-green"></text>
       <text class="text-grey">开发日志</text>
     </navigator>
@@ -73,7 +73,12 @@
       <text class="text-grey">赞赏支持</text>
     </view>
   </view>
-
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="feedback">
+      <text class="cuIcon-writefill text-cyan"></text>
+      <text class="text-grey">意见反馈</text>
+    </button>
+  </view>
 </view>
 <view class='cu-tabbar-height bg-gray text-sm justify-center text-center padding-top'>已经到底啦~ ~</view>
 <view class='cu-tabbar-height bg-white'> </view>

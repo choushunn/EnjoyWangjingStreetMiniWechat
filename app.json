@@ -14,7 +14,8 @@
     "pages/community/notice/notice",
     "pages/community/upload/upload",
     "pages/around/home/home",
-    "pages/user/home/home"
+    "pages/user/home/home",
+    "pages/user/timeline/timeline"
   ],
   "window": {
     "backgroundTextStyle": "light",
