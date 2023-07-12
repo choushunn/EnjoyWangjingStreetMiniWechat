@@ -33,10 +33,10 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '召唤师',
-      content: '确定要删除这段回忆吗？',
-      cancelText: '再看看',
-      confirmText: '再见',
+      title: '删除照片',
+      content: '确定要删除照片吗？',
+      cancelText: '取消',
+      confirmText: '确定',
       success: res => {
         if (res.confirm) {
           this.data.imgList.splice(e.currentTarget.dataset.index, 1);
