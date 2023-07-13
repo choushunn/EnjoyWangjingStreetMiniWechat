@@ -11,6 +11,8 @@
     "pages/community/activity/activity",
     "pages/community/repair/repair",
     "pages/community/appointment/appointment",
+    "pages/community/appointment/equipment/equipment",
+    "pages/community/appointment/playroom/playroom",
     "pages/community/consult/consult",
     "pages/community/report/report",
     "pages/community/phone/phone",
