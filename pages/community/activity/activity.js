@@ -1,11 +1,13 @@
 // pages/community/activity/activity.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar
   },
 
   /**
@@ -14,7 +16,11 @@ Page({
   onLoad(options) {
 
   },
-
+  isCard(e) {
+    this.setData({
+      isCard: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
