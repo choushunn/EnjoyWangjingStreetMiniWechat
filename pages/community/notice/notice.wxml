@@ -4,36 +4,33 @@
   <view slot="content">社区通知</view>
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-title text-blue "></text>社区通知
-    </view>
-  </view>
-  <view class="padding text-center">
-  <view class="padding-lr bg-white">
-    <view class="solid-bottom padding">
-    <text class="text-price">80.00</text>
-    </view>
-    <view class="padding text-lg">价格文本，利用伪元素添加"¥"符号</view>
-  </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-    <text class="text-Abc">color Ui</text>
-    </view>
-    <view class="padding text-lg">英文单词首字母大写</view>
-  </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-    <text class="text-ABC ">color Ui</text>
-    </view>
-    <view class="padding text-lg">全部字母大写</view>
-  </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-    <text class="text-abc">color Ui</text>
-    </view>
-    <view class="padding text-lg">全部字母小写</view>
+  <view class="action">
+    <text class="cuIcon-title text-blue "></text>社区通知
   </view>
 </view>
-
-
-
+<view class="padding text-left">
+  <view class="padding-lr bg-white">
+    <view class="solid-bottom padding">
+      <text class="text-xxl">社区通知</text>
+    </view>
+    <view class="padding text-lg">社区通知消息社区活动</view>
+  </view>
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+      <text class="text-xxl">社区通知</text>
+    </view>
+    <view class="padding text-lg">社区通知消息社区活动</view>
+  </view>
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+      <text class="text-xxl">社区通知</text>
+    </view>
+    <view class="padding text-lg">社区通知消息社区活动</view>
+  </view>
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+      <text class="text-xxl">社区通知</text>
+    </view>
+    <view class="padding text-lg">社区通知消息社区活动</view>
+  </view>
+</view>
