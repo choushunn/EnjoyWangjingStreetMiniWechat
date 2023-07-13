@@ -3,3 +3,57 @@
   <view slot="backText">返回</view>
   <view slot="content">社区活动</view>
 </cu-custom>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区活动</view>
+    </view>
+    <view class="content">
+      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill" style="width: 239rpx; height: 233rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
+      <view class="desc">
+        <view class="text-content"> 创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！
+</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">党组织生活</view>
+          <view class="cu-tag bg-green light sm round">活动</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区活动</view>
+    </view>
+    <view class="content">
+      <image src="https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg" mode="aspectFill" style="width: 239rpx; height: 233rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
+      <view class="desc">
+        <view class="text-content"> 普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">党组织生活</view>
+          <view class="cu-tag bg-green light sm round">活动</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区活动</view>
+    </view>
+    <view class="content">
+      <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill" style="width: 239rpx; height: 235rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
+      <view class="desc">
+        <view class="text-content"> 折互帮互助好邻里，互敬互爱好家庭。打造平安大院，构建和谐社会。</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">党组织生活</view>
+          <view class="cu-tag bg-green light sm round">活动</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -3,3 +3,19 @@
   <view slot="backText">返回</view>
   <view slot="content">便民电话</view>
 </cu-custom>
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-left">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-dianhua text-blue">便民电话</text>
+        </view>
+      </view>
+      <view class="padding text-lg solid-bottom">社区服务电话 1234567789</view>
+      <view class="padding text-lg solid-bottom">心理服务中心 1623165125</view>
+      <view class="padding text-lg solid-bottom">维修服务中心 1235446541</view>
+      <view class="padding text-lg solid-bottom">警务中心 11023563141</view>
+      <view class="padding text-lg">车站 11321351</view>
+    </view>
+  </view>
+</view>
