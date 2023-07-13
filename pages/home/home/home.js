@@ -20,10 +20,10 @@ Component({
         name: 'purple',
         color: 'orange',
         icon: 'servicefill',
-        url:'/pages/service/home/home'
+        url:'/pages/index/index'
       },
       {
-        title: '工单预约',
+        title: '居民报修',
         name: 'interaction',
         color: 'green',
         icon: 'group',

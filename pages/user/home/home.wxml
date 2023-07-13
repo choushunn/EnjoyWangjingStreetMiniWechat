@@ -2,24 +2,41 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">个人中心</view>
 </cu-custom>
-<!-- 个人信息显示块 -->
+<!-- 用户信息显示块 -->
 <view class="UCenter-bg">
-  <!-- 微信头像 -->
-  <view class="padding">
-    <view class="cu-avatar round xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000.jpg);">
-      <!-- 性别 -->
-      <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+  <block wx:if="{{!hasUserInfo}}">
+    <!-- 微信头像 -->
+    <view class="padding">
+      <view class="cu-avatar round xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000.jpg);">
+        <!-- 性别 -->
+        <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
     </view>
-  </view>
-  <!-- 登录了就显示欢迎您 -->
-  <view class="text-xl" style="color:white;">
-    微信昵称
-  </view>
+    <!-- 登录了就显示欢迎您 -->
+    <view class="text-xl" style="color:white;">
+      微信昵称
+    </view>
+  </block>
+  <block wx:else>
+    <!-- 微信头像 -->
+    <view class="padding">
+      <view class="cu-avatar round xl" style="background-image:url({{userInfo.avatarUrl}});">
+        <!-- 性别 -->
+        <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
+    </view>
+    <!-- 登录了就显示欢迎您 -->
+    <view class="text-xl" style="color:white;">
+      {{userInfo.nickName}}
+    </view>
+  </block>
+  <!-- 授权微信登录按钮 -->
   <view class="grid padding-sm">
     <view class="margin-tb-sm text-center">
-      <button class="cu-btn round bg-green">授权微信登录</button>
+      <button class="cu-btn round bg-green" bindtap="onLogin">授权微信登录</button>
     </view>
   </view>
+
   <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 <!-- 功能块 -->

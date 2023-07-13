@@ -39,6 +39,24 @@ Component({
       name: '我的预约'
     }],
     gridCol: 3,
-    skin: false
+    skin: false,
+    userInfo: {},
+    hasUserInfo: false,
+    canIUseGetUserProfile: false,
   },
+  methods: {
+    onLogin() {
+      wx.getUserProfile({
+        desc: '用于完善用户资料',
+        success:(res)=>{
+          this.setData({
+            userInfo:res.userInfo,
+            hasUserInfo:true
+          })
+        },fail:(res)=>{
+          console.log('登录失败！' + res.errMsg)
+        }
+      }) 
+    }
+  }
 })
