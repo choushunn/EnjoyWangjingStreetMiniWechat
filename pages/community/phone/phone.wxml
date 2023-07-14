@@ -3,19 +3,60 @@
   <view slot="backText">返回</view>
   <view slot="content">便民电话</view>
 </cu-custom>
-<view class="bg-white padding-lr">
-  <view class="solids-bottom padding-xs flex align-center">
-    <view class="flex-sub text-left">
-      <view class="cu-bar bg-white solid-bottom">
-        <view class="action">
-          <text class="cuIcon-dianhua text-blue">便民电话</text>
-        </view>
+<view class="cu-bar search bg-white margin-0 solid-bottom">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索电话" confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow-blur round">搜索</button>
+  </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title solid-bottom">
+      <view class="text-cut">社区服务电话</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-lg"> 12345678901 </view>
       </view>
-      <view class="padding text-lg solid-bottom">社区服务电话 1234567789</view>
-      <view class="padding text-lg solid-bottom">心理服务中心 1623165125</view>
-      <view class="padding text-lg solid-bottom">维修服务中心 1235446541</view>
-      <view class="padding text-lg solid-bottom">警务中心 11023563141</view>
-      <view class="padding text-lg">车站 11321351</view>
+    </view>
+  </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title solid-bottom">
+      <view class="text-cut">维修服务中心</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-lg"> 12345678901 </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title solid-bottom">
+      <view class="text-cut">车站</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-lg"> 12345678901 </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title solid-bottom">
+      <view class="text-cut">警务中心</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-lg"> 12345678901 </view>
+      </view>
     </view>
   </view>
 </view>

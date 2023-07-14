@@ -8,29 +8,67 @@
     <text class="cuIcon-title text-blue "></text>社区通知
   </view>
 </view>
-<view class="padding text-left">
-  <view class="padding-lr bg-white">
-    <view class="solid-bottom padding">
-      <text class="text-xxl">社区通知</text>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区通知</view>
     </view>
-    <view class="padding text-lg">社区通知消息社区活动</view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 社区通知的摘要。
+        </view>
+        <view>
+          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-      <text class="text-xxl">社区通知</text>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区通知</view>
     </view>
-    <view class="padding text-lg">社区通知消息社区活动</view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 社区通知的摘要。
+        </view>
+        <view>
+          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-      <text class="text-xxl">社区通知</text>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区通知</view>
     </view>
-    <view class="padding text-lg">社区通知消息社区活动</view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 社区通知的摘要。
+        </view>
+        <view>
+          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="padding-lr bg-white margin-top">
-    <view class="solid-bottom padding">
-      <text class="text-xxl">社区通知</text>
+</view>
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区通知</view>
     </view>
-    <view class="padding text-lg">社区通知消息社区活动</view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 社区通知的摘要。
+        </view>
+        <view>
+          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

@@ -50,14 +50,14 @@ Component({
       url: 'phone'
     },
     {
-      title: '投诉公示',
+      title: '投诉受理',
       name: 'complaint',
       color: 'purple',
       icon: 'newshot',
       url: 'complaint'
     },
     {
-      title: '反馈意见',
+      title: '意见征集',
       name: 'feedback',
       color: 'mauve',
       icon: 'question',

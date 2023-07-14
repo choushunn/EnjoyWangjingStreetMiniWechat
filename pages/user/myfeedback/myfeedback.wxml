@@ -1,2 +1,5 @@
 <!--pages/user/myfeedback/myfeedback.wxml-->
-<text>pages/user/myfeedback/myfeedback.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的反馈</view>
+</cu-custom>

@@ -1,35 +1,10 @@
-// pages/user/myappointment/myappointment.js
+// pages/user/myorder/myorder.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    basicsList: [{
-      icon: 'usefullfill',
-      name: '开始'
-    }, {
-      icon: 'radioboxfill',
-      name: '审核'
-    }, {
-      icon: 'roundclosefill',
-      name: '等待'
-    }, {
-      icon: 'roundcheckfill',
-      name: '完成'
-    }, ],
-    basics: 0,
-    numList: [{
-      name: '开始'
-    }, {
-      name: '审核'
-    }, {
-      name: '等待'
-    }, {
-      name: '完成'
-    }, ],
-    num: 0,
-    scroll: 0,
     TabCur: 0,
     scrollLeft: 0,
   },
@@ -37,21 +12,6 @@ Page({
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-  },
-  basicsSteps() {
-    this.setData({
-      basics: this.data.basics == this.data.basicsList.length - 1 ? 0 : this.data.basics + 1
-    })
-  },
-  numSteps() {
-    this.setData({
-      num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
-    })
-  },
-  scrollSteps() {
-    this.setData({
-      scroll: this.data.scroll == 9 ? 0 : this.data.scroll + 1
     })
   },
 

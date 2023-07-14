@@ -11,32 +11,38 @@ Component({
       icon: 'cardboardfill',
       color: 'red',
       badge: 10,
-      name: '常用功能'
+      name: '常用功能',
+      url:'/pages/user/myfaver/myfaver'
     }, {
       icon: 'recordfill',
       color: 'orange',
       badge: 1,
-      name: '我的收藏'
+      name: '我的收藏',
+      url:'/pages/user/myfaver/myfaver'
     }, {
       icon: 'picfill',
       color: 'yellow',
       badge: 10,
-      name: '我的消息'
+      name: '我的消息',
+      url:'/pages/user/mymessage/mymessage'
     }, {
       icon: 'noticefill',
       color: 'olive',
       badge: 22,
-      name: '我的工单'
+      name: '我的工单',
+      url:'/pages/user/myorder/myorder'
     }, {
       icon: 'upstagefill',
       color: 'cyan',
       badge: 0,
-      name: '我的反馈'
+      name: '我的反馈',
+      url:'/pages/user/myfeedback/myfeedback'
     }, {
       icon: 'clothesfill',
       color: 'blue',
       badge: 0,
-      name: '我的预约'
+      name: '我的预约',
+      url:'/pages/user/myappointment/myappointment'
     }],
     gridCol: 3,
     skin: false,

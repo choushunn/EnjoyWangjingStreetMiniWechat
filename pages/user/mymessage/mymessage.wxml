@@ -1,0 +1,39 @@
+<!--pages/user/mymessage/mymessage.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的消息</view>
+</cu-custom>
+
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">我的报修</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 您的报修已完成维修，请及时确认维修结果，点击查看详细。
+        </view>
+        <view>
+          <view class="light text-sm round">报修结果通知 - 2023年7月14日</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card article {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">我的报修</view>
+    </view>
+    <view class="content">
+      <view class="desc">
+        <view class="text-content solid-bottom"> 您的报修已被接单，请耐心等待维修，点击查看详细。
+        </view>
+        <view>
+          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

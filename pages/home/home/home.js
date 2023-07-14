@@ -20,7 +20,7 @@ Component({
         name: 'purple',
         color: 'orange',
         icon: 'servicefill',
-        url:'/pages/index/index'
+        url:'/pages/'
       },
       {
         title: '居民报修',

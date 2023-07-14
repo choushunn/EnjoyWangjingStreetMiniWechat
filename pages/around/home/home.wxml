@@ -100,19 +100,10 @@
       </view>
     </view>
     <view class="cu-card article no-card solid-bootom">
-      <view class="cu-item shadow">
-        <view class="title">
-          <view class="text-cut">无意者 烈火焚身</view>
-        </view>
-        <view class="content">
-          <view class="desc">
-            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
-            <view>
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="cu-tag bg-green light sm round">史诗</view>
-            </view>
-          </view>
-        </view>
+      <view class="padding flex flex-wrap justify-between align-center bg-white">
+        <button class="cu-btn">服务</button> 
+        <button class="cu-btn">出行</button>
+        <button class="cu-btn">设施</button>
       </view>
     </view>
     <!-- 类别筛选 2-->
@@ -122,19 +113,10 @@
       </view>
     </view>
     <view class="cu-card article no-card solid-bootom">
-      <view class="cu-item shadow">
-        <view class="title">
-          <view class="text-cut">无意者 烈火焚身</view>
-        </view>
-        <view class="content">
-          <view class="desc">
-            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
-            <view>
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="cu-tag bg-green light sm round">史诗</view>
-            </view>
-          </view>
-        </view>
+      <view class="padding flex flex-wrap justify-between align-center bg-white">
+        <button class="cu-btn">所有</button> 
+        <button class="cu-btn">100米</button>
+        <button class="cu-btn">200米</button>
       </view>
     </view>
   </view>

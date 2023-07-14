@@ -1,0 +1,6 @@
+<!--pages/user/myfaver/myfaver.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的收藏</view>
+</cu-custom>
+

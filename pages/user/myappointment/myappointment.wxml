@@ -1,2 +1,66 @@
 <!--pages/user/myappointment/myappointment.wxml-->
-<text>pages/user/myappointment/myappointment.wxml</text>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的预约</view>
+</cu-custom>
+<!-- 类别切换 -->
+<scroll-view scroll-x class="bg-white nav text-left text-lg">
+  <view class="cu-item {{0==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="0">
+    全部
+  </view>
+  <view class="cu-item {{1==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="1">
+    待进行
+  </view>
+  <view class="cu-item {{2==TabCur?'text-red cur':''}}" bindtap="tabSelect" data-id="2">
+    已结束
+  </view>
+</scroll-view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 事项1预约进度
+  </view>
+  <view class="action">
+    <!-- <button class="cu-btn bg-green shadow" bindtap="numSteps">下一步</button> -->
+  </view>
+</view>
+<view class="bg-white padding">
+  <view class="cu-steps">
+    <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+      <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text>
+      <view class="text-lg"> {{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 事项2预约进度
+  </view>
+  <view class="action">
+    <!-- <button class="cu-btn bg-green shadow" bindtap="numSteps">下一步</button> -->
+  </view>
+</view>
+<view class="bg-white padding">
+  <view class="cu-steps">
+    <view class="cu-item {{index>2?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+      <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text>
+      <view class="text-lg"> {{item.name}}</view>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 事项3预约进度
+  </view>
+  <view class="action">
+    <!-- <button class="cu-btn bg-green shadow" bindtap="numSteps">下一步</button> -->
+  </view>
+</view>
+<view class="bg-white padding">
+  <view class="cu-steps">
+    <view class="cu-item {{index>1?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+      <text class="num {{index==2?'err':''}}" data-index="{{index + 1}}"></text>
+      <view class="text-lg"> {{item.name}}</view>
+    </view>
+  </view>
+</view>

@@ -40,17 +40,19 @@
   <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 <!-- 功能块 -->
-<view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
-  <view class="cu-item" wx:for="{{iconList}}" wx:key="icon" wx:if="{{index<iconList.length}}">
-    <view class="cuIcon-{{item.icon}} text-{{item.color}}">
-      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-        <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{iconList}}" wx:key="icon" wx:if="{{index<iconList.length}}">
+    <navigator class="padding radius-social text-center light" url="{{item.url}}">
+      <view class='cuIcon-{{item.icon}}  text-{{item.color}}'>
+        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
+        </view>
       </view>
-    </view>
-    <text>{{item.name}}</text>
+      <view class="text-lg">{{item.name}}</view>
+      <view></view>
+    </navigator>
   </view>
 </view>
-
 <!-- 功能列表 -->
 
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
@@ -70,12 +72,6 @@
     <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
       <text class="cuIcon-creativefill text-orange"></text>
       <text class="text-grey">社工：工单处理</text>
-    </navigator>
-  </view>
-  <view class="cu-item arrow">
-    <navigator class="content flex" url="/pages/about/test/list" hover-class="none">
-      <text class="cuIcon-creativefill text-orange"></text>
-      <text class="text-grey">用户：工单提交</text>
     </navigator>
   </view>
   <view class="cu-item arrow">

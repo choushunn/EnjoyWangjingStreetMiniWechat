@@ -1,4 +1,4 @@
-// pages/user/myfaver/mymessage.js
+// pages/user/mymessage/mymessage.js
 Page({
 
   /**
