@@ -8,9 +8,11 @@ import {
 } from '../../../libs/config.js';
 
 const app = getApp();
-
+var amapFile = require('../../../libs/amap-wx.130.js');
 Component({
   data: {
+    inputText:'',
+    result:[],
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     markersData: [], // 存储获取到的周边POI数据
@@ -45,6 +47,28 @@ Component({
       }
     ]
   },
+  onInput: function(event) {
+    this.setData({
+      inputText: event.detail.value
+    });
+    var that = this;
+    wx.request({
+      url: 'https://www.baidu.com',
+      data: {
+        keyword: event.detail.value
+      },
+      success: function(res) {
+        console.log(res);
+        that.setData({
+          result: res.data
+        });
+      },
+      fail: function(info) {
+        console.log(info);
+      }
+    })
+  },
+
   created: function () {
     this.startLocation();
   },

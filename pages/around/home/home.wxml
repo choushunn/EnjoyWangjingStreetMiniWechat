@@ -6,22 +6,16 @@
 <view class="cu-bar search bg-white  map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" confirm-type="search1"></input>
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="onInput"/>
     <text class="cuIcon-right"></text>
+    <view wx:for="{{result}}">
+    <text>{{item.name}}</text>
+    <text>{{item.address}}</text>
+  </view>
   </view>
 </view>
 <!-- 搜索结果,搜索框被激活，且有返回结果才显示 -->
-<!-- <view class="map_cover">
-  <view wx:if="{{dataAddress.length}}">
-    <view wx:for="{{dataAddress}}">
-      <view class="address-item">
-        <view class="address-name">{{item.name}}</view>
-        <view class="address-desc">{{item.desc}}</view>
-        <view class="address-distance">{{item.distance}} km</view>
-      </view>
-    </view>
-  </view>
-</view> -->
+
 <!-- 地图组件 -->
 <view class="map_container">
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" style="position: relative; left: 0rpx; top: 0rpx">
@@ -44,22 +38,22 @@
 <!-- 右侧工具条 -->
 <view class="map_cover flex justify-end right-tool-margin right-tool">
   <view class="bg-white line-black right-tool-radius">
-    <view class="solid-bottom text-right-xl text-center" bindtap="showModal" data-target="DrawerModalL">
+    <view class="solid-bottom text-right-xl text-center" bindtap="showModal" data-target="DrawerModalR">
       <view class="cuIcon-cascades"></view>
       <view class="text-sm text-center text-balck">筛选</view>
     </view>
     <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation">
       <view class="cuIcon-location"></view>
-      <view class="text-sm text-center text-balck" >定位</view>
+      <view class="text-sm text-center text-balck">定位</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center">
+    <view class="solid-bottom text-right-xl text-center" bindtap="showModal" data-target="bottomModal">
       <view class="cuIcon-sort"></view>
       <view class="text-sm text-center text-balck">列表</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center">
+    <navigator class="solid-bottom text-right-xl text-center" url="/pages/around/add/add">
       <view class="cuIcon-roundadd"></view>
       <view class="text-sm text-balck">新增</view>
-    </view>
+    </navigator>
   </view>
 </view>
 <!-- 地点详情卡片 -->
@@ -90,7 +84,36 @@
     </view>
   </view>
 </view>
-<!-- 模态框 -->
+
+<!-- 列表模态框 -->
+<view class="background" bindtap="hideModal">
+  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999;">
+    <view class="cu-dialog">
+      <!-- <view class="cu-bar bg-white">
+      <view class="action text-green">确定</view>
+      <view class="action text-green" bindtap="hideModal">取消</view>
+    </view> -->
+    <view class="content">
+      bananqus
+    </view>
+    <view class="content">
+      bananqus
+    </view>
+    <view class="content">
+      bananqus
+    </view>
+    <view class="content">
+      bananqus
+    </view>
+      <!-- <view wx:for="{{pois}}" wx:key="id" class="content">
+        <text>{{item.name}}</text>
+        <text>{{item.address}}</text>
+      </view> -->
+    </view>
+  </view>
+</view>
+
+<!-- 服务点模态框 -->
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
     <!-- 类别筛选 -->
@@ -117,6 +140,56 @@
         <button class="cu-btn">所有</button> 
         <button class="cu-btn">100米</button>
         <button class="cu-btn">200米</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 服务点模态框 -->
+<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
+  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
+    <!-- 类别筛选 -->
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class='action'>
+        <text class='cuIcon-titles text-orange '></text> 类型
+      </view>
+    </view>
+    <view class="cu-card article no-card solid-bootom">
+      <view class="cu-item shadow">
+        <view class="title">
+          <view class="text-cut">无意者 烈火焚身</view>
+        </view>
+        <view class="content">
+          <view class="desc">
+            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
+            <view>
+              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="cu-tag bg-green light sm round">史诗</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 类别筛选 2-->
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class='action'>
+        <text class='cuIcon-titles text-orange '></text> 范围
+      </view>
+    </view>
+    <view class="cu-card article no-card solid-bootom">
+      <view class="cu-item shadow">
+        <view class="title">
+          <view class="text-cut">无意者 烈火焚身</view>
+        </view>
+        <view class="content">
+          <view class="desc">
+            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
+            <view>
+              <view class="cu-tag bg-red light sm round">正义天使</view>
+              <view class="cu-tag bg-green light sm round">史诗</view>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
   </view>
