@@ -77,7 +77,7 @@
             <view class="text-df margin-bottom"> 暂未获取定位</view>
           </block>
           <view class="flex justify-end">
-            <view class="cu-tag bg-green light sm round">查看详情</view>
+            <navigator class="cu-tag bg-green light sm round" url="/pages/around/details/details">查看详情</navigator>
           </view>
         </view>
       </view>

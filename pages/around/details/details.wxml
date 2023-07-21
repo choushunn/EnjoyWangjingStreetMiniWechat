@@ -1,0 +1,81 @@
+<!--pages/around/details/details.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-left">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-card "> 概况</text>
+        </view>
+      </view>
+      <view class="padding text-xl">维也纳国际酒店</view>
+      <view class="padding text-lg">重庆市两江新区龙兴镇普福大道481号</view>
+      <view class="padding text-lg">距离当前位置678米</view>
+      <view class="padding text-lg">联系电话：023-890058888</view>
+
+      <view class="cu-good-act margin-sm">
+        <view class="cu-good-t-box">
+
+        </view>
+        <view class="cu-good-point-con">
+          <swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}" circular="true">
+            <swiper-item wx:for="{{goods_list}}" wx:key="index">
+              <view class="cu-good-point-flex" wx:for="{{item.goods}}" wx:for-item="its" wx:key="key">
+                <image class="cu-good-point-img radius-lg" src="{{its.img}}"></image>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+</view>
+
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-left">
+      <view class="cu-bar bg-white">
+        <view class="action">
+          <text class="cuIcon-card"> 商品</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="content flex justify-between bg-white">
+  <view class="desc">
+    <view class="flex">
+      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
+      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
+    </view>
+    <view>
+    </view>
+  </view>
+</view>
+<view class="content flex justify-between bg-white">
+  <view class="desc">
+    <view class="flex">
+      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
+      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
+    </view>
+    <view>
+    </view>
+  </view>
+</view>
+<view class="content flex justify-between bg-white">
+  <view class="desc">
+    <view class="flex">
+      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
+      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
+    </view>
+    <view>
+    </view>
+  </view>
+</view>
+<view class='cu-tabbar-height bg-white text-sm justify-center text-center padding-top'>已经到底啦~ ~</view>
