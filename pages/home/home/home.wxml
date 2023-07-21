@@ -77,12 +77,12 @@
         </view>
         <view>
           <view class="margin-top-sm flex justify-between">
-            <view class="cu-tag  light sm round">重庆日报</view>
-            <view class="text-gray text-sm text-left">2023年6月29日</view>
+            <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
+            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年6月29日</view>
             <view class="text-gray text-sm text-right flex justify-between">
-              <text class="cuIcon-attentionfill margin-lr-xs">10</text>
-              <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
-              <text class="cuIcon-messagefill margin-lr-xs">30</text>
+              <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
+              <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
+              <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
             </view>
           </view>
         </view>
@@ -105,12 +105,12 @@
         </view>
         <view>
           <view class="margin-top-sm flex justify-between">
-            <view class="cu-tag  light sm round">重庆日报</view>
-            <view class="text-gray text-sm text-left">2023年5月26日</view>
+            <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
+            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年5月26日</view>
             <view class="text-gray text-sm text-right flex justify-between">
-              <text class="cuIcon-attentionfill margin-lr-xs">10</text>
-              <text class="cuIcon-appreciatefill margin-lr-xs">20</text>
-              <text class="cuIcon-messagefill margin-lr-xs">30</text>
+              <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
+              <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
+              <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
             </view>
           </view>
         </view>
