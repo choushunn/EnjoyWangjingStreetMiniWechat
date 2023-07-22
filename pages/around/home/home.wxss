@@ -79,3 +79,7 @@
   box-sizing: border-box;
   margin: 0 auto; /* 左右居中 */
 }
+.selected {
+  color: red;
+  font-weight: bold;
+}

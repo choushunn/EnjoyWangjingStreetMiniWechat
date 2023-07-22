@@ -86,29 +86,33 @@
 </view>
 
 <!-- 列表模态框 -->
-<view class="background" bindtap="hideModal">
-  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999;">
+<view class="background" bindtap="hideModal" >
+  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999; margin-top: 150%;" >
     <view class="cu-dialog">
-      <!-- <view class="cu-bar bg-white">
-      <view class="action text-green">确定</view>
-      <view class="action text-green" bindtap="hideModal">取消</view>
-    </view> -->
     <view class="content">
-      bananqus
+      <view class="padding text-xl">维也纳国际酒店</view>
+      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
+      <view class="text-lg">距离当前位置678米</view>
+      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
+    </view>
+    <view class="content" >
+      <view class="padding text-xl">维也纳国际酒店</view>
+      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
+      <view class="text-lg">距离当前位置678米</view>
+      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
     </view>
     <view class="content">
-      bananqus
+      <view class="padding text-xl">维也纳国际酒店</view>
+      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
+      <view class="text-lg">距离当前位置678米</view>
+      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
     </view>
     <view class="content">
-      bananqus
+      <view class="padding text-xl">维也纳国际酒店</view>
+      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
+      <view class="text-lg">距离当前位置678米</view>
+      <view class="text-lg">联系电话：023-890058888</view>
     </view>
-    <view class="content">
-      bananqus
-    </view>
-      <!-- <view wx:for="{{pois}}" wx:key="id" class="content">
-        <text>{{item.name}}</text>
-        <text>{{item.address}}</text>
-      </view> -->
     </view>
   </view>
 </view>
@@ -119,7 +123,7 @@
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class='action'>
-        <text class='cuIcon-titles text-orange '></text> 类型
+        <text class='cuIcon-titles text-orange '></text> 区域
       </view>
     </view>
     <view class="cu-card article no-card solid-bootom">
@@ -169,47 +173,34 @@
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class='action'>
-        <text class='cuIcon-titles text-orange '></text> 类型
+        <text class='cuIcon-titles text-blue '></text> 区域
+        <text class="selected">{{selected}}</text>
       </view>
     </view>
-    <view class="cu-card article no-card solid-bootom">
-      <view class="cu-item shadow">
-        <view class="title">
-          <view class="text-cut">无意者 烈火焚身</view>
+    <view class="padding-lr bg-white">
+    <view class="padding-tb grid col-3">
+      <block wx:for="{{hot_list}}" wx:key="index">
+        <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSelecte" >
+          <button class="cu-tag bg-blue light" data-content="{{item}}">{{item}}</button>
         </view>
-        <view class="content">
-          <view class="desc">
-            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
-            <view>
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="cu-tag bg-green light sm round">史诗</view>
-            </view>
-          </view>
-        </view>
-      </view>
+      </block>
     </view>
+  </view>
     <!-- 类别筛选 2-->
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class='action'>
-        <text class='cuIcon-titles text-orange '></text> 范围
+        <text class='cuIcon-titles text-blue '></text> 类型
       </view>
     </view>
-    <view class="cu-card article no-card solid-bootom">
-      <view class="cu-item shadow">
-        <view class="title">
-          <view class="text-cut">无意者 烈火焚身</view>
+    <view class="padding-lr bg-white">
+    <view class="padding-tb grid col-3">
+      <block wx:for="{{hot_list}}" wx:key="index">
+        <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSearch" >
+          <view class="cu-tag bg-blue light">{{item}}</view>
         </view>
-        <view class="content">
-          <view class="desc">
-            <view class="text-sm"> 折磨生出苦难，苦难又会加剧，</view>
-            <view>
-              <view class="cu-tag bg-red light sm round">正义天使</view>
-              <view class="cu-tag bg-green light sm round">史诗</view>
-            </view>
-          </view>
-        </view>
-      </view>
+      </block>
     </view>
+  </view>
   </view>
 </view>
 <!-- 
