@@ -20,6 +20,8 @@ Component({
     latitude: '', // 当前位置的纬度
     longitude: '', // 当前位置的经度
     textData: {}, // 显示标记点信息的数据
+    hot_list: ['AA街道', 'BB街道', 'CC街道', 'DD街道'],
+    list: [],
     dataAddress: [{
         name: '地点1',
         desc: '描述1',
@@ -161,5 +163,12 @@ Component({
         markers: newMarkers // 更新地图上的标记点
       });
     }
+  },
+  getSelecte: function(event) {
+    const content = event.currentTarget.dataset.content
+    this.setData({
+      selected: content
+    })
   }
+  
 })
