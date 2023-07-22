@@ -23,7 +23,7 @@ Component({
         url:'/pages/'
       },
       {
-        title: '居民报修',
+        title: '居民服务',
         name: 'interaction',
         color: 'green',
         icon: 'group',

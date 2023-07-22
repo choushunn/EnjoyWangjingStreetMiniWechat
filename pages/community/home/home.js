@@ -16,7 +16,7 @@ Component({
         icon: 'group',
         url: 'activity'
       },{
-      title: '居民报修',
+      title: '居民服务',
       name: 'repair',
       color: 'cyan',
       icon: 'paint',
