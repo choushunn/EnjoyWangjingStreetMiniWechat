@@ -11,12 +11,6 @@ Component({
       icon: 'cardboardfill',
       color: 'red',
       badge: 10,
-      name: '常用功能',
-      url:'/pages/user/myfaver/myfaver'
-    }, {
-      icon: 'recordfill',
-      color: 'orange',
-      badge: 1,
       name: '我的收藏',
       url:'/pages/user/myfaver/myfaver'
     }, {

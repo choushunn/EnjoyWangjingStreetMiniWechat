@@ -3,72 +3,47 @@
   <view slot="backText">返回</view>
   <view slot="content">社区通知</view>
 </cu-custom>
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-title text-blue "></text>社区通知
-  </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区通知</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content solid-bottom"> 社区通知的摘要。
+<!-- 消息列表 -->
+<block wx:if="{{TabCur==0}}">
+  <view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="flex justify-between">
+          <view class="text-cut">居民服务</view>
+          <view class="text-cut text-red">未读</view>
         </view>
-        <view>
-          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content solid-bottom"> 您的报修已完成维修，请及时确认维修结果，点击查看详细。
+          </view>
+          <view class="flex justify-between margin-top-sm">
+            <view class="light text-sm round">报修结果通知</view>
+            <view class="light text-sm round"> 2023年7月14日 11:20</view>
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区通知</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content solid-bottom"> 社区通知的摘要。
+
+  <view class="cu-card article {{isCard?'no-card':''}}">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="flex justify-between">
+          <view class="text-cut">居民服务</view>
+          <view class="text-cut text-green">已读</view>
         </view>
-        <view>
-          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
+      </view>
+      <view class="content">
+        <view class="desc">
+          <view class="text-content solid-bottom"> 您的报修已被接单，请耐心等待维修，点击查看详细。
+          </view>
+          <view class="flex justify-between margin-top-sm">
+            <view class="light text-sm round">报修结果通知</view>
+            <view class="light text-sm round"> 2023年7月14日 11:20</view>
+          </view>
         </view>
       </view>
     </view>
   </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区通知</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content solid-bottom"> 社区通知的摘要。
-        </view>
-        <view>
-          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区通知</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-content solid-bottom"> 社区通知的摘要。
-        </view>
-        <view>
-          <view class="light text-sm round">报修接单通知 - 2023年7月13日</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
+</block>

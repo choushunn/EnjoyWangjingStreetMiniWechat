@@ -15,3 +15,5 @@
     已结束
   </view>
 </scroll-view>
+
+<view class="margin-top text-lg text-balck text-center">当前无工单记录</view>

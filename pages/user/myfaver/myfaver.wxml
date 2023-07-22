@@ -4,3 +4,4 @@
   <view slot="content">我的收藏</view>
 </cu-custom>
 
+<view class="margin-top text-lg text-black text-center">还没有收藏具体功能</view>
