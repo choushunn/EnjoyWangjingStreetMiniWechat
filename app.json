@@ -20,6 +20,7 @@
     "pages/community/feedback/feedback",
     "pages/around/home/home",
     "pages/around/add/add",
+    "pages/around/details/details",
     "pages/user/home/home",
     "pages/user/timeline/timeline",
     "pages/user/mymessage/mymessage",
