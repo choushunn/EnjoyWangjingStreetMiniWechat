@@ -1,7 +1,7 @@
 <!--pages/community/appointment/playroom/playroom.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">活动室与设备预约</view>
+  <view slot="content">邻里空间预约</view>
 </cu-custom>
 <form>
 <!-- 预约人 -->

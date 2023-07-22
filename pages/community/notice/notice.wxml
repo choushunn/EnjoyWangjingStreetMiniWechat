@@ -9,7 +9,7 @@
     <view class="cu-item shadow">
       <view class="title">
         <view class="flex justify-between">
-          <view class="text-cut">居民服务</view>
+          <view class="text-cut">社区通知</view>
           <view class="text-cut text-red">未读</view>
         </view>
       </view>
@@ -30,7 +30,7 @@
     <view class="cu-item shadow">
       <view class="title">
         <view class="flex justify-between">
-          <view class="text-cut">居民服务</view>
+          <view class="text-cut">社区通知</view>
           <view class="text-cut text-green">已读</view>
         </view>
       </view>
@@ -47,3 +47,5 @@
     </view>
   </view>
 </block>
+<view class='cu-tabbar-height text-sm justify-center text-center padding-top'>已经到底啦~ ~</view>
+<view class='cu-tabbar-height'> </view>

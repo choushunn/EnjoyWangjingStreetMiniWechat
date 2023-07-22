@@ -57,7 +57,7 @@ Component({
       url: 'complaint'
     },
     {
-      title: '意见征集',
+      title: '意见反馈',
       name: 'feedback',
       color: 'mauve',
       icon: 'question',

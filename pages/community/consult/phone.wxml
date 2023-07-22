@@ -1,0 +1,46 @@
+<!--pages/community/consult/phone.wxml-->
+<cu-custom bgColor="bg-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">电话咨询说明</view>
+</cu-custom>
+
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区服务电话1</view>
+    </view>
+    <view class="content">
+      <view class="desc padding-right-xs">
+        <view class="text-content">社区服务</view>
+        <view class="text-lg">咨询电话：1234567789</view>
+      </view>  
+    </view>
+  </view>
+</view>
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">社区服务电话1</view>
+    </view>
+    <view class="content">
+      <view class="desc padding-right-xs">
+        <view class="text-content">社区服务</view>
+        <view class="text-lg"><text class="cuIcon-dianhua text-blue "></text> 咨询电话：1234567789</view>
+      </view>  
+    </view>
+  </view>
+</view>
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-left">
+      <view class="cu-bar bg-white solid-bottom">
+        <view class="action">
+          <text class="cuIcon-dianhua text-blue "></text>电话咨询
+        </view>
+      </view>
+      <view class="padding text-lg solid-bottom">社区电话 1234567789</view>
+      <view class="padding text-lg solid-bottom">服务中心 1623165125</view>
+      <view class="padding text-lg">维修中心 1235446541</view>
+    </view>
+  </view>
+</view>
