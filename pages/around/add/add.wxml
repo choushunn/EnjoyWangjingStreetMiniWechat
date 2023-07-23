@@ -58,7 +58,6 @@
 	</view>
   <!-- 保存提交按钮 -->
   <view class="padding flex flex-direction">
-  <button class="cu-btn bg-blue lg" bindtap="save_data">保存</button>
   <button class="cu-btn bg-red margin-tb-sm lg" bindtap="submit_data">提交</button>
 </view>
   

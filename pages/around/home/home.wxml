@@ -91,7 +91,7 @@
 <!-- 列表模态框 -->
 <view class="background" bindtap="hideModal">
   <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999">
-    <view class="cu-dialog " style="background-color: lightwhite;">
+    <view class="cu-dialog ">
       <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 550rpx;">
         <view class="cu-card article {{isCard?'no-card':'margin'}} margin-top ">
           <view wx:for="{{dataAddress}}" wx:key="index" class="cu-item shadow ">

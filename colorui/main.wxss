@@ -3301,7 +3301,7 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
   transform: scale(1.185);
   backface-visibility: hidden;
   perspective: 2000rpx;
-  background: rgba(0, 0, 0, 0.6);
+
   transition: all 0.3s ease-in-out 0s;
   pointer-events: none;
 }
