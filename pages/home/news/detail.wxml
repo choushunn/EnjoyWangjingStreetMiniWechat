@@ -6,7 +6,7 @@
 
 <view class="cu-timeline  radius-lg padding">
   <view class="padding-sm text-center solid-bottom">
-    <text class="text-xxl text-bold text-black">新闻标题</text>
+    <text class="text-xxl text-bold text-black">新闻标题--{{id}}</text>
   </view>
 
   <view class="flex justify-between margin-top-xs">

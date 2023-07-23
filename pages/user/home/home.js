@@ -43,6 +43,85 @@ Component({
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
+    menuItems: [
+      {
+        id: 1,
+        label: '关于我们',
+        iconClass: 'cuIcon-info text-cyan',
+        url: '/pages/user/about/about',
+        handler: 'toPage'
+      },
+      {
+        id: 2,
+        label: '更新日志',
+        iconClass: 'cuIcon-formfill text-green',
+        url: '/pages/user/logs/logs',
+        handler: 'toPage'
+      },
+      {
+        id: 3,
+        label: '免责声明',
+        iconClass: 'cuIcon-text text-cyan',
+        url: '',
+        handler: 'showDisclaimer'
+      },
+      {
+        id: 4,
+        label: '隐私政策',
+        iconClass: 'cuIcon-safe text-cyan',
+        url: '',
+        handler: 'showPrivacyPolicy'
+      },
+      {
+        id: 5,
+        label: '用户协议',
+        iconClass: 'cuIcon-file text-cyan',
+        url: '',
+        handler: 'showUserAgreement'
+      },
+      {
+        id: 6,
+        label: '赞赏支持',
+        iconClass: 'cuIcon-appreciatefill text-red',
+        url: '',
+        handler: 'showQrcode'
+      }
+    ]
+  },
+
+  toPage: function (event) {
+    var url = event.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    })
+  },
+
+  showDisclaimer: function () {
+    wx.showToast({
+      title: '免责声明',
+      icon: 'none'
+    })
+  },
+
+  showPrivacyPolicy: function () {
+    wx.showToast({
+      title: '隐私政策',
+      icon: 'none'
+    })
+  },
+
+  showUserAgreement: function () {
+    wx.showToast({
+      title: '用户协议',
+      icon: 'none'
+    })
+  },
+
+  showQrcode: function () {
+    wx.showToast({
+      title: '赞赏支持',
+      icon: 'none'
+    })
   },
   methods: {
     toPage(e) {

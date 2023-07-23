@@ -20,6 +20,7 @@
     </swiper-item>
   </swiper>
   <!-- 活动列表 -->
+  
   <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{messageData}}" wx:key="item">
     <view class="cu-item shadow">
       <view class="content">

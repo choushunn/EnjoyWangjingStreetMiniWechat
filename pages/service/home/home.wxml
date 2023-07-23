@@ -9,56 +9,26 @@
     <input type="text" placeholder="搜索服务" confirm-type="search" bindinput="searchIcon"></input>
   </view>
 </view>
-<!-- 服务列表 -->
 <view class="cu-bar bg-white solid-bottom" style="top:{{CustomBar}}rpx;">
 </view>
-<view class="cu-bar bg-white solid-bottom">
-  <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 功能类别1
+<!-- 功能列表 -->
+<view wx:for="{{categories}}" wx:key="title">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-{{item.iconColor}}'></text> {{item.title}}
+    </view>
   </view>
-</view>
-<!-- 功能区 -->
-<view class="grid col-3 bg-white padding-sm solid-bottom">
-  <view class="padding-sm" wx:for="{{elements}}" wx:key="name" wx:if="{{index>=0}}">
-    <navigator class="bg-{{item.color}} padding radius-social text-center light"  url="https://www.baidu.com">
-      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
-      <view class="text-lg">{{item.title}}</view>
-      <view></view>
-    </navigator>
-  </view>
-</view>
-
-<view class="cu-bar bg-white solid-bottom">
-  <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 功能类别2
-  </view>
-</view>
-<!-- 功能区 -->
-<view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{elements1}}" wx:key="name" wx:if="{{index>=0}}">
-    <navigator class="bg-{{item.color}} padding radius-social text-center light"  url="https://www.baidu.com">
-      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
-      <view class="text-lg">{{item.title}}</view>
-      <view></view>
-    </navigator>
+  <!-- 功能区 -->
+  <view class="grid col-3 bg-white padding-sm solid-bottom">
+    <view class="padding-sm" wx:for="{{item.elements}}" wx:key="title">
+      <navigator class="bg-{{item.color}} padding radius-social text-center light" url="{{item.url}}">
+        <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
+        <view class="text-lg">{{item.title}}</view>
+      </navigator>
+    </view>
   </view>
 </view>
 
-<view class="cu-bar bg-white solid-bottom">
-  <view class='action'>
-    <text class='cuIcon-titles text-green '></text> 功能类别3
-  </view>
-</view>
-<!-- 功能区 -->
-<view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{elements2}}" wx:key="name" wx:if="{{index>=0}}">
-    <navigator class="bg-{{item.color}} padding radius-social text-center light" url="https://www.baidu.com">
-      <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
-      <view class="text-lg">{{item.title}}</view>
-      <view></view>
-    </navigator>
-  </view>
-</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

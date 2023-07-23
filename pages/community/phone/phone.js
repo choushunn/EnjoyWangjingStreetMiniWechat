@@ -7,15 +7,15 @@ Page({
   data: {
     dianhuadata: [{
       title: "社区服务中心",
-      number: "131121231311",
+      number: "10086",
       id: "1"
     },{
       title: "社区服务中心2",
-      number: "131121231311",
+      number: "10086",
       id: "1"
     },{
       title: "社区服务中心3",
-      number: "131121231311",
+      number: "10086",
       id: "1"
     }, ]
 

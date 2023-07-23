@@ -3,7 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">我的消息</view>
 </cu-custom>
-<!-- 搜素框 -->
+<!-- 搜索框 -->
 <view class="cu-bar search bg-white margin-0 solid-bottom">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
@@ -31,7 +31,7 @@
   <!-- 消息列表 -->
   <block wx:for="{{messageData}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
-      <view class="cu-card article {{isCard?'no-card':''}}">
+      <view class="cu-card article no-card margin-sm">
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">

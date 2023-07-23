@@ -16,6 +16,12 @@
     <view class="text-xl" style="color:white;">
       微信昵称
     </view>
+    <!-- 授权微信登录按钮 -->
+    <view class="grid padding-sm">
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn round bg-green" bindtap="onLogin">授权微信登录</button>
+      </view>
+    </view>
   </block>
   <block wx:else>
     <!-- 微信头像 -->
@@ -30,71 +36,32 @@
       {{userInfo.nickName}}
     </view>
   </block>
-  <!-- 授权微信登录按钮 -->
-  <view class="grid padding-sm">
-    <view class="margin-tb-sm text-center">
-      <button class="cu-btn round bg-green" bindtap="onLogin">授权微信登录</button>
-    </view>
-  </view>
-
   <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 <!-- 功能块 -->
 <view class="grid col-3 bg-white padding-sm">
-  <view class="padding-sm" wx:for="{{iconList}}" wx:key="icon" wx:if="{{index<iconList.length}}">
-    <navigator class="padding radius-social text-center light" url="{{item.url}}">
+  <view wx:for="{{iconList}}" wx:key="icon" wx:if="{{index<iconList.length}}">
+    <navigator class="padding-sm radius-social text-center light" url="{{item.url}}">
       <view class='cuIcon-{{item.icon}}  text-{{item.color}}'>
         <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
           <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
         </view>
       </view>
       <view class="text-lg">{{item.name}}</view>
-      <view></view>
     </navigator>
   </view>
 </view>
 <!-- 功能列表 -->
-<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-  <view class="cu-item arrow"  bindtap="toPage" data-url="/pages/user/about/about">
+<view class="cu-list menu card-menu margin-top-sm margin-bottom-xl shadow-lg radius">
+  <view wx:for="{{menuItems}}" wx:key="id" class="cu-item arrow" bindtap="{{item.handler}}" data-url="{{item.url}}">
     <button class="cu-btn content">
-      <text class="cuIcon-info text-cyan"></text>
-      <text class="text-grey">关于我们</text>
+      <text class="{{item.iconClass}}"></text>
+      <text class="text-grey">{{item.label}}</text>
     </button>
-  </view>
-  <view class="cu-item arrow">
-    <navigator class="content flex" url="/pages/user/logs/logs" hover-class="none">
-      <text class="cuIcon-formfill text-green"></text>
-      <text class="text-grey">更新日志</text>
-    </navigator>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content">
-      <text class="cuIcon-text text-cyan"></text>
-      <text class="text-grey">免责声明</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content">
-      <text class="cuIcon-safe text-cyan"></text>
-      <text class="text-grey">隐私政策</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content">
-      <text class="cuIcon-file text-cyan"></text>
-      <text class="text-grey">用户协议</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <view class="content flex" bindtap="showQrcode">
-      <text class="cuIcon-appreciatefill text-red"></text>
-      <text class="text-grey">赞赏支持</text>
-    </view>
   </view>
 </view>
-
+<!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
-

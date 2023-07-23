@@ -23,10 +23,12 @@
       <view class="solid-bottom"></view>
       <view class="title padding">
         <view class="flex justify-start align-center">
-          <view class="text-lg">
+          <view class="text-lg  text-blue">
             <view class="cuIcon-dianhua margin-right-xs"></view>
-          </view>
-          <view class="text-cut text-lg text-blue">{{item.number}}</view>
+          </view>          
+          <navigator url="tel:{{item.number}}">
+          <view class="text-cut text-lg text-blue">{{item.number}}</view>     
+        </navigator>  
         </view>
       </view>
     </view>
