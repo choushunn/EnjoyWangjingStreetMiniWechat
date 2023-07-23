@@ -57,7 +57,7 @@ Component({
     newsData: [{
 
     }],
-    "messageData": [
+    "newsData": [
       {
         "id": 1,
         "title": "社区活动1",
