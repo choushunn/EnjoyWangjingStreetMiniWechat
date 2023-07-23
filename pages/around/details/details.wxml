@@ -9,18 +9,18 @@
     <view class="flex-sub text-left">
       <view class="cu-bar bg-white solid-bottom">
         <view class="action">
-          <text class="cuIcon-card "> 概况</text>
+          <text class="cuIcon-card text-blue"> 概况</text>
         </view>
       </view>
-      <view class="padding text-xl">维也纳国际酒店</view>
-      <view class="padding text-lg">重庆市两江新区龙兴镇普福大道481号</view>
-      <view class="padding text-lg">距离当前位置678米</view>
-      <view class="padding text-lg">联系电话：023-890058888</view>
-
+      <view class="cu-card article no-card  solid-bottom " wx:for="{{addressData}}" wx:key="item" wx:if="{{index < 1}}">
+  <view class="cu-item">
+      <view class="padding text-black text-bold text-xl">{{item.title}}</view>
+      <view class="padding text-lg">{{item.desc}}</view>
+      <view class="padding text-lg">{{item.distance}}</view>
+      <view class="padding text-lg">{{item.num}}</view>
+  </view>
+      </view>
       <view class="cu-good-act margin-sm">
-        <view class="cu-good-t-box">
-
-        </view>
         <view class="cu-good-point-con">
           <swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}" circular="true">
             <swiper-item wx:for="{{goods_list}}" wx:key="index">
@@ -37,44 +37,30 @@
   </view>
 </view>
 
+<!-- 菜单 -->
 <view class="bg-white padding-lr">
   <view class="solids-bottom padding-xs flex align-center">
     <view class="flex-sub text-left">
       <view class="cu-bar bg-white">
         <view class="action">
-          <text class="cuIcon-card"> 商品</text>
+          <text class="cuIcon-card text-blue"> 详细信息</text>
         </view>
       </view>
     </view>
   </view>
 </view>
-<view class="content flex justify-between bg-white">
-  <view class="desc">
-    <view class="flex">
-      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
-      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
+<view class="cu-card article no-card  solid-bottom " wx:for="{{foodData}}" wx:key="item" wx:if="{{index < 5}}">
+  <view class="cu-item">
+    <view class="content margin-top" style="float: right; width: calc(100% - 200rpx);">
+      <view class="desc">
+        <view class="text-black text-bold text-lg">{{item.title}}</view>
+        <view class="text-black text-df">{{item.desc}}</view>
+      </view>
+      <view>
+      </view>
     </view>
-    <view>
-    </view>
-  </view>
-</view>
-<view class="content flex justify-between bg-white">
-  <view class="desc">
-    <view class="flex">
-      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
-      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
-    </view>
-    <view>
-    </view>
-  </view>
-</view>
-<view class="content flex justify-between bg-white">
-  <view class="desc">
-    <view class="flex">
-      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill " class="goodsimg"></image>
-      <view class="text-content goodstext">鱼香肉丝 配料：猪肉丝、胡萝卜、木耳等</view>
-    </view>
-    <view>
+    <view class="flex margin-top" style="width: 200rpx; float: left;">
+      <image src="{{item.imgUrl}}" mode="aspectFill" class="radius" style="height: 150rpx; width: 190rpx;margin-left: 30rpx;"></image>
     </view>
   </view>
 </view>

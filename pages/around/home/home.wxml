@@ -6,12 +6,15 @@
 <view class="cu-bar search bg-white  map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="onInput" />
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput" focus="true"/>
     <text class="cuIcon-right"></text>
-    <view wx:for="{{result}}">
+    <view bindtouchstart="bindSearch" data-keywords="{{i.name}}" wx:for="{{tips}}" wx:for-item="i">
+  {{i.name}}
+</view>
+    <!-- <view wx:for="{{result}}">
       <text>{{item.name}}</text>
       <text>{{item.address}}</text>
-    </view>
+    </view> -->
   </view>
 </view>
 <!-- 搜索结果,搜索框被激活，且有返回结果才显示 -->

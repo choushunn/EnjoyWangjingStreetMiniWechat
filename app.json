@@ -66,6 +66,7 @@
       "desc": "获取用户手机号码"
     }
   },
+  
   "requiredPrivateInfos": [
     "chooseLocation",
     "getLocation",
