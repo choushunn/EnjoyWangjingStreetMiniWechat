@@ -16,12 +16,13 @@
 <view class="grid col-2 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key="id" wx:if="{{index<12}}">
     <navigator class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" url="{{item.url}}">
-      <text class='cuIcon-{{item.icon}}'></text>
+      <text class="cuIcon-{{item.icon}}" style="font-size: 64rpx;"></text>
       <view class="text-lg">{{item.title}}</view>
       <view></view>
     </navigator>
   </view>
 </view>
+
 <!-- 新闻bar -->
 <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
   <view class='action'>

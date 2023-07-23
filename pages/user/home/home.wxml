@@ -7,19 +7,15 @@
   <block wx:if="{{!hasUserInfo}}">
     <!-- 微信头像 -->
     <view class="padding">
-      <view class="cu-avatar round xl" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000.jpg);">
+      <view class="cu-avatar round xl" style="background-image:url(https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0);">
         <!-- 性别 -->
         <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
       </view>
     </view>
-    <!-- 登录了就显示欢迎您 -->
-    <view class="text-xl" style="color:white;">
-      微信昵称
-    </view>
     <!-- 授权微信登录按钮 -->
-    <view class="grid padding-sm" bindtap="onLogin">
+    <view class="grid padding-sm"  bindtap="toPage" data-url="/pages/user/login/login">
       <view class="margin-tb-sm text-center">
-        <button class="cu-btn round bg-green">授权微信登录</button>
+        <button class="cu-btn xl round bg-gradual-green">登录/注册</button>
       </view>
     </view>
   </block>

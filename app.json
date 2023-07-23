@@ -4,7 +4,6 @@
     "pages/home/home/home",
     "pages/home/news/news",
     "pages/home/news/detail",
-    "pages/home/guideline/guideline",
     "pages/service/home/home",
     "pages/community/home/home",
     "pages/community/notice/notice",
@@ -46,8 +45,26 @@
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
+    "scope.userInfo": {
+      "desc": "获取用户信息"
+    },
     "scope.userLocation": {
-      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+      "desc": "获取用户的地理位置"
+    },
+    "scope.address": {
+      "desc": "获取用户的通讯地址"
+    },
+    "scope.record": {
+      "desc": "获取用户的录音功能"
+    },
+    "scope.writePhotosAlbum": {
+      "desc": "保存到相册"
+    },
+    "scope.camera": {
+      "desc": "拍摄照片或视频"
+    },
+    "scope.getPhoneNumber": {
+      "desc": "获取用户手机号码"
     }
   },
   "requiredPrivateInfos": [

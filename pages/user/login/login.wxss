@@ -1,1 +1,15 @@
 /* pages/user/login/login.wxss */
+button.avatar-wrapper {
+  border: none !important;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+}
+.avatar-wrapper .cu-avatar {
+  border: none;
+}
+
+.nickname-input input {
+  display: flex;
+  align-items: center;
+}

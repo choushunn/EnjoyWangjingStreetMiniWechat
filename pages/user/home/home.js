@@ -37,12 +37,6 @@ Component({
       badge: 0,
       name: '我的预约',
       url:'/pages/user/myappointment/myappointment'
-    }, {
-      icon: 'clothesfill',
-      color: 'blue',
-      badge: 0,
-      name: '登录页面',
-      url:'/pages/user/login/login'
     }],
     gridCol: 3,
     skin: false,
