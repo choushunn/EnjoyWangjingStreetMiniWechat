@@ -32,23 +32,21 @@
       </view>
     </view>
     <!-- 登录了就显示欢迎您 -->
-    <view class="text-xl" style="color:white;">
-      {{userInfo.nickName}}
+    <view class="text-xl text-white">
+     Hello, {{userInfo.nickName}}
     </view>
   </block>
   <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>
 <!-- 功能块 -->
-<view class="grid col-3 bg-white padding-sm">
-  <view wx:for="{{iconList}}" wx:key="icon" wx:if="{{index<iconList.length}}">
-    <navigator class="padding-sm radius-social text-center light" url="{{item.url}}">
-      <view class='cuIcon-{{item.icon}}  text-{{item.color}}'>
-        <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
-          <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
-        </view>
+<view class="cu-list grid col-3 no-border">
+  <view class="cu-item" wx:for="{{iconList}}" wx:key="item" wx:if="{{index<iconList.length}}" bindtap="toPage" data-url="{{item.url}}">
+    <view class="cuIcon-{{item.icon}} text-{{item.color}}">
+      <view class="cu-tag badge" wx:if="{{item.badge!=0}}">
+        <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
       </view>
-      <view class="text-lg">{{item.name}}</view>
-    </navigator>
+    </view>
+    <text>{{item.name}}</text>
   </view>
 </view>
 <!-- 功能列表 -->

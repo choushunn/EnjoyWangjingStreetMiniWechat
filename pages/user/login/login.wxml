@@ -19,9 +19,7 @@
           <text class="icon-wechat" decode="{{true}}">&nbsp;</text>
           微信用户一键登录</button>
       </view>
-     
       <view class="padding-lr-xl text-center text-gray padding-top-sm text-df">
-        <checkbox class="round green" style="transform: scale(0.5,0.5);"></checkbox>
         未注册的手机号登录时将自动注册，且代表您已经同意 <text class="solids-bottom">用户协议</text> 和 <text class="solid-bottom">隐私政策</text>
       </view>
     </view>
