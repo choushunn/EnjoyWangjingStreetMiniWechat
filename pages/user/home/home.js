@@ -45,6 +45,11 @@ Component({
     canIUseGetUserProfile: false,
   },
   methods: {
+    toPage(e) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.url
+      })
+    },
     onLogin() {
       wx.getUserProfile({
         desc: '用于完善用户资料',

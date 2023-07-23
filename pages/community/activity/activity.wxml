@@ -3,61 +3,50 @@
   <view slot="backText">返回</view>
   <view slot="content">社区活动</view>
 </cu-custom>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区活动1</view>
-    </view>
-    <view class="content">
-      <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill" style="width: 239rpx; height: 233rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
-      <view class="desc">
-        <view class="text-content"> 创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！
+<view wx:if="{{messageData}}" class="cu-timeline margin-xs radius-lg padding-top">
+  <!-- 滚动图片 -->
+  <swiper class="screen-swiper margin-sm round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{messageData}}" wx:key="item">
+      <view class="bg-img radius" style="background-image: url({{item.imgUrl}});height: 310rpx;">
+        <view class="padding-xl text-white">
+          <view class="padding-xs text-xl">
+            {{item.title}}
+          </view>
+          <view class="padding-xs">
+            {{item.des}}
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <!-- 活动列表 -->
+  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{messageData}}" wx:key="item">
+    <view class="cu-item shadow">
+      <view class="content">
+        <view class="desc">
+          <view class="text-black text-bold text-lg">{{item.title}}</view>
+          <view class="text-black text-df">{{item.desc}}</view>
+          <view class="flex justify-between">
+            <view class="text-gray text-sm">{{item.datetime}}</view>
+            <view class="text-gray text-sm padding-right">
+              <block wx:for="{{item.tags}}" wx:key="name">
+                <view class="cu-tag {{item.color}} light sm round">{{item.name}}</view>
+              </block>
+            </view>
+          </view>
         </view>
         <view>
-          <view class="text-df">2023年5月26日</view>
-          <view class="cu-tag bg-red light sm round">党组织生活</view>
-          <view class="cu-tag bg-green light sm round">活动</view>
+          <image src="{{item.imgUrl}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
         </view>
       </view>
     </view>
   </view>
 </view>
-
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区活动2</view>
-    </view>
-    <view class="content">
-      <image src="https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg" mode="aspectFill" style="width: 239rpx; height: 233rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
-      <view class="desc">
-        <view class="text-content"> 普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。</view>
-        <view>
-          <view class="text-df">2023年5月26日</view>
-          <view class="cu-tag bg-red light sm round">党组织生活</view>
-          <view class="cu-tag bg-green light sm round">活动</view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
-
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut">社区活动3</view>
-    </view>
-    <view class="content">
-      <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill" style="width: 239rpx; height: 235rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx"></image>
-      <view class="desc">
-        <view class="text-content"> 折互帮互助好邻里，互敬互爱好家庭。打造平安大院，构建和谐社会。</view>
-        <view>
-          <view class="text-df">2023年5月26日</view>
-          <view class="cu-tag bg-red light sm round">党组织生活</view>
-          <view class="cu-tag bg-green light sm round">活动</view>
-        </view>
-      </view>
-    </view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
   </view>
 </view>
 <!-- 底部版权声明 -->

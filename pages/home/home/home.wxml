@@ -3,7 +3,6 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">乐享王井街</view>
 </cu-custom>
-<!-- 功能列表 -->
 
 <!-- 轮播图 -->
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
@@ -12,6 +11,7 @@
     <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
   </swiper-item>
 </swiper>
+
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key="id" wx:if="{{index<12}}">
@@ -34,90 +34,32 @@
     </view>
   </navigator>
 </view>
-<!-- 文章列表 -->
-<view class="padding bg-white solid-bottom">
-<navigator url="/pages/home/news/detail">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">重庆日报：朝天门大桥即将建成投用</view>
-    </view>
-    <view class="content flex justify-between">
-      <view class="desc">
-        <view class="flex">
-          <image src="https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg" mode="aspectFill flex-sub" style="width: 300rpx; height: 200rpx;"></image>
-          <view class="text-content flex-sub" style="font-size: 30rpx;margin-left: 2%;">7月3日，朝天门大桥南侧公园基本完工，即将建成投入使用。</view>
-        </view>
-        <view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
-            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年7月4日</view>
-            <view class="text-gray text-sm text-right flex justify-between">
-              <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
-              <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
-              <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view></navigator>
-</view>
 
-<!-- 文章2 -->
-<view class="padding bg-white solid-bottom">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">城市管理局强化主汛期应急清漂操作业成效明显</view>
-    </view>
-    <view class="content flex justify-between">
-      <view class="desc">
-        <view class="flex">
-          <image src="https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg" mode="aspectFill flex-sub" style="width: 300rpx; height: 200rpx;"></image>
-          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">近日，受强降雨突袭影响，我市部分区域发生洪水险情，长江干流及85条中小河流出现涨水，部分河水区域漂浮物聚集。</view>
-        </view>
-        <view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
-            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年6月29日</view>
-            <view class="text-gray text-sm text-right flex justify-between">
-              <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
-              <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
-              <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
+<!-- 新闻列表 -->
+<view wx:if="{{messageData}}" class="cu-timeline radius-lg padding-top-xs">  
+  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{messageData}}" wx:key="item">
+    <view class="cu-item shadow">
+      <view class="content">
+        <view class="desc">
+          <view class="text-black text-bold text-lg">{{item.title}}</view>
+          <view class="text-black text-df">{{item.desc}}</view>
+          <view class="flex justify-between">
+            <view class="text-gray text-sm">{{item.datetime}}</view>
+            <view class="text-gray text-sm padding-right">
+              <block wx:for="{{item.tags}}" wx:key="name">
+                <view class="cu-tag {{item.color}} light sm round">{{item.name}}</view>
+              </block>
             </view>
           </view>
+        </view>
+        <view>
+          <image src="{{item.imgUrl}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
         </view>
       </view>
     </view>
   </view>
 </view>
-<!-- 文章3 -->
-<view class="padding bg-white" style="border-bottom: #e7ebed solid 1px;">
-  <view class="cu-item shadow">
-    <view class="title">
-      <view class="text-cut" style="font-weight: 500rpx; font-size: 40rpx; margin-bottom: 2%;">人民日报：重庆两江新区金山街道——奔着问题去</view>
-    </view>
-    <view class="content flex justify-between">
-      <view class="desc">
-        <view class="flex">
-          <image src="https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg" mode="aspectFill flex-sub" style="width: 300rpx; height: 200rpx;"></image>
 
-          <view class="text-content flex-sub" style="font-size: 30rpx; margin-left: 2%;">这里是重庆两江新区金山街道民心佳园夜市。此起彼伏的吆喝声和璀璨的灯光,让夏日的夜晚更加热闹。</view>
-        </view>
-        <view>
-          <view class="margin-top-sm flex justify-between">
-            <view class="cu-tag  light sm round" style="font-size: 25rpx;">重庆日报</view>
-            <view class="text-gray text-sm text-left" style="font-size: 25rpx;">2023年5月26日</view>
-            <view class="text-gray text-sm text-right flex justify-between">
-              <text class="cuIcon-attentionfill margin-lr-xs" style="font-size: 25rpx;">10</text>
-              <text class="cuIcon-appreciatefill margin-lr-xs" style="font-size: 25rpx;">20</text>
-              <text class="cuIcon-messagefill margin-lr-xs" style="font-size: 25rpx;">30</text>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
-</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

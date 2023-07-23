@@ -15,7 +15,12 @@
     已结束
   </view>
 </scroll-view>
-<view class="margin-top text-lg text-black text-center">当前无预约记录</view>
+<!-- 暂无内容 -->
+<import src="/pages/template/nodata.wxml" />
+<view class="margin-top">
+  <template is="nodata"></template>
+</view>
+<!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>

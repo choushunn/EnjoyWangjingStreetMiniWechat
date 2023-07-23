@@ -5,7 +5,7 @@
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 社区服务预约
+    <text class='cuIcon-titles text-blue '></text> 社区信息咨询
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->

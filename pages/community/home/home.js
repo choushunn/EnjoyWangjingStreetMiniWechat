@@ -37,7 +37,7 @@ Component({
       url: 'consult'
     },
     {
-      title: '信息上报',
+      title: '信息填报',
       name: 'report',
       color: 'yellow',
       icon: 'upload',
@@ -48,13 +48,6 @@ Component({
       color: 'blue',
       icon: 'dianhua',
       url: 'phone'
-    },
-    {
-      title: '投诉受理',
-      name: 'complaint',
-      color: 'purple',
-      icon: 'newshot',
-      url: 'complaint'
     },
     {
       title: '意见反馈',

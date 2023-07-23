@@ -18,13 +18,7 @@ Component({
         icon: 'servicefill',
         url:'https://www.baidu.com'
       },
-      {
-        title: '物业费',
-        name: 'text',
-        color: 'purple',
-        icon: 'group',
-        url:'https://www.baidu.com'
-      },
+     
       {
         title: '其他费 ',
         name: 'icon',
@@ -34,7 +28,7 @@ Component({
       },
     ],
     elements1: [{
-        title: '居民办事',
+        title: '居民服务',
         name: 'layout',
         color: 'cyan',
         icon: 'newsfill',
@@ -45,13 +39,6 @@ Component({
         name: 'background',
         color: 'blue',
         icon: 'servicefill',
-        url:'https://www.baidu.com'
-      },
-      {
-        title: '物业服务',
-        name: 'text',
-        color: 'purple',
-        icon: 'group',
         url:'https://www.baidu.com'
       },
       {

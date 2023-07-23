@@ -16,7 +16,19 @@
   </view>
 </scroll-view>
 
-<view class="margin-top text-lg text-balck text-center">当前无工单记录</view>
+<view wx:if="{{false}}">
+  <!-- 有内容时的渲染 -->
+
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
+
+<!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>

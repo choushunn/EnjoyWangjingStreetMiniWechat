@@ -23,6 +23,20 @@ Page({
     time: timeStr,
     date: dateStr,
     imgList: [],
+    "menu": [
+      {
+        id:0,
+        "icon": "cuIcon-btn text-green",
+        "title": "服务事项1",
+        "url": "/pages/community/repair/form"
+      },
+      {
+        id:1,
+        "icon": "cuIcon-tagfill text-red",
+        "title": "服务事项2",
+        "url": "/pages/community/repair/form"
+      }
+    ]
   },
 
   TimeChange(e) {

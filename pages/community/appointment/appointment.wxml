@@ -3,36 +3,27 @@
   <view slot="backText">返回</view>
   <view slot="content">预约服务</view>
 </cu-custom>
+<!-- 页面标题 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 社区服务预约
+    <text class='cuIcon-titles text-blue'></text> 社区服务预约
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
   </view>
 </view>
-<view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
-  <view class="cu-item {{menuArrow?'arrow':''}}">
+<!-- 预约功能列表 -->
+<view class="cu-list menu sm-border">
+  <view class="cu-item" wx:for="{{menu}}" wx:key="index">
     <view class="content">
-      <text class="cuIcon-btn text-green"></text>
-      <text class="text-grey">办事预约</text>
+      <text class="{{item.icon}}"></text>
+      <text class="text-grey">{{item.title}}</text>
     </view>
-    <view class="action">
+    <navigator class="action" url="{{item.url}}">
       <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/appointment/equipment/equipment">点我</navigator>
+        点我<view class="cuIcon-right"></view>
       </button>
-    </view>
-  </view>
-  <view class="cu-item {{menuArrow?'arrow':''}}">
-    <view class="content">
-      <text class="cuIcon-tagfill text-red"></text>
-      <text class="text-grey">邻里空间</text>
-    </view>
-    <view class="action">
-      <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/appointment/playroom/playroom">点我</navigator>
-      </button>
-    </view>
+    </navigator>
   </view>
 </view>
 <!-- 底部版权声明 -->

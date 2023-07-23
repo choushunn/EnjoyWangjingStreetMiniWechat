@@ -1,10 +1,8 @@
 <template name="nodata">
-
   <view class="nodata">
     <view class="icon"></view>
     <view class="txt">
-      {{ nodata_str || '— — 敬请期待 — —' }}
+      {{ nodata_str || '— — 暂无相关数据 — —' }}
     </view>
   </view>
-
 </template>

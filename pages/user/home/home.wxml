@@ -54,13 +54,36 @@
   </view>
 </view>
 <!-- 功能列表 -->
-
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view class="cu-item arrow"  bindtap="toPage" data-url="/pages/user/about/about">
+    <button class="cu-btn content">
+      <text class="cuIcon-info text-cyan"></text>
+      <text class="text-grey">关于我们</text>
+    </button>
+  </view>
   <view class="cu-item arrow">
-    <navigator class="content flex" url="/pages/user/timeline/timeline" hover-class="none">
+    <navigator class="content flex" url="/pages/user/logs/logs" hover-class="none">
       <text class="cuIcon-formfill text-green"></text>
-      <text class="text-grey">开发日志</text>
+      <text class="text-grey">更新日志</text>
     </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content">
+      <text class="cuIcon-text text-cyan"></text>
+      <text class="text-grey">免责声明</text>
+    </button>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content">
+      <text class="cuIcon-safe text-cyan"></text>
+      <text class="text-grey">隐私政策</text>
+    </button>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content">
+      <text class="cuIcon-file text-cyan"></text>
+      <text class="text-grey">用户协议</text>
+    </button>
   </view>
   <view class="cu-item arrow">
     <view class="content flex" bindtap="showQrcode">
@@ -68,31 +91,8 @@
       <text class="text-grey">赞赏支持</text>
     </view>
   </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="feedback">
-      <text class="cuIcon-info text-cyan"></text>
-      <text class="text-grey">关于我们</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="feedback">
-      <text class="cuIcon-text text-cyan"></text>
-      <text class="text-grey">免责声明</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="feedback">
-      <text class="cuIcon-safe text-cyan"></text>
-      <text class="text-grey">隐私政策</text>
-    </button>
-  </view>
-  <view class="cu-item arrow">
-    <button class="cu-btn content" open-type="feedback">
-      <text class="cuIcon-file text-cyan"></text>
-      <text class="text-grey">用户协议</text>
-    </button>
-  </view>
 </view>
+
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>

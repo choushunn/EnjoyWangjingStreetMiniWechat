@@ -3,3 +3,22 @@
 @import "colorui/icon.wxss";
 @import "colorui/animation.wxss";
 
+
+.nodata {
+  font-size: 30rpx;
+  line-height: 1.2;
+  font-weight: normal;
+  text-align: center;
+  color: #999;
+  margin-top: 200rpx;
+  margin-bottom: 200rpx;
+}
+
+.nodata .icon {
+  height: 240rpx;
+  background: url("https://img01.yzcdn.cn/vant/empty-image-default.png") no-repeat center/210rpx auto;
+}
+
+.nodata .txt {
+  padding-top: 60rpx;
+}

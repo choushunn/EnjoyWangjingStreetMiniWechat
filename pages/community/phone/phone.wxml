@@ -12,54 +12,26 @@
     <button class="cu-btn bg-green shadow-blur round">搜索</button>
   </view>
 </view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title solid-bottom">
-      <view class="text-cut">社区服务电话</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-lg"> 12345678901 </view>
+<block wx:for="{{dianhuadata}}" wx:key="id">
+  <view class="cu-card no-card margin-xs">
+    <view class="cu-item shadow radius-xl">
+      <view class="title padding">
+        <view class="flex justify-start align-center">
+          <view class="text-cut text-xl text-bold">{{item.title}}</view>
+        </view>
+      </view>
+      <view class="solid-bottom"></view>
+      <view class="title padding">
+        <view class="flex justify-start align-center">
+          <view class="text-lg">
+            <view class="cuIcon-dianhua margin-right-xs"></view>
+          </view>
+          <view class="text-cut text-lg text-blue">{{item.number}}</view>
+        </view>
       </view>
     </view>
   </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title solid-bottom">
-      <view class="text-cut">维修服务中心</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-lg"> 12345678901 </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title solid-bottom">
-      <view class="text-cut">车站</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-lg"> 12345678901 </view>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="cu-card article {{isCard?'no-card':''}}">
-  <view class="cu-item shadow">
-    <view class="title solid-bottom">
-      <view class="text-cut">警务中心</view>
-    </view>
-    <view class="content">
-      <view class="desc">
-        <view class="text-lg"> 12345678901 </view>
-      </view>
-    </view>
-  </view>
-</view>
+</block>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
