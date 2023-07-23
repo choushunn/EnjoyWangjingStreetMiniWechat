@@ -12,11 +12,10 @@
   </view>
 </view>
 <block wx:for="{{dianhuadata}}" wx:key="id">
-  <view class="cu-card ">
-    <view class="cu-item shadow radius-xl">
+  <view class="cu-card margin-xs no-card">
+    <view class="cu-item shadow">
       <view class="title padding solid-bottom">
         <view class="flex justify-start align-center">
-          <!-- <view class="cuIcon-communityfill text-blue margin-right-xs"></view> -->
           <view class="text-cut text-xl">{{item.title}}</view>
         </view>
       </view>

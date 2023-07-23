@@ -30,6 +30,7 @@
     "pages/user/myfeedback/myfeedback",
     "pages/user/myappointment/myappointment",
     "pages/user/myorder/myorder",
+    "pages/user/myorder/detail",
     "pages/user/login/login"
   ],
   "window": {

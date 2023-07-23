@@ -17,7 +17,39 @@ Page({
       status:1,
       desc:"您的报修已被接单，请耐心等待维修，点击查看详细。",
       datetime:"2023年7月14日 11:20"
+    }],numList: [{
+      name: '开始'
+    }, {
+      name: '等待'
+    }, {
+      name: '错误'
+    }, {
+      name: '完成'
+    }, ],
+    num: 0,
+    scroll: 0,
+    messageData:[{
+      id:0,
+      title:"某某故障-无法上网",
+      status:0,
+      desc:"某某地点出现情况",
+      datetime:"2023年7月14日 11:20",
+      type:"报修结果通知",
+      url:"/pages/user/myorder/detail"
+    },{
+      id:1,
+      title:"某某故障-无法上网",
+      status:1,
+      desc:"某某地点出现情况",
+      datetime:"2023年7月14日 11:20",
+      type:"报修接单通知", 
+      url:"/pages/user/myorder/detail"
     }]
+  },
+  numSteps() {
+    this.setData({
+      num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
+    })
   },
   tabSelect(e) {
     this.setData({
