@@ -31,7 +31,8 @@
     "pages/user/myfaver/myfaver",
     "pages/user/myfeedback/myfeedback",
     "pages/user/myappointment/myappointment",
-    "pages/user/myorder/myorder"
+    "pages/user/myorder/myorder",
+    "pages/user/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

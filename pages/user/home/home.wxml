@@ -17,9 +17,9 @@
       微信昵称
     </view>
     <!-- 授权微信登录按钮 -->
-    <view class="grid padding-sm">
+    <view class="grid padding-sm" bindtap="onLogin">
       <view class="margin-tb-sm text-center">
-        <button class="cu-btn round bg-green" bindtap="onLogin">授权微信登录</button>
+        <button class="cu-btn round bg-green">授权微信登录</button>
       </view>
     </view>
   </block>
