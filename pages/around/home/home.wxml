@@ -6,12 +6,12 @@
 <view class="cu-bar search bg-white  map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="onInput"/>
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="onInput" />
     <text class="cuIcon-right"></text>
     <view wx:for="{{result}}">
-    <text>{{item.name}}</text>
-    <text>{{item.address}}</text>
-  </view>
+      <text>{{item.name}}</text>
+      <text>{{item.address}}</text>
+    </view>
   </view>
 </view>
 <!-- 搜索结果,搜索框被激活，且有返回结果才显示 -->
@@ -22,27 +22,27 @@
   </map>
 </view>
 <!-- 左侧工具条 -->
-<view class="map_cover flex justify-start left-tool-margin left-tool">
+<!-- <view class="map_cover flex justify-start left-tool-margin left-tool">
   <view class="bg-white line-black left-tool-radius">
-    <view class="left-tool-flex margin-lr">
+    <view class="left-tool-flex margin-lr"> -->
       <!-- 服务点 -->
-      <view class="text-right-xl text-center" bindtap="showModal" data-target="DrawerModalL">
+      <!-- <view class="text-right-xl text-center" bindtap="showModal" data-target="DrawerModalL">
         <view class="cuIcon-cascades"></view>
         <view class="text-sm text-center text-balck">服务点</view>
-      </view>
+      </view> -->
       <!-- 图标 -->
-      <view class="cuIcon-right"></view>
-    </view>
+      <!-- <view class="cuIcon-right"></view>-->
+    <!-- </view>
   </view>
-</view>
+</view>  -->
 <!-- 右侧工具条 -->
-<view class="map_cover flex justify-end right-tool-margin right-tool">
+<view class="map_cover flex justify-end right-tool-margin right-tool ">
   <view class="bg-white line-black right-tool-radius">
     <view class="solid-bottom text-right-xl text-center" bindtap="showModal" data-target="DrawerModalR">
       <view class="cuIcon-cascades"></view>
       <view class="text-sm text-center text-balck">筛选</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation">
+    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation"> 
       <view class="cuIcon-location"></view>
       <view class="text-sm text-center text-balck">定位</view>
     </view>
@@ -86,33 +86,24 @@
 </view>
 
 <!-- 列表模态框 -->
-<view class="background" bindtap="hideModal" >
-  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999; margin-top: 150%;" >
-    <view class="cu-dialog">
-    <view class="content">
-      <view class="padding text-xl">维也纳国际酒店</view>
-      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
-      <view class="text-lg">距离当前位置678米</view>
-      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
-    </view>
-    <view class="content" >
-      <view class="padding text-xl">维也纳国际酒店</view>
-      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
-      <view class="text-lg">距离当前位置678米</view>
-      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
-    </view>
-    <view class="content">
-      <view class="padding text-xl">维也纳国际酒店</view>
-      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
-      <view class="text-lg">距离当前位置678米</view>
-      <view class="text-lg" style="border-bottom: solid grey 1rpx;">联系电话：023-890058888</view>
-    </view>
-    <view class="content">
-      <view class="padding text-xl">维也纳国际酒店</view>
-      <view class="text-lg">重庆市两江新区龙兴镇普福大道481号</view>
-      <view class="text-lg">距离当前位置678米</view>
-      <view class="text-lg">联系电话：023-890058888</view>
-    </view>
+<view class="background" bindtap="hideModal">
+  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 9999999999">
+    <view class="cu-dialog " style="background-color: lightwhite;">
+      <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 550rpx;">
+        <view class="cu-card article {{isCard?'no-card':'margin'}} margin-top ">
+          <view wx:for="{{dataAddress}}" wx:key="index" class="cu-item shadow ">
+          <view class="flex justify-between ">
+            <view class="title flex">{{item.name}}</view>
+            <!-- <view class="cuIcon-forward text-blue margin-top-sm"></view> -->
+          </view>
+            <view style="margin-left: 5%;">
+            <view class="text-lg flex">{{item.address}}</view>
+            <view class="text-lg flex">{{item.distance}}</view>
+            <view class="text-lg flex">联系电话：{{item.phone}}</view>
+          </view>
+          </view>
+        </view>
+      </scroll-view>
     </view>
   </view>
 </view>
@@ -128,7 +119,7 @@
     </view>
     <view class="cu-card article no-card solid-bootom">
       <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">服务</button> 
+        <button class="cu-btn">服务</button>
         <button class="cu-btn">出行</button>
         <button class="cu-btn">设施</button>
       </view>
@@ -141,48 +132,48 @@
     </view>
     <view class="cu-card article no-card solid-bootom">
       <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">所有</button> 
-        <button class="cu-btn">100米</button>
-        <button class="cu-btn">200米</button>
+        <button class="cu-btn">服务</button>
+        <button class="cu-btn">出行</button>
+        <button class="cu-btn">设施</button>
       </view>
     </view>
   </view>
 </view>
 
-<!-- 服务点模态框 -->
+<!-- 筛选模态框 -->
 <view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
     <!-- 类别筛选 -->
-    <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="cu-bar bg-white solid-bottom ">
       <view class='action'>
         <text class='cuIcon-titles text-blue '></text> 区域
         <text class="selected">{{selected}}</text>
       </view>
     </view>
     <view class="padding-lr bg-white">
-    <view class="padding-tb grid col-3">
-      <block wx:for="{{hot_list}}" wx:key="index">
-        <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSelecte" >
-          <button class="cu-tag bg-blue light" data-content="{{item}}">{{item}}</button>
-        </view>
-      </block>
+      <view class="padding-tb grid col-3">
+        <block wx:for="{{hot_list}}" wx:key="index">
+          <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSelecte">
+            <button class="cu-btn bg-blue light" data-content="{{item}}">{{item}}</button>
+          </view>
+        </block>
+      </view>
     </view>
-  </view>
     <!-- 类别筛选 2-->
-    <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="cu-bar bg-white solid-bottom">
       <view class='action'>
-        <text class='cuIcon-titles text-blue '></text> 类型
+        <text class='cuIcon-titles text-blue '></text> 范围
       </view>
     </view>
     <view class="padding-lr bg-white">
-    <view class="padding-tb grid col-3">
-      <block wx:for="{{hot_list}}" wx:key="index">
-        <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSearch" >
-          <view class="cu-tag bg-blue light">{{item}}</view>
-        </view>
-      </block>
+      <view class="padding-tb grid col-3">
+        <block wx:for="{{area_list}}" wx:key="index">
+          <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSearch">
+            <button class="cu-btn bg-blue light">{{item}}</button>
+          </view>
+        </block>
+      </view>
     </view>
-  </view>
   </view>
 </view>
 <!-- 

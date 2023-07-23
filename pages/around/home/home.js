@@ -20,32 +20,38 @@ Component({
     latitude: '', // 当前位置的纬度
     longitude: '', // 当前位置的经度
     textData: {}, // 显示标记点信息的数据
-    hot_list: ['AA街道', 'BB街道', 'CC街道', 'DD街道'],
+    hot_list: ['服务', '出行', '设施'],
+    area_list: ['所有','100m','200m'],
     list: [],
     dataAddress: [{
-        name: '地点1',
-        desc: '描述1',
-        distance: 1.2
+      name: '维也纳国际酒店',
+      address: '重庆市两江新区龙兴镇普福大道481号',
+      distance: '距离当前位置678米',
+      phone: '023-890058888'
       },
       {
-        name: '地点2',
-        desc: '描述2',
-        distance: 2.5
+        name: '维也纳国际酒店',
+        address: '重庆市两江新区龙兴镇普福大道481号',
+        distance: '距离当前位置678米',
+        phone: '023-890058888'
       },
       {
-        name: '地点3',
-        desc: '描述3',
-        distance: 3.8
+        name: '维也纳国际酒店',
+        address: '重庆市两江新区龙兴镇普福大道481号',
+        distance: '距离当前位置678米',
+        phone: '023-890058888'
       },
       {
-        name: '地点4',
-        desc: '描述4',
-        distance: 4.1
+        name: '维也纳国际酒店',
+        address: '重庆市两江新区龙兴镇普福大道481号',
+        distance: '距离当前位置678米',
+        phone: '023-890058888'
       },
       {
-        name: '地点5',
-        desc: '描述5',
-        distance: 5.3
+        name: '维也纳国际酒店',
+        address: '重庆市两江新区龙兴镇普福大道481号',
+        distance: '距离当前位置678米',
+        phone: '023-890058888'
       }
     ]
   },
