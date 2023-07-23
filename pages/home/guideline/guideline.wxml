@@ -4,3 +4,8 @@
   <view slot="content">办事指南</view>
 </cu-custom>
 
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

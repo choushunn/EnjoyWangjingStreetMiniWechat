@@ -36,3 +36,8 @@
   </view>
 </view>
 
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

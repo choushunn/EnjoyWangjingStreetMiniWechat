@@ -1,7 +1,11 @@
 <!--pages/user/timeline/timeline.wxml-->
-<cu-custom bgColor="bg-gradual-green" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">日志</view></cu-custom>
-<view class="cu-timeline">
-  <view class="cu-item text-green">
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}" isCustom="{{false}}" isLucency="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">开发日志</view>
+</cu-custom>
+
+<view class="cu-timeline text-df padding bg-gray">
+  <view class="cu-item cur cuIcon-noticefill text-green bg-white">
     <view class="bg-gradual-green content shadow">
       <view class="cu-capsule radius">
         <view class="cu-tag bg-white text-green">v1.0.1</view>
@@ -13,9 +17,9 @@
         <view>3.优化demo显示</view>
         <view>4.优化阴影</view>
       </view>
-    </view>   
+    </view>
   </view>
-  <view class="cu-item text-green">
+  <view class="cu-item text-green bg-white">
     <view class="bg-green content shadow">
       <view class="cu-capsule radius">
         <view class="cu-tag bg-white text-green">v1.0.0</view>
@@ -24,4 +28,10 @@
       <view class="margin-top-sm text-content">1.乐享王井街微信小程序版本上线</view>
     </view>
   </view>
+</view>
+
+
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top bg-gray">
+  <template is="copyright"></template>
 </view>

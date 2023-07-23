@@ -5,3 +5,8 @@
 </cu-custom>
 
 <view class="margin-top text-lg text-black text-center">还没有收藏具体功能</view>
+
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

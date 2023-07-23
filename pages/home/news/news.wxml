@@ -169,4 +169,8 @@
     <view class="padding text-lg">社区通知消息社区活动</view>
   </view>
 </block>
-<view class='cu-tabbar-height'></view>
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

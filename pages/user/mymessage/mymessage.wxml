@@ -70,3 +70,8 @@
     </view>
   </view>
 </block>
+
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>
