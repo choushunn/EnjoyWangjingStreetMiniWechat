@@ -6,7 +6,7 @@
 <view class="UCenter-bg">
   <block wx:if="{{!hasUserInfo}}">
     <!-- 微信头像 -->
-    <view class="padding">
+    <view class="padding" bindtap="/pages/user/home/userinfo">
       <view class="cu-avatar round xl" style="background-image:url(https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0);">
         <!-- 性别 -->
         <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>

@@ -1,0 +1,13 @@
+<!--pages/user/home/userinfo.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">个人中心</view>
+</cu-custom>
+<!-- 头像 -->
+<!-- 昵称 -->
+<!-- 性别 -->
+<!-- 手机号 -->
+<!-- 邮箱地址 -->
+<!-- 身份证号 -->
+<!-- 地址 -->
+<!-- 身份状态 -->
