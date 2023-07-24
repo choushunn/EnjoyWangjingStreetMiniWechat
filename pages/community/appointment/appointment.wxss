@@ -1,1 +1,4 @@
 /* pages/community/appointment/appointment.wxss */
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+@import "/colorui/animation.wxss";

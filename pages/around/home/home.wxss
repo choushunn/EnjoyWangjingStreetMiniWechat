@@ -63,8 +63,8 @@
 }
 
 .right-tool-margin {
-  margin-top: 200rpx;
-  margin-right: 30rpx;
+  margin-top:45%;
+  margin-right: 3%;
 }
 
 .location-margin-top {

@@ -34,7 +34,7 @@
   <view class="cu-form-group">
     <text class="title">反馈类型</text>
   </view>
-  <view class="bg-white padding  solid-bottom">
+  <view class="bg-white solid-bottom">
     <view class="grid col-3  text-center">
       <view>
         <button class="cu-btn ">社区服务</button>
@@ -46,13 +46,13 @@
         <button class="cu-btn ">产品建议</button>
       </view>
       <view>
-        <button class="cu-btn ">安全分类</button>
+        <button class="cu-btn margin-top">安全分类</button>
       </view>
       <view>
-        <button class="cu-btn ">功能异常</button>
+        <button class="cu-btn margin-top">功能异常</button>
       </view>
       <view>
-        <button class="cu-btn ">其他问题</button>
+        <button class="cu-btn margin-top">其他问题</button>
       </view>
     </view>
   </view>

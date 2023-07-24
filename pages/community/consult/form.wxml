@@ -1,7 +1,7 @@
 <!--pages/community/consult/form.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">活动室与设备预约</view>
+  <view slot="content">预约咨询</view>
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>

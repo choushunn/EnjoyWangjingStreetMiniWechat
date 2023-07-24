@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     "menu": [
       {
         id:0,
@@ -21,6 +22,14 @@ Page({
     ]
   },
 
+// 点击帮助图标时显示帮助信息
+showHelp: function() {
+  wx.showModal({
+    title: '帮助信息',
+    content: '请选择您要进行的操作。',
+    showCancel: false,
+  });
+},
   /**
    * 生命周期函数--监听页面加载
    */
