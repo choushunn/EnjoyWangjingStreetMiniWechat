@@ -85,9 +85,9 @@
       </view>
     </view>
   </view>
-  <!-- 提交按钮 -->
-  <view class="padding flex flex-direction bg-white">
-    <button class="cu-btn bg-green margin-tb-sm lg" bindtap="submit_data">提交</button>
+  <!-- 保存提交按钮 -->
+  <view class="padding bg-white">
+    <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
   </view>
 </form>
 
