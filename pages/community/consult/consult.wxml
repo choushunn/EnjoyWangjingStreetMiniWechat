@@ -40,3 +40,9 @@
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
+
+<!-- 浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-white" style="font-size: 400%; margin-top: 60%;margin-left: 78%; float: right; border-radius: 20%;position: absolute;" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow" style="font-size: 400%;margin: 78%; border-radius:20%; float: right;position: absolute;" url="/pages/community/consult/form"></navigator>
+</view>

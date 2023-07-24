@@ -9,8 +9,8 @@ var hour = now.getHours();
 var minute = now.getMinutes();
 var second = now.getSeconds();
 // 将时间格式化为字符串
-var timeStr =  hour + ':' + minute ;
-var dateStr =  year + '-' + month + '-' + day ;
+var timeStr = hour + ':' + minute;
+var dateStr = year + '-' + month + '-' + day;
 Page({
 
 
@@ -23,15 +23,14 @@ Page({
     time: timeStr,
     date: dateStr,
     imgList: [],
-    "menu": [
-      {
-        id:0,
+    "menu": [{
+        id: 0,
         "icon": "cuIcon-btn text-green",
         "title": "服务事项1",
         "url": "/pages/community/repair/form"
       },
       {
-        id:1,
+        id: 1,
         "icon": "cuIcon-tagfill text-red",
         "title": "服务事项2",
         "url": "/pages/community/repair/form"
@@ -90,12 +89,19 @@ Page({
       }
     })
   },
-  save_data(e){
+  save_data(e) {
     console.log("正在保存")
-    },
-    submit_data(e){
-      console.log("正在提交")
-    },
+  },
+  submit_data(e) {
+    console.log("正在提交")
+  },
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '请选择您要进行的操作。',
+      showCancel: false,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

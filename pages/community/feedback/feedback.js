@@ -33,8 +33,8 @@ Page({
   },
   DelImg(e) {
     wx.showModal({
-      title: '删除照片',
-      content: '确定要删除照片吗？',
+      title: '删除图片',
+      content: '确定要删除图片吗？',
       cancelText: '取消',
       confirmText: '确定',
       success: res => {

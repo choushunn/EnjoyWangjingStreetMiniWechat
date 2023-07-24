@@ -8,7 +8,13 @@ Page({
   data: {
 
   },
-
+  showHelp: function() {
+    wx.showModal({
+      title: '帮助信息',
+      content: '请选择您要进行的操作。',
+      showCancel: false,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

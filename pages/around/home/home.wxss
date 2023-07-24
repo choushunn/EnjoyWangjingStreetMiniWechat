@@ -63,7 +63,7 @@
 }
 
 .right-tool-margin {
-  margin-top: 40%;
+  margin-top:45%;
   margin-right: 3%;
 }
 
