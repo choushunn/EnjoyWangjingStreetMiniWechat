@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="padding-bottom-xxl padding-top padding-lr text-center">
-      <view class="flex flex-column margin-sm justify-center" bindtap='showModal' data-target="Modal">
+      <view class="flex flex-column margin-sm justify-center" bindtap='onTap' data-target="Modal">
         <button class="cu-btn xxl bg-gradual-blue round">
           <text class="icon-wechat" decode="{{true}}">&nbsp;</text>
           微信用户一键登录</button>
@@ -25,6 +25,7 @@
     </view>
   </view>
 </view>
+
 <!-- 模态框 -->
 <view class="cu-modal {{modalName=='Modal'?'show':''}}">
   <!-- 模态框标题 -->
@@ -37,14 +38,14 @@
     </view>
     <!-- 模态框内容区域 -->
     <view class="padding-xl bg-white">
-      <!-- 选择头像区域 -->
-      <view class="margin-lr-sm" style="border: none;">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
-          <image class="cu-avatar round xl margin-tb" src="{{avatarUrl}}" mode="aspectFill"></image>
-        </button>
-      </view>
-      <!-- 选择昵称区域 -->
-      <form catchsubmit="saveData" class="text-center">
+      <form catchsubmit="submit" class="text-center">
+        <!-- 选择头像区域 -->
+        <view class="margin-lr-sm" style="border: none;">
+          <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+            <image class="cu-avatar round xl margin-tb" src="{{avatarUrl}}" mode="aspectFill"></image>
+          </button>
+        </view>
+        <!-- 选择昵称区域 -->
         <view class="margin-sm padding-tb solid-top solid-bottom text-xl">
           <input type="nickname" name="nickname" placeholder="请输入昵称" />
         </view>
@@ -52,7 +53,7 @@
           选择使用的微信头像和昵称。
         </view>
         <view class="flex flex-column margin-sm radius-lg">
-          <button class="cu-btn bg-gradual-green lg shadow" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即登录</button>
+          <button class="cu-btn bg-gradual-green lg shadow" form-type="submit" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">立即登录</button>
         </view>
       </form>
     </view>
