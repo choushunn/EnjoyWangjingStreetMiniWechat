@@ -23,6 +23,7 @@
     "pages/around/add/add",
     "pages/around/details/details",
     "pages/user/home/home",
+    "pages/user/home/userinfo",
     "pages/user/logs/logs",
     "pages/user/about/about",
     "pages/user/mymessage/mymessage",
