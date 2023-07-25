@@ -3,65 +3,42 @@
   <view slot="backText">返回</view>
   <view slot="content">详情</view>
 </cu-custom>
-
-<view class="bg-white padding-lr">
-  <view class="solids-bottom padding-xs flex align-center">
-    <view class="flex-sub text-left">
-      <view class="cu-bar bg-white solid-bottom">
-        <view class="action">
-          <text class="cuIcon-card text-blue"> 概况</text>
-        </view>
-      </view>
-      <view class="cu-card article no-card  solid-bottom " wx:for="{{addressData}}" wx:key="item" wx:if="{{index < 1}}">
-  <view class="cu-item">
-      <view class="padding text-black text-bold text-xl">{{item.title}}</view>
-      <view class="padding text-lg">{{item.desc}}</view>
-      <view class="padding text-lg">{{item.distance}}</view>
-      <view class="padding text-lg">{{item.num}}</view>
+<!-- 页面标题 -->
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue'></text>概况
   </view>
-      </view>
-      <view class="cu-good-act margin-sm">
-        <view class="cu-good-point-con">
-          <swiper class="swiper-box" indicator-dots="{{false}}" autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}" circular="true">
-            <swiper-item wx:for="{{goods_list}}" wx:key="index">
-              <view class="cu-good-point-flex" wx:for="{{item.goods}}" wx:for-item="its" wx:key="key">
-                <image class="cu-good-point-img radius-lg" src="{{its.img}}"></image>
-              </view>
-            </swiper-item>
-          </swiper>
-        </view>
-      </view>
-
-
+  <view class='action'>
+    <!-- 右侧按钮 -->
+  </view>
+</view>
+<!-- 页面概况信息 -->
+<view class="solid-bottom">
+  <view class="padding text-black text-bold text-xl">{{addressData[0].title}}</view>
+  <view class="padding text-lg">{{addressData[0].desc}}</view>
+  <view class="padding text-lg">{{addressData[0].distance}}</view>
+  <view class="padding text-lg">{{addressData[0].num}}</view>
+</view>
+<!-- 页面详细信息 -->
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue'></text>详细信息
+  </view>
+  <view class='action'>
+    <!-- 右侧按钮 -->
+  </view>
+</view>
+<view class="grid col-3 bg-white padding-sm">
+  <view class="padding-sm" wx:for="{{foodData}}" wx:key="id" wx:if="{{index<12}}">
+    <view class="text-center">
+      <image src="{{item.imgUrl}}" mode="aspectFill" class="cu-avatar radius xl"></image>
+      <view class="text-df text-red margin-top">{{item.title}}/15元</view>
     </view>
   </view>
 </view>
 
-<!-- 菜单 -->
-<view class="bg-white padding-lr">
-  <view class="solids-bottom padding-xs flex align-center">
-    <view class="flex-sub text-left">
-      <view class="cu-bar bg-white">
-        <view class="action">
-          <text class="cuIcon-card text-blue"> 详细信息</text>
-        </view>
-      </view>
-    </view>
-  </view>
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
 </view>
-<view class="cu-card article no-card  solid-bottom " wx:for="{{foodData}}" wx:key="item" wx:if="{{index < 5}}">
-  <view class="cu-item">
-    <view class="content margin-top" style="float: right; width: calc(100% - 200rpx);">
-      <view class="desc">
-        <view class="text-black text-bold text-lg">{{item.title}}</view>
-        <view class="text-black text-df">{{item.desc}}</view>
-      </view>
-      <view>
-      </view>
-    </view>
-    <view class="flex margin-top" style="width: 200rpx; float: left;">
-      <image src="{{item.imgUrl}}" mode="aspectFill" class="radius" style="height: 150rpx; width: 190rpx;margin-left: 30rpx;"></image>
-    </view>
-  </view>
-</view>
-<view class='cu-tabbar-height bg-white text-sm justify-center text-center padding-top'>已经到底啦~ ~</view>

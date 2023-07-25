@@ -6,11 +6,11 @@
 <view class="cu-bar search bg-white  map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput" focus="true"/>
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput" focus="false" />
     <text class="cuIcon-right"></text>
     <view bindtouchstart="bindSearch" data-keywords="{{i.name}}" wx:for="{{tips}}" wx:for-item="i">
-  {{i.name}}
-</view>
+      {{i.name}}
+    </view>
     <!-- <view wx:for="{{result}}">
       <text>{{item.name}}</text>
       <text>{{item.address}}</text>
@@ -24,20 +24,6 @@
   <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" style="position: relative; left: 0rpx; top: 0rpx">
   </map>
 </view>
-<!-- 左侧工具条 -->
-<!-- <view class="map_cover flex justify-start left-tool-margin left-tool">
-  <view class="bg-white line-black left-tool-radius">
-    <view class="left-tool-flex margin-lr"> -->
-      <!-- 服务点 -->
-      <!-- <view class="text-right-xl text-center" bindtap="showModal" data-target="DrawerModalL">
-        <view class="cuIcon-cascades"></view>
-        <view class="text-sm text-center text-balck">服务点</view>
-      </view> -->
-      <!-- 图标 -->
-      <!-- <view class="cuIcon-right"></view>-->
-    <!-- </view>
-  </view>
-</view>  -->
 <!-- 右侧工具条 -->
 <view class="map_cover flex justify-end right-tool-margin right-tool">
   <view class="bg-white line-black right-tool-radius">
@@ -45,7 +31,7 @@
       <view class="cuIcon-cascades"></view>
       <view class="text-sm text-center text-balck">筛选</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation"> 
+    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation">
       <view class="cuIcon-location"></view>
       <view class="text-sm text-center text-balck">定位</view>
     </view>
@@ -60,50 +46,51 @@
   </view>
 </view>
 <!-- 地点详情卡片 -->
-<view class="flex align-end justify-center map_cover location-margin-top location-card">
-  <view class="cu-card article">
-    <view class="cu-item shadow">
-      <view class="title">
-        <block wx:if="{{textData.name}}">
-          <view class="text-cut">{{textData.name}}</view>
-        </block>
-        <block wx:else>
-          <view class="text-cut">暂未获取定位</view>
-        </block>
-      </view>
-      <view class="content">
-        <view class="desc">
-          <block wx:if="{{textData.desc}}">
-            <view class="text-df margin-bottom"> {{textData.desc}}</view>
-          </block>
-          <block wx:else>
-            <view class="text-df margin-bottom"> 暂未获取定位</view>
-          </block>
-          <view class="flex justify-end">
-            <navigator class="cu-tag bg-green light sm round" url="/pages/around/details/details">查看详情</navigator>
+<swiper class="card-swiper add-cover" circular="true" bindchange="cardSwiper" previousMargin="0.02rpx">
+  <swiper-item wx:for="{{dataAddress}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <view class="cu-card article">
+        <view class="cu-item shadow">
+          <view class="title">
+            <block wx:if="{{textData.name}}">
+              <view class="text-cut">{{textData.name}}</view>
+            </block>
+            <block wx:else>
+              <view class="text-cut">暂未获取定位</view>
+            </block>
+          </view>
+          <view class="content">
+            <view class="desc">
+              <block wx:if="{{textData.desc}}">
+                <view class="text-df margin-bottom"> {{textData.desc}}</view>
+              </block>
+              <block wx:else>
+                <view class="text-df margin-bottom"> 暂未获取定位</view>
+              </block>
+              <view class="flex justify-end">
+                <navigator class="cu-tag bg-green light sm round" url="/pages/around/details/details">查看详情</navigator>
+              </view>
+            </view>
           </view>
         </view>
       </view>
     </view>
-  </view>
-</view>
+  </swiper-item>
+</swiper>
 
 <!-- 列表模态框 -->
 <view class="background" bindtap="hideModal">
   <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}" style="z-index: 10000;background:transparent">
-    <view class="cu-dialog ">
-      <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 550rpx;">
-        <view class="cu-card article {{isCard?'no-card':'margin'}} margin-top ">
-          <view wx:for="{{dataAddress}}" wx:key="index" class="cu-item shadow ">
-          <view class="flex justify-between ">
-            <view class="title flex">{{item.name}}</view>
-            <!-- <view class="cuIcon-forward text-blue margin-top-sm"></view> -->
-          </view>
-            <view style="margin-left: 5%;">
-            <view class="text-lg flex">{{item.address}}</view>
-            <view class="text-lg flex">{{item.distance}}</view>
-            <view class="text-lg flex">联系电话：{{item.phone}}</view>
-          </view>
+    <view class="cu-dialog">
+      <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 630rpx;">
+        <view class="cu-card no-card">
+          <view wx:for="{{dataAddress}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
+            <view class="margin-lr margin-tb-xs text-bold">{{item.name}}</view>
+            <view class="margin-lr text-df">
+              <view>{{item.address}}</view>
+              <!-- <view class="text-lg">{{item.distance}}</view> -->
+              <view>联系电话：{{item.phone}}</view>
+            </view>
           </view>
         </view>
       </scroll-view>
@@ -122,7 +109,9 @@
     </view>
     <view class="cu-card article no-card solid-bootom">
       <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">服务</button>
+        <button class="cu-btn">餐饮</button>
+        <button class="cu-btn">学校</button>
+        <button class="cu-btn">其他</button>
         <button class="cu-btn">出行</button>
         <button class="cu-btn">设施</button>
       </view>
@@ -135,7 +124,9 @@
     </view>
     <view class="cu-card article no-card solid-bootom">
       <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">服务</button>
+        <button class="cu-btn">餐饮</button>
+        <button class="cu-btn">学校</button>
+        <button class="cu-btn">其他</button>
         <button class="cu-btn">出行</button>
         <button class="cu-btn">设施</button>
       </view>
@@ -144,7 +135,7 @@
 </view>
 
 <!-- 筛选模态框 -->
-<view class="cu-modal drawer-modal justify-end {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom ">
@@ -156,7 +147,7 @@
     <view class="padding-lr bg-white">
       <view class="padding-tb grid col-3">
         <block wx:for="{{hot_list}}" wx:key="index">
-          <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSelecte">
+          <view class="padding-xs " data-index="{{index}}" catchtap="getSelecte">
             <button class="cu-btn bg-blue light" data-content="{{item}}">{{item}}</button>
           </view>
         </block>

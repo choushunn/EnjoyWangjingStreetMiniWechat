@@ -20,10 +20,12 @@ Component({
     latitude: '', // 当前位置的纬度
     longitude: '', // 当前位置的经度
     textData: {}, // 显示标记点信息的数据
-    hot_list: ['服务', '出行', '设施'],
+    hot_list: ['服务', '出行', '设施','学校','餐饮'],
     area_list: ['所有','100m','200m'],
     list: [],
-    tips:[],
+    tips:[],   
+    cardCur: 0,
+    swiperCurrent:0,
     dataAddress: [{
       name: '维也纳国际酒店',
       address: '重庆市两江新区龙兴镇普福大道481号',
@@ -55,33 +57,77 @@ Component({
         phone: '023-890058888'
       }
     ]
-  },
-  onInput: function(event) {
-    this.setData({
-      inputText: event.detail.value
-    });
-    var that = this;
-    wx.request({
-      url: 'https://www.baidu.com',
-      data: {
-        keyword: event.detail.value
-      },
-      success: function(res) {
-        console.log(res);
-        that.setData({
-          result: res.data
-        });
-      },
-      fail: function(info) {
-        console.log(info);
-      }
-    })
-  },
-
+  }, 
   created: function () {
     this.startLocation();
   },
   methods: {
+    cardSwiper(e) {
+      this.setData({
+        cardCur: e.detail.current
+      })
+    },  // towerSwiper
+    // 初始化towerSwiper
+    towerSwiper(name) {
+      let list = this.data[name];
+      for (let i = 0; i < list.length; i++) {
+        list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
+        list[i].mLeft = i - parseInt(list.length / 2)
+      }
+      this.setData({
+        swiperList: list
+      })
+    },
+    // towerSwiper触摸开始
+    towerStart(e) {
+      this.setData({
+        towerStart: e.touches[0].pageX
+      })
+    },
+    // towerSwiper计算方向
+    towerMove(e) {
+      this.setData({
+        direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
+      })
+    },
+    // towerSwiper计算滚动
+    towerEnd(e) {
+      let direction = this.data.direction;
+      let list = this.data.swiperList;
+      if (direction == 'right') {
+        let mLeft = list[0].mLeft;
+        let zIndex = list[0].zIndex;
+        for (let i = 1; i < list.length; i++) {
+          list[i - 1].mLeft = list[i].mLeft
+          list[i - 1].zIndex = list[i].zIndex
+        }
+        list[list.length - 1].mLeft = mLeft;
+        list[list.length - 1].zIndex = zIndex;
+        this.setData({
+          swiperList: list
+        })
+      } else {
+        let mLeft = list[list.length - 1].mLeft;
+        let zIndex = list[list.length - 1].zIndex;
+        for (let i = list.length - 1; i > 0; i--) {
+          list[i].mLeft = list[i - 1].mLeft
+          list[i].zIndex = list[i - 1].zIndex
+        }
+        list[0].mLeft = mLeft;
+        list[0].zIndex = zIndex;
+        this.setData({
+          swiperList: list
+        })
+      }
+    },
+    swiperChange(e) {
+      if (e.detail.source == "touch" || e.detail.source == "autoplay") {
+        this.setData({
+          swiperCurrent: e.detail.current
+        })
+      }
+    },
+ 
     startLocation: function () {
       var that = this;
       // 创建高德地图 API 实例

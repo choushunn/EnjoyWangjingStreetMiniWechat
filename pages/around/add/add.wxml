@@ -1,19 +1,28 @@
 <!--pages/around/add/add.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">新增服务点</view>
+  <view slot="content">新增地点</view>
 </cu-custom>
+<!-- 标题栏 -->
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue '></text>新增地点
+  </view>
+  <view class='action'>
+    <!-- 右侧按钮 -->
+  </view>
+</view>
 <form>
 <!-- 申请人 -->
 	<view class="cu-form-group">
-		<view class="title">服务对象</view>
-		<input placeholder="请输入服务对象"></input>
+		<view class="title">地点名称</view>
+		<input placeholder="请输入地点名称"></input>
 	</view>
 
 <!-- 联系电话 -->
 	<view class="cu-form-group">
 		<view class="title">联系电话</view>
-		<input placeholder="输入手机电话号码"></input>
+		<input placeholder="请输入联系电话"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86
@@ -25,14 +34,14 @@
 	</view>
 <!-- 服务地址 -->
 	<view class="cu-form-group">
-		<view class="title">服务地址</view>
-		<input placeholder="输入服务地址"></input>
+		<view class="title">所在地址</view>
+		<input placeholder="请输入所在地址"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 <!-- 图片上传 -->
-  <view class="cu-bar bg-white ">
+  <view class="cu-bar bg-white solid-top text-black">
 		<view class="action">
-			图片上传
+			上传当前地点的图片
 		</view>
 		<view class="action" style="font-size: 30rpx;">
 			{{imgList.length}}/4
@@ -51,11 +60,6 @@
 			</view>
 		</view>
 	</view>
-  <!-- 备注信息 -->
-	<view class="cu-form-group align-start">
-		<view class="title">备注</view>
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="输入备注信息"></textarea>
-	</view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
   <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
@@ -68,3 +72,8 @@
 </view>
 </form>
 
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>
