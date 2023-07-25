@@ -26,15 +26,23 @@
   padding: 15rpx;
 }
 
-.right-tool {
+/* .right-tool {
   position: relative;
   width: 15%;
   height: 100%;
   display: flex;
   box-sizing: border-box;
   margin: 0 auto;
+} */
+.right-tool {
+  position: fixed;
+  bottom: 35%;
+  right: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
 }
-
 .right-tool-radius {
   border-radius: 20rpx;
 }
@@ -48,15 +56,15 @@
   margin-top: 100rpx;
 }
 
-.location-card {
-  position: relative;
-  width: 70%;
-  height: 60%;
-  display: flex;
-  box-sizing: border-box;
-  margin: 0 auto; /* 左右居中 */
+.card-swiper {
+  position: fixed;
+  bottom: 4%;
+  width: 100%;
+  height: 200rpx;
 }
-.selected {
-  color: red;
-  font-weight: bold;
+
+.swiper-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

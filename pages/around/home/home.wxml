@@ -6,7 +6,7 @@
 <view class="cu-bar search bg-white  map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput" focus="false" />
+    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput"/>
     <text class="cuIcon-right"></text>
     <view bindtouchstart="bindSearch" data-keywords="{{i.name}}" wx:for="{{tips}}" wx:for-item="i">
       {{i.name}}
@@ -21,7 +21,7 @@
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" style="position: relative; left: 0rpx; top: 0rpx">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
   </map>
 </view>
 <!-- 右侧工具条 -->
@@ -45,8 +45,9 @@
     </navigator>
   </view>
 </view>
+
 <!-- 地点详情卡片 -->
-<swiper class="card-swiper add-cover" circular="true" bindchange="cardSwiper" previousMargin="0.02rpx">
+<swiper class="card-swiper" circular="true" bindchange="cardSwiper" previousMargin="0.02rpx">
   <swiper-item wx:for="{{dataAddress}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <view class="cu-card article">
@@ -97,43 +98,6 @@
     </view>
   </view>
 </view>
-
-<!-- 服务点模态框 -->
-<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalL'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
-  <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
-    <!-- 类别筛选 -->
-    <view class="cu-bar bg-white solid-bottom margin-top">
-      <view class='action'>
-        <text class='cuIcon-titles text-orange '></text> 区域
-      </view>
-    </view>
-    <view class="cu-card article no-card solid-bootom">
-      <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">餐饮</button>
-        <button class="cu-btn">学校</button>
-        <button class="cu-btn">其他</button>
-        <button class="cu-btn">出行</button>
-        <button class="cu-btn">设施</button>
-      </view>
-    </view>
-    <!-- 类别筛选 2-->
-    <view class="cu-bar bg-white solid-bottom margin-top">
-      <view class='action'>
-        <text class='cuIcon-titles text-orange '></text> 范围
-      </view>
-    </view>
-    <view class="cu-card article no-card solid-bootom">
-      <view class="padding flex flex-wrap justify-between align-center bg-white">
-        <button class="cu-btn">餐饮</button>
-        <button class="cu-btn">学校</button>
-        <button class="cu-btn">其他</button>
-        <button class="cu-btn">出行</button>
-        <button class="cu-btn">设施</button>
-      </view>
-    </view>
-  </view>
-</view>
-
 <!-- 筛选模态框 -->
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
@@ -141,7 +105,7 @@
     <view class="cu-bar bg-white solid-bottom ">
       <view class='action'>
         <text class='cuIcon-titles text-blue '></text> 区域
-        <text class="selected">{{selected}}</text>
+        <text>{{selected}}</text>
       </view>
     </view>
     <view class="padding-lr bg-white">
