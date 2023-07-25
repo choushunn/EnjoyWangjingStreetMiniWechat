@@ -3,6 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">意见反馈</view>
 </cu-custom>
+<!-- 标题栏 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
     <text class='cuIcon-titles text-blue '></text> 居民意见反馈
@@ -11,6 +12,7 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
+
 <!-- 意见反馈表单 -->
 <form class="bg-white">
   <!-- 标题 -->
@@ -34,7 +36,7 @@
   <view class="cu-form-group">
     <text class="title">反馈类型</text>
   </view>
-  <view class="bg-white solid-bottom">
+  <view class="bg-white">
     <view class="grid col-3  text-center">
       <view>
         <button class="cu-btn ">社区服务</button>
@@ -56,15 +58,17 @@
       </view>
     </view>
   </view>
+
   <!-- 意见描述 -->
-  <view class="cu-form-group align-start">
+  <view class="cu-form-group">
     <view class="title">意见描述</view>
   </view>
-  <view class="cu-form-group align-start solids padding">
+  <view class="cu-form-group padding">
     <textarea class="" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入您的建议,我们将及时回复您"></textarea>
   </view>
+
   <!-- 图片/视频上传 -->
-  <view class="cu-bar bg-white">
+  <view class="cu-bar bg-white solid-top">
     <view class="action">
       图片上传
     </view>
@@ -85,11 +89,13 @@
       </view>
     </view>
   </view>
+
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
     <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
   </view>
 </form>
+
 <!-- 提示消息 -->
 <view class="toast-fixed-center" hidden="{{!show}}" style="z-index: 99;">
   <view class="radius-lg padding animation-slide-top text-lg {{status == 'success' ? 'bg-green light':'bg-red light'}}">

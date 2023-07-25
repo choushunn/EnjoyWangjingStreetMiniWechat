@@ -12,28 +12,40 @@
     <button class="cu-btn bg-green shadow-blur round">搜索</button>
   </view>
 </view>
+
+<view wx:if="{{dianhuadata}}">
 <block wx:for="{{dianhuadata}}" wx:key="id">
   <view class="cu-card no-card margin-xs">
-    <view class="cu-item shadow radius-xl">
-      <view class="title padding">
+    <view class="cu-item shadow">
+      <view class="title padding-sm">
         <view class="flex justify-start align-center">
           <view class="text-cut text-xl text-bold">{{item.title}}</view>
         </view>
       </view>
       <view class="solid-bottom"></view>
-      <view class="title padding">
+      <view class="title padding-sm">
         <view class="flex justify-start align-center">
           <view class="text-lg  text-blue">
             <view class="cuIcon-dianhua margin-right-xs"></view>
           </view>          
           <navigator url="tel:{{item.number}}">
           <view class="text-cut text-lg text-blue">{{item.number}}</view>     
-        </navigator>  
-        </view>
+        </navigator>          
+        </view>        
       </view>
+      <view class="padding-sm text-cut text-sm">{{item.address}}</view>  
     </view>
   </view>
 </block>
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
+
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

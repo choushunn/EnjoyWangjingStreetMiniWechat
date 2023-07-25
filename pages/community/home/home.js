@@ -4,7 +4,7 @@ Component({
   data:{
     elements: [
       {
-        title: '社区通知',
+        title: '通知公告',
         name: 'notice',
         color: 'olive',
         icon: 'notice',
@@ -37,7 +37,7 @@ Component({
       url: 'consult'
     },
     {
-      title: '信息填报',
+      title: '问题上报',
       name: 'report',
       color: 'yellow',
       icon: 'upload',

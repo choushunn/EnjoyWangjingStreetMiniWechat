@@ -3,7 +3,6 @@
 @import "colorui/icon.wxss";
 @import "colorui/animation.wxss";
 
-
 .nodata {
   font-size: 30rpx;
   line-height: 1.2;
@@ -21,4 +20,18 @@
 
 .nodata .txt {
   padding-top: 60rpx;
+}
+
+.add-cover {
+  position: fixed;
+  bottom: 15%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.add-cover .add-text-sm{
+  font-size: 64rpx;
 }

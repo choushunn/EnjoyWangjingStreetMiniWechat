@@ -1,7 +1,7 @@
 <!--pages/community/report/report.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">信息填报</view>
+  <view slot="content">问题上报</view>
 </cu-custom>
 <view class="cu-load {{statusTop == 'success' ? 'bg-green light':'bg-red light'}}" animation="{{animation}}" style="height: 0">
   {{messageTop}} <text class="cuIcon-roundclose lg padding-right-xs" hidden="{{!statusTop == 'error'}}"></text>
@@ -42,10 +42,12 @@
     <input placeholder="请输入标题"></input>
   </view>
   <!-- 上报内容 -->
-  <view class="cu-form-group align-start">
+  <view class="cu-form-group">
     <view class="title">上报内容</view>
-    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="上报内容"></textarea>
   </view>
+  <view class="cu-form-group align-start bg-gray"> 
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入上报内容"></textarea>
+</view>   
   <!-- 地址 -->
   <view class="cu-form-group solid-bottom">
     <view class="title">地址</view>

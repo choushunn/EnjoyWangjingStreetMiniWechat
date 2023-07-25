@@ -6,17 +6,20 @@ Page({
    */
   data: {
     dianhuadata: [{
-      title: "社区服务中心",
+      title: "社区服务1",
       number: "10086",
-      id: "1"
+      id: "1",
+      address:"自贡市XXX"
     },{
-      title: "社区服务中心2",
+      title: "社区服务2",
       number: "10086",
-      id: "1"
+      id: "1",
+      address:"自贡市XXX"
     },{
-      title: "社区服务中心3",
+      title: "社区服务3",
       number: "10086",
-      id: "1"
+      id: "1",
+      address:"自贡市XXX"
     }, ]
 
   },
