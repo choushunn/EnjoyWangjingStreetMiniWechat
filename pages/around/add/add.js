@@ -1,4 +1,12 @@
 // pages/around/add/add.js
+let loading = false;
+let loadingTop = false;
+const animation = wx.createAnimation({
+  duration: 400,
+  timingFunction: 'ease-out',
+  delay: 0,
+  transformOrigin: '50% 50% 0'
+}); //动画
 const app = getApp();
 Page({
   /**
@@ -8,6 +16,14 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     imgList: [],
+    show: false,
+    status: '',
+    message: '',
+    time: 0,
+    showTop: false,
+    statusTop: '',
+    messageTop: '',
+    timeTop: 2000
   },
 
   TimeChange(e) {
@@ -61,9 +77,69 @@ Page({
       }
     })
   },
-    submit_data(e){
-      console.log("正在提交")
-    },
+  setShow(status, message, time = 2000, fun = false) {
+    if (loading) {
+      return
+    }
+    loading = true;
+    try {
+      this.setData({
+        status,
+        message,
+        time,
+        show: true,
+      })
+      setTimeout(() => {
+        this.setData({
+          show: false,
+        })
+        loading = false;
+        // 触发回调函数
+        if (fun) {
+          this.end()
+        }
+      }, time)
+    } catch {
+      loading = false;
+    }
+  },
+  setShowTop(statusTop, messageTop, timeTop = 3000) {
+
+    if (loadingTop) {
+      return
+    }
+
+    loadingTop = true;
+    try {
+      this.setData({
+        statusTop,
+        messageTop,
+        timeTop,
+        showTop: true,
+      })
+
+      this.start_animation();
+      setTimeout(() => {
+        this.end_animation();
+        loadingTop = false;
+        this.triggerEvent("end")
+      }, timeTop)
+
+    } catch {
+      loadingTop = false;
+    }
+  },
+  /**
+   * 轻提示回调函数
+   */
+  end() {
+    wx.showToast({
+      title: '触发回调方法',
+    })
+  },
+  submit_data() {
+    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -3,6 +3,9 @@
   <view slot="backText">返回</view>
   <view slot="content">信息填报</view>
 </cu-custom>
+<view class="cu-load {{statusTop == 'success' ? 'bg-green light':'bg-red light'}}" animation="{{animation}}" style="height: 0">
+  {{messageTop}} <text class="cuIcon-roundclose lg padding-right-xs" hidden="{{!statusTop == 'error'}}"></text>
+</view>
 
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
@@ -76,7 +79,12 @@
     <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
   </view>
 </form>
-
+<!-- 提示消息 -->
+<view class="toast-fixed-center" hidden="{{!show}}" style="z-index: 99;">
+  <view class="radius-lg padding animation-slide-top text-lg {{status == 'success' ? 'bg-green light':'bg-red light'}}">
+    <text class="cuIcon-info"></text> {{message}}
+  </view>
+</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
