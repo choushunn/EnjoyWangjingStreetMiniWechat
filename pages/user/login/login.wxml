@@ -14,9 +14,8 @@
       </view>
     </view>
     <view class="padding-bottom-xxl padding-top padding-lr text-center">
-      <view class="flex flex-column margin-sm justify-center" bindtap='onTap' data-target="Modal">
-        <button class="cu-btn xxl bg-gradual-blue round">
-          <text class="icon-wechat" decode="{{true}}">&nbsp;</text>
+      <view class="flex flex-column margin-sm justify-center" bindtap='onTap' data-target="Modal">       
+        <button class="cu-btn xxl bg-gradual-blue round">               
           微信用户一键登录</button>
       </view>
       <view class="padding-lr-xl text-center text-gray padding-top-sm text-df">

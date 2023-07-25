@@ -11,7 +11,7 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
-<form>
+<form >
   <!-- 预约人 -->
   <view class="cu-form-group">
     <view class="title">预约人</view>
@@ -67,9 +67,16 @@
   </view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-    <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
+    <button class="cu-btn bg-green margin-tb-sm lg block" form-type="submit" bindtap="submit_data">提交</button>
   </view>
 </form>
+
+<!-- 提示消息 -->
+<view class="toast-fixed-center" hidden="{{!show}}" style="z-index: 99;">
+  <view class="radius-lg padding animation-slide-top text-lg {{status == 'success' ? 'bg-green light':'bg-red light'}}">
+    <text class="cuIcon-info"></text> {{message}}
+  </view>
+</view>
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
