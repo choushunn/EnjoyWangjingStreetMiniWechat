@@ -23,7 +23,7 @@ App({
         console.log("请求code:", res)
         wx.request({
           // 发送 res.code 到后台换取用户登录凭证，然后进行登录操作
-          url: 'http://127.0.0.1:8000/admin/wxurl',
+          url: 'http://192.168.121.138:8000/admin/wxurl',
           method: "GET",
           data: {
             js_code: code,
