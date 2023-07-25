@@ -26,29 +26,6 @@
   padding: 15rpx;
 }
 
-.left-tool {
-  position: relative;
-  width: 30%;
-  height: 100%;
-  display: flex;
-  box-sizing: border-box;
-}
-
-.left-tool-radius {
-  border-top-right-radius: 10rpx;
-  border-bottom-right-radius: 10rpx;
-}
-
-.left-tool-margin {
-  margin-top: 50rpx;
-}
-
-.left-tool-flex {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .right-tool {
   position: relative;
   width: 15%;

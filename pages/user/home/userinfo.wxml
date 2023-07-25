@@ -16,7 +16,7 @@
       </view>
     </view>
   </view>
-  <view class="cu-item arrow">
+  <view class="cu-item arrow" bindtap="showModal" data-target="DialogModal1">
     <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
       <text class="cuIcon-my text-orange"></text>
       <text class="text-grey">昵称</text>
@@ -49,6 +49,25 @@
   </view>
 </view>
 
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改昵称</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="margin padding-xl text-left">
+     <input type="text" placeholder="请输入昵称"/>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+      </view>
+    </view>
+  </view>
+</view>
 <!-- 头像 -->
 
 <!-- 昵称 -->
