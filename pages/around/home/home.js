@@ -53,7 +53,7 @@ Component({
                 iconPathSelected: '../../../images/amap/marker_checked.png', //选中的图标路径
                 iconPath: '../../../images/amap/marker.png', //未选中的图标
                 success(data) {
-                  console.log(data)                  
+                  // console.log(data)                  
                   that.setData({
                     currentTextData:data[0]
                   })

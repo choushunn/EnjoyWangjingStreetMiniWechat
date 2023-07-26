@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    item: '',
     TabCur: 0,
     scrollLeft: 0,
     goods_list: [{
@@ -55,15 +56,6 @@ Page({
         "desc": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
         "type": "活动",
         "datetime": "2023年5月26日",
-        // "tags": [{
-        //     "name": "党组织生活",
-        //     "color": "bg-red"
-        //   },
-        //   {
-        //     "name": "活动",
-        //     "color": "bg-green"
-        //   }
-        // ]
       },
       {
         id: 2,
@@ -138,7 +130,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log(options)
+    this.setData({
+      item: options.item
+    })
+    console.log(item)
   },
 
   /**

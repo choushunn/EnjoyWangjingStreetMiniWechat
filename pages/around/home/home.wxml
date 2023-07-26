@@ -63,7 +63,7 @@
                 <view class="text-df margin-bottom"> 暂未获取</view>
               </block>
               <view class="flex justify-end">
-                <navigator class="cu-tag bg-green light sm round" url="/pages/around/details/details">查看详情</navigator>
+                <navigator class="cu-tag bg-green light round" url="/pages/around/details/details?item={{item}}">查看详情</navigator>
               </view>
             </view>
           </view>
