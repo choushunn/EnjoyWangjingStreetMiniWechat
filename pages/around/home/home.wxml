@@ -3,10 +3,10 @@
   <view slot="content">乐享王井街</view>
 </cu-custom>
 <!-- 搜索组件 -->
-<view class="cu-bar search bg-white  map_cover">
+<view class="cu-bar search bg-white map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput"/>
+    <input type="text" placeholder="{{currentTextData?currentTextData.desc:'搜索周边药店、医院、学校、商店'}}" bindinput="bindInput"/>
     <text class="cuIcon-right"></text>
   </view>
 </view>
@@ -42,7 +42,7 @@
 
 <!-- 地点详情卡片 -->
 <swiper class="card-swiper" circular="true" bindchange="cardSwiper" current="{{cardCur}}"  previousMargin="0.02rpx">
-  <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
+  <swiper-item wx:for="{{markers}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <view class="cu-card article">
         <view class="cu-item shadow">
@@ -51,7 +51,7 @@
               <view class="text-cut">{{item.name}}</view>
             </block>
             <block wx:else>
-              <view class="text-cut">暂未获取定位</view>
+              <view class="text-cut">暂未获取</view>
             </block>
           </view>
           <view class="content">
@@ -60,7 +60,7 @@
                 <view class="text-df margin-bottom"> {{item.address}}</view>
               </block>
               <block wx:else>
-                <view class="text-df margin-bottom"> 暂未获取定位</view>
+                <view class="text-df margin-bottom"> 暂未获取</view>
               </block>
               <view class="flex justify-end">
                 <navigator class="cu-tag bg-green light sm round" url="/pages/around/details/details">查看详情</navigator>

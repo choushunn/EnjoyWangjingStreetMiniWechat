@@ -17,10 +17,11 @@ Component({
     // 地图相关  
     markersData: [], // 获取到的周边POI数据
     markers: [], // 地图上的标记点
-    latitude: 0, // 当前位置的纬度
+    currentLatitude: 0, // 当前位置的纬度
     longitude: 0, // 当前位置的经度
-    textData: {}, // 标记点的信息    
+    currentTextData: {}, // 标记点的信息    
     hasLocations: false, // 是否已经获取过周边 POI 数据
+    backToCurrentLocation:false,
     // 滑动卡片相关
     modalName: null, // 模态框名称
     cardCur: 0,
@@ -47,15 +48,28 @@ Component({
             var longitude = res.longitude; //返回经度
             // 如果还没有获取过周边 POI 数据，或者重新点击了定位按钮
             if (!that.data.hasLocations || that.data.backToCurrentLocation) {
+              myAmapFun.getRegeo({
+                location: longitude + ',' + latitude, // 设置查询位置
+                iconPathSelected: '../../../images/amap/marker_checked.png', //选中的图标路径
+                iconPath: '../../../images/amap/marker.png', //未选中的图标
+                success(data) {
+                  console.log(data)                  
+                  that.setData({
+                    currentTextData:data[0]
+                  })
+                }
+              })
               // 调用高德地图 API 获取周边 POI 数据
               myAmapFun.getPoiAround({
                 location: longitude + ',' + latitude, // 设置查询位置
                 iconPathSelected: '../../../images/amap/marker_checked.png', //选中的图标路径
                 iconPath: '../../../images/amap/marker.png', //未选中的图标
                 success(data) {
+                  // console.log(data)
                   // 回调成功
                   that.setData({
-                    markersData: data.markers, // 存储获取到的周边POI数据
+                    backToCurrentLocation:false,
+                    markersData: data.poisData, // 存储获取到的周边POI数据
                     markers: data.markers, // 存储地图上的标记点
                     latitude: latitude, // 存储当前位置的纬度
                     longitude: longitude // 存储当前位置的经度
@@ -84,23 +98,27 @@ Component({
       })
     },
     // 点击定位按钮时触发的方法
-    backToLocation() {
-      
+    backToLocation() {      
       // 将地图中心点移动到当前定位点位置并显示在地图正中间
       // myAmapFun.goto
       console.log("moveToLocation")
       this.startLocation();
       this.setData({
-        cardCur: 0 // 重置卡片索引
+        backToCurrentLocation:true,
+        cardCur: 0, // 重置卡片索引
+        longitude:this.data.markers[this.data.cardCur].longitude,
+        latitude:this.data.markers[this.data.cardCur].latitude,
       });
     },
     // 点击标记点时触发的事件处理函数
     makertap(e) {
       var index = e.markerId;
-      this.showMarkerInfo(this.data.markersData, index); // 显示标记点的信息
-      this.changeMarkerColor(this.data.markersData, index); // 改变标记点的颜色
+      this.showMarkerInfo(this.data.markers, index); // 显示标记点的信息
+      this.changeMarkerColor(this.data.markers, index); // 改变标记点的颜色
       this.setData({
         cardCur: index, // 更新当前卡片索引
+        // longitude:this.data.markers[this.data.cardCur].longitude,
+        // latitude:this.data.markers[this.data.cardCur].latitude,
       });
     },
     // 显示标记点的信息
@@ -108,12 +126,12 @@ Component({
       if (!markers || markers.length === 0 || index < 0 || index >= markers.length) {
         return;
       }
-      this.setData({
-        textData: {
-          name: markers[index].name,
-          desc: markers[index].address
-        }
-      });
+      // this.setData({
+      //   textData: {
+      //     name: markers[index].name,
+      //     desc: markers[index].address
+      //   }
+      // });
     },
     // 改变标记点的颜色
     changeMarkerColor(markers, index) {
@@ -137,10 +155,10 @@ Component({
     // 卡片相关
     cardSwiper(e) {
       this.setData({
-        cardCur: e.detail.current
+        cardCur: e.detail.current,
       })
-      this.showMarkerInfo(this.data.markersData, e.detail.current); // 显示下一个标记点的信息
-      this.changeMarkerColor(this.data.markersData, e.detail.current); // 改变下一个标记点的颜色
+      // this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
+      this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
     }, // towerSwiper
     // 初始化towerSwiper
     towerSwiper(name) {
@@ -198,7 +216,7 @@ Component({
     },
     swiperChange(e) {
       console.log("swiperChange")
-      if (!this.data.markersData || this.data.markersData.length === 0) {
+      if (!this.data.markers || this.data.markers.length === 0) {
         return;
       }
       if (e.detail.source == "touch" || e.detail.source == "autoplay") {
@@ -206,8 +224,8 @@ Component({
           swiperCurrent: e.detail.current
         })
       }
-      this.showMarkerInfo(this.data.markersData, e.detail.current); // 显示下一个标记点的信息
-      this.changeMarkerColor(this.data.markersData, e.detail.current); // 改变下一个标记点的颜色
+      // this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
+      this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
     },
     // 显示模态框
     showModal(e) {
