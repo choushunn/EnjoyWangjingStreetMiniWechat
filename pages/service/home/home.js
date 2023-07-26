@@ -97,7 +97,7 @@ Component({
           },
           {
             title: '社区活动',
-            name: 'icon',
+            name: 'icon', 
             color: 'cyan',
             icon: 'group',
             url: '/pages/community/activity/activity'
