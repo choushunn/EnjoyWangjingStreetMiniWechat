@@ -32,8 +32,9 @@
     "pages/user/myappointment/myappointment",
     "pages/user/myorder/myorder",
     "pages/user/myorder/detail",
-    "pages/user/login/login"
-  ],
+    "pages/user/login/login",
+    "pages/user/chart/chart"
+    ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",

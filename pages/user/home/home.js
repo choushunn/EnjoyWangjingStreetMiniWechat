@@ -37,6 +37,13 @@ Component({
       badge: 0,
       name: '我的预约',
       url:'/pages/user/myappointment/myappointment'
+    }
+    , {
+      icon: 'cascades',
+      color: 'blue',
+      badge: 0,
+      name: '数据统计',
+      url:'/pages/user/chart/chart'
     }],
     gridCol: 3,
     skin: false,
