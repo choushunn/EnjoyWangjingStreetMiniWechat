@@ -8,22 +8,16 @@
     <text class="cuIcon-search"></text>
     <input type="text" placeholder="搜索周边药店、医院、学校、商店" bindinput="bindInput"/>
     <text class="cuIcon-right"></text>
-    <view bindtouchstart="bindSearch" data-keywords="{{i.name}}" wx:for="{{tips}}" wx:for-item="i">
-      {{i.name}}
-    </view>
-    <!-- <view wx:for="{{result}}">
-      <text>{{item.name}}</text>
-      <text>{{item.address}}</text>
-    </view> -->
   </view>
 </view>
 <!-- 搜索结果,搜索框被激活，且有返回结果才显示 -->
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" show-compass="true" enable-building="true">
   </map>
 </view>
+
 <!-- 右侧工具条 -->
 <view class="map_cover flex justify-end right-tool-margin right-tool">
   <view class="bg-white line-black right-tool-radius">
@@ -48,7 +42,7 @@
 
 <!-- 地点详情卡片 -->
 <swiper class="card-swiper" circular="true" bindchange="cardSwiper" current="{{cardCur}}"  previousMargin="0.02rpx">
-  <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}"  bindtap="swiperChange">
+  <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <view class="cu-card article">
         <view class="cu-item shadow">
