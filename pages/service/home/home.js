@@ -26,7 +26,7 @@ Component({
             title: '其他费 ',
             name: 'icon',
             color: 'mauve',
-            icon: 'post',
+            icon: 'moneybag',
             url: 'https://www.baidu.com'
           },
         ],
@@ -38,7 +38,7 @@ Component({
             title: '邻里空间',
             name: 'background',
             color: 'blue',
-            icon: 'servicefill',
+            icon: 'wefill',
             url: '/pages/community/appointment/playroom/playroom'
           },
           {
@@ -52,7 +52,7 @@ Component({
             title: '意见反馈 ',
             name: 'icon',
             color: 'brown',
-            icon: 'post',
+            icon: 'copy',
             url: '/pages/community/feedback/feedback'
           },
         ],
@@ -71,7 +71,7 @@ Component({
             title: '信息填报',
             name: 'background',
             color: 'orange',
-            icon: 'servicefill',
+            icon: 'peoplefill',
             url: '/pages/community/report/report'
           },
           {
@@ -85,60 +85,60 @@ Component({
             title: '预约服务',
             name: 'icon',
             color: 'olive',
-            icon: 'post',
+            icon: 'dianhua',
             url: '/pages/community/appointment/appointment'
           },
           {
             title: '居民服务',
             name: 'icon',
             color: 'green',
-            icon: 'post',
+            icon: 'sound',
             url: '/pages/community/repair/repair'
           },
           {
             title: '社区活动',
             name: 'icon',
             color: 'cyan',
-            icon: 'post',
+            icon: 'group',
             url: '/pages/community/activity/activity'
           },
           {
             title: '社区通知',
             name: 'icon',
             color: 'blue',
-            icon: 'post',
+            icon: 'emojifill',
             url: '/pages/community/notice/notice'
           },
           {
             title: '我的收藏',
             name: 'icon',
             color: 'purple',
-            icon: 'post',
+            icon: 'file',
             url: '/pages/user/myfaver/myfaver'
           },
           {
             title: '我的消息',
             name: 'icon',
             color: 'mauve',
-            icon: 'post',
+            icon: 'mark',
             url: '/pages/user/mymessage/mymessage'
           }, {
             title: '我的工单',
             name: 'icon',
             color: 'pink',
-            icon: 'post',
+            icon: 'tagfill',
             url: '/pages/user/myorder/myorder'
           }, {
             title: '我的反馈',
             name: 'icon',
             color: 'brown',
-            icon: 'post',
+            icon: 'write',
             url: '/pages/user/myfeedback/myfeedback'
           }, {
             title: '我的预约',
             name: 'icon',
-            color: 'grey',
-            icon: 'post',
+            color: 'olive',
+            icon: 'evaluate_fill',
             url: '/pages/user/myappointment/myappointment'
           },
         ]
