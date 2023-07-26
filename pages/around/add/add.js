@@ -23,7 +23,8 @@ Page({
     showTop: false,
     statusTop: '',
     messageTop: '',
-    timeTop: 2000
+    timeTop: 2000,
+    item:''
   },
 
   TimeChange(e) {
@@ -144,7 +145,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const item = JSON.parse(options.details);  
+    this.setData({
+      item:item,
+    })
+    console.log(item)
   },
 
   /**

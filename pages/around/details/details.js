@@ -130,9 +130,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
+    // console.log(options.details) 
+    const item = JSON.parse(options.details);  
     this.setData({
-      item: options.item
+      item:item,
     })
     console.log(item)
   },

@@ -35,7 +35,7 @@
 <!-- 服务地址 -->
 	<view class="cu-form-group">
 		<view class="title">所在地址</view>
-		<input placeholder="请输入所在地址"></input>
+		<input placeholder="{{item?item.address:'请输入所在地址'}}" value="{{item?item.address:''}}"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 <!-- 图片上传 -->

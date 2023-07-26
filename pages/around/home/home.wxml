@@ -33,10 +33,10 @@
       <view class="cuIcon-sort"></view>
       <view class="text-sm text-center text-balck">列表</view>
     </view>
-    <navigator class="solid-bottom text-right-xl text-center" url="/pages/around/add/add">
+    <view class="solid-bottom text-right-xl text-center" ontap="toAddClick">
       <view class="cuIcon-roundadd"></view>
       <view class="text-sm text-balck">新增</view>
-    </navigator>
+    </view>
   </view>
 </view>
 
@@ -62,8 +62,8 @@
               <block wx:else>
                 <view class="text-df margin-bottom"> 暂未获取</view>
               </block>
-              <view class="flex justify-end">
-                <navigator class="cu-tag bg-green light round" url="/pages/around/details/details?item={{item}}">查看详情</navigator>
+              <view class="flex justify-end" bindtap="queryItemClick">
+                <view class="cu-tag bg-green light round">查看详情</view>
               </view>
             </view>
           </view>
@@ -93,13 +93,12 @@
   </view>
 </view>
 <!-- 筛选模态框 -->
-<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10000;">
+<view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10001;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom ">
       <view class='action'>
         <text class='cuIcon-titles text-blue '></text> 区域
-        <text>{{selected}}</text>
       </view>
     </view>
     <view class="padding-lr bg-white">
@@ -120,8 +119,8 @@
     <view class="padding-lr bg-white">
       <view class="padding-tb grid col-3">
         <block wx:for="{{area_list}}" wx:key="index">
-          <view class="padding-lr-xs " data-index="{{index}}" catchtap="getSearch">
-            <button class="cu-btn bg-blue light">{{item}}</button>
+          <view class="padding-xs " data-index="{{index}}" catchtap="getSelecte">
+            <button class="cu-btn bg-blue light" data-content="{{item}}">{{item}}</button>
           </view>
         </block>
       </view>

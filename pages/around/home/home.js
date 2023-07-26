@@ -21,12 +21,14 @@ Component({
     longitude: 0, // 当前位置的经度
     currentTextData: {}, // 标记点的信息    
     hasLocations: false, // 是否已经获取过周边 POI 数据
-    backToCurrentLocation:false,
+    backToCurrentLocation: false,
     // 滑动卡片相关
     modalName: null, // 模态框名称
     cardCur: 0,
     swiperCurrent: 0, // 当前卡片索引
     // 搜索地点相关
+    hot_list:["餐饮","学校","商店","其他"],
+    area_list:["全部","100米","200米","500米"]
   },
   lifetimes: {
     attached() {
@@ -44,7 +46,7 @@ Component({
         success() {
           wx.onLocationChange(function (res) {
             // 获取最新位置信息
-            var latitude = res.latitude;  //返回纬度
+            var latitude = res.latitude; //返回纬度
             var longitude = res.longitude; //返回经度
             // 如果还没有获取过周边 POI 数据，或者重新点击了定位按钮
             if (!that.data.hasLocations || that.data.backToCurrentLocation) {
@@ -55,7 +57,7 @@ Component({
                 success(data) {
                   // console.log(data)                  
                   that.setData({
-                    currentTextData:data[0]
+                    currentTextData: data[0]
                   })
                 }
               })
@@ -68,7 +70,7 @@ Component({
                   // console.log(data)
                   // 回调成功
                   that.setData({
-                    backToCurrentLocation:false,
+                    backToCurrentLocation: false,
                     markersData: data.poisData, // 存储获取到的周边POI数据
                     markers: data.markers, // 存储地图上的标记点
                     latitude: latitude, // 存储当前位置的纬度
@@ -98,16 +100,16 @@ Component({
       })
     },
     // 点击定位按钮时触发的方法
-    backToLocation() {      
+    backToLocation() {
       // 将地图中心点移动到当前定位点位置并显示在地图正中间
       // myAmapFun.goto
       console.log("moveToLocation")
       this.startLocation();
       this.setData({
-        backToCurrentLocation:true,
+        backToCurrentLocation: true,
         cardCur: 0, // 重置卡片索引
-        longitude:this.data.markers[this.data.cardCur].longitude,
-        latitude:this.data.markers[this.data.cardCur].latitude,
+        longitude: this.data.markers[this.data.cardCur].longitude,
+        latitude: this.data.markers[this.data.cardCur].latitude,
       });
     },
     // 点击标记点时触发的事件处理函数
@@ -239,5 +241,31 @@ Component({
         modalName: null
       })
     },
+     //跳转新增界面
+     toAddClick(e) {
+      var that = this
+      //拿到点击的index下标
+      var index = this.data.cardCur
+      console.log(e)
+      //将对象转为string
+      var queryBean = JSON.stringify(this.data.markers[index])
+      wx.navigateTo({
+        url: "/pages/around/add/add?details=" + queryBean,
+      })
+    },
+    //跳转详情界面
+    queryItemClick: function (e) {
+      var that = this
+      //拿到点击的index下标
+      var index = this.data.cardCur
+      console.log(e)
+      //将对象转为string
+      var queryBean = JSON.stringify(this.data.markers[index])
+      wx.navigateTo({
+        url: "/pages/around/details/details?details=" + queryBean,
+      })
+    },
+   
   },
+
 })
