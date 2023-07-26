@@ -1,0 +1,4 @@
+/* pages/community/notice/details.wxss */
+.text-indent{
+  text-indent: 2em;
+}

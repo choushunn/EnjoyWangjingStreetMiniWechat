@@ -1,0 +1,32 @@
+<!--pages/community/activity/details.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">活动详情</view>
+</cu-custom>
+
+<view class="cu-timeline  radius-lg padding">
+  <view class="padding-sm text-center solid-bottom">
+    <text class="text-xxl text-bold text-black">活动标题{{id}}</text>
+  </view>
+
+  <!-- 新闻内容 -->
+  <view class="padding-sm text-lg margin-top-sm">
+    <text>2023年5月17日，搜狐汽车应奥迪邀请前往葡萄牙波尔图，参加第八代奥迪A6的全球首次试驾，在杜罗河谷地长达40km的蜿蜒山路上感受全新奥迪A6带来的驾驶新体验。</text>
+    <view class="bg-white margin-tb-sm">
+      <view class="bg-img radius" style="background-image: url('https://image.meiye.art/FlqKg5bugFQD5Qzm_QhGM7ET4Mtx?imageMogr2/thumbnail/450x/interlace/1');height: 360rpx;">
+      </view>
+    </view>
+  </view>
+  <!-- 新闻关键词 -->
+  <view class="padding-left-sm flex align-center text-center justify-end solid-top margin-top padding-top">
+    <!-- <view class="cu-tag bg-red light sm round">关键词</view>
+    <view class="cu-tag bg-red light sm round">关键词</view>
+    <view class="cu-tag bg-red light sm round">关键词</view> -->
+  </view>
+</view>
+
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>
