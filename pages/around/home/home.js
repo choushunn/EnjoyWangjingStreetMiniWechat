@@ -66,6 +66,7 @@ Component({
       this.setData({
         cardCur: e.detail.current
       })
+      console.log("cardSwiper")
     },  // towerSwiper
     // 初始化towerSwiper
     towerSwiper(name) {
@@ -126,6 +127,7 @@ Component({
           swiperCurrent: e.detail.current
         })
       }
+      console.log("swiperChange")
     },
  
     startLocation: function () {

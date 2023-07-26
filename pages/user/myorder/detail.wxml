@@ -71,13 +71,13 @@
 <!-- 维修结果确认 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修记录
+    <text class="cuIcon-titles text-blue"></text> 维修结果
   </view>
 </view>
 
 <view class="bg-white solid-bottom" >
   <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
+  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.result}}</view>
   </block>
 </view>
 <!-- 评分 -->

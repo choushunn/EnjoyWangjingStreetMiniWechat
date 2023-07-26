@@ -14,14 +14,15 @@ Page({
       type:"功能异常",
       desc:"某某地点出现情况",
       service:"某某某地方进行维修",
-      record:"某某社工已进行处理"
+      record:"某某社工已进行处理",
+      result:"某某功能已修复"
     }]
   },
     /**
    * 点击评分
    */
   click(e) {
-    const {
+    const { 
       score,
       count
     } = this.data;

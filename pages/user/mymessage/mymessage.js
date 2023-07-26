@@ -14,7 +14,7 @@ Page({
       desc:"您的报修已完成维修，请及时确认维修结果，点击查看详细。",
       datetime:"2023年7月14日 11:20",
       type:"报修结果通知",
-      url:""
+      url:"/pages/user/myorder/detail"
     },{
       id:1,
       title:"居民服务",
@@ -22,7 +22,7 @@ Page({
       desc:"您的报修已被接单，请耐心等待维修，点击查看详细。",
       datetime:"2023年7月14日 11:20",
       type:"报修接单通知", 
-      url:""
+      url:"/pages/user/myorder/detail"
     }]
   },
   tabSelect(e) {
