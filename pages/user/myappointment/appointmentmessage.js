@@ -1,36 +1,38 @@
-// pages/user/myfeedback/myfeedback.js
+// pages/user/myappointment/appointmentmessage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-    TabCur: 0,
-    scrollLeft: 0,
+    count: 5,
+    active: 0,
+    score: 1,
     messageData:[{
       id:0,
-      title:"反馈信息",
-      status:0,
-      desc:"您的反馈信息已受理完成，请及时确认受理结果，点击查看详细。",
-      datetime:"2023年7月14日 11:20",
-      type:"反馈结果通知",
-      url:"/pages/user/myfeedback/feedbackmessage"
-    },{
-      id:1,
-      title:"反馈信息",
-      status:1,
-      desc:"您的反馈信息已被受理，请耐心等待受理结果，点击查看详细。",
-      datetime:"2023年7月14日 11:20",
-      type:"反馈受理通知", 
-      url:"/pages/user/myfeedback/feedbackmessage"
+      name:"张某某",
+      type:"活动室",
+      desc:"某某某活动室，使用时间2023-7-26，使用时间1天",
+      service:"某某某活动室预约已提交",
+      record:"某某某活动室预约已受理",
+      result:"某某某活动室预约成功"
     }]
   },
-  tabSelect(e) {
+ /**
+   * 点击评分
+   */
+  click(e) {
+    const { 
+      score,
+      count
+    } = this.data;
+    const active = e.currentTarget.dataset.index;
     this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+      active
     })
+    this.triggerEvent("click", {
+      result: score / count * active
+    }, {})
   },
   /**
    * 生命周期函数--监听页面加载

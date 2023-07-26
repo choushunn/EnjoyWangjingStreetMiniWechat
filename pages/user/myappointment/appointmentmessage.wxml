@@ -1,24 +1,24 @@
-<!--pages/user/myorder/detail.wxml-->
+<!--pages/user/myappointment/appointmentmessage.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">工单详情</view>
+  <view slot="content">预约详情</view>
 </cu-custom>
-<!-- 提交工单后显示 -->
-<!-- 基本信息 -->
+<!-- 提交预约信息后显示 -->
+<!-- 预约基本信息 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 基本信息
+    <text class="cuIcon-titles text-blue"></text> 预约人姓名
   </view>
 </view>
 <view class=" bg-white solid-bottom" >
   <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.title}}</view>
+  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.name}}</view>
   </block>
 </view>
-<!-- 工单类型 -->
+<!-- 预约类型 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 工单类型
+    <text class="cuIcon-titles text-blue"></text> 预约类型
   </view>
 </view>
 <view class="bg-white solid-bottom" >
@@ -26,10 +26,10 @@
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
   </block>
 </view>
-<!-- 问题描述 -->
+<!-- 预约详情 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 问题描述
+    <text class="cuIcon-titles text-blue"></text> 预约详情
   </view>
 </view>
 <view class="bg-white solid-bottom" >
@@ -37,17 +37,12 @@
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
   </block>
 </view>
-<!-- 上传图片 -->
-<!-- <view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 上传图片
-  </view>
-</view> -->
+
 <!-- 分配社工后显示 -->
-<!-- 维修信息 -->
+<!-- 预约受理信息 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修信息
+    <text class="cuIcon-titles text-blue"></text> 预约受理信息
   </view>
 </view>
 <view class="bg-white solid-bottom" >
@@ -56,10 +51,10 @@
   </block>
 </view>
 <!-- 社工处理后显示 -->
-<!-- 维修记录 -->
+<!-- 预约记录 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修记录
+    <text class="cuIcon-titles text-blue"></text> 预约记录
   </view>
 </view>
 <view class="bg-white solid-bottom" >
@@ -68,10 +63,10 @@
   </block>
 </view>
 <!-- 用户确认后显示 -->
-<!-- 维修结果确认 -->
+<!-- 反馈结果确认 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修结果
+    <text class="cuIcon-titles text-blue"></text> 预约结果
   </view>
 </view>
 
@@ -99,3 +94,4 @@
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
+

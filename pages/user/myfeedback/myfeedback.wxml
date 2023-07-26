@@ -15,9 +15,34 @@
     已结束
   </view>
 </scroll-view>
-<view wx:if="{{hasContent}}">
-  <!-- 有内容时的渲染 -->
-  <view>这里是内容</view>
+<view wx:if="{{messageData}}">
+  <!-- 消息列表 -->
+ 
+  <block wx:for="{{messageData}}" wx:key="id">
+    <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
+      <navigator url="{{item.url}}">
+      <view class="cu-card article no-card margin-sm">
+        <view class="cu-item shadow">
+          <view class="title">
+            <view class="flex justify-between">
+              <view class="text-cut">{{item.title}}</view>
+              <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待进行':'已结束'}}</view>
+            </view>
+          </view>
+          <view class="content">
+            <view class="desc">
+              <view class="text-content solid-bottom">{{item.desc}}</view>
+              <view class="flex justify-between margin-top-sm">
+                <view class="light text-sm round">{{item.type}}</view>
+                <view class="light text-sm round">{{item.datetime}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      </navigator>
+    </view>
+  </block>
 </view>
 <view wx:else>
   <!-- 没有内容时的渲染 -->

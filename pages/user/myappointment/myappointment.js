@@ -5,33 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    basicsList: [{
-      icon: 'usefullfill',
-      name: '开始'
-    }, {
-      icon: 'radioboxfill',
-      name: '审核'
-    }, {
-      icon: 'roundclosefill',
-      name: '等待'
-    }, {
-      icon: 'roundcheckfill',
-      name: '完成'
-    }, ],
-    basics: 0,
-    numList: [{
-      name: '开始'
-    }, {
-      name: '审核'
-    }, {
-      name: '等待'
-    }, {
-      name: '完成'
-    }, ],
-    num: 0,
-    scroll: 0,
     TabCur: 0,
     scrollLeft: 0,
+    messageData:[{
+      id:0,
+      title:"预约信息",
+      status:0,
+      desc:"您的预约信息已受理完成，请及时确认受理结果，点击查看详细。",
+      datetime:"2023年7月14日 11:20",
+      type:"预约结果通知",
+      url:"/pages/user/myappointment/appointmentmessage"
+    },{
+      id:1,
+      title:"预约信息",
+      status:1,
+      desc:"您的预约信息已被受理，请耐心等待受理结果，点击查看详细。",
+      datetime:"2023年7月14日 11:20",
+      type:"预约受理通知", 
+      url:"/pages/user/myappointment/appointmentmessage"
+    }]
   },
   tabSelect(e) {
     this.setData({
