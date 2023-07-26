@@ -4,7 +4,9 @@ App({
   globalData: {
     userInfo: null,
     isLoggedIn: false,
-    apiUri: "https://127.0.0.1/",
+    apiUri: "https://192.168.121.138:8000/",
+    // apiUri:"https://api.enjoywangjing.cn"
+    token:""
   },
   // 启动时
   onLaunch: function () {
@@ -23,7 +25,7 @@ App({
         console.log("请求code:", res)
         wx.request({
           // 发送 res.code 到后台换取用户登录凭证，然后进行登录操作
-          url: 'http://192.168.121.138:8000/admin/wxurl',
+          url: this.globalData.apiUri+'/admin/wxurl',
           method: "GET",
           data: {
             js_code: code,

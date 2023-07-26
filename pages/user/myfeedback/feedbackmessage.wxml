@@ -1,7 +1,7 @@
-<!--pages/user/myorder/detail.wxml-->
+<!--pages/user/myfeedback/feedbackmessage.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">工单详情</view>
+  <view slot="content">反馈详情</view>
 </cu-custom>
 <!-- 提交工单后显示 -->
 <!-- 基本信息 -->

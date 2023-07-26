@@ -29,7 +29,9 @@
     "pages/user/mymessage/mymessage",
     "pages/user/myfaver/myfaver",
     "pages/user/myfeedback/myfeedback",
+    "pages/user/myfeedback/feedbackmessage",
     "pages/user/myappointment/myappointment",
+    "pages/user/myappointment/appointmentmessage",
     "pages/user/myorder/myorder",
     "pages/user/myorder/detail",
     "pages/user/login/login"

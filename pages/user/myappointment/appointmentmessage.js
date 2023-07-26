@@ -1,38 +1,11 @@
-// pages/user/myorder/detail.js
+// pages/user/myappointment/appointmentmessage.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    count: 5,
-    active: 0,
-    score: 1,
-    messageData:[{
-      id:0,
-      title:"某某故障-无法上网",
-      type:"普通工单",
-      desc:"某某地点出现情况",
-      service:"某某某地方进行维修",
-      record:"某某社工已进行处理"
- 
-    }]
-  },
-  /**
-   * 点击评分
-   */
-  click(e) {
-    const {
-      score,
-      count
-    } = this.data;
-    const active = e.currentTarget.dataset.index;
-    this.setData({
-      active
-    })
-    this.triggerEvent("click", {
-      result: score / count * active
-    }, {})
+
   },
 
   /**
