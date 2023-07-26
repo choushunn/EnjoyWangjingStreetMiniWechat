@@ -1,1 +1,2 @@
 /* pages/community/repair/repair.wxss */
+@import "/app.wxss"
