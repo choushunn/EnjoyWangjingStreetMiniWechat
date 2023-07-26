@@ -1,1 +1,2 @@
 /* pages/community/consult/consult.wxss */
+@import "/app.wxss"

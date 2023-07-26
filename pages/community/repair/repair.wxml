@@ -59,6 +59,11 @@
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
+<!-- 浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/repair/form"></navigator>
+</view>
 
 
 <!-- <view wx:if="{{menu}}"> -->
