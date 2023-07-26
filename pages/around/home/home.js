@@ -6,137 +6,49 @@ import {
 import {
   Config
 } from '../../../libs/config.js';
-
 const app = getApp();
-var amapFile = require('../../../libs/amap-wx.130.js');
+const myAmapFun = new AMapWX({
+  key: Config.key // 设置应用密钥
+});
 Component({
   data: {
-    inputText:'',
-    result:[],
-    StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    markersData: [], // 存储获取到的周边POI数据
-    markers: [], // 存储地图上的标记点
-    latitude: '', // 当前位置的纬度
-    longitude: '', // 当前位置的经度
-    textData: {}, // 显示标记点信息的数据
-    hot_list: ['服务', '出行', '设施','学校','餐饮'],
-    area_list: ['所有','100m','200m'],
-    list: [],
-    tips:[],   
+    // 地图相关  
+    markersData: [], // 获取到的周边POI数据
+    markers: [], // 地图上的标记点
+    latitude: 0, // 当前位置的纬度
+    longitude: 0, // 当前位置的经度
+    textData: {}, // 标记点的信息
+    swiperCurrent: 0, // 当前卡片索引
+    // 滑动卡片相关
+    modalName: null, // 模态框名称
     cardCur: 0,
-    swiperCurrent:0,
-    dataAddress: [{
-      name: '维也纳国际酒店',
-      address: '重庆市两江新区龙兴镇普福大道481号',
-      distance: '距离当前位置678米',
-      phone: '023-890058888'
-      },
-      {
-        name: '维也纳国际酒店',
-        address: '重庆市两江新区龙兴镇普福大道481号',
-        distance: '距离当前位置678米',
-        phone: '023-890058888'
-      },
-      {
-        name: '维也纳国际酒店',
-        address: '重庆市两江新区龙兴镇普福大道481号',
-        distance: '距离当前位置678米',
-        phone: '023-890058888'
-      },
-      {
-        name: '维也纳国际酒店',
-        address: '重庆市两江新区龙兴镇普福大道481号',
-        distance: '距离当前位置678米',
-        phone: '023-890058888'
-      },
-      {
-        name: '维也纳国际酒店',
-        address: '重庆市两江新区龙兴镇普福大道481号',
-        distance: '距离当前位置678米',
-        phone: '023-890058888'
-      }
-    ]
-  }, 
-  created: function () {
-    this.startLocation();
+    swiperCurrent: 0,
+    // 搜索地点相关
+    inputText: '',
+    result: [],
+    hot_list: ['服务', '出行', '设施', '学校', '餐饮'],
+    area_list: ['所有', '100m', '200m'],
+    list: [],
+    tips: [],
+  },
+  // created: function () {
+  //   this.startLocation();
+  // },
+  lifetimes:{
+    attached() {
+      this.startLocation();
+    },
   },
   methods: {
-    cardSwiper(e) {
-      this.setData({
-        cardCur: e.detail.current
-      })
-    },  // towerSwiper
-    // 初始化towerSwiper
-    towerSwiper(name) {
-      let list = this.data[name];
-      for (let i = 0; i < list.length; i++) {
-        list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
-        list[i].mLeft = i - parseInt(list.length / 2)
-      }
-      this.setData({
-        swiperList: list
-      })
-    },
-    // towerSwiper触摸开始
-    towerStart(e) {
-      this.setData({
-        towerStart: e.touches[0].pageX
-      })
-    },
-    // towerSwiper计算方向
-    towerMove(e) {
-      this.setData({
-        direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
-      })
-    },
-    // towerSwiper计算滚动
-    towerEnd(e) {
-      let direction = this.data.direction;
-      let list = this.data.swiperList;
-      if (direction == 'right') {
-        let mLeft = list[0].mLeft;
-        let zIndex = list[0].zIndex;
-        for (let i = 1; i < list.length; i++) {
-          list[i - 1].mLeft = list[i].mLeft
-          list[i - 1].zIndex = list[i].zIndex
-        }
-        list[list.length - 1].mLeft = mLeft;
-        list[list.length - 1].zIndex = zIndex;
-        this.setData({
-          swiperList: list
-        })
-      } else {
-        let mLeft = list[list.length - 1].mLeft;
-        let zIndex = list[list.length - 1].zIndex;
-        for (let i = list.length - 1; i > 0; i--) {
-          list[i].mLeft = list[i - 1].mLeft
-          list[i].zIndex = list[i - 1].zIndex
-        }
-        list[0].mLeft = mLeft;
-        list[0].zIndex = zIndex;
-        this.setData({
-          swiperList: list
-        })
-      }
-    },
-    swiperChange(e) {
-      if (e.detail.source == "touch" || e.detail.source == "autoplay") {
-        this.setData({
-          swiperCurrent: e.detail.current
-        })
-      }
-    },
- 
+    // 地图相关
+    // 开始获取位置信息
     startLocation: function () {
-      var that = this;
       // 创建高德地图 API 实例
-      var myAmapFun = new AMapWX({
-        key: Config.key // 设置应用密钥
-      });
+      var that = this;
       // 开始监听位置变化
       wx.startLocationUpdate({
-        success: function () {
+        success() {
           wx.onLocationChange(function (res) {
             // 获取最新位置信息
             var latitude = res.latitude;
@@ -146,7 +58,7 @@ Component({
               location: longitude + ',' + latitude, // 设置查询位置
               iconPathSelected: '../../../images/amap/marker_checked.png', //如：..­/..­/img/marker_checked.png
               iconPath: '../../../images/amap/marker.png', //如：..­/..­/img/marker.png
-              success: function (data) {
+              success(data) {
                 that.setData({
                   markersData: data.markers, // 存储获取到的周边POI数据
                   markers: data.markers, // 存储地图上的标记点
@@ -155,7 +67,7 @@ Component({
                 });
                 that.showMarkerInfo(data.markers, 0); // 显示第一个标记点的信息
               },
-              fail: function (info) {
+              fail(info) {
                 wx.showModal({
                   title: info.errMsg // 显示错误信息
                 })
@@ -163,36 +75,32 @@ Component({
             })
           })
         },
-        fail: function (info) {
+        fail(info) {
           wx.showModal({
             title: info.errMsg // 显示错误信息
           })
         }
       })
     },
-    backToLocation: function() {
-      console.log("返回当前地址")// 将地图中心移动到当前定位点的位置
+    backToLocation: function () {
+      console.log("返回当前地址") 
       const myMap = wx.createMapContext('myMap');
       myMap.moveToLocation();
     },
-    showModal(e) {
-      this.setData({
-        modalName: e.currentTarget.dataset.target
-      })
-    },
-    hideModal(e) {
-      this.setData({
-        modalName: null
-      })
-    },
     // 点击标记点时触发的事件处理函数
-    makertap: function (e) {
+    makertap(e) {
       var index = e.markerId;
       this.showMarkerInfo(this.data.markersData, index); // 显示标记点的信息
       this.changeMarkerColor(this.data.markersData, index); // 改变标记点的颜色
+      this.setData({
+        cardCur: index, // 更新当前卡片索引
+      });
     },
     // 显示标记点的信息
-    showMarkerInfo: function (markers, index) {
+    showMarkerInfo(markers, index) {
+      if (!markers || markers.length === 0 || index < 0 || index >= markers.length) {
+        return;
+      }
       this.setData({
         textData: {
           name: markers[index].name,
@@ -201,8 +109,8 @@ Component({
       });
     },
     // 改变标记点的颜色
-    changeMarkerColor: function (markers, index) {
-      var newMarkers = [];
+    changeMarkerColor(markers, index) {
+      var newMarkers = []
       for (var i = 0; i < markers.length; i++) {
         var marker = markers[i];
         if (i == index) {
@@ -215,13 +123,100 @@ Component({
         newMarkers.push(marker);
       }
       this.setData({
-        markers: newMarkers // 更新地图上的标记点
+        markers: newMarkers, // 更新地图上的标记点
+        cardCur: index // 更新当前卡片索引
       });
+    },
+  // 卡片相关
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
+  }, // towerSwiper
+  // 初始化towerSwiper
+  towerSwiper(name) {
+    let list = this.data[name] || [];
+    // let list = this.data[name];
+    for (let i = 0; i < list.length; i++) {
+      list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
+      list[i].mLeft = i - parseInt(list.length / 2)
+    }
+    this.setData({
+      swiperList: list
+    })
+  },
+  // towerSwiper触摸开始
+  towerStart(e) {
+    this.setData({
+      towerStart: e.touches[0].pageX
+    })
+  },
+  // towerSwiper计算方向
+  towerMove(e) {
+    this.setData({
+      direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
+    })
+  },
+  // towerSwiper计算滚动
+  towerEnd(e) {
+    let direction = this.data.direction;
+    let list = this.data.swiperList;
+    if (direction == 'right') {
+      let mLeft = list[0].mLeft;
+      let zIndex = list[0].zIndex;
+      for (let i = 1; i < list.length; i++) {
+        list[i - 1].mLeft = list[i].mLeft
+        list[i - 1].zIndex = list[i].zIndex
+      }
+      list[list.length - 1].mLeft = mLeft;
+      list[list.length - 1].zIndex = zIndex;
+      this.setData({
+        swiperList: list
+      })
+    } else {
+      let mLeft = list[list.length - 1].mLeft;
+      let zIndex = list[list.length - 1].zIndex;
+      for (let i = list.length - 1; i > 0; i--) {
+        list[i].mLeft = list[i - 1].mLeft
+        list[i].zIndex = list[i - 1].zIndex
+      }
+      list[0].mLeft = mLeft;
+      list[0].zIndex = zIndex;
+      this.setData({
+        swiperList: list
+      })
     }
   },
-  bindInput: function(e){
+  swiperChange(e) {
+    console.log("swiperChange")
+    if (!this.data.markersData || this.data.markersData.length === 0) {
+      
+      return;
+    }
+    if (e.detail.source == "touch" || e.detail.source == "autoplay") {
+      this.setData({
+        swiperCurrent: e.detail.current
+      })
+    }
+    this.showMarkerInfo(this.data.markersData, e.detail.current); // 显示下一个标记点的信息
+    this.changeMarkerColor(this.data.markersData, e.detail.current); // 改变下一个标记点的颜色
+    
+  },  
+  // 显示模态框
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  // 隐藏模态框
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  bindInput: function (e) {
     var that = this;
-    var keywords = e.detail.value; 
+    var keywords = e.detail.value;
     var key = config.Config.key;
     var myAmapFun = new AMapWX({
       key: Config.key // 设置应用密钥
@@ -229,8 +224,8 @@ Component({
     myAmapFun.getInputtips({
       keywords: keywords,
       location: '',
-      success: function(data){
-        if(data && data.tips){
+      success: function (data) {
+        if (data && data.tips) {
           that.setData({
             tips: data.tips
           });
@@ -238,7 +233,7 @@ Component({
       }
     })
   },
-  bindSearch: function(e){
+  bindSearch: function (e) {
     var keywords = e.target.dataset.keywords;
     var url = '../poi/poi?keywords=' + keywords;
     console.log(url)
@@ -246,13 +241,11 @@ Component({
       url: url
     })
   },
-  getSelecte: function(event) {
+  getSelecte: function (event) {
     const content = event.currentTarget.dataset.content
     this.setData({
       selected: content
     })
-  },
-  
-  
-  
+  },  
+},
 })

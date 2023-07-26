@@ -47,14 +47,14 @@
 </view>
 
 <!-- 地点详情卡片 -->
-<swiper class="card-swiper" circular="true" bindchange="cardSwiper" previousMargin="0.02rpx">
-  <swiper-item wx:for="{{dataAddress}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
+<swiper class="card-swiper" circular="true" bindchange="cardSwiper" current="{{cardCur}}"  previousMargin="0.02rpx">
+  <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}"  bindtap="swiperChange">
     <view class="swiper-item">
       <view class="cu-card article">
         <view class="cu-item shadow">
           <view class="title">
-            <block wx:if="{{textData.name}}">
-              <view class="text-cut">{{textData.name}}</view>
+            <block wx:if="{{item.name}}">
+              <view class="text-cut">{{item.name}}</view>
             </block>
             <block wx:else>
               <view class="text-cut">暂未获取定位</view>
@@ -62,8 +62,8 @@
           </view>
           <view class="content">
             <view class="desc">
-              <block wx:if="{{textData.desc}}">
-                <view class="text-df margin-bottom"> {{textData.desc}}</view>
+              <block wx:if="{{item.address}}">
+                <view class="text-df margin-bottom"> {{item.address}}</view>
               </block>
               <block wx:else>
                 <view class="text-df margin-bottom"> 暂未获取定位</view>
@@ -85,12 +85,12 @@
     <view class="cu-dialog">
       <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 630rpx;">
         <view class="cu-card no-card">
-          <view wx:for="{{dataAddress}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
+          <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
             <view class="margin-lr margin-tb-xs text-bold">{{item.name}}</view>
             <view class="margin-lr text-df">
               <view>{{item.address}}</view>
               <!-- <view class="text-lg">{{item.distance}}</view> -->
-              <view>联系电话：{{item.phone}}</view>
+              <!-- <view>联系电话：{{item.phone}}</view> -->
             </view>
           </view>
         </view>
