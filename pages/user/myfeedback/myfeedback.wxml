@@ -15,9 +15,9 @@
     已结束
   </view>
 </scroll-view>
+
 <view wx:if="{{messageData}}">
   <!-- 消息列表 -->
- 
   <block wx:for="{{messageData}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
       <navigator url="{{item.url}}">
@@ -51,6 +51,7 @@
     <template is="nodata"></template>
   </view>
 </view>
+
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

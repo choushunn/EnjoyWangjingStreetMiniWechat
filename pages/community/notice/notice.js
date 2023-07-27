@@ -17,13 +17,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     time: timeStr,
     date: dateStr,
     TabCur: 0,
     scrollLeft: 0,
-    messageData:[{
+    // 默认数据
+    noticeData:[{
       id:0,
       title:"全国社区建设试点名单印发",
       status:0,
@@ -47,82 +46,29 @@ Page({
       datetime:"2023年7月14日 11:20",
       type:"", 
       url:"/pages/community/notice/details"
-    },{
-      id:1,
-      title:"住建部等7部门:在106个社区开展完整社区建设试点",
-      status:1,
-      desc:"住建部等7部门今日联合发布《关于印发完整社区建设试点名单的通知》,决定在106个社区开展完整社区建",
-      datetime:"2023年7月14日 11:20",
-      type:"", 
-      url:"/pages/community/notice/details"
-    },{
-      id:1,
-      title:"住建部等7部门:在106个社区开展完整社区建设试点",
-      status:1,
-      desc:"住建部等7部门今日联合发布《关于印发完整社区建设试点名单的通知》,决定在106个社区开展完整社区建",
-      datetime:"2023年7月14日 11:20",
-      type:"", 
-      url:"/pages/community/notice/details"
-    },{
-      id:1,
-      title:"住建部等7部门:在106个社区开展完整社区建设试点",
-      status:1,
-      desc:"住建部等7部门今日联合发布《关于印发完整社区建设试点名单的通知》,决定在106个社区开展完整社区建",
-      datetime:"2023年7月14日 11:20",
-      type:"", 
-      url:"/pages/community/notice/details"
     }]
   },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-  },
-  TimeChange(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  DateChange(e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-  ListTouchStart(e) {
-    this.setData({
-      ListTouchStart: e.touches[0].pageX
-    })
-  },
-
-  // ListTouch计算方向
-  ListTouchMove(e) {
-    this.setData({
-      ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
-    })
-  },
-
-  // ListTouch计算滚动
-  ListTouchEnd(e) {
-    if (this.data.ListTouchDirection =='left'){
-      this.setData({
-        modalName: e.currentTarget.dataset.target
-      })
-    } else {
-      this.setData({
-        modalName: null
-      })
-    }
-    this.setData({
-      ListTouchDirection: null
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this
+    wx.request({
+      url: app.globalData.apiUri + 'admin/community/NotificationAdmin/list',
+      method: 'POST',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log(res.data.data.items)
+          var items = res.data.data.items
+          // 读取成功
+          if (items.length > 0) {
+            that.setData({
+              noticeData: items
+            })
+          }
+        }
+      }
+    })
   },
 
   /**

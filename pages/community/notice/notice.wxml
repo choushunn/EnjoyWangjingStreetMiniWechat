@@ -26,9 +26,9 @@
   </view>
 </scroll-view> -->
 
-<view wx:if="{{messageData}}">
+<view wx:if="{{noticeData}}">
   <!-- 消息列表 -->
-  <block wx:for="{{messageData}}" wx:key="id">
+  <block wx:for="{{noticeData}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
       <navigator url="/pages/community/notice/details?id={{item.id}}">
         <view class="cu-card article no-card margin-xs">

@@ -3,6 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">预约详情</view>
 </cu-custom>
+
 <!-- 提交预约信息后显示 -->
 <!-- 预约基本信息 -->
 <view class="cu-bar bg-white solid-bottom">
@@ -89,6 +90,7 @@
     </view>
   </view>
 </view>
+
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

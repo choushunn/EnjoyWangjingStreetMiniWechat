@@ -25,7 +25,7 @@
       <view class="cuIcon-cascades"></view>
       <view class="text-sm text-center text-balck">筛选</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center" bindtap="getCenterLocation">
+    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation">
       <view class="cuIcon-location"></view>
       <view class="text-sm text-center text-balck">定位</view>
     </view>

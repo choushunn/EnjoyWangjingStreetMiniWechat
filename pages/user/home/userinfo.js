@@ -2,13 +2,13 @@
 const app = getApp();
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    avatarUrl: app.globalData.defaultAvatarUrl,
   },
+  // 修改信息模态框
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target
@@ -18,30 +18,15 @@ Page({
     this.setData({
       modalName: null
     })
-  },
-  
+  },  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     const userinfo = wx.getStorageSync('userinfo');
     if (userinfo) {
-      this.setData(JSON.parse(userinfo));
+      this.setData({userinfo:JSON.parse(userinfo)});
     }
-    console.log(userinfo)
-    wx.request({
-      url: app.golobal.token+'/admin/auth/userinfo',
-      method: 'GET',
-      header: {
-        'Authorization': 'Bearer ' + "token"
-      },
-      success(res) {
-        console.log(res.data);
-      },
-      fail(err) {
-        console.error(err);
-      }
-    })
   },
 
   /**

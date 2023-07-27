@@ -8,7 +8,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    "messageData": [
+    "activityData": [
       {
         "id": 1,
         "title": "社区活动1",
@@ -52,7 +52,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this
+    wx.request({
+      url: app.globalData.apiUri + 'admin/community/NotificationAdmin/list',
+      method: 'POST',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log(res.data.data.items)
+          var items = res.data.data.items
+          // 读取成功
+          if (items.length > 0) {
+            that.setData({
+              activityData: items
+            })
+          }
+        }
+      }
+    })
   },
   isCard(e) {
     this.setData({

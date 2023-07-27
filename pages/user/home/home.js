@@ -4,25 +4,25 @@ Component({
   /**
    * 页面的初始数据
    */
-  data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    iconList: [{
+  data: {    
+    avatarUrl: app.globalData.defaultAvatarUrl,
+    // 我的菜单
+    myMenuItems: [{
       icon: 'cardboardfill',
       color: 'red',
-      badge: 10,
+      badge: 0,
       name: '我的收藏',
       url:'/pages/user/myfaver/myfaver'
     }, {
       icon: 'picfill',
       color: 'yellow',
-      badge: 10,
+      badge: 0,
       name: '我的消息',
       url:'/pages/user/mymessage/mymessage'
     }, {
       icon: 'noticefill',
       color: 'olive',
-      badge: 22,
+      badge: 0,
       name: '我的工单',
       url:'/pages/user/myorder/myorder'
     }, {
@@ -38,97 +38,58 @@ Component({
       name: '我的预约',
       url:'/pages/user/myappointment/myappointment'
     }
-    , {
-      icon: 'cascades',
-      color: 'blue',
-      badge: 0,
-      name: '数据统计',
-      url:'/pages/user/chart/chart'
-    }],
-    gridCol: 3,
-    skin: false,
-    userinfo: {},
-    hasUserInfo: false,
-    canIUseGetUserProfile: false,
-    menuItems: [
+   ],
+    // 关于菜单
+    aboutMenuItems: [
       {
         id: 1,
-        label: '关于我们',
-        iconClass: 'cuIcon-info text-cyan',
+        name: '关于我们',
+        icon: 'info',
+        color:'cyan',
         url: '/pages/user/about/about',
         handler: 'toPage'
       },
       {
         id: 2,
-        label: '更新日志',
-        iconClass: 'cuIcon-formfill text-green',
+        name: '更新日志',
+        icon: 'formfill',
+        color:'green',
         url: '/pages/user/logs/logs',
         handler: 'toPage'
       },
       {
         id: 3,
-        label: '免责声明',
-        iconClass: 'cuIcon-text text-cyan',
+        name: '免责声明',
+        icon: 'text',
+        color:'cyan',
         url: '',
         handler: 'showDisclaimer'
       },
       {
         id: 4,
-        label: '隐私政策',
-        iconClass: 'cuIcon-safe text-cyan',
+        name: '隐私政策',
+        icon: 'safe',
+        color:'cyan',
         url: '',
         handler: 'showPrivacyPolicy'
       },
       {
         id: 5,
-        label: '用户协议',
-        iconClass: 'cuIcon-file text-cyan',
+        name: '用户协议',
+        icon: 'file',
+        color:'cyan',
         url: '',
         handler: 'showUserAgreement'
       },
       {
         id: 6,
-        label: '赞赏支持',
-        iconClass: 'cuIcon-appreciatefill text-red',
+        name: '赞赏支持',
+        icon: 'appreciatefill',
+        color:'red',
         url: '',
         handler: 'showQrcode'
       }
     ]
-  },
-
-  toPage: function (event) {
-    var url = event.currentTarget.dataset.url
-    wx.navigateTo({
-      url: url
-    })
-  },
-
-  showDisclaimer: function () {
-    wx.showToast({
-      title: '免责声明',
-      icon: 'none'
-    })
-  },
-
-  showPrivacyPolicy: function () {
-    wx.showToast({
-      title: '隐私政策',
-      icon: 'none'
-    })
-  },
-
-  showUserAgreement: function () {
-    wx.showToast({
-      title: '用户协议',
-      icon: 'none'
-    })
-  },
-
-  showQrcode: function () {
-    wx.showToast({
-      title: '赞赏支持',
-      icon: 'none'
-    })
   },
   lifetimes:{
     attached(){
@@ -136,14 +97,37 @@ Component({
       if (userinfo) {
         this.setData({userinfo:JSON.parse(userinfo)});
       }
-      console.log(userinfo)
     }
   },
-  methods: {
-    
-    toPage(e) {
+  methods: {    
+    toPage: function (event) {
+      var url = event.currentTarget.dataset.url
       wx.navigateTo({
-        url: e.currentTarget.dataset.url
+        url: url
+      })
+    },
+    showDisclaimer: function () {
+      wx.showToast({
+        title: '免责声明',
+        icon: 'none'
+      })
+    },
+    showPrivacyPolicy: function () {
+      wx.showToast({
+        title: '隐私政策',
+        icon: 'none'
+      })
+    },
+    showUserAgreement: function () {
+      wx.showToast({
+        title: '用户协议',
+        icon: 'none'
+      })
+    },
+    showQrcode: function () {
+      wx.showToast({
+        title: '赞赏支持',
+        icon: 'none'
       })
     },
     onLogin() {

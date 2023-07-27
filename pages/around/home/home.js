@@ -113,7 +113,6 @@ Component({
     // 点击定位按钮时触发的方法
     backToLocation() {
       // 将地图中心点移动到当前定位点位置并显示在地图正中间
-      // myAmapFun.goto
       console.log("moveToLocation")
       this.startLocation();
       this.setData({
@@ -137,6 +136,7 @@ Component({
     },
     // 显示标记点的信息
     showMarkerInfo(markers, index) {
+      console.log(index)
       // var marker = markers[index];
       // console.log(marker)
       // this.setData({

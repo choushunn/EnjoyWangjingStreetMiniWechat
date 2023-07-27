@@ -1,11 +1,10 @@
 // pages/user/login/login.js
-// 默认头像
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+
 const app = getApp();
 Page({
   //  页面的初始数据
   data: {
-    avatarUrl: defaultAvatarUrl,
+    avatarUrl: app.globalData.defaultAvatarUrl,
     nickname: "",
     modalName: '',
     phoneCode: '',
@@ -18,12 +17,13 @@ Page({
     wx.login({
       success: res => {
         wx.request({
-          url: app.globalData.apiUri + 'login',
-          method: 'POST',
+          url: app.globalData.apiUri + 'wx_login',
+          method: 'GET',
           data: {
-            code: res.code,
+            js_code: res.code,
           },
           success: res => {
+            console.log(res)
             // 调用成功后跳转到首页
             wx.navigateTo({
               url: '/pages/index/index',
@@ -42,8 +42,7 @@ Page({
       this.setData({
         phoneCode: e.detail.code
       })
-      console.log(this.data)
-    
+      console.log(this.data)    
       wx.setStorageSync('userinfo', JSON.stringify(this.data));
       wx.navigateTo({
         url: '/pages/index/index',

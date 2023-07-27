@@ -14,7 +14,7 @@
 </view>
 <!-- 页面概况信息 -->
 <view class="solid-bottom">
-  <view class="padding text-black text-bold text-xl">{{item.name}}</view>
+  <view class="padding text-black text-bold text-xl">{{item.title}}</view>
   <view class="padding text-lg">{{item.address}}</view>
   <view class="padding text-lg">{{addressData[0].distance}}</view>
   <view class="padding text-lg">{{addressData[0].num}}</view>

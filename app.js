@@ -9,8 +9,10 @@ App({
     StatusBar: 0,
     Custom: null,
     CustomBar: 0,
-    apiUri: "https://192.168.121.138:8000/",// 配置 API 地址
-    // apiUri:"https://api.enjoywangjing.cn"
+    apiUri: "http://192.168.121.138:8000/", // 配置 API 地址
+    // apiUri:"https://api.enjoywangjing.cn",
+    // 默认头像
+    defaultAvatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
   },
   // 启动时
   onLaunch: function () {
@@ -19,13 +21,34 @@ App({
     wx.request({
       url: this.globalData.apiUri,
       success(res) {
-        console.log(res)
+        console.log(res.statusCode)
         if (res.statusCode !== 200) {
           that.globalData.isApiAvailable = false;
           that.showMaintenanceTip();
         } else {
           that.globalData.isApiAvailable = true;
           console.log('API is available');
+          // 尝试自动登录
+          wx.login({
+            success: (res) => {
+              wx.request({
+                url: that.globalData.apiUri + 'wx_issuer',
+                method: 'GET',
+                data: {
+                  js_code: res.code,
+                },
+                success: res => {
+                  console.log(res.data.data.user)
+                  if (res.data.code == 200) {
+                    // 登录成功，设置全局用户信息
+                    wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
+                  } else {
+                    // 登录失败，没有用户信息
+                  }
+                }
+              })
+            },
+          })
         }
       },
       fail(res) {

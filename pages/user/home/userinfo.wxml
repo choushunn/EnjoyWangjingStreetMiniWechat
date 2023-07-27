@@ -3,8 +3,8 @@
   <view slot="backText">返回</view>
   <view slot="content">个人中心</view>
 </cu-custom>
-
 <view class="cu-list menu sm-border {{menuCard?'card-menu margin-top':''}}">
+  <!-- 头像 -->
   <view class="cu-item arrow">
     <view class="content">
       <text class="cuIcon-emojiflashfill text-pink"></text>
@@ -12,43 +12,63 @@
     </view>
     <view class="action">
       <view class="cu-avatar-group padding">
-        <view class="cu-avatar round lg" style="background-image:url(https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0);"></view>
+        <!-- 头像显示 -->
+        <view class="cu-avatar round lg" style="background-image:url({{userinfo.avatar?userinfo.avatar:avatarUrl}});"></view>
       </view>
     </view>
   </view>
+  <!-- 昵称 -->
   <view class="cu-item arrow" bindtap="showModal" data-target="DialogModal1">
-    <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+    <navigator class="content" hover-class="none" url="" open-type="redirect">
       <text class="cuIcon-my text-orange"></text>
       <text class="text-grey">昵称</text>
     </navigator>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.nickname}}</text>
+    </view>
   </view>
+  <!-- 手机号 -->
   <view class="cu-item arrow">
-    <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+    <navigator class="content" hover-class="none" url="" open-type="redirect">
       <text class="cuIcon-phone text-orange"></text>
       <text class="text-grey">手机号码</text>
-    </navigator>
-  </view>
 
+    </navigator>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.phone}}</text>
+    </view>
+  </view>
+  <!-- 性别 -->
   <view class="cu-item arrow">
     <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
       <text class="cuIcon-male text-orange"></text>
       <text class="text-grey">性别</text>
     </navigator>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.gender}}</text>
+    </view>
   </view>
+  <!-- 地址 -->
   <view class="cu-item arrow">
     <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
       <text class="cuIcon-location text-orange"></text>
       <text class="text-grey">地址</text>
     </navigator>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.address}}</text>
+    </view>
   </view>
+  <!-- 身份状态 -->
   <view class="cu-item arrow">
     <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
       <text class="cuIcon-vipcard text-orange"></text>
-      <text class="text-grey">用户状态</text>
+      <text class="text-grey">用户状态</text>     
     </navigator>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.is_active}}</text>
+    </view>
   </view>
 </view>
-
 <view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
@@ -58,7 +78,7 @@
       </view>
     </view>
     <view class="margin padding-xl text-left">
-     <input type="text" placeholder="请输入昵称"/>
+      <input type="text" placeholder="请输入昵称" />
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
@@ -68,13 +88,6 @@
     </view>
   </view>
 </view>
-<!-- 头像 -->
 
-<!-- 昵称 -->
-
-<!-- 性别 -->
-<!-- 手机号 -->
 <!-- 邮箱地址 -->
 <!-- 身份证号 -->
-<!-- 地址 -->
-<!-- 身份状态 -->
