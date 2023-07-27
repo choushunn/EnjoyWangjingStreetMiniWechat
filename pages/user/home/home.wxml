@@ -4,7 +4,7 @@
 </cu-custom>
 <!-- 用户信息显示块 -->
 <view class="UCenter-bg">
-  <block wx:if="{{!userinfo}}">
+  <block wx:if="{{!hasUserInfo}}">
     <!-- 微信头像 -->
     <navigator class="padding-xs" url="/pages/user/home/userinfo">
       <view class="cu-avatar round xl" style="background-image:url(https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0);">
