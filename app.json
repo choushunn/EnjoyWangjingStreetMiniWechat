@@ -54,8 +54,7 @@
     "scope.userLocation": {
       "desc": "获取用户的地理位置"
     }
-  },
-  
+  },  
   "requiredPrivateInfos": [
     "chooseLocation",
     "getLocation",
@@ -66,4 +65,5 @@
     "choosePoi"
   ],
   "lazyCodeLoading": "requiredComponents"
+
 }

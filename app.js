@@ -4,49 +4,61 @@ App({
   globalData: {
     userInfo: null,
     isLoggedIn: false,
-    apiUri: "https://192.168.121.138:8000/",
+    isApiAvailable: false,
+    networkType: '', // 记录网络状态
+    StatusBar: 0,
+    Custom: null,
+    CustomBar: 0,
+    apiUri: "https://192.168.121.138:8000/",// 配置 API 地址
     // apiUri:"https://api.enjoywangjing.cn"
-    token:""
   },
   // 启动时
   onLaunch: function () {
-    // 启动时检查本地存储中是否有用户信息
-    var userInfo = wx.getStorageSync('userInfo');
-    if (userInfo) {
-      // 如果有用户信息，则设置登录状态和用户信息
-      this.globalData.isLoggedIn = true;
-      this.globalData.userInfo = userInfo;
-    }else{
-    // 自动登录/没有注册则设置当前状态为未注册
-    // 调用微信登录接口，获取用户的 code
-    wx.login({
-      success: (res) => {
-        let code = res.code
-        console.log("请求code:", res)
-        wx.request({
-          // 发送 res.code 到后台换取用户登录凭证，然后进行登录操作
-          url: this.globalData.apiUri+'/admin/wxurl',
-          method: "GET",
-          data: {
-            js_code: code,
-          },
-          success: (res) => {
-            console.log("授权成功:", res.data)
-            // 判断是否已经注册            
-            this.globalData.isLoggedIn = res.data.data.is_login            
-            console.log(this.globalData.isLoggedIn)
-            // 没有注册则设置isLoggedIn为false
-            // 登录成功，将用户信息保存到全局变量中
-            // getApp().globalData.userInfo = res.data.userInfo
-            // 进行跳转或其他操作            
-          },
-          fail: (err) => {
-            console.log(err)
-            // 登录失败，进行处理
-          }
-        })
+    const that = this;
+    // 检查 API 是否可用
+    wx.request({
+      url: this.globalData.apiUri,
+      success(res) {
+        console.log(res)
+        if (res.statusCode !== 200) {
+          that.globalData.isApiAvailable = false;
+          that.showMaintenanceTip();
+        } else {
+          that.globalData.isApiAvailable = true;
+          console.log('API is available');
+        }
       },
-    })
+      fail(res) {
+        that.globalData.isApiAvailable = false;
+        that.showMaintenanceTip();
+      }
+    });
+    // 检查本地存储中是否有用户信息和 Token
+    const token = wx.getStorageSync('token');
+    if (token) {
+      // 如果已经登录，则更新 Token
+      wx.request({
+        url: this.globalData.apiUri + 'token', // 请求 Token API
+        method: 'POST',
+        data: {
+          token: token,
+        },
+        success: function (res) {
+          if (res.data.code === 0) {
+            // Token 验证成功，则更新本地缓存中的 Token
+            wx.setStorageSync('token', res.data.data.token);
+          } else {
+            // Token 验证失败，则跳转到登录页面
+            that.showExpireTip();
+          }
+        },
+        fail: function () {
+          console.error('请求 Token API 失败');
+        },
+      });
+    } else {
+      // 如果本地缓存中没有用户信息，则跳转到登录页面
+      that.navigateToLogin();
     }
     // 获取系统状态栏信息
     wx.getSystemInfo({
@@ -62,14 +74,49 @@ App({
       }
     })
     // 监听网络状态
-    wx.getNetworkType({
-      success: function (res) {
-        var networkType = res.networkType;
-        // 处理网络状态
-        console.log(networkType)
-      }
-    })
-
+    wx.onNetworkStatusChange(function (res) {
+      that.globalData.networkType = res.networkType;
+      // 处理网络状态
+      console.log(res.networkType);
+    });
     // 其他操作
-  }
+  },
+  // 显示服务维护中的提示
+  showMaintenanceTip() {
+    wx.showToast({
+      title: '服务维护中，请稍后再试',
+      icon: 'none',
+      duration: 2000,
+      complete() {
+        // 禁用页面上的交互元素
+        wx.disableAlertBeforeUnload({
+          success() {
+            wx.setNavigationBarTitle({
+              title: '服务维护中',
+            });
+          },
+        });
+      },
+    });
+  },
+  // 显示登录已过期的提示
+  showExpireTip() {
+    wx.showModal({
+      title: '提示',
+      content: '登录已过期，请重新登录',
+      showCancel: false,
+      complete() {
+        // 跳转到登录页面
+        wx.navigateTo({
+          url: '/pages/user/login/login',
+        });
+      },
+    });
+  },
+  // 跳转到登录页面
+  navigateToLogin() {
+    // wx.navigateTo({
+    //   url: '/pages/user/login/login',
+    // });
+  },
 })

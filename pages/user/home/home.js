@@ -47,7 +47,7 @@ Component({
     }],
     gridCol: 3,
     skin: false,
-    userInfo: {},
+    userinfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
     menuItems: [
@@ -130,7 +130,17 @@ Component({
       icon: 'none'
     })
   },
+  lifetimes:{
+    attached(){
+      const userinfo = wx.getStorageSync('userinfo');
+      if (userinfo) {
+        this.setData({userinfo:JSON.parse(userinfo)});
+      }
+      console.log(userinfo)
+    }
+  },
   methods: {
+    
     toPage(e) {
       wx.navigateTo({
         url: e.currentTarget.dataset.url

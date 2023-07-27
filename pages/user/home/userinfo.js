@@ -1,12 +1,13 @@
 // pages/user/home/userinfo.js
 const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-token:'',
+
   },
   showModal(e) {
     this.setData({
@@ -23,11 +24,16 @@ token:'',
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    const userinfo = wx.getStorageSync('userinfo');
+    if (userinfo) {
+      this.setData(JSON.parse(userinfo));
+    }
+    console.log(userinfo)
     wx.request({
       url: app.golobal.token+'/admin/auth/userinfo',
       method: 'GET',
       header: {
-        'Authorization': 'Bearer ' + app.golobal.token
+        'Authorization': 'Bearer ' + "token"
       },
       success(res) {
         console.log(res.data);

@@ -24,11 +24,14 @@ Page({
     timeTop: 2000
   },
   ChooseImage() {
-    wx.chooseImage({
-      count: 4, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
+    wx.chooseMedia({
+      count: 9, //默认9
+      mediaType:['image','video'],
+      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有     
+      sourceType: ['album','camera'], //从相册选或相机拍摄
+      camera: 'back',
       success: (res) => {
+        console.log(res)
         if (this.data.imgList.length != 0) {
           this.setData({
             imgList: this.data.imgList.concat(res.tempFilePaths)
@@ -39,7 +42,8 @@ Page({
           })
         }
       }
-    });
+    },    
+    );
   },
   ViewImage(e) {
     wx.previewImage({
@@ -90,11 +94,9 @@ Page({
     }
   },
   setShowTop(statusTop, messageTop, timeTop = 3000) {
-
     if (loadingTop) {
       return
     }
-
     loadingTop = true;
     try {
       this.setData({

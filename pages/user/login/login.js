@@ -3,48 +3,136 @@
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp();
 Page({
-  /**
-   * 页面的初始数据
-   */
+  //  页面的初始数据
   data: {
     avatarUrl: defaultAvatarUrl,
     nickname: "",
-    // isLogIn:app.globalData.isLoggedIn,
-    isLogIn: false,
-    modalName: ''
+    modalName: '',
+    phoneCode: '',
+    isRegister: false,
   },
-  onTap() {
-    if (this.data.isLogIn) {
-      // 直接登录逻辑
-      console.log("登录")
-      this.doLogin()
-    } else {
-      // 获取头像和昵称逻辑
-      console.log("注册")
+  // 点击登录按钮
+  onLogin() {
+    console.log("直接登录")
+    // 发起登录请求
+    wx.login({
+      success: res => {
+        wx.request({
+          url: app.globalData.apiUri + 'login',
+          method: 'POST',
+          data: {
+            code: res.code,
+          },
+          success: res => {
+            // 调用成功后跳转到首页
+            wx.navigateTo({
+              url: '/pages/index/index',
+            });
+            // 保存token到本地
+            // 保存用户信息到本地
+          }
+        })
+      },
+    });
+  },
+  // 获取用户手机号码
+  getPhoneNumber(e) {
+    if (e.detail.errMsg == 'getPhoneNumber:ok') {
+      // 保存用户手机号码code
       this.setData({
-        modalName: "Modal"
+        phoneCode: e.detail.code
+      })
+      console.log(this.data)
+    
+      wx.setStorageSync('userinfo', JSON.stringify(this.data));
+      wx.navigateTo({
+        url: '/pages/index/index',
+      })
+      // 发起注册请求
+      wx.login({
+        success: res => {
+          wx.request({
+            url: app.globalData.apiUri + 'login',
+            method: 'POST',
+            data: {
+              code: res.code,
+              avatarUrl: this.data.avatarUrl,
+              nickname: this.data.nickname,
+              phoneCode: this.data.phoneCode
+            },
+            success: res => {
+              if (res.data.code === 0) {
+                // 注册成功，保存 token 到本地存储
+                wx.setStorageSync('token', res.data.data.token);
+                // 跳转到首页
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                });
+              } else {
+                // 注册失败，弹出错误提示
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                });
+              }
+            },
+            fail: () => {
+              wx.showToast({
+                title: '登录失败,401',
+                icon: 'none',
+              });
+            },
+          });
+        },
+        fail: () => {
+          wx.showToast({
+            title: '登录失败,402',
+            icon: 'none',
+          });
+        },
+      });
+    } else {
+      // 用户拒绝授权手机号码
+      console.log('用户拒绝授权手机号码');
+      // 进行处理
+    }
+  },
+  // 获取头像URL
+  onChooseAvatar(e) {
+    const {
+      avatarUrl
+    } = e.detail
+    this.setData({
+      avatarUrl: avatarUrl,
+    })
+  },
+  // 获取昵称
+  getNickname(e) {
+    let nickname = e.detail.value.nickname
+    if (!nickname) {
+      // 没有获取到昵称
+      console.log('获取昵称失败')
+    } else {
+      this.setData({
+        nickname: nickname
       })
     }
   },
-  // 登录逻辑    
-  doLogin(e) {
-    wx.navigateTo({
-      url: '/pages/index/index',
-    })
-  },
-  // 定义一个获取用户手机号码的函数
-  getPhoneNumber(e) {
-    console.log(e.detail.code) // 动态令牌
-    console.log(e.detail.errMsg) // 回调信息（成功失败都会返回）
-    console.log(e.detail.errno) // 错误码（失败时返回）
-    this.doLogin()
-    // 判断用户是否授权手机号码
-    if (e.detail.errMsg == 'getPhoneNumber:ok') {
-      // 获取用户手机号码      
-    } else {
-      // 用户拒绝授权手机号码，进行处理
-      console.log('用户拒绝授权手机号码')
-    }
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    // // 判断用户是否已经注册
+    // if (this.data.isRegister) {
+    //   // 已经注册直接登录
+    //   console.log("已经注册，可以直接登录")
+    // } else {
+    //   // 弹出模态框，进行注册
+    //   console.log("没有注册,弹出注册Modal")
+    //   this.setData({
+    //     modalName: "Modal"
+    //   })
+    // }
   },
   // 显示模态框
   showModal(e) {
@@ -58,36 +146,6 @@ Page({
       modalName: null
     })
   },
-  // 获取头像URL
-  onChooseAvatar(e) {
-    const {
-      avatarUrl
-    } = e.detail
-    this.setData({
-      avatarUrl: avatarUrl,
-    })
-    console.log('临时avatarUrl: ', avatarUrl)
-  },
-  // 获取昵称
-  submit(e) {
-    let nickname = e.detail.value.nickname
-    if (!nickname) {
-      // 没有获取到昵称
-      console.log('获取昵称失败')
-    } else {
-      this.setData({
-        nickname: nickname
-      })
-    }
-    console.log('昵称：', nickname)
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,5 +1,5 @@
 var config = {
-  key: 'e7be73cabfc2be0c4a2244d62737d9b1'
+  key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
 }
 
 export const Config = config;

@@ -1,18 +1,10 @@
-// 引入高德地图API的JavaScript库
-import {
-  AMapWX
-} from '../../../libs/amap-wx.130.js';
-// 引入应用配置
-import {
-  Config
-} from '../../../libs/config.js';
+import QQMapWX from '../../../libs/qqmap-wx-jssdk.min';
+// 实例化API核心类
+var qqmapsdk;
 const app = getApp();
-const myAmapFun = new AMapWX({
-  key: Config.key // 设置应用密钥
-});
-
 Component({
   data: {
+    // 获取导航栏高度
     CustomBar: app.globalData.CustomBar,
     // 地图相关  
     markersData: [], // 获取到的周边POI数据
@@ -27,78 +19,92 @@ Component({
     cardCur: 0,
     swiperCurrent: 0, // 当前卡片索引
     // 搜索地点相关
-    hot_list:["餐饮","学校","商店","其他"],
-    area_list:["全部","100米","200米","500米"]
+    hot_list: ["餐饮", "学校", "商店", "其他"],
+    area_list: ["全部", "100米", "200米", "500米"]
   },
   lifetimes: {
-    attached() {
-      this.startLocation();
-    },
+    created: function () {
+      // 获取地图上下文对象
+      this.mapCtx = wx.createMapContext('myMap', this)
+      // 开始获取位置信息
+      this.startLocation()
+    }
   },
   methods: {
     // 地图相关
-    // 开始获取位置信息
     startLocation() {
-      // 创建高德地图 API 实例
       var that = this;
+      // 实例化API核心类
+      qqmapsdk = new QQMapWX({
+        key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
+      });
       // 开始监听位置变化
       wx.startLocationUpdate({
-        success() {
+        success: () => {
+          // 监听位置变化
           wx.onLocationChange(function (res) {
             // 获取最新位置信息
             var latitude = res.latitude; //返回纬度
             var longitude = res.longitude; //返回经度
+            // 调用接口
             // 如果还没有获取过周边 POI 数据，或者重新点击了定位按钮
             if (!that.data.hasLocations || that.data.backToCurrentLocation) {
-              myAmapFun.getRegeo({
-                location: longitude + ',' + latitude, // 设置查询位置
-                iconPathSelected: '../../../images/amap/marker_checked.png', //选中的图标路径
-                iconPath: '../../../images/amap/marker.png', //未选中的图标
-                success(data) {
-                  // console.log(data)                  
-                  that.setData({
-                    currentTextData: data[0]
-                  })
-                }
-              })
-              // 调用高德地图 API 获取周边 POI 数据
-              myAmapFun.getPoiAround({
-                location: longitude + ',' + latitude, // 设置查询位置
-                iconPathSelected: '../../../images/amap/marker_checked.png', //选中的图标路径
-                iconPath: '../../../images/amap/marker.png', //未选中的图标
-                success(data) {
-                  // console.log(data)
+              qqmapsdk.search({
+                keyword: '餐饮',
+                success: function (res) {
+                  console.log(res.data);
+                  var data = res.data
+                  var markers = data.map(function (item) {
+                    return {
+                      id: item.id,
+                      latitude: item.location.lat,
+                      longitude: item.location.lng,
+                      title: item.title,
+                      address: item.address,
+                      iconPath: '../../../images/amap/marker.png', //选中的图标路径
+                      width: 20,
+                      height: 30,
+                      callout: {
+                        content: item.title + '\n' + item.address,
+                        color: '#000000',
+                        fontSize: 12,
+                        borderRadius: 10,
+                        bgColor: '#ffffff',
+                        padding: 10,
+                        display: 'BYCLICK'
+                      }
+                    };
+                  });
                   // 回调成功
                   that.setData({
                     backToCurrentLocation: false,
-                    markersData: data.poisData, // 存储获取到的周边POI数据
-                    markers: data.markers, // 存储地图上的标记点
+                    hasLocations: true,
+                    markersData: data, // 存储获取到的周边POI数据
+                    markers: markers, // 存储地图上的标记点
                     latitude: latitude, // 存储当前位置的纬度
-                    longitude: longitude // 存储当前位置的经度
+                    longitude: longitude// 存储当前位置的经度
                   });
-                  that.showMarkerInfo(data.markers, 0); // 显示第一个标记点的信息
                 },
-                fail(info) {
-                  wx.showModal({
-                    title: info.errMsg // 显示错误信息
-                  })
+                fail: function (res) {
+                  console.log(res);
+                },
+                complete: function (res) {
+                  console.log(res);
                 }
-              })
-            } else {
-              that.setData({
-                latitude: latitude,
-                longitude: longitude,
               });
             }
+
           })
         },
-        fail(info) {
+        fail: (info) => {
+          // 显示错误信息
           wx.showModal({
-            title: info.errMsg // 显示错误信息
+            title: info.errMsg
           })
         }
       })
     },
+
     // 点击定位按钮时触发的方法
     backToLocation() {
       // 将地图中心点移动到当前定位点位置并显示在地图正中间
@@ -113,8 +119,9 @@ Component({
       });
     },
     // 点击标记点时触发的事件处理函数
-    makertap(e) {
+    markertap(e) {
       var index = e.markerId;
+      console.log(index)
       this.showMarkerInfo(this.data.markers, index); // 显示标记点的信息
       this.changeMarkerColor(this.data.markers, index); // 改变标记点的颜色
       this.setData({
@@ -125,147 +132,137 @@ Component({
     },
     // 显示标记点的信息
     showMarkerInfo(markers, index) {
-      if (!markers || markers.length === 0 || index < 0 || index >= markers.length) {
-        return;
-      }
-      // this.setData({
-      //   textData: {
-      //     name: markers[index].name,
-      //     desc: markers[index].address
-      //   }
-      // });
+      var marker = markers[index];
+      this.setData({
+        currentTextData: {
+          name: marker.title,
+          desc: marker.address
+        }
+      });
     },
     // 改变标记点的颜色
     changeMarkerColor(markers, index) {
-      var newMarkers = []
-      for (var i = 0; i < markers.length; i++) {
-        var marker = markers[i];
-        if (i == index) {
-          // 如果是选中的标记点，改变其图标颜色
-          marker.iconPath = "../../../images/amap/marker_checked.png"; //如：..­/..­/img/marker_checked.png
-        } else {
-          // 如果是未选中的标记点，恢复其默认图标颜色
-          marker.iconPath = "../../../images/amap/marker.png"; //如：..­/..­/img/marker.png
-        }
-        newMarkers.push(marker);
-      }
+      var newMarkers = markers.map(function (item, i) {
+        item.iconPath = (i == index) ? '../../../images/amap/marker_checked.png' : '../../../images/amap/marker.png';
+        return item;
+      });
       this.setData({
-        markers: newMarkers, // 更新地图上的标记点
-        cardCur: index // 更新当前卡片索引
+        markers: newMarkers,
+        cardCur: index
       });
     },
-    // 卡片相关
-    cardSwiper(e) {
-      this.setData({
-        cardCur: e.detail.current,
-      })
-      // this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
-      this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
-    }, // towerSwiper
-    // 初始化towerSwiper
-    towerSwiper(name) {
-      let list = this.data[name] || [];
-      // let list = this.data[name];
-      for (let i = 0; i < list.length; i++) {
-        list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
-        list[i].mLeft = i - parseInt(list.length / 2)
+  // 卡片相关
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current,
+    })
+    this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
+    this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
+  }, // towerSwiper
+  // 初始化towerSwiper
+  towerSwiper(name) {
+    let list = this.data[name] || [];
+    // let list = this.data[name];
+    for (let i = 0; i < list.length; i++) {
+      list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
+      list[i].mLeft = i - parseInt(list.length / 2)
+    }
+    this.setData({
+      swiperList: list
+    })
+  },
+  // towerSwiper触摸开始
+  towerStart(e) {
+    this.setData({
+      towerStart: e.touches[0].pageX
+    })
+  },
+  // towerSwiper计算方向
+  towerMove(e) {
+    this.setData({
+      direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
+    })
+  },
+  // towerSwiper计算滚动
+  towerEnd(e) {
+    let direction = this.data.direction;
+    let list = this.data.swiperList;
+    if (direction == 'right') {
+      let mLeft = list[0].mLeft;
+      let zIndex = list[0].zIndex;
+      for (let i = 1; i < list.length; i++) {
+        list[i - 1].mLeft = list[i].mLeft
+        list[i - 1].zIndex = list[i].zIndex
       }
+      list[list.length - 1].mLeft = mLeft;
+      list[list.length - 1].zIndex = zIndex;
       this.setData({
         swiperList: list
       })
-    },
-    // towerSwiper触摸开始
-    towerStart(e) {
-      this.setData({
-        towerStart: e.touches[0].pageX
-      })
-    },
-    // towerSwiper计算方向
-    towerMove(e) {
-      this.setData({
-        direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
-      })
-    },
-    // towerSwiper计算滚动
-    towerEnd(e) {
-      let direction = this.data.direction;
-      let list = this.data.swiperList;
-      if (direction == 'right') {
-        let mLeft = list[0].mLeft;
-        let zIndex = list[0].zIndex;
-        for (let i = 1; i < list.length; i++) {
-          list[i - 1].mLeft = list[i].mLeft
-          list[i - 1].zIndex = list[i].zIndex
-        }
-        list[list.length - 1].mLeft = mLeft;
-        list[list.length - 1].zIndex = zIndex;
-        this.setData({
-          swiperList: list
-        })
-      } else {
-        let mLeft = list[list.length - 1].mLeft;
-        let zIndex = list[list.length - 1].zIndex;
-        for (let i = list.length - 1; i > 0; i--) {
-          list[i].mLeft = list[i - 1].mLeft
-          list[i].zIndex = list[i - 1].zIndex
-        }
-        list[0].mLeft = mLeft;
-        list[0].zIndex = zIndex;
-        this.setData({
-          swiperList: list
-        })
+    } else {
+      let mLeft = list[list.length - 1].mLeft;
+      let zIndex = list[list.length - 1].zIndex;
+      for (let i = list.length - 1; i > 0; i--) {
+        list[i].mLeft = list[i - 1].mLeft
+        list[i].zIndex = list[i - 1].zIndex
       }
-    },
-    swiperChange(e) {
-      console.log("swiperChange")
-      if (!this.data.markers || this.data.markers.length === 0) {
-        return;
-      }
-      if (e.detail.source == "touch" || e.detail.source == "autoplay") {
-        this.setData({
-          swiperCurrent: e.detail.current
-        })
-      }
-      // this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
-      this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
-    },
-    // 显示模态框
-    showModal(e) {
+      list[0].mLeft = mLeft;
+      list[0].zIndex = zIndex;
       this.setData({
-        modalName: e.currentTarget.dataset.target
+        swiperList: list
       })
-    },
-    // 隐藏模态框
-    hideModal(e) {
-      this.setData({
-        modalName: null
-      })
-    },
-     //跳转新增界面
-     toAddClick(e) {
-      var that = this
-      //拿到点击的index下标
-      var index = this.data.cardCur
-      console.log(e)
-      //将对象转为string
-      var queryBean = JSON.stringify(this.data.markers[index])
-      wx.navigateTo({
-        url: "/pages/around/add/add?details=" + queryBean,
-      })
-    },
-    //跳转详情界面
-    queryItemClick: function (e) {
-      var that = this
-      //拿到点击的index下标
-      var index = this.data.cardCur
-      console.log(e)
-      //将对象转为string
-      var queryBean = JSON.stringify(this.data.markers[index])
-      wx.navigateTo({
-        url: "/pages/around/details/details?details=" + queryBean,
-      })
-    },
-   
+    }
   },
+  swiperChange(e) {
+    console.log("swiperChange")
+    if (!this.data.markers || this.data.markers.length === 0) {
+      return;
+    }
+    if (e.detail.source == "touch" || e.detail.source == "autoplay") {
+      this.setData({
+        swiperCurrent: e.detail.current
+      })
+    }
+    this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
+    this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
+  },
+  // 显示模态框
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  // 隐藏模态框
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  //跳转新增界面
+  toAddClick(e) {
+    var that = this
+    //拿到点击的index下标
+    var index = this.data.cardCur
+    console.log(e)
+    //将对象转为string
+    var queryBean = JSON.stringify(this.data.markers[index])
+    wx.navigateTo({
+      url: "/pages/around/add/add?details=" + queryBean,
+    })
+  },
+  //跳转详情界面
+  queryItemClick: function (e) {
+    var that = this
+    //拿到点击的index下标
+    var index = this.data.cardCur
+    console.log(e)
+    //将对象转为string
+    var queryBean = JSON.stringify(this.data.markers[index])
+    wx.navigateTo({
+      url: "/pages/around/details/details?details=" + queryBean,
+    })
+  },
+
+},
 
 })

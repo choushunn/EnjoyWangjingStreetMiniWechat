@@ -14,7 +14,7 @@
       </view>
     </view>
     <view class="padding-bottom-xxl padding-top padding-lr text-center">
-      <view class="flex flex-column margin-sm justify-center" bindtap='onTap' data-target="Modal">       
+      <view class="flex flex-column margin-sm justify-center" bindtap='onLogin' data-target="Modal">       
         <button class="cu-btn xxl bg-gradual-blue round">               
           微信用户一键登录</button>
       </view>
@@ -37,7 +37,7 @@
     </view>
     <!-- 模态框内容区域 -->
     <view class="padding-xl bg-white">
-      <form catchsubmit="submit" class="text-center">
+      <form catchsubmit="getNickname" class="text-center">
         <!-- 选择头像区域 -->
         <view class="margin-lr-sm" style="border: none;">
           <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">

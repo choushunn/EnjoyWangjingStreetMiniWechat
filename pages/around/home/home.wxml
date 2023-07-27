@@ -14,7 +14,7 @@
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true" markers="{{markers}}" bindmarkertap="makertap" show-compass="true" enable-building="true">
+  <map class="map" id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="15"  markers="{{markers}}" bindmarkertap="makertap" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
   </map>
 </view>
 
@@ -25,7 +25,7 @@
       <view class="cuIcon-cascades"></view>
       <view class="text-sm text-center text-balck">筛选</view>
     </view>
-    <view class="solid-bottom text-right-xl text-center" bindtap="backToLocation">
+    <view class="solid-bottom text-right-xl text-center" bindtap="getCenterLocation">
       <view class="cuIcon-location"></view>
       <view class="text-sm text-center text-balck">定位</view>
     </view>
@@ -42,13 +42,13 @@
 
 <!-- 地点详情卡片 -->
 <swiper class="card-swiper" circular="true" bindchange="cardSwiper" current="{{cardCur}}"  previousMargin="0.02rpx">
-  <swiper-item wx:for="{{markers}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
+  <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
     <view class="swiper-item">
       <view class="cu-card article">
         <view class="cu-item shadow">
           <view class="title">
-            <block wx:if="{{item.name}}">
-              <view class="text-cut">{{item.name}}</view>
+            <block wx:if="{{item.title}}">
+              <view class="text-cut">{{item.title}}</view>
             </block>
             <block wx:else>
               <view class="text-cut">暂未获取</view>
@@ -80,7 +80,7 @@
       <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 630rpx;">
         <view class="cu-card no-card">
           <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
-            <view class="margin-lr margin-tb-xs text-bold">{{item.name}}</view>
+            <view class="margin-lr margin-tb-xs text-bold">{{item.title}}</view>
             <view class="margin-lr text-df">
               <view>{{item.address}}</view>
               <!-- <view class="text-lg">{{item.distance}}</view> -->
@@ -98,7 +98,7 @@
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom ">
       <view class='action'>
-        <text class='cuIcon-titles text-blue '></text> 区域
+        <text class='cuIcon-titles text-blue'></text> 区域
       </view>
     </view>
     <view class="padding-lr bg-white">
