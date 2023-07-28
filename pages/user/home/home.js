@@ -95,7 +95,10 @@ Component({
     attached(){
       const userinfo = wx.getStorageSync('userinfo');
       if (userinfo) {
-        this.setData({userinfo:JSON.parse(userinfo)});
+        this.setData({
+          userinfo:JSON.parse(userinfo),
+          avatarUrl:app.globalData.apiUri+'avatar/'+JSON.parse(userinfo).open_id+'.jpg'
+        });
       }
     }
   },
@@ -130,18 +133,5 @@ Component({
         icon: 'none'
       })
     },
-    onLogin() {
-      wx.getUserProfile({
-        desc: '用于完善用户资料',
-        success:(res)=>{
-          this.setData({
-            userInfo:res.userInfo,
-            hasUserInfo:true
-          })
-        },fail:(res)=>{
-          console.log('登录失败！' + res.errMsg)
-        }
-      }) 
-    }
   }
 })

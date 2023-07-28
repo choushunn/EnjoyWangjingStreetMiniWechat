@@ -13,7 +13,7 @@
     <view class="action">
       <view class="cu-avatar-group padding">
         <!-- 头像显示 -->
-        <view class="cu-avatar round lg" style="background-image:url({{userinfo.avatar?userinfo.avatar:avatarUrl}});"></view>
+        <view class="cu-avatar round lg" style="background-image:url({{avatarUrl}});"></view>
       </view>
     </view>
   </view>

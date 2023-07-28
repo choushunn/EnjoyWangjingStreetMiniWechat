@@ -4,6 +4,7 @@ const app = getApp();
 Page({
   //  页面的初始数据
   data: {
+    userinfo: app.globalData.userinfo,
     avatarUrl: app.globalData.defaultAvatarUrl,
     nickname: "",
     modalName: '',
@@ -17,7 +18,7 @@ Page({
     wx.login({
       success: res => {
         wx.request({
-          url: app.globalData.apiUri + 'wx_login',
+          url: app.globalData.apiUri + 'wx_issuer',
           method: 'GET',
           data: {
             js_code: res.code,
@@ -28,8 +29,13 @@ Page({
             wx.navigateTo({
               url: '/pages/index/index',
             });
-            // 保存token到本地
             // 保存用户信息到本地
+            if (res.data.code == 200) {
+              // 登录成功，设置全局用户信息
+              wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
+            } else {
+              // 登录失败，没有用户信息
+            }
           }
         })
       },
@@ -42,27 +48,29 @@ Page({
       this.setData({
         phoneCode: e.detail.code
       })
-      console.log(this.data)    
-      wx.setStorageSync('userinfo', JSON.stringify(this.data));
+      console.log(this.data)
       wx.navigateTo({
         url: '/pages/index/index',
       })
       // 发起注册请求
       wx.login({
         success: res => {
-          wx.request({
-            url: app.globalData.apiUri + 'login',
-            method: 'POST',
-            data: {
-              code: res.code,
-              avatarUrl: this.data.avatarUrl,
+          wx.uploadFile({
+            url: app.globalData.apiUri + 'wx_register',
+            filePath: this.data.avatarUrl,
+            name: 'file',
+            formData: {
               nickname: this.data.nickname,
-              phoneCode: this.data.phoneCode
+              js_code: res.code,
+              phone_code: this.data.phoneCode
             },
-            success: res => {
-              if (res.data.code === 0) {
+            success: function (res) {
+              console.log('register success', res)
+              if (res.data.code === 200) {
                 // 注册成功，保存 token 到本地存储
-                wx.setStorageSync('token', res.data.data.token);
+                console.log(res)
+                // 登录成功，设置全局用户信息
+                wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
                 // 跳转到首页
                 wx.navigateTo({
                   url: '/pages/index/index',
@@ -81,7 +89,7 @@ Page({
                 icon: 'none',
               });
             },
-          });
+          })
         },
         fail: () => {
           wx.showToast({
@@ -121,17 +129,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // // 判断用户是否已经注册
-    // if (this.data.isRegister) {
-    //   // 已经注册直接登录
-    //   console.log("已经注册，可以直接登录")
-    // } else {
-    //   // 弹出模态框，进行注册
-    //   console.log("没有注册,弹出注册Modal")
-    //   this.setData({
-    //     modalName: "Modal"
-    //   })
-    // }
+    // 判断用户是否已经注册
+    if (this.data.userinfo) {
+      // 已经注册直接登录
+      console.log("已经注册，可以直接登录")
+    } else {
+      // 弹出模态框，进行注册
+      console.log("没有注册,弹出注册Modal")
+      this.setData({
+        modalName: "Modal"
+      })
+    }
   },
   // 显示模态框
   showModal(e) {

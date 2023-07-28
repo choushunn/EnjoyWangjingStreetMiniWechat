@@ -5,8 +5,8 @@
 <!-- 用户信息显示块 -->
 <view class="UCenter-bg">
   <!-- 微信头像 -->
-  <navigator class="padding-xs" url="{{userinfo?'/pages/user/home/userinfo':''}}">
-    <view class="cu-avatar round xl" style="background-image:url({{userinfo.avatar?userinfo.avatar:avatarUrl}});">
+  <navigator class="padding-xs" url="{{userinfo?'/pages/user/home/userinfo':''}}">    
+    <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
       <!-- 性别 -->
       <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>

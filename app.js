@@ -32,13 +32,13 @@ App({
           wx.login({
             success: (res) => {
               wx.request({
-                url: that.globalData.apiUri + 'wx_issuer',
-                method: 'GET',
+                url: that.globalData.apiUri + 'wx_auth',
+                method: 'POST',
                 data: {
                   js_code: res.code,
                 },
                 success: res => {
-                  console.log(res.data.data.user)
+                  console.log(res)
                   if (res.data.code == 200) {
                     // 登录成功，设置全局用户信息
                     wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
