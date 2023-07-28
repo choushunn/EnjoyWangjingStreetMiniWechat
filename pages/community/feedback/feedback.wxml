@@ -73,18 +73,16 @@
       图片上传
     </view>
     <view class="action" style="font-size: 30rpx;">
-      {{imgList.length}}/4
+      {{imgList.length}}/9
     </view>
   </view>
   <view class="cu-form-group">
     <view class="grid col-4 grid-square flex-sub">
-      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-        <image src='{{imgList[index]}}' mode='aspectFill'></image>
-        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
-          <text class="cuIcon-close"></text>
-        </view>
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}">
+        <image class="" mode="aspectFill" src="{{item.path}}" bindtap="previewImage" data-src="{{item.path}}" />
+        <view class="cu-tag bg-red" bindtap="deleteImage" data-index="{{index}}">删除</view>
       </view>
-      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+      <view class="solids" bindtap="chooseMedia" wx:if="{{imgList.length<9}}">
         <text class="cuIcon-cameraadd"></text>
       </view>
     </view>

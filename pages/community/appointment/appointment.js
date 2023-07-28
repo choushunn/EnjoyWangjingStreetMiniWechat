@@ -1,35 +1,31 @@
 // pages/community/appointment/appointment.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
-    "menu": [
-      {
-        id:0,
+    "menu": [{
+        id: 0,
         "icon": "cuIcon-btn text-green",
         "title": "办事预约",
         "url": "/pages/community/appointment/equipment/equipment"
       },
       {
-        id:1,
+        id: 1,
         "icon": "cuIcon-tagfill text-red",
         "title": "邻里空间",
         "url": "/pages/community/appointment/playroom/playroom"
       }
     ]
   },
-
-// 点击帮助图标时显示帮助信息
-showHelp: function() {
-  wx.showModal({
-    title: '帮助信息',
-    content: '请选择您要进行的操作。',
-    showCancel: false,
-  });
-},
+  // 点击帮助图标时显示帮助信息
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '预约服务的帮助。',
+      showCancel: false,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,4 +1,5 @@
 // pages/community/repair/form.js
+<<<<<<< HEAD
 let loading = false;
 let loadingTop = false;
 const animation = wx.createAnimation({
@@ -8,6 +9,8 @@ const animation = wx.createAnimation({
   transformOrigin: '50% 50% 0'
 }); //动画
 const app = getApp();
+=======
+>>>>>>> origin/develop
 Page({
 
   /**
@@ -17,54 +20,60 @@ Page({
     index: null,
     picker: ['事项1', '事项2', '事项3'],
     imgList: [],
-    show: false,
-    status: '',
-    message: '',
-    time: 0,
-    showTop: false,
-    statusTop: '',
-    messageTop: '',
-    timeTop: 2000
   },
-  ChooseImage() {
+  chooseMedia() {
     wx.chooseMedia({
-      count: 9, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
+      count: 9, //最多选择9个
+      mediaType: ['image', 'video'],
+      sourceType: ['album', 'camera'], //可以从相册或相机选择
+      camera: 'back',
       success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
+        console.log(res)
+        const tempFiles = res.tempFiles;
+        const tempFilePaths = res.tempFilePaths;
+        const mediaType = res.type; //返回的文件类型，可以是图片或视频
+        const mediaList = tempFiles.map((item) => {
+          return {
+            path: item.tempFilePath,
+            type: item.type,
+            size: item.size,
+            duration: item.duration || 0
+          };
+        });
+
+        // 将选择的媒体文件添加到imgList中
+        const imgList = this.data.imgList.concat(mediaList);
+        this.setData({
+          imgList
+        });
+      },
+      fail: (error) => {
+        console.log(error);
+        wx.showToast({
+          title: '选择失败',
+          icon: 'none'
+        });
       }
     });
+  }, // 删除图片
+  deleteImage(e) {
+    const index = e.currentTarget.dataset.index;
+    const imgList = this.data.imgList.slice();
+    imgList.splice(index, 1);
+    this.setData({
+      imgList
+    });
   },
-  ViewImage(e) {
+  // 预览图片
+  previewImage(e) {
+    const current = e.currentTarget.dataset.src;
+    const urls = this.data.imgList.map((item) => {
+      return item.path;
+    });
     wx.previewImage({
-      urls: this.data.imgList,
-      current: e.currentTarget.dataset.url
+      current,
+      urls
     });
-  },
-  DelImg(e) {
-    wx.showModal({
-      title: '删除图片',
-      content: '确定要删除图片吗？',
-      cancelText: '取消',
-      confirmText: '确定',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
   },
   textareaBInput(e) {
     this.setData({
@@ -76,69 +85,11 @@ Page({
     this.setData({
       index: e.detail.value
     })
-  },
-  setShow(status, message, time = 2000, fun = false) {
-    if (loading) {
-      return
-    }
-    loading = true;
-    try {
-      this.setData({
-        status,
-        message,
-        time,
-        show: true,
-      })
-      setTimeout(() => {
-        this.setData({
-          show: false,
-        })
-        loading = false;
-        // 触发回调函数
-        if (fun) {
-          this.end()
-        }
-      }, time)
-    } catch {
-      loading = false;
-    }
-  },
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-
-    if (loadingTop) {
-      return
-    }
-
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-
-    } catch {
-      loadingTop = false;
-    }
-  },
-  /**
-   * 轻提示回调函数
-   */
-  end() {
-    wx.showToast({
-      title: '触发回调方法',
-    })
-  },
+  },  
   submit_data() {
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+      wx.showToast({
+            title: '提交成功',
+          })
   },
   onSubmit: function (event) {
     const formData = event.detail.value;

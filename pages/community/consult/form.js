@@ -27,14 +27,6 @@ Page({
   data: {
     time: timeStr,
     date: dateStr,
-    show: false,
-    status: '',
-    message: '',
-    time: 0,
-    showTop: false,
-    statusTop: '',
-    messageTop: '',
-    timeTop: 2000
   },
   TimeChange(e) {
     this.setData({
@@ -46,68 +38,10 @@ Page({
       date: e.detail.value
     })
   },
-  setShow(status, message, time = 2000, fun = false) {
-    if (loading) {
-      return
-    }
-    loading = true;
-    try {
-      this.setData({
-        status,
-        message,
-        time,
-        show: true,
-      })
-      setTimeout(() => {
-        this.setData({
-          show: false,
-        })
-        loading = false;
-        // 触发回调函数
-        if (fun) {
-          this.end()
-        }
-      }, time)
-    } catch {
-      loading = false;
-    }
-  },
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-
-    if (loadingTop) {
-      return
-    }
-
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-
-    } catch {
-      loadingTop = false;
-    }
-  },
-  /**
-   * 轻提示回调函数
-   */
-  end() {
-    wx.showToast({
-      title: '触发回调方法',
-    })
-  },
   submit_data() {
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+    wx.showToast({
+      title: '提交成功',
+    })
   },
   onSubmit: function (event) {
     const formData = event.detail.value;
@@ -182,20 +116,5 @@ Page({
    */
   onShareAppMessage() {
 
-  },
-  /**
-   * 顶部弹出动画
-   */
-  start_animation() {
-    animation.height('80rpx').step()
-    this.setData({
-      animation: animation.export(),
-    })
-  },
-  end_animation() {
-    animation.height('0rpx').step()
-    this.setData({
-      animation: animation.export()
-    })
   },
 })
