@@ -1,16 +1,4 @@
 // pages/community/report/report.js
-<<<<<<< HEAD
-const app = getApp();
-let loading = false;
-let loadingTop = false;
-const animation = wx.createAnimation({
-  duration: 400,
-  timingFunction: 'ease-out',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-}); //动画
-=======
->>>>>>> origin/develop
 Page({
 
   /**
@@ -74,60 +62,9 @@ Page({
     });
   },
   submit_data() {
-<<<<<<< HEAD
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
-  },
-  onSubmit: function (event) {
-    const formData = event.detail.value;
-    console.log(formData); // 打印表单数据对象
-
-    // 使用 wx.request 发送数据到后端API
-    wx.request({
-      url: app.globalData.apiUri + 'admin/community/TelephoneDirectoryAdmin/item',
-      method: 'POST',
-      data: formData,
-      success: function(res) {
-        console.log(res.data); // 打印后端API返回的数据
-        // 处理成功提示信息
-      },
-      fail: function(res) {
-        console.log(res.errMsg); // 打印错误信息
-        // 处理失败提示信息
-      }
-    })
-  },
-    /**
-   * 顶部弹出
-   * @param {*} statusTop 
-   * @param {*} messageTop 
-   * @param {*} timeTop 
-   */
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-    if (loadingTop) {
-      return
-    }
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-    } catch {
-      loadingTop = false;
-    }
-=======
     wx.showToast({
       title: '提交成功',
     })
->>>>>>> origin/develop
   },
 
   /**

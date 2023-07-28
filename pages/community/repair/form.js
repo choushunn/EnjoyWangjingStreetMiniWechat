@@ -1,16 +1,4 @@
 // pages/community/repair/form.js
-<<<<<<< HEAD
-let loading = false;
-let loadingTop = false;
-const animation = wx.createAnimation({
-  duration: 400,
-  timingFunction: 'ease-out',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-}); //动画
-const app = getApp();
-=======
->>>>>>> origin/develop
 Page({
 
   /**
