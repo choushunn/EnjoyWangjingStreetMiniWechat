@@ -1,16 +1,5 @@
 // pages/community/report/report.js
-<<<<<<< HEAD
 const app = getApp();
-let loading = false;
-let loadingTop = false;
-const animation = wx.createAnimation({
-  duration: 400,
-  timingFunction: 'ease-out',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-}); //动画
-=======
->>>>>>> origin/develop
 Page({
 
   /**
@@ -72,11 +61,7 @@ Page({
       current,
       urls
     });
-  },
-  submit_data() {
-<<<<<<< HEAD
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
-  },
+  },  
   onSubmit: function (event) {
     const formData = event.detail.value;
     console.log(formData); // 打印表单数据对象
@@ -96,38 +81,10 @@ Page({
       }
     })
   },
-    /**
-   * 顶部弹出
-   * @param {*} statusTop 
-   * @param {*} messageTop 
-   * @param {*} timeTop 
-   */
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-    if (loadingTop) {
-      return
-    }
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-    } catch {
-      loadingTop = false;
-    }
-=======
+  submit_data() {
     wx.showToast({
       title: '提交成功',
     })
->>>>>>> origin/develop
   },
 
   /**
