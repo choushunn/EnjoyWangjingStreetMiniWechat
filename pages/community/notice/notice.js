@@ -30,23 +30,7 @@ Page({
       datetime:"2023年7月14日 11:20",
       type:"",
       url:"/pages/community/notice/details"
-    },{
-      id:1,
-      title:"住建部等7部门:在106个社区开展完整社区建设试点",
-      status:1,
-      desc:"住建部等7部门今日联合发布《关于印发完整社区建设试点名单的通知》,决定在106个社区开展完整社区建",
-      datetime:"2023年7月14日 11:20",
-      type:"", 
-      url:"/pages/community/notice/details"
-    },{
-      id:2,
-      title:"住建部等7部门:在106个社区开展完整社区建设试点",
-      status:1,
-      desc:"住建部等7部门今日联合发布《关于印发完整社区建设试点名单的通知》,决定在106个社区开展完整社区建",
-      datetime:"2023年7月14日 11:20",
-      type:"", 
-      url:"/pages/community/notice/details"
-    }]
+    },]
   },
   /**
    * 生命周期函数--监听页面加载
@@ -70,7 +54,6 @@ Page({
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

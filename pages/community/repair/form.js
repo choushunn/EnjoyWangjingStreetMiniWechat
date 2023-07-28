@@ -7,6 +7,7 @@ const animation = wx.createAnimation({
   delay: 0,
   transformOrigin: '50% 50% 0'
 }); //动画
+const app = getApp();
 Page({
 
   /**
@@ -138,6 +139,25 @@ Page({
   },
   submit_data() {
     this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+  },
+  onSubmit: function (event) {
+    const formData = event.detail.value;
+    console.log(formData); // 打印表单数据对象
+
+    // 使用 wx.request 发送数据到后端API
+    wx.request({
+      url: app.globalData.apiUri + 'admin/community/TelephoneDirectoryAdmin/item',
+      method: 'POST',
+      data: formData,
+      success: function(res) {
+        console.log(res.data); // 打印后端API返回的数据
+        // 处理成功提示信息
+      },
+      fail: function(res) {
+        console.log(res.errMsg); // 打印错误信息
+        // 处理失败提示信息
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

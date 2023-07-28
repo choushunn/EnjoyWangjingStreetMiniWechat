@@ -12,17 +12,17 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
-<form>
-<!-- 申请人 -->
+<form bindsubmit="onSubmit">
+<!-- 地点名称 -->
 	<view class="cu-form-group">
-		<view class="title">地点名称</view>
-		<input placeholder="请输入地点名称"></input>
+		<view class="title">商家名称</view>
+		<input name='name' placeholder="请输入商家名称"></input>
 	</view>
 
 <!-- 联系电话 -->
 	<view class="cu-form-group">
 		<view class="title">联系电话</view>
-		<input placeholder="请输入联系电话"></input>
+		<input name='phone' placeholder="请输入联系电话"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
 				+86
@@ -35,7 +35,7 @@
 <!-- 服务地址 -->
 	<view class="cu-form-group">
 		<view class="title">所在地址</view>
-		<input placeholder="{{item?item.address:'请输入所在地址'}}" value="{{item?item.address:''}}"></input>
+		<input name='address' placeholder="{{item?item.address:'请输入所在地址'}}" value="{{item?item.address:''}}"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 <!-- 图片上传 -->
@@ -62,7 +62,7 @@
 	</view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-  <button class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
+  <button form-type="submit" class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
 </view>
   <!-- 提示消息 -->
 <view class="toast-fixed-center" hidden="{{!show}}" style="z-index: 99;">
