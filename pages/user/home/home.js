@@ -115,9 +115,10 @@ Component({
     onLogout(){
       // 清除用户数据
       wx.removeStorageSync('username')
+      // 弹出退出成功的提示并跳转到首页
       // 刷新页面
       wx.reLaunch({
-        url: '/pages/user/home/home',
+        url: '/pages/index/index',
       })
     },
     showDisclaimer: function () {
