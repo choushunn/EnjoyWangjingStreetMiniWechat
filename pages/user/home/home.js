@@ -96,9 +96,11 @@ Component({
       const userinfo = wx.getStorageSync('userinfo');
       if (userinfo) {
         this.setData({
-          userinfo:JSON.parse(userinfo),
-          avatarUrl:app.globalData.apiUri+'avatar/'+JSON.parse(userinfo).open_id+'.jpg'
+          userinfo:userinfo,
+          avatarUrl:app.globalData.apiUri+'avatar/'+userinfo.open_id+'.jpg'
         });
+      }else{
+        console.log("当前用户未登录")
       }
     }
   },

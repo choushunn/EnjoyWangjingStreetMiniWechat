@@ -48,10 +48,7 @@ Page({
       this.setData({
         phoneCode: e.detail.code
       })
-      console.log(this.data)
-      wx.navigateTo({
-        url: '/pages/index/index',
-      })
+      console.log("注册请求：", this.data)
       // 发起注册请求
       wx.login({
         success: res => {
@@ -65,12 +62,12 @@ Page({
               phone_code: this.data.phoneCode
             },
             success: function (res) {
-              console.log('register success', res)
-              if (res.data.code === 200) {
-                // 注册成功，保存 token 到本地存储
-                console.log(res)
+              console.log('注册返回信息：', res)
+              var response_data = JSON.parse(res.data)
+              if (response_data.code === 200) {
+                console.log('接口返回的信息：', response_data)
                 // 登录成功，设置全局用户信息
-                wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
+                wx.setStorageSync('userinfo', response_data.data.user);
                 // 跳转到首页
                 wx.navigateTo({
                   url: '/pages/index/index',

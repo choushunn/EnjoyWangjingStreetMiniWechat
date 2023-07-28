@@ -38,12 +38,15 @@ App({
                   js_code: res.code,
                 },
                 success: res => {
-                  console.log(res)
-                  if (res.data.code == 200) {
+                  console.log('登录返回信息：', res)
+                  var response_data = res.data
+                  if (response_data.code === 200) {
+                    console.log('接口返回的信息：', response_data)
                     // 登录成功，设置全局用户信息
-                    wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
+                    wx.setStorageSync('userinfo', response_data.data.user);
                   } else {
-                    // 登录失败，没有用户信息
+                    // 登录失败，清除用户信息
+                    wx.removeStorageSync('userinfo')
                   }
                 }
               })
