@@ -1,12 +1,4 @@
 // pages/community/report/report.js
-let loading = false;
-let loadingTop = false;
-const animation = wx.createAnimation({
-  duration: 400,
-  timingFunction: 'ease-out',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-}); //动画
 Page({
 
   /**
@@ -14,129 +6,67 @@ Page({
    */
   data: {
     imgList: [],
-    show: false,
-    status: '',
-    message: '',
-    time: 0,
-    showTop: false,
-    statusTop: '',
-    messageTop: '',
-    timeTop: 2000
   },
-  ChooseImage() {
-    wx.chooseImage({
-      count: 4, //默认9
-      sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
+  chooseMedia() {
+    wx.chooseMedia({
+      count: 9, //最多选择9个
+      mediaType: ['image', 'video'],
+      sourceType: ['album', 'camera'], //可以从相册或相机选择
+      camera: 'back',
       success: (res) => {
-        if (this.data.imgList.length != 0) {
-          this.setData({
-            imgList: this.data.imgList.concat(res.tempFilePaths)
-          })
-        } else {
-          this.setData({
-            imgList: res.tempFilePaths
-          })
-        }
-      }
-    });
-  },
-  ViewImage(e) {
-    wx.previewImage({
-      urls: this.data.imgList,
-      current: e.currentTarget.dataset.url
-    });
-  },
-  DelImg(e) {
-    wx.showModal({
-      title: '删除图片',
-      content: '确定要删除图片吗？',
-      cancelText: '取消',
-      confirmText: '确定',
-      success: res => {
-        if (res.confirm) {
-          this.data.imgList.splice(e.currentTarget.dataset.index, 1);
-          this.setData({
-            imgList: this.data.imgList
-          })
-        }
-      }
-    })
-  },
-  setShow(status, message, time = 2000, fun = false) {
-    if (loading) {
-      return
-    }
-    loading = true;
-    try {
-      this.setData({
-        status,
-        message,
-        time,
-        show: true,
-      })
-      setTimeout(() => {
+        console.log(res)
+        const tempFiles = res.tempFiles;
+        const tempFilePaths = res.tempFilePaths;
+        const mediaType = res.type; //返回的文件类型，可以是图片或视频
+        const mediaList = tempFiles.map((item) => {
+          return {
+            path: item.tempFilePath,
+            type: item.type,
+            size: item.size,
+            duration: item.duration || 0
+          };
+        });
+
+        // 将选择的媒体文件添加到imgList中
+        const imgList = this.data.imgList.concat(mediaList);
         this.setData({
-          show: false,
-        })
-        loading = false;
-        // 触发回调函数
-        if (fun) {
-          this.end()
-        }
-      }, time)
-    } catch {
-      loading = false;
-    }
+          imgList
+        });
+      },
+      fail: (error) => {
+        console.log(error);
+        wx.showToast({
+          title: '选择失败',
+          icon: 'none'
+        });
+      }
+    });
+  }, // 删除图片
+  deleteImage(e) {
+    const index = e.currentTarget.dataset.index;
+    const imgList = this.data.imgList.slice();
+    imgList.splice(index, 1);
+    this.setData({
+      imgList
+    });
   },
-
+  // 预览图片
+  previewImage(e) {
+    const current = e.currentTarget.dataset.src;
+    const urls = this.data.imgList.map((item) => {
+      return item.path;
+    });
+    wx.previewImage({
+      current,
+      urls
+    });
+  },
   submit_data() {
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
-  },
-    /**
-   * 顶部弹出
-   * @param {*} statusTop 
-   * @param {*} messageTop 
-   * @param {*} timeTop 
-   */
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-    if (loadingTop) {
-      return
-    }
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-    } catch {
-      loadingTop = false;
-    }
+    wx.showToast({
+      title: '提交成功',
+    })
   },
 
-  /**
-   * 顶部弹出动画
-   */
-  start_animation() {
-    animation.height('80rpx').step()
-    this.setData({
-      animation: animation.export(),
-    })
-  },
-  end_animation() {
-    animation.height('0rpx').step()
-    this.setData({
-      animation: animation.export()
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
