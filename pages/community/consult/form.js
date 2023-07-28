@@ -7,13 +7,25 @@ const animation = wx.createAnimation({
   delay: 0,
   transformOrigin: '50% 50% 0'
 }); //动画
-
+// 格式化时间
+var now = new Date();
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+var day = now.getDate();
+var hour = now.getHours();
+var minute = now.getMinutes();
+var second = now.getSeconds();
+// 将时间格式化为字符串
+var timeStr =  hour + ':' + minute ;
+var dateStr =  year + '-' + month + '-' + day ;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    time: timeStr,
+    date: dateStr,
     show: false,
     status: '',
     message: '',
@@ -22,6 +34,16 @@ Page({
     statusTop: '',
     messageTop: '',
     timeTop: 2000
+  },
+  TimeChange(e) {
+    this.setData({
+      time: e.detail.value
+    })
+  },
+  DateChange(e) {
+    this.setData({
+      date: e.detail.value
+    })
   },
   setShow(status, message, time = 2000, fun = false) {
     if (loading) {
