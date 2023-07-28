@@ -1,4 +1,5 @@
 // pages/community/repair/form.js
+const app =getApp();
 Page({
 
   /**

@@ -1,5 +1,5 @@
 // pages/community/feedback/feedback.js
-
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -64,6 +64,28 @@ Page({
   submit_data() {    
     wx.showToast({
       title: '提交成功',
+    })
+  },
+  submit_data() {
+    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+  },
+  onSubmit: function (event) {
+    const formData = event.detail.value;
+    console.log(formData); // 打印表单数据对象
+
+    // 使用 wx.request 发送数据到后端API
+    wx.request({
+      url: app.globalData.apiUri + '',
+      method: 'POST',
+      data: formData,
+      success: function(res) {
+        console.log(res.data); // 打印后端API返回的数据
+        // 处理成功提示信息
+      },
+      fail: function(res) {
+        console.log(res.errMsg); // 打印错误信息
+        // 处理失败提示信息
+      }
     })
   },
   /**
