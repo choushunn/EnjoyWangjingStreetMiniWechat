@@ -24,6 +24,12 @@
     <view class="text-xl text-white">
       欢迎您, {{userinfo.nickname?userinfo.nickname:'暂未获取'}}
     </view>
+    <!-- 授权微信登录按钮 -->
+    <view class="grid padding-sm" bindtap="onLogout">
+      <view class="margin-tb-sm text-center">
+        <button class="cu-btn xl round bg-gradual-green">退出登录</button>
+      </view>
+    </view>
   </block>
   <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
 </view>

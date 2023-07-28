@@ -1,12 +1,12 @@
 // pages/user/home/userinfo.js
 const app = getApp();
-
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    avatarUrl: app.globalData.defaultAvatarUrl,
+    avatarUrl:app.globalData.defaultAvatarUrl,
+    userinfo:wx.getStorageSync('userinfo')
   },
   // 修改信息模态框
   showModal(e) {

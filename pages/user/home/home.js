@@ -6,6 +6,7 @@ Component({
    */
   data: {    
     avatarUrl: app.globalData.defaultAvatarUrl,
+    userinfo:wx.getStorageSync('userinfo'),
     // 我的菜单
     myMenuItems: [{
       icon: 'cardboardfill',
@@ -109,6 +110,14 @@ Component({
       var url = event.currentTarget.dataset.url
       wx.navigateTo({
         url: url
+      })
+    },
+    onLogout(){
+      // 清除用户数据
+      wx.removeStorageSync('username')
+      // 刷新页面
+      wx.reLaunch({
+        url: '/pages/user/home/home',
       })
     },
     showDisclaimer: function () {
