@@ -5,19 +5,23 @@
 </cu-custom>
 
 <!-- 轮播图 -->
-<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+<!-- <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key="id">
     <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
     <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
   </swiper-item>
+</swiper> -->
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key="id">
+    <image src="{{item.image}}" mode="aspectFill"></image>
+  </swiper-item>
 </swiper>
-
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key="id" wx:if="{{index<12}}">
     <navigator class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" url="{{item.url}}">
       <text class="cuIcon-{{item.icon}}" style="font-size: 64rpx;"></text>
-      <view class="text-lg">{{item.title}}</view>
+      <view class="text-lg">{{item.name}}</view>
       <view></view>
     </navigator>
   </view>
@@ -44,18 +48,18 @@
         <view class="content">
           <view class="desc">
             <view class="text-black text-bold text-lg">{{item.title}}</view>
-            <view class="text-black text-df">{{item.desc}}</view>
+            <view class="text-black text-df">{{item.summary}}</view>
             <view class="flex justify-between">
-              <view class="text-gray text-sm">{{item.datetime}}</view>
+              <view class="text-gray text-sm">{{item.created_at}}</view>
               <view class="text-gray text-sm padding-right">
                 <block wx:for="{{item.tags}}" wx:key="name">
-                  <view class="cu-tag {{item.color}} light sm round">{{item.name}}</view>
+                  <view class="cu-tag {{item.color}} light sm round">{{item.category}}</view>
                 </block>
               </view>
             </view>
           </view>
           <view>
-            <image src="{{item.imgUrl}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
+            <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
           </view>
         </view>
       </view>

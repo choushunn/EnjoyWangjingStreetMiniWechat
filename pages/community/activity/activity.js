@@ -39,12 +39,12 @@ Page({
   onLoad(options) {
     var that = this
     wx.request({
-      url: app.globalData.apiUri + 'admin/community/NotificationAdmin/list',
-      method: 'POST',
+      url: app.globalData.apiUri + 'api/v1/community/notification/',
+      method: 'GET',
       success(res) {
         if (res.statusCode == 200) {
-          console.log(res.data.data.items)
-          var items = res.data.data.items
+          console.log(res.data)
+          var items = res.data
           // 读取成功
           if (items.length > 0) {
             that.setData({

@@ -34,17 +34,17 @@
         <view class="cu-card article no-card margin-xs">
           <view class="cu-item shadow">
             <view class="title">
-              <view class="flex justify-between">
+              <view class="flex justify-between solid-bottom">
                 <view class="text-cut">{{item.title}}</view>
                 <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'未读':'已读'}}</view>
               </view>
             </view>
             <view class="content">
               <view class="desc">
-                <view class="text-content solid-bottom">{{item.desc}}</view>
+                <view class="text-content solid-bottom">{{item.content}}</view>
                 <view class="flex justify-between margin-top-sm">
                   <view class="light text-sm round">{{item.type}}</view>
-                  <view class="light text-sm round">{{item.datetime}}</view>
+                  <view class="light text-sm round">{{item.created_at}}</view>
                 </view>
               </view>
             </view>

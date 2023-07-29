@@ -1,4 +1,22 @@
 // pages/community/notice/details.js
+const app = getApp();
+function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+  // 格式化时间为指定格式
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+}
+
+// 定义格式化数字函数（小于10的数字前面补0）
+function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+}
 Page({
 
   /**
@@ -25,7 +43,28 @@ onTapMessage: function(event) {
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this
+    wx.request({
+      url: app.globalData.apiUri + 'api/v1/community/notification/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("通知内容获取成功",res.data)
+          var items = res.data
+          // 读取成功
+          var date = new Date(items[0].created_at);
+          var formattedTime = formatTime(date);
+          // 格式化时间为指定格式（例如：2023-07-29 20:18:41）
+          var formattedTime = date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }).replace(/\//g, '-');
+          items[0].created_at = formattedTime;
+          if (items.length > 0) {
+            that.setData({
+              messageData: items
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
