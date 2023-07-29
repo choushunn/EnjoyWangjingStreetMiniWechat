@@ -1,4 +1,21 @@
 // pages/home/news/detail.js
+const app = getApp();
+function formatTime(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
+
+  // 格式化时间为指定格式
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+};
+// 定义格式化数字函数（小于10的数字前面补0）
+function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+};
 Page({
 
   /**
@@ -7,6 +24,23 @@ Page({
   data: {
     title: '',
     id: '',
+    newsData: [{
+      id: 1,
+      "title": "社区活动1",
+      "image": "https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg",
+      "summary": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
+      "type": "活动",
+      "datetime": "2023年5月26日",
+      "tags": [{
+          "name": "党组织生活",
+          "color": "bg-red"
+        },
+        {
+          "name": "活动",
+          "color": "bg-green"
+        }
+      ]
+    }],
   },
 
   /**
@@ -14,10 +48,24 @@ Page({
    */
   onLoad(options) {
     const id = options.id
+    const that = this;
     console.log(options.id)
-    this.setData({
-      id: id
-    })
+
+    wx.request({
+      url: app.globalData.apiUri + 'api/v1/community/news/', // 后台接口地址
+      method:"GET",
+      success: function (res) {
+        console.log("新闻内容请求成功：",res.data); // 打印后台返回的数据
+        var date = new Date(res.data[0].created_at);
+        var formattedTime = formatTime(date);
+        // 格式化时间为指定格式（例如：2023-07-29 20:18:41）
+        var formattedTime = date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }).replace(/\//g, '-');
+        res.data[0].created_at = formattedTime;
+        that.setData({
+          newsData: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
+        });         
+      },
+    });
   },
 
   /**

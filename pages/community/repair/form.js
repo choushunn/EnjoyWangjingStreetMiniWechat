@@ -76,9 +76,9 @@ Page({
     })
   },  
   submit_data() {
-      wx.showToast({
-            title: '提交成功',
-          })
+    wx.showToast({
+      title: '提交成功',
+    })
   },
   onSubmit: function (event) {
     const formData = event.detail.value;

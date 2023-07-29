@@ -139,7 +139,9 @@ Page({
     })
   },
   submit_data() {
-    this.setShow("success", "提交成功，我们将在1个工作日内通知您");
+    wx.showToast({
+      title: '提交成功',
+    })
   },
   onSubmit: function (event) {
     const formData = event.detail.value;

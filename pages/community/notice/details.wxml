@@ -10,8 +10,8 @@
       <view class=" text-xl padding solid-bottom">
         <text class="text-xxl text-bold text-black">{{item.title}}</text>
       </view>
-      <view class="padding text-left text-indent">{{item.desc}}</view>
-      <view class="padding text-right text-indent solid-top margin-top">{{item.datetime}}</view>
+      <view class="padding text-left text-indent">{{item.content}}</view>
+      <view class="padding text-right text-indent solid-top margin-top">{{item.created_at}}</view>
     </view>
   </view>
   <!-- </view> -->
