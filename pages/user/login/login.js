@@ -53,7 +53,7 @@ Page({
       wx.login({
         success: res => {
           wx.uploadFile({
-            url: app.globalData.apiUri +  'api/v1/community/user/',
+            url: app.globalData.apiUri + 'api/v1/community/user/',
             filePath: this.data.avatarUrl,
             name: 'file',
             formData: {
@@ -63,15 +63,21 @@ Page({
             },
             success: function (res) {
               console.log('注册返回信息：', res)
-              var response_data = JSON.parse(res.data)
-              if (response_data.code === 200) {
-                console.log('接口返回的信息：', response_data)
+              var response_data =JSON.parse(res.data)
+              if (res.statusCode === 201) {               
+                console.log('注册接口返回的信息：', response_data)
                 // 登录成功，设置全局用户信息
-                wx.setStorageSync('userinfo', response_data.data.user);
-                // 跳转到首页
-                wx.navigateTo({
-                  url: '/pages/index/index',
+                wx.setStorageSync('userinfo', response_data);                
+                wx.showToast({
+                  title: "登录成功！",
+                  icon: 'none',
                 });
+                setTimeout(function () {
+                  // 跳转到首页
+                  wx.navigateTo({
+                    url: '/pages/index/index',
+                  });
+                }, 1000);
               } else {
                 // 注册失败，弹出错误提示
                 wx.showToast({

@@ -11,33 +11,29 @@ Component({
     TabCur: 0,
     scrollLeft: 0,
     elements: [{
-        title: '办事指南',
-        name: 'red',
+        name: '办事指南',
         color: 'red',
         icon: 'newsfill',
         url: '/pages/community/phone/phone'
       },
-      // {
-      //   title: '社区活动',
-      //   name: 'purple',
-      //   color: 'orange',
-      //   icon: 'servicefill',
-      //   url: '/pages/community/activity/activity'
-      // },
-      // {
-      //   title: '居民服务',
-      //   name: 'interaction',
-      //   color: 'green',
-      //   icon: 'group',
-      //   url: '/pages/community/repair/repair'
-      // },
-      // {
-      //   title: '预约服务 ',
-      //   name: 'appointment',
-      //   color: 'pink',
-      //   icon: 'post',
-      //   url: '/pages/community/appointment/appointment'
-      // },
+      {
+        name: '社区活动',
+        color: 'orange',
+        icon: 'servicefill',
+        url: '/pages/community/activity/activity'
+      },
+      {
+        name: '居民服务',
+        color: 'green',
+        icon: 'group',
+        url: '/pages/community/repair/repair'
+      },
+      {
+        name: '预约服务',
+        color: 'pink',
+        icon: 'post',
+        url: '/pages/community/appointment/appointment'
+      },
     ],
     swiperList: [{
       type: 'image',

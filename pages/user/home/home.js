@@ -5,6 +5,7 @@ Component({
    * 页面的初始数据
    */
   data: {    
+    defaultAvatarUrl: app.globalData.defaultAvatarUrl,
     avatarUrl: app.globalData.defaultAvatarUrl,
     userinfo:wx.getStorageSync('userinfo'),
     // 我的菜单
@@ -99,10 +100,14 @@ Component({
       if (userinfo) {
         this.setData({
           userinfo:userinfo,
-          avatarUrl:app.globalData.apiUri+userinfo.avatar
+          avatarUrl:userinfo.avatar
         });
       }else{
         console.log("当前用户未登录")
+        this.setData({
+          userinfo:'',
+          avatarUrl:app.globalData.defaultAvatarUrl
+        });
       }
     }
   },

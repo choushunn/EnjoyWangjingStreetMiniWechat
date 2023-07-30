@@ -27,7 +27,12 @@ Page({
     if (userinfo) {
       this.setData({
         userinfo:userinfo,
-        avatarUrl:app.globalData.apiUri+'avatar/'+userinfo.open_id+'.jpg'
+        avatarUrl:app.globalData.apiUri+userinfo.avatar
+      });
+    }else{
+      this.setData({
+        userinfo:'',
+        avatarUrl:app.globalData.defaultAvatarUrl
       });
     }
   },
