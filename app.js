@@ -19,7 +19,8 @@ App({
     const that = this;
     // 检查 API 是否可用
     wx.request({
-      url: this.globalData.apiUri,
+      url: this.globalData.apiUri+'api/v1/community/user/',
+      method:'GET',
       success(res) {
         console.log(res.statusCode)
         if (res.statusCode !== 200) {
@@ -31,23 +32,27 @@ App({
           // 尝试自动登录
           wx.login({
             success: (res) => {
+              console.log(res.code)
               wx.request({
-                url: that.globalData.apiUri + 'wx_auth',
+                url: that.globalData.apiUri + 'api/v1/login',
                 method: 'POST',
                 data: {
                   js_code: res.code,
                 },
                 success: res => {
                   console.log('登录返回信息：', res)
-                  var response_data = res.data
-                  if (response_data.code === 200) {
-                    console.log('接口返回的信息：', response_data)
+                  var response = res.data
+                  if (res.statusCode === 200) {
+                    console.log('登录成功，返回的信息：', response)
                     // 登录成功，设置全局用户信息
-                    wx.setStorageSync('userinfo', response_data.data.user);
+                    wx.setStorageSync('userinfo', response);
                   } else {
+                    console.log('登录失败，返回的信息：', res)
                     // 登录失败，清除用户信息
                     wx.removeStorageSync('userinfo')
                   }
+                },fail:res=>{
+                  wx.removeStorageSync('userinfo')
                 }
               })
             },
