@@ -7,13 +7,13 @@
   <!-- 滚动图片 -->
   <swiper class="screen-swiper margin-sm round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{activityData}}" wx:key="item">
-      <view class="bg-img radius" style="background-image: url({{item.imgUrl}});height: 310rpx;">
+      <view class="bg-img radius" style="background-image: url({{item.image}});height: 310rpx;">
         <view class="padding-xl text-white">
           <view class="padding-xs text-xl">
             {{item.title}}
           </view>
           <view class="padding-xs">
-            {{item.des}}
+            {{item.content}}
           </view>
         </view>
       </view>
