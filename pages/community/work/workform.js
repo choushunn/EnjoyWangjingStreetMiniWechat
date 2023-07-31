@@ -92,7 +92,7 @@ Page({
       method: 'POST',
       data: data,
       success: function (res) {
-        console.log(res); // 打印后端API返回的数据
+        console.log("居民服务表单",res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 200) {
           wx.showToast({

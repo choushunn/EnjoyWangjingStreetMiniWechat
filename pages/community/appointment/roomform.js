@@ -19,6 +19,9 @@ Page({
   data: {
     time: timeStr,
     date: dateStr,
+    startTime: "09:00",
+    endTime: "17:00",
+    picker: ['事项1', '事项2', '事项3'],
   },
   TimeChange(e) {
     this.setData({
@@ -30,6 +33,12 @@ Page({
       date: e.detail.value
     })
   },
+  PickerChange(e) {
+    console.log(e);
+    this.setData({
+      index: e.detail.value
+    })
+  },  
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
@@ -61,7 +70,74 @@ Page({
       }
     })
   },
-
+  StartTimeChange: function(e) {
+    const startTime = new Date('1970/01/01 ' + e.detail.value).getTime(); // 将选择的开始时间转换为时间戳
+    const endTime = new Date('1970/01/01 ' + this.data.endTime).getTime(); // 将选择的结束时间转换为时间戳
+    if (startTime >= endTime) {
+      // 如果选择的开始时间晚于或等于结束时间，则弹出提示
+      wx.showToast({
+        title: '开始时间需早于结束时间',
+        icon: 'none'
+      });
+      // 将选择的时间重置为原来的值
+      this.setData({
+        startTime: this.data.startTime
+      });
+    } else if (startTime < new Date('1970/01/01 09:00').getTime()) {
+      // 如果选择的开始时间早于9:00，则弹出提示
+      wx.showToast({
+        title: '开始时间需在9:00之后',
+        icon: 'none'
+      });
+      // 将选择的时间重置为9:00
+      this.setData({
+        startTime: '09:00'
+      });
+    } else {
+      // 显示当前选择的开始时间
+      wx.showToast({
+        title: '开始时间为 ' + e.detail.value,
+        icon: 'none'
+      });
+      this.setData({
+        startTime: e.detail.value
+      });
+    }
+  },
+  EndTimeChange: function(e) {
+    const startTime = new Date('1970/01/01 ' + this.data.startTime).getTime(); // 将选择的开始时间转换为时间戳
+    const endTime = new Date('1970/01/01 ' + e.detail.value).getTime(); // 将选择的结束时间转换为时间戳
+    if (endTime <= startTime) {
+      // 如果选择的结束时间早于或等于开始时间，则弹出提示
+      wx.showToast({
+        title: '结束时间需晚于开始时间',
+        icon: 'none'
+      });
+      // 将选择的时间重置为原来的值
+      this.setData({
+        endTime: this.data.endTime
+      });
+    } else if (endTime > new Date('1970/01/01 17:00').getTime()) {
+      // 如果选择的结束时间晚于17:00，则弹出提示
+      wx.showToast({
+        title: '结束时间需在17:00之前',
+        icon: 'none'
+      });
+      // 将选择的时间重置为17:00
+      this.setData({
+        endTime: '17:00'
+      });
+    } else {
+      // 显示当前选择的结束时间
+      wx.showToast({
+        title: '结束时间为 ' + e.detail.value,
+        icon: 'none'
+      });
+      this.setData({
+        endTime: e.detail.value
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
