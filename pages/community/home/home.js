@@ -44,13 +44,19 @@ Component({
       url: '/pages/community/feedback/feedback'
     }, {
       name: '近期新闻',
-      color: 'mauve',
-      icon: 'question',
+      color: 'blue',
+      icon: 'news',
       url: '/pages/home/news/news'
     }]
   },
   methods: {
-
+    // 跳转到功能页面
+    toPage(e){
+      var url = e.currentTarget.dataset.url
+      wx.navigateTo({
+        url: url
+      })
+    },
   },
   lifetimes: {
     created: function () {

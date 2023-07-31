@@ -33,7 +33,14 @@ Page({
       }
     ]
   },
-
+  onNav(e){
+    console.log(e)
+    var id = e.currentTarget.dataset.item.id
+    // 跳转到详情页面
+    wx.navigateTo({
+      url: '/pages/community/activity/detail?id=' + id,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

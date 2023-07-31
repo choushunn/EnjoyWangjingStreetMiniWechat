@@ -1,4 +1,5 @@
 // pages/home/news/news.js
+const app = getApp();
 Page({
 
   /**
@@ -10,10 +11,9 @@ Page({
     newsData: [{
         "id": 1,
         "title": "社区活动1",
-        "imgUrl": "https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg",
-        "desc": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
-
-        "datetime": "2023年5月26日",
+        "image": "https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg",
+        "summary": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
+        "created_at": "2023年5月26日",
         "tags": [{
             "name": "党组织生活",
             "color": "bg-red"
@@ -23,15 +23,15 @@ Page({
             "color": "bg-green"
           }
         ],
-        type: 3
+        "catogory": 3
       },
       {
         "id": 2,
         "title": "社区活动2",
-        "imgUrl": "https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg",
-        "desc": "普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。",
+        "image": "https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg",
+        "summary": "普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。",
 
-        "datetime": "2023年5月26日",
+        "created_at": "2023年5月26日",
         "tags": [{
             "name": "党组织生活",
             "color": "bg-red"
@@ -41,15 +41,15 @@ Page({
             "color": "bg-green"
           }
         ],
-        type: 1
+        "catogory": 1
       },
       {
         "id": 3,
         "title": "社区活动3",
-        "imgUrl": "https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg",
-        "desc": "折互帮互助好邻里，互敬互爱好家庭。打造平安大院，构建和谐社会。",
+        "image": "https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg",
+        "summary": "折互帮互助好邻里，互敬互爱好家庭。打造平安大院，构建和谐社会。",
 
-        "datetime": "2023年5月26日",
+        "created_at": "2023年5月26日",
         "tags": [{
             "name": "党组织生活",
             "color": "bg-red"
@@ -59,16 +59,42 @@ Page({
             "color": "bg-green"
           }
         ],
-        type: 2
+        "catogory": 2
       }
     ]
   },
-
+  // 跳转到详情页面
+  toDetail(e) {
+    console.log(e)
+    var id = e.currentTarget.dataset.item.id
+    var item = e.currentTarget.dataset.item
+    // 跳转到详情页面
+    wx.navigateTo({
+      url: '/pages/home/news/detail?id=' + id + '&item=' + item,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this;
+    wx.request({
+      url: app.globalData.apiUri + 'api/v1/community/news/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("新闻信息获取成功", res.data)
+          var items = res.data
+          if (res.statusCode == 200) {
+            that.setData({
+              newsData: items
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
   },
   tabSelect(e) {
     this.setData({

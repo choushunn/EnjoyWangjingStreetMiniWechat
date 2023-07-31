@@ -21,10 +21,10 @@
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-sm solid-bottom">
     <view class="padding-sm" wx:for="{{item.elements}}" wx:key="title">
-      <navigator class="bg-{{item.color}} padding radius-social text-center light" url="{{item.url}}">
+      <view class="bg-{{item.color}} padding radius-social text-center light" ontap="toPage" data-url="{{item.url}}">
         <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
         <view class="text-lg">{{item.title}}</view>
-      </navigator>
+      </view>
     </view>
   </view>
 </view>
