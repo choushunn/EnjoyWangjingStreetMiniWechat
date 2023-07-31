@@ -53,16 +53,12 @@ Page({
         if (res.statusCode == 200) {
           console.log("活动信息获取成功",res.data)
           var items = res.data
-          // 读取成功
-          var date = new Date(items[0].created_at);
-          var formattedTime = formatTime(date);
-          // 格式化时间为指定格式（例如：2023-07-29 20:18:41）
-          var formattedTime = date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }).replace(/\//g, '-');
-          items[0].created_at = formattedTime;
-          if (items.length > 0) {
+          if (res.statusCode==200) {
             that.setData({
               activityData: items
             })
+          }else{
+            // 读取失败
           }
         }
       }
