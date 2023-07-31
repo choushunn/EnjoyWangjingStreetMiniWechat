@@ -9,7 +9,7 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <!-- 办事服务 -->
   <view class="action" bindtap="NavChange" data-cur="service">
-    <view class="cuIcon-list line-{{PageCur=='service'?'green':'gray'}}"></view>
+    <view class="cuIcon-list line-{{PageCur=='service'?'green':'gray'}}" style="position: relative; left: -1rpx; top: 0rpx"></view>
     <view class="text-{{PageCur=='service'?'green':'gray'}}">
       办事
     </view>

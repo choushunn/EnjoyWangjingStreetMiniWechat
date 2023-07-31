@@ -5,7 +5,7 @@ Component({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     categories: [{
-        "title": "功能类别1",
+        "title": "生活缴费",
         "iconColor": "orange",
         elements: [{
             title: '电费',
@@ -32,7 +32,7 @@ Component({
         ],
       },
       {
-        "title": "功能类别2",
+        "title": "社区服务",
         "iconColor": "blue",
         elements: [{
             title: '邻里空间',
@@ -58,7 +58,7 @@ Component({
         ],
       },
       {
-        "title": "功能类别3",
+        "title": "便民服务",
         "iconColor": "green",
         elements: [{
             title: '便民电话',

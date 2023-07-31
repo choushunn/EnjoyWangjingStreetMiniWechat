@@ -5,13 +5,11 @@ Component({
     elements: [
       {
         title: '通知公告',
-        name: 'notice',
         color: 'olive',
         icon: 'notice',
         url: 'notice'
       },{
         title: '社区活动',
-        name: 'activity',
         color: 'green',
         icon: 'group',
         url: 'activity'
