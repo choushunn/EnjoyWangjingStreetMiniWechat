@@ -14,6 +14,7 @@
 </view>
 
 <view wx:if="{{dianhuadata}}">
+  <view class="text-red text-bold"> TODO:添加一个右下角问号</view>
 <block wx:for="{{dianhuadata}}" wx:key="id">
   <view class="cu-card no-card margin-xs">
     <view class="cu-item shadow">

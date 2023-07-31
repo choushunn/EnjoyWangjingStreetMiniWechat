@@ -30,7 +30,20 @@
     </view>
     <view class="action">
       <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/consult/form">点我</navigator> 
+        <navigator class="cuIcon-right" url="/pages/community/consult/reserveform">点我</navigator> 
+      </button>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class="content">
+      <text class="cuIcon-time text-red"></text>
+      <text class="text-grey">在线咨询</text>
+    </view>
+    <view class="action">
+      <view class="text-red text-bold"> TODO:调用客服服务</view>
+      <button class="cu-btn round bg-blue shadow">
+          
+        <navigator class="cuIcon-right">点我</navigator> 
       </button>
     </view>
   </view>

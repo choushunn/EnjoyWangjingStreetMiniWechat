@@ -8,6 +8,7 @@
 </view>
 
 <view class="cu-bar bg-white solid-bottom">
+
   <view class='action'>
     <text class='cuIcon-titles text-blue '></text> 社区信息填报
   </view>
@@ -18,6 +19,7 @@
 
 <!-- 信息填报表单 -->
 <form bindsubmit="onSubmit">
+  <view class="text-red text-bold"> TODO:添加一个右下角问号</view>
   <!-- 联系人 -->
   <view class="cu-form-group">
     <view class="title">联系人</view>
@@ -35,11 +37,6 @@
         中国大陆
       </view>
     </view>
-  </view>
-  <!-- 上报标题 -->
-  <view class="cu-form-group">
-    <view class="title">标题</view>
-    <input name='title' placeholder="请输入标题"></input>
   </view>
   <!-- 上报内容 -->
   <view class="cu-form-group">

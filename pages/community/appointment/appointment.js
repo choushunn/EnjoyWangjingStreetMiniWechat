@@ -8,13 +8,13 @@ Page({
         id: 0,
         "icon": "cuIcon-btn text-green",
         "title": "办事预约",
-        "url": "/pages/community/appointment/equipment/equipment"
+        "url": "/pages/community/appointment/serviceform"
       },
       {
         id: 1,
         "icon": "cuIcon-tagfill text-red",
         "title": "邻里空间",
-        "url": "/pages/community/appointment/playroom/playroom"
+        "url": "/pages/community/appointment/roomform"
       }
     ]
   },

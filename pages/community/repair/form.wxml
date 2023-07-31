@@ -17,12 +17,12 @@
   <!-- 申请人 -->
   <view class="cu-form-group">
     <view class="title">申请人</view>
-    <input name="name" placeholder="姓名"></input>
+    <input name="name" placeholder="请输入申请人姓名"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
     <view class="title">联系电话</view>
-    <input name="phone" placeholder="输入手机电话号码"></input>
+    <input name="phone" placeholder="请输入申请人联系电话"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86
@@ -35,20 +35,25 @@
   <!-- 服务地址 -->
   <view class="cu-form-group">
     <view class="title">所在地址</view>
-    <input name="address" placeholder="输入所在地址"></input>
+    <view class="text-red text-bold"> TODO:显示为自动定位地址</view>
+    <input name="address" placeholder="请输入所在地址" value=""></input>
     <text class="cuIcon-locationfill text-orange"></text>
+    
   </view>
   <view class="cu-form-group">
     <view class="title">类型选择</view>
     <picker name="type" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
       <view class="picker">
+        <view class="text-red text-bold"> TODO:改为从数据库获取，设置初始默认值</view>
         {{index?picker[index]:'事项1'}}
       </view>
     </picker>
   </view>
   <!-- 问题描述 -->
+ 
   <view class="cu-form-group">
     <view class="title">问题描述</view>
+    <view class="text-red text-bold"> TODO:修改格式</view>
     <textarea class="solids" name="description" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入"></textarea>
   </view>
 

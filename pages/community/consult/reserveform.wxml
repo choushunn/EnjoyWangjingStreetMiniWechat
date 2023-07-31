@@ -1,26 +1,28 @@
-<!--pages/community/appointment/playroom/playroom.wxml-->
+<!--pages/community/consult/form.wxml-->
 <cu-custom bgColor="bg-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">邻里空间</view>
+  <view slot="content">预约咨询</view>
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 邻里空间预约
+    <text class='cuIcon-titles text-blue '></text> 预约咨询表单
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
   </view>
 </view>
+<view class="text-red text-bold"> TODO:改为显示预约记录</view>
+<view class="text-red text-bold"> TODO:页面上添加预约的加号图标</view>
 <form bindsubmit="onSubmit">
   <!-- 预约人 -->
   <view class="cu-form-group">
     <view class="title">预约人</view>
-    <input name="name" placeholder="姓名"></input>
+    <input name='name' placeholder="请输入预约人姓名"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
     <view class="title">联系电话</view>
-    <input name="phone" placeholder="输入手机电话号码"></input>
+    <input name='phone' placeholder="输入联系电话"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86
@@ -30,15 +32,17 @@
       </view>
     </view>
   </view>
-  <!-- 预约活动室 -->
+  <!-- 预约内容 -->
   <view class="cu-form-group">
-    <view class="title">预约活动室</view>
-    <input name="room" placeholder="请输入预约活动室"></input>
+    <view class="title">咨询内容</view>
+    <view class="text-red text-bold"> TODO:改为textarea框</view>
+    <input name='content' placeholder="请输入咨询内容"></input>
+    
   </view>
   <!-- 预约日期 -->
   <view class="cu-form-group">
-    <view class="title">预约使用日期</view>
-    <picker name="date" mode="date" value="{{date}}" bindchange="DateChange">
+    <view class="title">预约日期</view>
+    <picker name='date' mode="date" value="{{date}}" bindchange="DateChange">
       <view class="picker">
         {{date}}
       </view>
@@ -46,23 +50,26 @@
   </view>
   <!-- 预约时间 -->
   <view class="cu-form-group">
-    <view class="title">预约使用时间</view>
-    <picker name="time" mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
+    <view class="title">预约时间</view>
+    <picker name='time' mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
       <view class="picker">
+        <view class="text-red text-bold"> TODO:可选择的时间段</view>
         {{time}}
       </view>
     </picker>
   </view>
+
   <!-- 备注信息 -->
   <view class="cu-form-group align-start">
     <view class="title">备注</view>
-    <textarea name="remark" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="输入备注信息"></textarea>
+    <textarea name='remark' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="其他备注信息"></textarea>
   </view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
+    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block" form-type="submit" bindtap="submit_data">提交</button>
   </view>
 </form>
+
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
