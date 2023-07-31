@@ -112,6 +112,7 @@ Component({
     }
   },
   methods: {    
+    // 跳转到功能页面
     toPage: function (event) {
       var url = event.currentTarget.dataset.url
       wx.navigateTo({

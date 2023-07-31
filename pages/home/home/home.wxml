@@ -5,25 +5,21 @@
 </cu-custom>
 
 <!-- 轮播图 -->
-<!-- <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-  <swiper-item wx:for="{{swiperList}}" wx:key="id">
-    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
-    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
-  </swiper-item>
-</swiper> -->
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key="id">
+    <!-- 加上文字 -->
     <image src="{{item.image}}" mode="aspectFill"></image>
   </swiper-item>
 </swiper>
+
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{elements}}" wx:key="id" wx:if="{{index<12}}">
-    <navigator class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" url="{{item.url}}">
+    <view class="bg-gradual-{{item.color}} padding radius-social text-center shadow-lg" ontap="toPage" data-url="{{item.url}}">
       <text class="cuIcon-{{item.icon}}" style="font-size: 64rpx;"></text>
       <view class="text-lg">{{item.name}}</view>
       <view></view>
-    </navigator>
+    </view>
   </view>
 </view>
 
@@ -32,39 +28,37 @@
   <view class='action'>
     <text class='cuIcon-titles text-orange '></text> 新闻通知
   </view>
-  <navigator url="/pages/home/news/news">
-    <view class='action text-df' bindtap="linkNews">
-      更多
-      <text class="cuIcon-right"></text>
-    </view>
-  </navigator>
+  <view class='action text-df' bindtap="toPage" data-url="/pages/home/news/news">
+    更多
+    <text class="cuIcon-right"></text>
+  </view>
 </view>
 
 <!-- 新闻列表 -->
 <view wx:if="{{newsData}}" class="cu-timeline radius-lg padding-top-xs">
-  <navigator url="/pages/home/news/detail?id={{item.id}}">
-    <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsData}}" wx:key="item" wx:if="{{index < 5}}">
-      <view class="cu-item shadow">
-        <view class="content">
-          <view class="desc">
-            <view class="text-black text-bold text-lg">{{item.title}}</view>
-            <view class="text-black text-df">{{item.summary}}</view>
-            <view class="flex justify-between">
-              <view class="text-gray text-sm">{{item.created_at}}</view>
-              <view class="text-gray text-sm padding-right">
-                <block wx:for="{{item.tags}}" wx:key="name">
-                  <view class="cu-tag {{item.color}} light sm round">{{item.category}}</view>
-                </block>
-              </view>
+  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsData}}" wx:key="item" wx:if="{{index < 5}}">
+    <view class="cu-item shadow" bindtap="toDetail" data-item="{{item}}">
+    <!-- 左侧内容 -->
+      <view class="content">
+        <view class="desc">
+          <view class="text-black text-bold text-lg">{{item.title}}</view>
+          <view class="text-black text-df">{{item.summary}}</view>
+          <!-- 下方日期和标签 -->
+          <view class="flex justify-between">
+            <view class="text-gray text-sm">{{item.created_at}}</view>
+            <view class="text-gray text-sm padding-right">
+              <block wx:for="{{item.tags}}" wx:key="name">
+                <view class="cu-tag {{item.color}} light sm round">{{item.category}}</view>
+              </block>
             </view>
           </view>
-          <view>
-            <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;"></image>
-          </view>
         </view>
+        <!-- 右侧图像 -->
+        <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;">
+        </image>
       </view>
     </view>
-  </navigator>
+  </view>
 </view>
 
 <!-- 底部版权声明 -->

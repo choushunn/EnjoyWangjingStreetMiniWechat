@@ -45,6 +45,7 @@
     <text>{{item.name}}</text>
   </view>
 </view>
+
 <!-- 功能列表 -->
 <view class="cu-list menu card-menu margin-top-sm margin-bottom-xl shadow-lg radius">
   <view wx:for="{{aboutMenuItems}}" wx:key="id" class="cu-item arrow" bindtap="{{item.handler}}" data-url="{{item.url}}">

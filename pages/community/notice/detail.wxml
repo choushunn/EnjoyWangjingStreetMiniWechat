@@ -3,19 +3,30 @@
   <view slot="backText">返回</view>
   <view slot="content">通知详情</view>
 </cu-custom>
-<block wx:for="{{messageData}}" wx:key="id">
-  <!-- <view wx:if="{{item.id == currentId}}"> -->
-<view class="bg-white padding-xs flex align-center radius-df">
+
+<view wx:if="{{item}}">
+  <!-- 有内容时的渲染 -->
+  <view class="bg-white padding-xs flex align-center radius-df">
     <view class="flex-sub text-center">
       <view class=" text-xl padding solid-bottom">
+      <!-- 标题 -->
         <text class="text-xxl text-bold text-black">{{item.title}}</text>
       </view>
+      <!-- 内容 -->
       <view class="padding text-left text-indent">{{item.content}}</view>
-      <view class="padding text-right text-indent solid-top margin-top">{{item.created_at}}</view>
+      <!-- 时间 -->
+      <view class="padding text-right text-indent solid-top margin-top">发布时间：{{item.created_at}}</view>
     </view>
   </view>
-  <!-- </view> -->
-</block>
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
+
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />

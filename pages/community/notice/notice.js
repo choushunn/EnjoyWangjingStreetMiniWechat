@@ -2,12 +2,10 @@
 const app = getApp();
 const formatTime = require('../../../utils/utils');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
     TabCur: 0,
     scrollLeft: 0,
     // 默认数据
@@ -16,7 +14,7 @@ Page({
       title:"全国社区建设试点名单印发",
       status:0,
       desc:"为深入贯彻党的二十大精神,落实党中央、国务院有关决策部署,完善社区服务功能,补齐社区服务设施短板,在各地推荐基础上",
-      datetime:"2023年7月14日 11:20",
+      datetime:"2023年7月14日",
       type:"",
       url:"/pages/community/notice/details"
     },]
@@ -34,11 +32,6 @@ Page({
           console.log("通知获取成功",res.data)
           var items = res.data
           // 读取成功
-          var date = new Date(items[0].created_at);
-          var formattedTime = formatTime(date);
-          // 格式化时间为指定格式（例如：2023-07-29 20:18:41）
-          var formattedTime = date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }).replace(/\//g, '-');
-          items[0].created_at = formattedTime;
           if (items.length > 0) {
             that.setData({
               noticeData: items

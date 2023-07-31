@@ -59,41 +59,7 @@ Component({
             "color": "bg-green"
           }
         ]
-      },
-      {
-        id: 2,
-        "title": "社区活动2",
-        "imgUrl": "https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg",
-        "desc": "普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。",
-        "type": "活动",
-        "datetime": "2023年5月26日",
-        "tags": [{
-            "name": "党组织生活",
-            "color": "bg-red"
-          },
-          {
-            "name": "活动",
-            "color": "bg-green"
-          }
-        ]
-      },
-      {
-        id: 3,
-        "title": "社区活动3",
-        "imgUrl": "https://image.scol.com.cn/data/attachment/forum/202002/25/1582633049799.jpg",
-        "desc": "折互帮互助好邻里，互敬互爱好家庭。打造平安大院，构建和谐社会。",
-        "type": "活动",
-        "datetime": "2023年5月26日",
-        "tags": [{
-            "name": "党组织生活",
-            "color": "bg-red"
-          },
-          {
-            "name": "活动",
-            "color": "bg-green"
-          }
-        ]
-      }
+      },     
     ]
   },
   lifetimes: {
@@ -124,24 +90,31 @@ Component({
         method:"GET",
         success: function (res) {
           console.log("新闻请求成功：",res.data); // 打印后台返回的数据
-          var date = new Date(res.data[0].created_at);
-          var formattedTime = formatTime(date);
-          // 格式化时间为指定格式（例如：2023-07-29 20:18:41）
-          var formattedTime = date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false }).replace(/\//g, '-');
-          res.data[0].created_at = formattedTime;
           that.setData({
             newsData: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
           });         
         },
       });
     },
-    
-
-
-   
   },
-  
   methods: {
+    // 跳转功能页面
+    toPage(e){
+      var url = e.currentTarget.dataset.url
+      wx.navigateTo({
+        url: url
+      })
+    },
+    // 跳转到详情页面
+    toDetail(e){
+      console.log(e)
+      var id = e.currentTarget.dataset.item.id
+      var item = e.currentTarget.dataset.item
+      // 跳转到详情页面
+      wx.navigateTo({
+        url: '/pages/home/news/detail?id=' + id+'&item=' +item,
+      })
+    },
     tabSelect(e) {
       this.setData({
         TabCur: e.currentTarget.dataset.id,
