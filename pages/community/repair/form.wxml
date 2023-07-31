@@ -35,8 +35,8 @@
   <!-- 服务地址 -->
   <view class="cu-form-group">
     <view class="title">所在地址</view>
-    <view class="text-red text-bold"> TODO:显示为自动定位地址</view>
-    <input name="address" placeholder="请输入所在地址" value=""></input>
+    
+    <input name='address' placeholder="{{item?item.address:'请输入所在地址'}}" value="{{item?item.address:''}}"></input>
     <text class="cuIcon-locationfill text-orange"></text>
     
   </view>

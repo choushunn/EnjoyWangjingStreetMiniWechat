@@ -27,9 +27,12 @@ onTapMessage: function(event) {
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
+    var id = options.id
+    console.log(id)
     var that = this
-    wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/notification/',
+    wx.request({      
+      url: app.globalData.apiUri + 'api/v1/community/notification/'+id,
       method: 'GET',
       success(res) {
         if (res.statusCode == 200) {

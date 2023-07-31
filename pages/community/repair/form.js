@@ -6,9 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    StatusBar: app.globalData.StatusBar,
+    CustomBar: app.globalData.CustomBar,
     index: null,
     picker: ['事项1', '事项2', '事项3'],
     imgList: [],
+    item:''
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -103,7 +106,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const item = JSON.parse(options);  
+    this.setData({
+      item:item,
+    })
+    console.log(item)
   },
 
   /**
