@@ -15,7 +15,7 @@
   <view class="padding-sm" wx:for="{{elements}}" wx:key="name" wx:if="{{index<12}}">
     <navigator class="bg-{{item.color}} padding radius-social text-center light" url="{{item.url}}">
       <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
-      <view class="text-lg">{{item.title}}</view>
+      <view class="text-lg">{{item.name}}</view>
       <view></view>
     </navigator>
   </view>
