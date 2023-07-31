@@ -177,7 +177,7 @@ Page({
     this.setData({
       item:item,
     })
-    console.log(item)
+    console.log("地址",item)
   },
 
   /**
