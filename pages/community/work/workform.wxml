@@ -50,15 +50,14 @@
     </picker>
   </view>
   <!-- 问题描述 -->
- 
   <view class="cu-form-group">
     <view class="title">问题描述</view>
-    <view class="text-red text-bold"> TODO:修改格式</view>
-    <textarea class="solids" name="description" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入"></textarea>
   </view>
-
+  <view class="cu-form-group align-start bg-white">
+    <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入上报内容"></textarea>
+  </view>
   <!-- 图片上传 -->
-  <view class="cu-bar bg-white ">
+  <view class="cu-bar bg-white solid-top">
     <view class="action">
       上传图片
     </view>

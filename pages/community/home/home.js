@@ -17,10 +17,10 @@ Component({
         url: 'activity'
       },{
       title: '居民服务',
-      name: 'repair',
+      name: 'work',
       color: 'cyan',
       icon: 'paint',
-      url: 'repair'
+      url: 'work'
     },
     {
       title: '预约服务',
@@ -51,6 +51,13 @@ Component({
     },
     {
       title: '意见反馈',
+      name: 'feedback',
+      color: 'mauve',
+      icon: 'question',
+      url: 'feedback'
+    },
+    {
+      title: '近期新闻',
       name: 'feedback',
       color: 'mauve',
       icon: 'question',
