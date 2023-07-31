@@ -52,33 +52,14 @@
 </view>
 </scroll-view>
 
-
+<!-- 浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/work/workform"></navigator>
+</view>
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
-<!-- 浮窗 -->
-<view class="flex">
-  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
-  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/repair/form"></navigator>
-</view>
-
-
-<!-- <view wx:if="{{menu}}"> -->
-<!-- 居民服务功能列表 -->
-<!-- <view class="cu-list menu sm-border">
-    <view class="cu-item" wx:for="{{menu}}" wx:key="index">
-      <view class="content">
-        <text class="{{item.icon}}"></text>
-        <text class="text-grey">{{item.title}}</text>
-      </view>
-      <navigator class="action" url="{{item.url}}">
-        <button class="cu-btn round bg-blue shadow">
-          点我<view class="cuIcon-right"></view>
-        </button>
-      </navigator>
-    </view>
-  </view>
-</view> -->

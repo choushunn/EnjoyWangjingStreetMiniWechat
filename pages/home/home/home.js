@@ -110,12 +110,12 @@ Component({
         },
       });
       wx.request({
-        url: app.globalData.apiUri + 'api/v1/system/menu_category/', // 后台接口地址
+        url: app.globalData.apiUri + 'api/v1/system/menu_category/3/', // 后台接口地址
         method:"GET",
         success: function (res) {
-          console.log("菜单请求成功：",res.data); // 打印后台返回的数据
+          console.log("菜单请求成功：",res); // 打印后台返回的数据
           that.setData({
-            elements: res.data[0].items // 将后台返回的数据绑定到页面的 elements 变量中
+            elements: res.data.items // 将后台返回的数据绑定到页面的 elements 变量中
           });         
         },
       });

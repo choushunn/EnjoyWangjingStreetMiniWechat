@@ -21,7 +21,7 @@
   </swiper>
   <!-- 活动列表 -->  
   <view wx:if="{{activityData}}" class="cu-timeline radius-lg padding-top-xs">
-    <navigator url="/pages/community/activity/details?id={{item.id}}">
+    <navigator url="/pages/community/activity/detail?id={{item.id}}">
     <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{activityData}}" wx:key="item" wx:if="{{index < 5}}">
     <view class="cu-item shadow">
       <view class="content">

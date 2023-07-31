@@ -78,25 +78,33 @@ Page({
       index: e.detail.value
     })
   },  
-  submit_data() {
-    wx.showToast({
-      title: '提交成功',
-    })
-  },
   onSubmit: function (event) {
     const formData = event.detail.value;
-    console.log(formData); // 打印表单数据对象
-
+    const extraData = {
+      // 必须加上用户id
+      user: 1
+    }; // 新字段
+    const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
+    console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'admin/community/TelephoneDirectoryAdmin/item',
+      url: app.globalData.apiUri + 'api/v1/community/work/',
       method: 'POST',
-      data: formData,
-      success: function(res) {
-        console.log(res.data); // 打印后端API返回的数据
+      data: data,
+      success: function (res) {
+        console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
+        if (res.statusCode == 200) {
+          wx.showToast({
+            title: '提交成功',
+          })
+        } else {
+          wx.showToast({
+            title: '提交失败',
+          })
+        }
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res.errMsg); // 打印错误信息
         // 处理失败提示信息
       }
