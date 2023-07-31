@@ -51,7 +51,11 @@
     <template is="nodata"></template>
   </view>
 </view>
-
+<!-- 浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-white question-cover" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/appointment/roomform"></navigator>
+</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
