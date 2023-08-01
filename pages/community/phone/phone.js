@@ -57,7 +57,13 @@ Page({
       }
     })
   },
-
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '拨打电话寻求帮助',
+      showCancel: false,
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -19,7 +19,6 @@
 
 <!-- 信息填报表单 -->
 <form bindsubmit="onSubmit">
-  <view class="text-red text-bold"> TODO:添加一个右下角问号</view>
   <!-- 联系人 -->
   <view class="cu-form-group">
     <view class="title">联系人</view>
@@ -80,7 +79,7 @@
 
 <!-- 帮助浮窗 -->
 <view class="flex">
-  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
+  <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
 </view>
 
 <!-- 底部版权声明 -->

@@ -1,1 +1,6 @@
 /* pages/community/feedback/feedback.wxss */
+.horizontal{
+  position: relative;
+   left: 0rpx; 
+   top: 6rpx;
+}
