@@ -47,8 +47,8 @@
           <view class="flex justify-between">
             <view class="text-gray text-sm">{{item.created_at}}</view>
             <view class="text-gray text-sm padding-right">
-              <block wx:for="{{item.tags}}" wx:key="name">
-                <view class="cu-tag {{item.color}} light sm round">{{item.category}}</view>
+              <block wx:for="{{item.tags}}" wx:key="tag">
+                <view class="cu-tag bg-{{item.color}} light sm round">{{item.name}}</view>
               </block>
             </view>
           </view>
