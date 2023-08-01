@@ -1,11 +1,21 @@
 // pages/community/feedback/feedback.js
 const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     imgList: [],
+    selectedTypes: [], // 已选择的类型数组
+    typeButtons: [ // 所有类型按钮的数组
+      { type: '社区服务', class: '' },
+      { type: '生活服务', class: '' },
+      { type: '产品建议', class: '' },
+      { type: '安全分类', class: '' },
+      { type: '功能异常', class: '' },
+      { type: '其他问题', class: '' },
+    ],
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -61,6 +71,14 @@ Page({
       urls
     });
   },
+  checkboxChange: function(event) {
+    // 获取被勾选的checkbox的值
+    var checkedValues = event.detail.value;
+    // 将勾选的值存储到页面的data对象中
+    this.setData({
+      feedbackTypes: checkedValues
+    });
+  },
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
@@ -70,10 +88,12 @@ Page({
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/appointment/',
+      url: app.globalData.apiUri + 'api/v1/community/feedback/',
       method: 'POST',
-      data: data,
-      success: function (res) {
+      data: {data,
+        feedbackTypes: this.data.feedbackTypes, 
+      },
+      success: function (res) { 
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 200) {
@@ -92,6 +112,8 @@ Page({
       }
     })
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载

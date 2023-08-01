@@ -1,4 +1,5 @@
 // pages/community/consult/phone.js
+const app = getApp();
 Page({
 
   /**
@@ -10,16 +11,6 @@ Page({
       number: "131121231311",
       desc: "某某事项",
       id: "1"
-    }, {
-      title: "社区服务中心2",
-      number: "131121231311",
-      desc: "某某事项",
-      id: "2"
-    }, {
-      title: "社区服务中心3",
-      number: "131121231311",
-      desc: "某某事项",
-      id: "3"
     }, ]
   },
 
@@ -27,7 +18,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this
+    wx.request({
+      url: app.globalData.apiUri + 'api/v1/community/telephone/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("咨询电话获取成功：",res.data)
+          var items = res.data
+          // 读取成功
+          if (items.length > 0) {
+            that.setData({
+              dianhuadata: iwtems
+            })
+          }
+        }
+      }
+    })
   },
 
   /**

@@ -16,7 +16,6 @@
 <block wx:for="{{dianhuadata}}" wx:key="id">
   <view class="cu-card margin-xs no-card">
     <view class="cu-item shadow">
-      <view class="text-red text-bold"> TODO:改为从数据库获取，注意设置默认数据</view>
       <view class="title padding solid-bottom">
         <view class="flex justify-start align-center">
           <view class="text-cut text-xl">{{item.title}}</view>

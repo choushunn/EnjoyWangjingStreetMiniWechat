@@ -14,7 +14,6 @@
 </view>
 
 <view wx:if="{{dianhuadata}}">
-  <view class="text-red text-bold"> TODO:添加一个右下角问号</view>
 <block wx:for="{{dianhuadata}}" wx:key="id">
   <view class="cu-card no-card margin-xs">
     <view class="cu-item shadow">
@@ -46,7 +45,10 @@
     <template is="nodata"></template>
   </view>
 </view>
-
+<!-- 帮助浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
+</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

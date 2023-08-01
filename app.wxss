@@ -32,6 +32,16 @@
   z-index: 1000;
   font-size: 400%;
 }
+.help-question-cover {
+  position: fixed;
+  bottom: 10%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  font-size: 400%;
+}
 .add-cover {
   position: fixed;
   bottom: 15%;
