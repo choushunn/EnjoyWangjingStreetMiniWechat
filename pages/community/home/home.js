@@ -61,15 +61,18 @@ Component({
   lifetimes: {
     created: function () {
       var that = this;
+      // 获取后台菜单数据
       wx.request({
-        url: app.globalData.apiUri + 'menu_category/4/', // 后台接口地址
+        url: app.globalData.apiUri + 'menu_category/4/',
         method: "GET",
         success: function (res) {
-          console.log("社区菜单请求成功：", res); // 打印后台返回的数据
+          console.log("社区菜单请求成功：", res); 
           that.setData({
-            elements: res.data.items // 将后台返回的数据绑定到页面的 elements 变量中
+            elements: res.data.items 
           });
-        },
+        },fail:function(res){
+          console.log("社区菜单请求失败：",res)
+        }
       });
     },
   },

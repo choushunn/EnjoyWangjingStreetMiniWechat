@@ -3,6 +3,7 @@
   <view slot="content">社区</view>
 </cu-custom>
 <!-- 背景 -->
+<!-- 改为从后台获取 -->
 <image src='/images/4.jpg' mode='widthFix' class='png margin-0  padding-0' style='width:100%;height:100%'></image>
 <!-- 标题 -->
 <view class="cu-bar bg-white solid-bottom  margin-0 padding-0" style="margin-top: -12rpx;">

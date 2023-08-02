@@ -3,12 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">问题上报</view>
 </cu-custom>
-<view class="cu-load {{statusTop == 'success' ? 'bg-green light':'bg-red light'}}" animation="{{animation}}" style="height: 0">
-  {{messageTop}} <text class="cuIcon-roundclose lg padding-right-xs" hidden="{{!statusTop == 'error'}}"></text>
-</view>
-
 <view class="cu-bar bg-white solid-bottom">
-
   <view class='action'>
     <text class='cuIcon-titles text-blue '></text> 社区信息填报
   </view>
@@ -16,7 +11,6 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
-
 <!-- 信息填报表单 -->
 <form bindsubmit="onSubmit">
   <!-- 联系人 -->
@@ -44,12 +38,7 @@
   <view class="cu-form-group align-start bg-white">
     <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入上报内容"></textarea>
   </view>
-  <!-- 地址 -->
-  <view class="cu-form-group solid-bottom">
-    <view class="title">地址</view>
-    <input name='address' placeholder="请输入地址"></input>
-    <text class="cuIcon-locationfill text-orange"></text>
-  </view>
+
   <!-- 图片上传 -->
   <view class="cu-bar bg-white ">
     <view class="action">
@@ -69,6 +58,13 @@
         <text class="cuIcon-cameraadd"></text>
       </view>
     </view>
+  </view>
+
+  <!-- 地址 -->
+  <view class="cu-form-group solid-bottom">
+    <view class="title">地址</view>
+    <input name='address' placeholder="请输入地址"></input>
+    <text class="cuIcon-locationfill text-orange"></text>
   </view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">

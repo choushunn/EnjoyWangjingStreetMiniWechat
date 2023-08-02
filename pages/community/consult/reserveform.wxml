@@ -11,8 +11,6 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
-<view class="text-red text-bold"> TODO:改为显示预约记录</view>
-<view class="text-red text-bold"> TODO:页面上添加预约的加号图标</view>
 <form bindsubmit="onSubmit">
   <!-- 预约人 -->
   <view class="cu-form-group">

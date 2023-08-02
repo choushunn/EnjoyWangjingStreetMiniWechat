@@ -6,8 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
     index: null,
     picker: ['事项1', '事项2', '事项3'],
     imgList: [],
@@ -32,7 +30,6 @@ Page({
             duration: item.duration || 0
           };
         });
-
         // 将选择的媒体文件添加到imgList中
         const imgList = this.data.imgList.concat(mediaList);
         this.setData({
@@ -80,6 +77,7 @@ Page({
   },  
   onSubmit: function (event) {
     const formData = event.detail.value;
+    
     const extraData = {
       // 必须加上用户id
       user: 1
@@ -88,13 +86,13 @@ Page({
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/work/',
+      url: app.globalData.apiUri + 'work/',
       method: 'POST',
       data: data,
       success: function (res) {
-        console.log("居民服务表单",res); // 打印后端API返回的数据
+        console.log("居民服务表单提交数据：",res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 200) {
+        if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
           })
@@ -114,11 +112,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const item = JSON.parse(options);  
-    this.setData({
-      item:item,
-    })
-    console.log(item)
+  console.log(options)
   },
 
   /**

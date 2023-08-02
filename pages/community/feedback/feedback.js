@@ -16,6 +16,13 @@ Page({
       { type: '功能异常', class: '' },
       { type: '其他问题', class: '' },
     ],
+  },  
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '意见反馈',
+      showCancel: false,
+    });
   },
   chooseMedia() {
     wx.chooseMedia({

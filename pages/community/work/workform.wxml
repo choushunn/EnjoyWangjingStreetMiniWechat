@@ -43,7 +43,7 @@
   <!-- 服务事项类型 -->
   <view class="cu-form-group">
     <view class="title">类型选择</view>
-    <picker name="type" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+    <picker name="ticket_type" bindchange="PickerChange" value="{{index}}" range="{{picker}}">
       <view class="picker">
         <view class="text-red text-bold"> TODO:改为从数据库获取，设置初始默认值</view>
         {{index?picker[index]:'事项1'}}
@@ -52,10 +52,10 @@
   </view>
   <!-- 问题描述 -->
   <view class="cu-form-group">
-    <view class="title">问题描述</view>
+    <view class="title">备注</view>
   </view>
   <view class="cu-form-group align-start bg-white">
-    <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入上报内容"></textarea>
+    <textarea name='description' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="备注"></textarea>
   </view>
   <!-- 图片上传 -->
   <view class="cu-bar bg-white solid-top">

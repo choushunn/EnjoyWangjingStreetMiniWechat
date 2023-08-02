@@ -26,9 +26,9 @@
   </view>
 </scroll-view> -->
 
-<view wx:if="{{noticeData}}">
+<view wx:if="{{items}}">
   <!-- 消息列表 -->
-  <block wx:for="{{noticeData}}" wx:key="id">
+  <block wx:for="{{items}}" wx:key="id">
     <view class="cu-card article no-card margin-xs" bindtap="toDetail" data-item="{{item}}">
       <view class="cu-item shadow">
         <view class="title">
@@ -57,6 +57,12 @@
     <template is="nodata"></template>
   </view>
 </view>
+
+<!-- 帮助浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
+</view>
+
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

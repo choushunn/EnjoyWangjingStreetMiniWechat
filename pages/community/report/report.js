@@ -66,19 +66,20 @@ Page({
     const formData = event.detail.value;
     const extraData = {
       // 必须加上用户id
-      user: 1
+      user: 1,
+      title:'问题上报',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/feedback/',
+      url: app.globalData.apiUri + 'report/',
       method: 'POST',
       data: data,
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 200) {
+        if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
           })

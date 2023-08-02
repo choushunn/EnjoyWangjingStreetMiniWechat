@@ -19,8 +19,8 @@ App({
     const that = this;
     // 检查 API 是否可用
     wx.request({
-      url: this.globalData.apiUri+'user/',
-      method:'GET',
+      url: this.globalData.apiUri + 'user/',
+      method: 'GET',
       success(res) {
         console.log(res.statusCode)
         if (res.statusCode !== 200) {
@@ -43,17 +43,15 @@ App({
                   console.log('登录返回信息：', res)
                   var response = res.data
                   if (res.statusCode === 200) {
-                    console.log('登录成功，返回的信息：', response)
                     // 登录成功，设置全局用户信息
                     wx.setStorageSync('userinfo', response);
                   } else {
-                    console.log('登录失败，返回的信息：', res)
                     // 登录失败，清除用户信息
                     wx.removeStorageSync('userinfo')
                   }
                 },
-                fail:res=>{
-                  console.log("登录失败：",res)
+                fail: res => {
+                  console.log("登录失败：", res)
                   wx.removeStorageSync('userinfo')
                 }
               })
@@ -66,7 +64,7 @@ App({
         that.showMaintenanceTip();
       }
     });
-     // 获取系统状态栏信息
+    // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;

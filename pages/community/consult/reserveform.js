@@ -47,13 +47,13 @@ Page({
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/appointment/',
+      url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
       data: data,
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 200) {
+        if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
           })

@@ -6,8 +6,15 @@ Page({
    */
   data: {
     // 默认数据
-    noticeData: ''
-  },   
+    items: ''
+  },     
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '通知公告列表',
+      showCancel: false,
+    });
+  },
   // 跳转到详情页面
   toDetail(e){
     console.log(e)
@@ -32,7 +39,7 @@ Page({
           var items = res.data
           // 读取成功 
           that.setData({
-            noticeData: items
+            items: items
           })
         }
       }

@@ -1,12 +1,18 @@
 // pages/community/activity/activity.js
 const app = getApp();
-const formatTime = require('../../../utils/utils');
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    "activityData":''
+    items:''
+  },
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '社区活动列表列表',
+      showCancel: false,
+    });
   },
   // 跳转到详情页面
   toDetail(e){
@@ -32,10 +38,10 @@ Page({
           var items = res.data
           if (res.statusCode==200) {
             that.setData({
-              activityData: items
+              items: items
             })
           }else{
-            // 读取失败
+            // 获取失败
           }
         }
       }

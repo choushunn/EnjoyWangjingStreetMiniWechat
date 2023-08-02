@@ -8,23 +8,8 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    numList: [{
-      name: '开始'
-    }, {
-      name: '等待'
-    }, {
-      name: '错误'
-    }, {
-      name: '完成'
-    }, ],
-    num: 0,
     scroll: 0,
-    messageData: ''
-  },
-  numSteps() {
-    this.setData({
-      num: this.data.num == this.data.numList.length - 1 ? 0 : this.data.num + 1
-    })
+    items: ''
   },
   tabSelect(e) {
     this.setData({
@@ -60,7 +45,7 @@ Page({
           var items = res.data
           if (res.statusCode == 200) {
             that.setData({
-              messageData: items
+              items: items
             })
           } else {
             // 获取失败
