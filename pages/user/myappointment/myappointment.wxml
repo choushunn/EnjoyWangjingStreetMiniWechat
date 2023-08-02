@@ -51,7 +51,7 @@
 </view>
 <!-- 浮窗 -->
 <view class="flex">
-  <view class="cuIcon-questionfill text-white question-cover" bindtap="showHelp"></view>
+  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
   <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/appointment/roomform"></navigator>
 </view>
 
