@@ -51,7 +51,9 @@ App({
                     // 登录失败，清除用户信息
                     wx.removeStorageSync('userinfo')
                   }
-                },fail:res=>{
+                },
+                fail:res=>{
+                  console.log("登录失败：",res)
                   wx.removeStorageSync('userinfo')
                 }
               })
@@ -64,34 +66,7 @@ App({
         that.showMaintenanceTip();
       }
     });
-    // 检查本地存储中是否有用户信息和 Token
-    const token = wx.getStorageSync('token');
-    if (token) {
-      // 如果已经登录，则更新 Token
-      wx.request({
-        url: this.globalData.apiUri + 'token', // 请求 Token API
-        method: 'POST',
-        data: {
-          token: token,
-        },
-        success: function (res) {
-          if (res.data.code === 0) {
-            // Token 验证成功，则更新本地缓存中的 Token
-            wx.setStorageSync('token', res.data.data.token);
-          } else {
-            // Token 验证失败，则跳转到登录页面
-            that.showExpireTip();
-          }
-        },
-        fail: function () {
-          console.error('请求 Token API 失败');
-        },
-      });
-    } else {
-      // 如果本地缓存中没有用户信息，则跳转到登录页面
-      that.navigateToLogin();
-    }
-    // 获取系统状态栏信息
+     // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {
         this.globalData.StatusBar = e.statusBarHeight;
@@ -149,11 +124,5 @@ App({
     // wx.navigateTo({
     //   url: '/pages/user/login/login',
     // });
-  },
-  toPage(e){
-    var url = e.currentTarget.dataset.url
-    wx.navigateTo({
-      url: url
-    })
   }
 })

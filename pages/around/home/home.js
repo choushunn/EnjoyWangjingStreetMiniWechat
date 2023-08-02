@@ -30,6 +30,16 @@ Component({
     }
   },
   methods: {
+    // 跳转到详情页
+    toDetail(e) {
+      console.log(e)
+      var id = e.currentTarget.dataset.item.id
+      var item = JSON.stringify(e.currentTarget.dataset.item)
+      // 跳转到详情页面
+      wx.navigateTo({
+        url: '/pages/around/detail/detail?id=' + id + '&item=' + item,
+      })
+    },
     // 地图相关
     startLocation() {
       var that = this;

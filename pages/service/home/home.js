@@ -2,7 +2,6 @@
 const app = getApp();
 Component({
   data: {
-    StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     categories: [{
         "title": "生活缴费",
@@ -12,14 +11,14 @@ Component({
             name: 'layout',
             color: 'cyan',
             icon: 'newsfill',
-            url: 'https://www.baidu.com'
+            url: ''
           },
           {
             title: '水费',
             name: 'background',
             color: 'blue',
             icon: 'servicefill',
-            url: 'https://www.baidu.com'
+            url: ''
           },
 
           {
@@ -27,7 +26,7 @@ Component({
             name: 'icon',
             color: 'mauve',
             icon: 'moneybag',
-            url: 'https://www.baidu.com'
+            url: ''
           },
         ],
       },
@@ -145,7 +144,14 @@ Component({
       }
     ]
   },
+  lifetimes:{
+    created(){
+      // 加载菜单项
+      console.log()
+    }
+  },
   methods: {
+
     searchIcon(e) {
       console.log("搜索....")
     },

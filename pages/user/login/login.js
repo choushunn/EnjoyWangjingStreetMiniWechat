@@ -53,7 +53,7 @@ Page({
       wx.login({
         success: res => {
           wx.uploadFile({
-            url: app.globalData.apiUri + 'api/v1/community/user/',
+            url: app.globalData.apiUri + 'user/',
             filePath: this.data.avatarUrl,
             name: 'file',
             formData: {

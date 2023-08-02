@@ -43,7 +43,7 @@
 <!-- 地点详情卡片 -->
 <swiper class="card-swiper" circular="true" bindchange="cardSwiper" current="{{cardCur}}"  previousMargin="0.02rpx">
   <swiper-item wx:for="{{markersData}}" wx:key="item" class="{{cardCur==index?'cur':''}}">
-    <view class="swiper-item">
+    <view class="swiper-item"  bindtap="toDetail" data-item="{{item}}">
       <view class="cu-card article">
         <view class="cu-item shadow">
           <view class="title">
@@ -62,7 +62,7 @@
               <block wx:else>
                 <view class="text-df margin-bottom"> 暂未获取</view>
               </block>
-              <view class="flex justify-end" bindtap="queryItemClick">
+              <view class="flex justify-end">
                 <view class="cu-tag bg-green light round">查看详情</view>
               </view>
             </view>
@@ -79,7 +79,7 @@
     <view class="cu-dialog">
       <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 630rpx;">
         <view class="cu-card no-card">
-          <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
+          <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom" bindtap="toDetail" data-item="{{item}}">
             <view class="margin-lr margin-tb-xs text-bold">{{item.title}}</view>
             <view class="margin-lr text-df">
               <view>{{item.address}}</view>
@@ -92,6 +92,9 @@
     </view>
   </view>
 </view>
+
+
+
 <!-- 筛选模态框 -->
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10001;">
   <view class="cu-dialog basis-lg" catchtap style="top:{{CustomBar}}px;height:calc(100vh - {{CustomBar}}px)">
