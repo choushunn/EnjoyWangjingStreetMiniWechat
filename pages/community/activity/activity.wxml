@@ -5,7 +5,7 @@
 </cu-custom>
 <view wx:if="{{activityData}}" class="cu-timeline margin-xs radius-lg padding-top">
   <!-- 滚动图片 -->
-  <swiper class="screen-swiper margin-sm round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper     class="screen-swiper margin-sm square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{activityData}}" wx:key="item">
       <view class="bg-img radius" style="background-image: url({{item.image}});height: 310rpx;">
         <view class="padding-xl text-white">
@@ -19,10 +19,10 @@
       </view>
     </swiper-item>
   </swiper>
-
+  <!-- <view wx:if="{{activityData}}" class="cu-timeline margin-xs radius-lg padding-top"> -->
   <!-- 活动列表 -->
-  <view wx:if="{{activityData}}" class="cu-timeline radius-lg padding-top-xs">
-    <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{activityData}}" wx:key="item" bindtap="onNav" data-item="{{item}}">
+  <view wx:if="{{activityData}}" class="cu-timeline radius-lg padding-top-xs solid-top">
+    <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{activityData}}" wx:key="item" bindtap="toDetail" data-item="{{item}}">
         <view class="cu-item shadow">
           <view class="content">
             <view class="desc">

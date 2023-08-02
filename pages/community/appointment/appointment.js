@@ -5,13 +5,11 @@ Page({
    */
   data: {
     "menu": [{
-        id: 0,
         "icon": "cuIcon-btn text-green",
         "title": "办事预约",
         "url": "/pages/community/appointment/serviceform"
       },
       {
-        id: 1,
         "icon": "cuIcon-tagfill text-red",
         "title": "邻里空间",
         "url": "/pages/community/appointment/roomform"

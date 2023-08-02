@@ -1,6 +1,6 @@
 // pages/community/notice/details.js
 const app = getApp();
-const formatTime = require('../../../utils/utils');
+
 Page({
 
   /**
@@ -20,28 +20,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options)
-    var id = options.id
-    console.log(id)
-    var that = this
-    wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/notification/' + id,
-      method: 'GET',
-      success(res) {
-        if (res.statusCode == 200) {
-          console.log("通知内容获取成功", res)
-          if (res.statusCode == 200) {
-            var item = res.data
-            that.setData({
-              item: item
-            })
-          } else {
-            // 没有获取数据
-
-          }
-        }
-      }
-    })
+     // 获取跳转页面传来的数据
+     console.log(options)
+     const itemObject = JSON.parse(options.item);
+     console.log(itemObject);
+     this.setData({
+       item:itemObject
+     })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

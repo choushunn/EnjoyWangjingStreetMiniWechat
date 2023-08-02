@@ -6,39 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "activityData": [
-      {
-        "id": 1,
-        "title": "社区活动1",
-        "imgUrl": "https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg",
-        "desc": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
-        "type": "活动",
-        "datetime": "2023年5月26日",
-        "tags": [
-          { "name": "党组织生活", "color": "bg-red" },
-          { "name": "活动", "color": "bg-green" }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "社区活动2",
-        "imgUrl": "https://youimg1.c-ctrip.com/target/100i10000000o9w0fE878.jpg",
-        "desc": "普及志愿服务理念 促进和谐社区建设，创展文明社区，建美好家园。",
-        "type": "活动",
-        "datetime": "2023年5月26日",
-        "tags": [
-          { "name": "党组织生活", "color": "bg-red" },
-          { "name": "活动", "color": "bg-green" }
-        ]
-      }
-    ]
+    "activityData":''
   },
-  onNav(e){
+  // 跳转到详情页面
+  toDetail(e){
     console.log(e)
     var id = e.currentTarget.dataset.item.id
+    var item = JSON.stringify(e.currentTarget.dataset.item)
     // 跳转到详情页面
     wx.navigateTo({
-      url: '/pages/community/activity/detail?id=' + id,
+      url: '/pages/community/activity/detail?id=' + id + '&item=' + item,
     })
   },
   /**
@@ -47,11 +24,11 @@ Page({
   onLoad(options) {
     var that = this
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/activity/',
+      url: app.globalData.apiUri + 'activity/',
       method: 'GET',
       success(res) {
         if (res.statusCode == 200) {
-          console.log("活动信息获取成功",res.data)
+          console.log("活动信息获取成功", res.data)
           var items = res.data
           if (res.statusCode==200) {
             that.setData({

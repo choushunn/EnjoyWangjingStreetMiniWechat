@@ -1,34 +1,25 @@
 // pages/home/news/detail.js
 const app = getApp();
-var formatTime = require('../../../utils/utils');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    title: '',
-    id: '',
-   item:''
+    item: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var that = this
-    const id = options.id
+    // 获取跳转页面传来的数据
     console.log(options)
-    wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/news/'+id, // 后台接口地址
-      method:"GET",
-      success: function (res) {
-        console.log("新闻内容请求成功：",res.data); // 打印后台返回的数据
-        that.setData({
-          item: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
-        });         
-      },
-    });
+    const itemObject = JSON.parse(options.item);
+    console.log(itemObject);
+    this.setData({
+      item:itemObject
+    })
   },
 
   /**

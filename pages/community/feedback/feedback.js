@@ -88,7 +88,7 @@ Page({
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/feedback/',
+      url: app.globalData.apiUri + 'feedback/',
       method: 'POST',
       data: {data,
         feedbackTypes: this.data.feedbackTypes, 

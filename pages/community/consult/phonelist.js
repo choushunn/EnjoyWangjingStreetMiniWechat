@@ -6,12 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dianhuadata: [{
-      title: "社区服务中心",
-      number: "131121231311",
-      desc: "某某事项",
-      id: "1"
-    }, ]
+    dianhuadata:''
   },
 
   /**
@@ -20,18 +15,16 @@ Page({
   onLoad(options) {
     var that = this
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/telephone/',
+      url: app.globalData.apiUri + 'telephone/',
       method: 'GET',
       success(res) {
         if (res.statusCode == 200) {
           console.log("咨询电话获取成功：",res.data)
           var items = res.data
-          // 读取成功
-          if (items.length > 0) {
+          // 读取成功      
             that.setData({
-              dianhuadata: iwtems
-            })
-          }
+              dianhuadata: items
+            })         
         }
       }
     })

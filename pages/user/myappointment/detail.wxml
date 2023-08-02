@@ -12,9 +12,9 @@
   </view>
 </view>
 <view class=" bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
+ 
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.name}}</view>
-  </block>
+
 </view>
 <!-- 预约类型 -->
 <view class="cu-bar bg-white solid-bottom">
@@ -23,9 +23,9 @@
   </view>
 </view>
 <view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
+ 
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
-  </block>
+
 </view>
 <!-- 预约详情 -->
 <view class="cu-bar bg-white solid-bottom">
@@ -34,9 +34,9 @@
   </view>
 </view>
 <view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
+
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
-  </block>
+
 </view>
 
 <!-- 分配社工后显示 -->
@@ -47,9 +47,9 @@
   </view>
 </view>
 <view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
+
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
-  </block>
+
 </view>
 <!-- 社工处理后显示 -->
 <!-- 预约记录 -->
@@ -59,9 +59,9 @@
   </view>
 </view>
 <view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
+
   <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
-  </block>
+
 </view>
 <!-- 用户确认后显示 -->
 <!-- 反馈结果确认 -->

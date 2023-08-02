@@ -3,95 +3,95 @@
   <view slot="backText">返回</view>
   <view slot="content">工单详情</view>
 </cu-custom>
-<!-- 提交工单后显示 -->
-<!-- 基本信息 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 基本信息
+
+<view wx:if="{{item}}">
+  <!-- 提交工单后显示 -->
+  <!-- 基本信息 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 基本信息
+    </view>
   </view>
-</view>
-<view class=" bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.title}}</view>
-  </block>
-</view>
-<!-- 工单类型 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 工单类型
+  <view class=" bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.title}}</view>
   </view>
-</view>
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
-  </block>
-</view>
-<!-- 问题描述 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 问题描述
+  <!-- 工单类型 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 工单类型
+    </view>
   </view>
-</view>
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
-  </block>
-</view>
-<!-- 上传图片 -->
-<!-- <view class="cu-bar bg-white solid-bottom">
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
+  </view>
+  <!-- 问题描述 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 问题描述
+    </view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
+  </view>
+  <!-- 上传图片 -->
+  <!-- <view class="cu-bar bg-white solid-bottom">
   <view class="action">
     <text class="cuIcon-titles text-blue"></text> 上传图片
   </view>
 </view> -->
-<!-- 分配社工后显示 -->
-<!-- 维修信息 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修信息
-  </view>
-</view>
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
-  </block>
-</view>
-<!-- 社工处理后显示 -->
-<!-- 维修记录 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修记录
-  </view>
-</view>
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
-  </block>
-</view>
-<!-- 用户确认后显示 -->
-<!-- 维修结果确认 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 维修结果
-  </view>
-</view>
-
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.result}}</view>
-  </block>
-</view>
-<!-- 评分 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text>评分
-  </view>
-</view>
-<view class="bg-white solid-bottom">
-  <view class="padding-lr-xl padding-tb-sm text-xxl flex align-center">
-    <view class="text-df ">请给服务评分: </view>
-    <view wx:for="{{count}}" bindtap="click" data-index="{{index}}" wx:key="item">
-      <text class="{{index > active ? 'cuIcon-favor' : 'cuIcon-favorfill'}} {{extraClass}} text-yellow padding-xs"></text>
+  <!-- 分配社工后显示 -->
+  <!-- 维修信息 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 维修信息
     </view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
+  </view>
+  <!-- 社工处理后显示 -->
+  <!-- 维修记录 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 维修记录
+    </view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
+  </view>
+  <!-- 用户确认后显示 -->
+  <!-- 维修结果确认 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 维修结果
+    </view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <block wx:for="{{messageData}}" wx:key="id">
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.result}}</view>
+    </block>
+  </view>
+  <!-- 评分 -->
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text>评分
+    </view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-xxl flex align-center">
+      <view class="text-df ">请给服务评分: </view>
+      <view wx:for="{{count}}" bindtap="click" data-index="{{index}}" wx:key="item">
+        <text class="{{index > active ? 'cuIcon-favor' : 'cuIcon-favorfill'}} {{extraClass}} text-yellow padding-xs"></text>
+      </view>
+    </view>
+  </view>
+
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
   </view>
 </view>
 <!-- 底部版权声明 -->

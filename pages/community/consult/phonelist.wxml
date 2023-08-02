@@ -12,7 +12,7 @@
   </view>
 </view>
 
-
+<view wx:if="{{dianhuadata}}">
 <block wx:for="{{dianhuadata}}" wx:key="id">
   <view class="cu-card margin-xs no-card">
     <view class="cu-item shadow">
@@ -34,7 +34,14 @@
     </view>
   </view>
 </block>
-
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

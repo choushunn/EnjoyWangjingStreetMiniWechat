@@ -62,7 +62,7 @@ Component({
     created: function () {
       var that = this;
       wx.request({
-        url: app.globalData.apiUri + 'api/v1/system/menu_category/4/', // 后台接口地址
+        url: app.globalData.apiUri + 'menu_category/4/', // 后台接口地址
         method: "GET",
         success: function (res) {
           console.log("社区菜单请求成功：", res); // 打印后台返回的数据

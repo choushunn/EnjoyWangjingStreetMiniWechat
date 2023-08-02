@@ -1,6 +1,5 @@
 // pages/user/myorder/detail.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -8,16 +7,7 @@ Page({
     count: 5,
     active: 0,
     score: 1,
-    messageData:[{
-      id:0,
-      title:"某某故障-无法上网",
-      type:"普通工单",
-      desc:"某某地点出现情况",
-      service:"某某某地方进行维修",
-      record:"某某社工已进行处理",
-      result:"某某地方已修复"
- 
-    }]
+    item:''
   },
   /**
    * 点击评分
@@ -40,7 +30,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
+    console.log(options)
+    const itemObject = JSON.parse(options.item);
+    console.log(itemObject);
+    this.setData({
+      item:itemObject
+    })
   },
 
   /**

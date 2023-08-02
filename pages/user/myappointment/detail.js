@@ -8,15 +8,7 @@ Page({
     count: 5,
     active: 0,
     score: 1,
-    messageData:[{
-      id:0,
-      name:"张某某",
-      type:"活动室",
-      desc:"某某某活动室，使用时间2023-7-26，使用时间1天",
-      service:"某某某活动室预约已提交",
-      record:"某某某活动室预约已受理",
-      result:"某某某活动室预约成功"
-    }]
+    item:''
   },
  /**
    * 点击评分
@@ -38,7 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+  console.log(options)
+  const itemObject = JSON.parse(options.item);
+  console.log(itemObject);
+  this.setData({
+    item:itemObject
+  })
   },
 
   /**

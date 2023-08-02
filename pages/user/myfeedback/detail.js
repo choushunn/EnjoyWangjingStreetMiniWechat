@@ -8,15 +8,7 @@ Page({
     count: 5,
     active: 0,
     score: 1,
-    messageData:[{
-      id:0,
-      title:"小程序某某某存在故障",
-      type:"功能异常",
-      desc:"某某地点出现情况",
-      service:"某某某地方进行维修",
-      record:"某某社工已进行处理",
-      result:"某某功能已修复"
-    }]
+    messageData:''
   },
     /**
    * 点击评分
@@ -38,7 +30,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    console.log(options)
+    const itemObject = JSON.parse(options.item);
+    console.log(itemObject);
+    this.setData({
+      item:itemObject
+    })
   },
 
   /**

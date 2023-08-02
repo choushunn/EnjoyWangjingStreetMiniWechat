@@ -27,7 +27,7 @@ Page({
     if (userinfo) {
       this.setData({
         userinfo:userinfo,
-        avatarUrl:app.globalData.apiUri+userinfo.avatar
+        avatarUrl:userinfo.avatar
       });
     }else{
       this.setData({

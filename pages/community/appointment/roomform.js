@@ -22,6 +22,7 @@ Page({
     startTime: "09:00",
     endTime: "17:00",
     picker: ['事项1', '事项2', '事项3'],
+    type:0
   },
   TimeChange(e) {
     this.setData({
@@ -36,25 +37,26 @@ Page({
   PickerChange(e) {
     console.log(e);
     this.setData({
-      index: e.detail.value
+      type: e.detail.value
     })
   },  
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
-      user: 1
+      user: 1,
+      title:'邻里空间预约',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/appointment/',
+      url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
       data: data,
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 200) {
+        if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
           })

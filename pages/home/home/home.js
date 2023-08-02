@@ -66,7 +66,7 @@ Component({
     created: function () {
       var that = this;
       wx.request({
-        url: app.globalData.apiUri + 'api/v1/system/carousel/', // 后台接口地址
+        url: app.globalData.apiUri + 'carousel/', // 后台接口地址
         method:"GET",
         success: function (res) {
           console.log("轮播图请求成功：",res.data); // 打印后台返回的数据
@@ -76,7 +76,7 @@ Component({
         },
       });
       wx.request({
-        url: app.globalData.apiUri + 'api/v1/system/menu_category/3/', // 后台接口地址
+        url: app.globalData.apiUri + 'menu_category/3/', // 后台接口地址
         method:"GET",
         success: function (res) {
           console.log("菜单请求成功：",res); // 打印后台返回的数据
@@ -86,7 +86,7 @@ Component({
         },
       });
       wx.request({
-        url: app.globalData.apiUri + 'api/v1/community/news/', // 后台接口地址
+        url: app.globalData.apiUri + 'news/', // 后台接口地址
         method:"GET",
         success: function (res) {
           console.log("新闻请求成功：",res.data); // 打印后台返回的数据
@@ -109,10 +109,10 @@ Component({
     toDetail(e){
       console.log(e)
       var id = e.currentTarget.dataset.item.id
-      var item = e.currentTarget.dataset.item
+      var item = JSON.stringify(e.currentTarget.dataset.item)
       // 跳转到详情页面
       wx.navigateTo({
-        url: '/pages/home/news/detail?id=' + id+'&item=' +item,
+        url: '/pages/home/news/detail?id=' + id + '&item=' + item,
       })
     },
     tabSelect(e) {

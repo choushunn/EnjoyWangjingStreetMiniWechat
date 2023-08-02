@@ -9,7 +9,7 @@ App({
     StatusBar: 0,
     Custom: null,
     CustomBar: 0,
-    apiUri: "http://192.168.121.138:8000/", // 配置 API 地址
+    apiUri: "http://192.168.121.138:8000/api/v1/", // 配置 API 地址
     // apiUri:"https://api.enjoywangjing.cn",
     // 默认头像
     defaultAvatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
@@ -19,7 +19,7 @@ App({
     const that = this;
     // 检查 API 是否可用
     wx.request({
-      url: this.globalData.apiUri+'api/v1/community/user/',
+      url: this.globalData.apiUri+'user/',
       method:'GET',
       success(res) {
         console.log(res.statusCode)
@@ -34,7 +34,7 @@ App({
             success: (res) => {
               console.log(res.code)
               wx.request({
-                url: that.globalData.apiUri + 'api/v1/login',
+                url: that.globalData.apiUri + 'login',
                 method: 'POST',
                 data: {
                   js_code: res.code,

@@ -15,12 +15,12 @@
   <!-- 预约人 -->
   <view class="cu-form-group">
     <view class="title">预约人</view>
-    <input name="name" placeholder="预约人姓名"></input>
+    <input name="name" placeholder="请输入预约人姓名"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
     <view class="title">联系电话</view>
-    <input name="phone" placeholder="预约人联系电话"></input>
+    <input name="phone" placeholder="请输入联系电话"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86
@@ -51,7 +51,7 @@
   <!-- 预约时间 -->
   <view class="cu-form-group">
   <view class="title">预约使用时间</view>
-  <picker name="startTime" mode="time" value="{{startTime}}" start="09:00" end="17:00" bindchange="StartTimeChange">
+  <picker name="time" mode="time" value="{{startTime}}" start="09:00" end="17:00" bindchange="StartTimeChange">
     <view class="picker">
       开始时间:{{startTime}}
     </view>

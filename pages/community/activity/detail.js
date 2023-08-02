@@ -13,19 +13,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const id = options.id
-    const that = this;
-    console.log(options)
-    wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/activity/'+id, // 后台接口地址
-      method:"GET",
-      success: function (res) {
-        console.log("活动内容请求成功：",res.data); // 打印后台返回的数据
-        that.setData({
-          item: res.data 
-        });         
-      },
-    });
+      // 获取跳转页面传来的数据
+      console.log(options)
+      const itemObject = JSON.parse(options.item);
+      console.log(itemObject);
+      this.setData({
+        item:itemObject
+      })
   },
 
 

@@ -16,31 +16,30 @@
   </view>
 </scroll-view>
 
-<view wx:if="{{true}}">
+<view wx:if="{{messageData}}">
   <!-- 消息列表 -->
   <block wx:for="{{messageData}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
-    <navigator url="{{item.url}}">
-      <view class="cu-card article no-card margin-sm">
+      <view class="cu-card article no-card margin-sm" bindtap="toDetail" data-item="{{item}}">
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">
-              <view class="text-cut">{{item.title}}</view>
+              <view class="text-cut">{{item.name}}居民服务</view>
               <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待处理':'已结束'}}</view>
             </view>
           </view>
           <view class="content">
             <view class="desc">
-              <view class="text-content solid-bottom">{{item.desc}}</view>
+              <view class="text-content solid-bottom">{{item.description}}您的报修已被接单，请耐心等待维修，点击查看详细。</view>
               <view class="flex justify-between margin-top-sm">
-                <view class="light text-sm round">{{item.type}}</view>
-                <view class="light text-sm round">{{item.datetime}}</view>
+                <view class="light text-sm round">{{item.type}}报修结果通知</view>
+                <view class="light text-sm round">{{item.created_at}}</view>
               </view>
             </view>
           </view>
         </view>
       </view>
-    </navigator>
+
     </view>
   </block>
 </view>

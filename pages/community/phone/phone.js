@@ -6,24 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // 初始化数据
-    dianhuadata: [{
-      title: "社区服务1",
-      number: "10081",
-      id: "1",
-      address: "自贡市XXX"
-    }, {
-      title: "社区服务2",
-      number: "10082",
-      id: "1",
-      address: "自贡市XXX"
-    }, {
-      title: "社区服务3",
-      number: "10086",
-      id: "1",
-      address: "自贡市XXX"
-    }, ]
-
+    dianhuadata: ''
   },
   onSearch: function (e) {
     console.log(e)
@@ -41,11 +24,11 @@ Page({
   onLoad(options) {
     var that = this
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/telephone/',
+      url: app.globalData.apiUri + 'telephone/',
       method: 'GET',
       success(res) {
         if (res.statusCode == 200) {
-          console.log("便民电话获取成功：",res.data)
+          console.log("便民电话获取成功：", res.data)
           var items = res.data
           // 读取成功
           if (items.length > 0) {
@@ -60,7 +43,7 @@ Page({
   showHelp: function () {
     wx.showModal({
       title: '帮助信息',
-      content: '拨打电话寻求帮助',
+      content: '提供常用的电话',
       showCancel: false,
     });
   },

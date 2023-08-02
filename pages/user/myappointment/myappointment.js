@@ -1,4 +1,5 @@
 // pages/user/myappointment/myappointment.js
+const app = getApp();
 Page({
 
   /**
@@ -7,23 +8,16 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    messageData:[{
-      id:0,
-      title:"预约信息",
-      status:0,
-      desc:"您的预约信息已受理完成，请及时确认受理结果，点击查看详细。",
-      datetime:"2023年7月14日 11:20",
-      type:"预约结果通知",
-      url:"/pages/user/myappointment/appointmentmessage"
-    },{
-      id:1,
-      title:"预约信息",
-      status:1,
-      desc:"您的预约信息已被受理，请耐心等待受理结果，点击查看详细。",
-      datetime:"2023年7月14日 11:20",
-      type:"预约受理通知", 
-      url:"/pages/user/myappointment/appointmentmessage"
-    }]
+    messageData:''
+  },  // 跳转到详情页面
+  toDetail(e) {
+    console.log(e)
+    var id = e.currentTarget.dataset.item.id
+    var item = JSON.stringify(e.currentTarget.dataset.item)
+    // 跳转到详情页面
+    wx.navigateTo({
+      url: '/pages/user/myappointment/detail?id=' + id + '&item=' + item,
+    })
   },
   tabSelect(e) {
     this.setData({
@@ -51,7 +45,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this;
+    const extraData = {
+      user_id: 1
+    };
+    wx.request({
+      url: app.globalData.apiUri + 'appointment/by_user',
+      method: 'GET',
+      data:extraData,
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("我的预约获取成功", res.data)
+          var items = res.data
+          if (res.statusCode == 200) {
+            that.setData({
+              messageData: items
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
   },
 
   /**

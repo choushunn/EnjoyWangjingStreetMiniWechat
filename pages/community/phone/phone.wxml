@@ -33,7 +33,7 @@
         </navigator>          
         </view>        
       </view>
-      <view class="padding-sm text-cut text-sm">{{item.address}}</view>  
+      <view class="padding-sm text-cut text-sm solid-top">{{item.address?item.address:'暂无'}}</view>  
     </view>
   </view>
 </block>

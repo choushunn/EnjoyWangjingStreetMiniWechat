@@ -4,26 +4,24 @@
   <view slot="content">新闻详情</view>
 </cu-custom>
 
-<view wx:if="{{item}}" class="cu-timeline  radius-lg padding">
- 
-    <view class="padding-sm text-center solid-bottom">
-      <text class="text-xxl text-bold text-black">{{item.title}}</text>
+<view wx:if="{{item}}" class="cu-timeline radius-lg padding">
+  <view class="padding-sm text-center solid-bottom">
+    <text class="text-xxl text-bold text-black">{{item.title}}</text>
+  </view>
+  <!-- 新闻内容 -->
+  <view class="padding-sm text-lg margin-top-sm">
+    <text>{{item.content}}</text>
+    <view class="bg-white margin-tb-sm">
+      <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 360rpx;"></image>
     </view>
-    <!-- 新闻内容 -->
-    <view class="padding-sm text-lg margin-top-sm">
-      <text>{{item.content}}</text>
-      <view class="bg-white margin-tb-sm">
-        <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 360rpx;"></image>
-      </view>
-     
-    </view>
-    <!-- 新闻关键词 -->
-    <view class="padding-left-sm flex align-center text-center justify-end solid-top margin-top padding-top">
-      <view class="text-gray text-df text-right">发布日期：{{item.created_at}}</view>
-      <!-- <view class="cu-tag bg-red light sm round">关键词</view>
+  </view>
+  <!-- 新闻关键词 -->
+  <view class="padding-left-sm flex align-center text-center justify-end solid-top margin-top padding-top">
+    <view class="text-gray text-df text-right">发布日期：{{item.created_at}}</view>
+    <!-- <view class="cu-tag bg-red light sm round">关键词</view>
     <view class="cu-tag bg-red light sm round">关键词</view>
     <view class="cu-tag bg-red light sm round">关键词</view> -->
-    </view>
+  </view>
 </view>
 <view wx:else>
   <!-- 没有内容时的渲染 -->
