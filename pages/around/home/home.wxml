@@ -6,15 +6,14 @@
 <view class="cu-bar search bg-white map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" confirm-type="search"  placeholder="{{currentTextData.title?currentTextData.title:'搜索周边美食、购物、生活服务...'}}" bindinput="bindInput"/>
+    <input type="text" confirm-type="search"  placeholder="{{currentTextData.title?currentTextData.title:'搜索周边美食、购物、生活服务...'}}" bindconfirm="bindInput"/>
     <text class="cuIcon-right"></text>
   </view>
 </view>
-<!-- 搜索结果,搜索框被激活，且有返回结果才显示 -->
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="myMap" longitude="{{currentTextData.longitude}}" latitude="{{currentTextData.latitude}}" scale="17"   bindmarkertap="makertap" markers="{{markers}}" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
+  <map class="map" id="myMap" longitude="{{currentTextData.longitude}}" latitude="{{currentTextData.latitude}}" scale="17" bindmarkertap="makertap" markers="{{markers}}" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
   </map>
 </view>
 
@@ -99,14 +98,14 @@
     <!-- 类别筛选 -->
     <view class="cu-bar bg-white solid-bottom ">
       <view class='action'>
-        <text class='cuIcon-titles text-blue'></text> 区域
+        <text class='cuIcon-titles text-blue'></text>类型
       </view>
     </view>
     <view class="padding-lr bg-white">
       <view class="padding-tb grid col-3">
         <block wx:for="{{hot_list}}" wx:key="index">
-          <view class="padding-xs " data-index="{{index}}" catchtap="getSelecte">
-            <button class="cu-btn bg-blue light" data-content="{{item}}">{{item}}</button>
+          <view class="padding-xs" bindtap="searchType" data-item="{{item}}">
+            <button class="cu-btn bg-blue light">{{item}}</button>
           </view>
         </block>
       </view>
@@ -114,7 +113,7 @@
     <!-- 类别筛选 2-->
     <view class="cu-bar bg-white solid-bottom">
       <view class='action'>
-        <text class='cuIcon-titles text-blue '></text> 范围
+        <text class='cuIcon-titles text-blue'></text> 范围
       </view>
     </view>
     <view class="padding-lr bg-white">

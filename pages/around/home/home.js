@@ -23,14 +23,13 @@ Component({
   },
   lifetimes: {
     created: function () {
-
       wx.request({
-        url: 'http://192.168.121.138:8000/api/v1/system_params/?key=qqmapkey',
+        url: app.globalData.apiUri + 'system_params/?key=qqmapkey',
         success(res) {
           var key = res.data[0].value
           // 实例化API核心类
           qqmapsdk = new QQMapWX({
-            key: '0e3zxH0w30Hd613XhQ0w3qajuz3zxH0t'
+            key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
           });
         }
       })
@@ -39,10 +38,6 @@ Component({
     attached: function () {
       // 开始获取位置信息
       this.startLocation()
-      wx.showLoading({
-        title: '定位中...',
-        mask: true,
-      })
     },
   },
   methods: {
@@ -56,10 +51,16 @@ Component({
         url: '/pages/around/detail/detail?id=' + id + '&item=' + item,
       })
     },
+    getLocation() {
+
+    },
     // 地图相关
     startLocation() {
+      wx.showLoading({
+        title: '定位中...',
+        mask: true,
+      })
       var that = this;
-
       // 开始监听位置变化
       wx.startLocationUpdateBackground({
         success: function () {
@@ -68,11 +69,18 @@ Component({
             console.log("当前地点：", res)
             var latitude = res.latitude; // 返回纬度
             var longitude = res.longitude; // 返回经度
-            // 判断是否存在缓存数据并且不是重新点击定位按钮触发的
-            var markersData = wx.getStorageSync('markersData');
-            var markers = wx.getStorageSync('markers');
-            var currentTextData = wx.getStorageSync('currentTextData')
+            try {
+              // 判断是否存在缓存数据并且不是重新点击定位按钮触发的
+              var markersData = wx.getStorageSync('markersData');
+              var markers = wx.getStorageSync('markers');
+              var currentTextData = wx.getStorageSync('currentTextData')
+            } catch (e) {
+              markersData = false
+              markers = false
+              currentTextData = null
+            }
             var hasCachedData = markersData && markers && !that.data.backToCurrentLocation;
+            console.log(hasCachedData)
             // 如果本地缓存有数据，并且不是重新点击定位按钮触发的，则直接使用缓存数据
             if (hasCachedData) {
               wx.hideLoading()
@@ -137,10 +145,17 @@ Component({
                     markersData: _res.pois,
                     markers: markers
                   });
+                },
+                fail(res) {
+                  console.log(res)
                 }
               })
             }
           });
+        },
+        fail(res) {
+          console.log(res)
+          wx.hideLoading()
         }
       });
     },
@@ -183,7 +198,18 @@ Component({
           wx.setStorageSync('markers', markers)
         },
         fail: function (res) {
+          wx.hideLoading()
           console.log(res);
+          wx.showToast({
+            title: '定位太频繁，请稍后重试',
+            icon:'loading',
+            duration:2500,
+            complete(){
+              that.setData({
+                modalName: 'DrawerModalR'
+              })
+            }
+          })
         }
       });
     },
@@ -327,7 +353,18 @@ Component({
       console.log(e)
       // 搜索关键字，并替换地图上的点
       this.searchPOI(e.detail.value)
+      // wx.showModal({
+      //   title: '搜索完成',
+      //   content: '',
+      //   showCancel:false,
+      // })
+    },
+    searchType(e) {
+      console.log(e)
+      this.searchPOI(e.currentTarget.dataset.item)
+      // 1秒后关闭模态框 
+      this.hideModal(e)
     }
-  },
+  }
 
 })
