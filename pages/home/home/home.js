@@ -1,6 +1,4 @@
 // pages/basics/home/home.js
-var formatTime = require('../../../utils/utils.js');
-
 const app = getApp();
 
 Component({
@@ -26,7 +24,7 @@ Component({
         name: '居民服务',
         color: 'green',
         icon: 'group',
-        url: '/pages/community/repair/repair'
+        url: '/pages/community/work/work'
       },
       {
         name: '预约服务',
@@ -38,75 +36,66 @@ Component({
     swiperList: [{
       type: 'image',
       image: 'https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg',
-      description:''
+      description: ''
     }],
     // newsData: [{
 
     // }],
-    newsData: [{
-        id: 1,
-        "title": "社区活动1",
-        "image": "https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg",
-        "summary": "创建和谐社区，共建美好家园。创建文明和谐社区，共建温馨美好的家园！",
-        "type": "活动",
-        "datetime": "2023年5月26日",
-        "tags": [{
-            "name": "党组织生活",
-            "color": "bg-red"
-          },
-          {
-            "name": "活动",
-            "color": "bg-green"
-          }
-        ]
-      },     
-    ]
+    newsData: null
   },
   lifetimes: {
     created: function () {
       var that = this;
       wx.request({
         url: app.globalData.apiUri + 'carousel/', // 后台接口地址
-        method:"GET",
+        method: "GET",
         success: function (res) {
-          console.log("轮播图请求成功：",res.data); // 打印后台返回的数据
-          that.setData({
-            swiperList: res.data // 将后台返回的数据绑定到页面的 swiperList 变量中
-          });         
+          console.log("轮播图请求成功：", res.data); // 打印后台返回的数据
+          if (res.data.length > 0) {
+            that.setData({
+              swiperList: res.data // 将后台返回的数据绑定到页面的 swiperList 变量中
+            });
+          } else {
+            console.log("轮播图数据为空")
+          }
         },
       });
       wx.request({
         url: app.globalData.apiUri + 'menu_category/3/', // 后台接口地址
-        method:"GET",
+        method: "GET",
         success: function (res) {
-          console.log("菜单请求成功：",res); // 打印后台返回的数据
+          console.log("菜单请求成功：", res); // 打印后台返回的数据
           that.setData({
             elements: res.data.items // 将后台返回的数据绑定到页面的 elements 变量中
-          });         
+          });
         },
       });
       wx.request({
         url: app.globalData.apiUri + 'news/', // 后台接口地址
-        method:"GET",
+        method: "GET",
         success: function (res) {
-          console.log("新闻请求成功：",res.data); // 打印后台返回的数据
-          that.setData({
-            newsData: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
-          });         
+          console.log("新闻请求成功：", res.data); // 打印后台返回的数据
+          if (res.data.length > 0) {
+            that.setData({
+              newsData: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
+            });
+          } else {
+            console.log("新闻返回数据为空")
+          }
         },
       });
     },
   },
   methods: {
     // 跳转功能页面
-    toPage(e){
+    toPage(e) {
       var url = e.currentTarget.dataset.url
       wx.navigateTo({
         url: url
       })
     },
     // 跳转到详情页面
-    toDetail(e){
+    toDetail(e) {
       console.log(e)
       var id = e.currentTarget.dataset.item.id
       var item = JSON.stringify(e.currentTarget.dataset.item)

@@ -19,7 +19,7 @@
     </view>
     <view class="action">
       <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/consult/phonelist">点我</navigator> 
+        <navigator class="cuIcon-right" url="/pages/community/consult/phonelist">点我</navigator>
       </button>
     </view>
   </view>
@@ -30,7 +30,7 @@
     </view>
     <view class="action">
       <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/consult/reserveform">点我</navigator> 
+        <navigator class="cuIcon-right" url="/pages/community/consult/reserveform">点我</navigator>
       </button>
     </view>
   </view>
@@ -40,10 +40,8 @@
       <text class="text-grey">在线咨询</text>
     </view>
     <view class="action">
-   
-      <button class="cu-btn round bg-blue shadow">
-          
-        <navigator class="cuIcon-right">点我</navigator> 
+      <button class="cu-btn round bg-blue shadow" open-type="contact" bindcontact="handleContact" session-from="sessionFrom">
+        <view class="cuIcon-right">点我</view>
       </button>
     </view>
   </view>
@@ -51,13 +49,11 @@
 
 <!-- 浮窗 -->
 <view class="flex">
-  <view class="cuIcon-questionfill text-gray question-cover"  bindtap="showHelp"></view>
-  <navigator class="cuIcon-add bg-blue shadow add-cover"  url="/pages/community/consult/reserveform"></navigator>
+  <view class="cuIcon-questionfill text-gray question-cover" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/consult/reserveform"></navigator>
 </view>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">
   <template is="copyright"></template>
 </view>
-
-

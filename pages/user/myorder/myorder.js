@@ -9,7 +9,8 @@ Page({
     TabCur: 0,
     scrollLeft: 0,
     scroll: 0,
-    items: ''
+    items: '',
+    userinfo:wx.getStorageSync('userinfo'),
   },
   tabSelect(e) {
     this.setData({
@@ -33,7 +34,7 @@ Page({
   onLoad(options) {
     var that = this;
     const extraData = {
-      user_id: 2
+      user_id: this.data.userinfo.id
     };
     wx.request({
       url: app.globalData.apiUri + 'work/by_user',

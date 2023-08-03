@@ -6,7 +6,7 @@
 <view class="cu-bar search bg-white map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" placeholder="{{currentTextData?currentTextData.desc:'搜索周边药店、医院、学校、商店'}}" bindinput="bindInput"/>
+    <input type="text" confirm-type="search"  placeholder="{{currentTextData.title?currentTextData.title:'搜索周边美食、购物、生活服务...'}}" bindinput="bindInput"/>
     <text class="cuIcon-right"></text>
   </view>
 </view>
@@ -14,7 +14,7 @@
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="myMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="15"  markers="{{markers}}" bindmarkertap="makertap" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
+  <map class="map" id="myMap" longitude="{{currentTextData.longitude}}" latitude="{{currentTextData.latitude}}" scale="17"   bindmarkertap="makertap" markers="{{markers}}" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
   </map>
 </view>
 
@@ -92,8 +92,6 @@
     </view>
   </view>
 </view>
-
-
 
 <!-- 筛选模态框 -->
 <view class="cu-modal drawer-modal justify-start {{modalName=='DrawerModalR'?'show':''}}" bindtap="hideModal" style="z-index: 10001;">

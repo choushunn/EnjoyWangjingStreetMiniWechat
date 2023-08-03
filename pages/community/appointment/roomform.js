@@ -21,7 +21,7 @@ Page({
     date: dateStr,
     startTime: "09:00",
     endTime: "17:00",
-    picker: ['事项1', '事项2', '事项3'],
+    picker: null,
     type:0
   },
   TimeChange(e) {

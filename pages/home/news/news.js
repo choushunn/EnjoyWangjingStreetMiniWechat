@@ -32,7 +32,7 @@ Page({
         if (res.statusCode == 200) {
           console.log("新闻信息获取成功", res.data)
           var items = res.data
-          if (res.statusCode == 200) {
+          if (res.statusCode == 200 && res.data>0) {
             that.setData({
               newsData: items
             })

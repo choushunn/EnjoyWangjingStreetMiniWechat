@@ -7,7 +7,8 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    messageData:''
+    messageData:'',
+    userinfo:wx.getStorageSync('userinfo'),
   },
   tabSelect(e) {
     this.setData({
@@ -19,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    // this.data.userinfo.id
   },
 
   /**

@@ -17,8 +17,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: timeStr,
     date: dateStr,
+    picker:null,
+    time:null,
   },
   TimeChange(e) {
     this.setData({

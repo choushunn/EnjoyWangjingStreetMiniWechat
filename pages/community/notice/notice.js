@@ -34,7 +34,7 @@ Page({
       url: app.globalData.apiUri + 'notification/',
       method: 'GET',
       success(res) {
-        if (res.statusCode == 200) {
+        if (res.statusCode == 200 && res.data>0) {
           console.log("通知获取成功", res.data)
           var items = res.data
           // 读取成功 

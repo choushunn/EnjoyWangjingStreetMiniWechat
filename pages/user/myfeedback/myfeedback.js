@@ -40,7 +40,7 @@ Page({
       method: 'GET',
       data:extraData,
       success(res) {
-        if (res.statusCode == 200) {
+        if (res.statusCode == 200 && res.data.length>0) {
           console.log("我的反馈数据获取成功", res.data)
           var items = res.data
           if (res.statusCode == 200) {

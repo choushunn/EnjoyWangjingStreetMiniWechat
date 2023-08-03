@@ -16,12 +16,11 @@
 <view class="solid-bottom">
   <view class="padding text-black text-bold text-xl">{{item.title}}</view>
   <view class="padding text-lg">地址：{{item.address}}</view>
-  <view class="padding text-lg">{{item.category}}</view>
-  <view class="padding text-lg">其他</view>
+  <view class="padding text-lg">地点类型：{{item.category}}</view>
+  <view class="padding text-lg"></view>
 </view>
 
 <!-- 如果数据库有这个地点的额外信息则显示 -->
-<view class="padding text-lg">id  {{item.id}}</view>
 <!-- 页面详细信息 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
@@ -34,8 +33,9 @@
 <view class="grid col-3 bg-white padding-sm">
   <view class="padding-sm" wx:for="{{foodData}}" wx:key="id" wx:if="{{index<12}}">
     <view class="text-center">
-      <image src="{{item.imgUrl}}" mode="aspectFill" class="cu-avatar radius xl"></image>
-      <view class="text-df text-red margin-top">{{item.title}}/15元</view>
+      <!-- <image src="{{item.imgUrl}}" mode="aspectFill" class="cu-avatar radius xl"></image>
+      <view class="text-df text-red margin-top">{{item.title}}/15元</view> -->
+      
     </view>
   </view>
 </view>
