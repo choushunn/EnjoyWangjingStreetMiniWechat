@@ -8,7 +8,8 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    messageData:''
+    messageData:'',
+    userinfo:wx.getStorageSync('userinfo'),
   },  // 跳转到详情页面
   toDetail(e) {
     console.log(e)
@@ -40,14 +41,21 @@ Page({
       scroll: this.data.scroll == 9 ? 0 : this.data.scroll + 1
     })
   },
-
+  showHelp: function () {
+    wx.showModal({
+      title: '帮助信息',
+      content: '我的预约记录',
+      showCancel: false,
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
     var that = this;
+    var user_id = this.data.userinfo.id
     const extraData = {
-      user_id: 1
+      user_id: user_id
     };
     wx.request({
       url: app.globalData.apiUri + 'appointment/by_user',

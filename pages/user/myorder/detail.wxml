@@ -13,7 +13,9 @@
     </view>
   </view>
   <view class=" bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.title}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.name}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.phone}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.description}}</view>
   </view>
   <!-- 工单类型 -->
   <view class="cu-bar bg-white solid-bottom">
@@ -22,7 +24,7 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.ticket_type}}</view>
   </view>
   <!-- 问题描述 -->
   <view class="cu-bar bg-white solid-bottom">
@@ -40,8 +42,9 @@
   </view>
 </view> -->
   <!-- 分配社工后显示 -->
+
   <!-- 维修信息 -->
-  <view class="cu-bar bg-white solid-bottom">
+  <view wx:if="{{item.worker}}" class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 维修信息
     </view>
@@ -49,9 +52,10 @@
   <view class="bg-white solid-bottom">
     <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
   </view>
+
   <!-- 社工处理后显示 -->
   <!-- 维修记录 -->
-  <view class="cu-bar bg-white solid-bottom">
+  <view wx:if="{{item.worker}}" class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 维修记录
     </view>
@@ -85,7 +89,6 @@
       </view>
     </view>
   </view>
-
 </view>
 <view wx:else>
   <!-- 没有内容时的渲染 -->

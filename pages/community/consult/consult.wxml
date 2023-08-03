@@ -51,10 +51,9 @@
 
 <!-- 浮窗 -->
 <view class="flex">
-  <view class="cuIcon-questionfill text-white question-cover"  bindtap="showHelp"></view>
+  <view class="cuIcon-questionfill text-gray question-cover"  bindtap="showHelp"></view>
   <navigator class="cuIcon-add bg-blue shadow add-cover"  url="/pages/community/consult/reserveform"></navigator>
 </view>
-
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

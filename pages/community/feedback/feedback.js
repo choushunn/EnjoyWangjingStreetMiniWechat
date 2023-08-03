@@ -7,15 +7,7 @@ Page({
    */
   data: {
     imgList: [],
-    selectedTypes: [], // 已选择的类型数组
-    typeButtons: [ // 所有类型按钮的数组
-      { type: '社区服务', class: '' },
-      { type: '生活服务', class: '' },
-      { type: '产品建议', class: '' },
-      { type: '安全分类', class: '' },
-      { type: '功能异常', class: '' },
-      { type: '其他问题', class: '' },
-    ],
+    index:''
   },  
   showHelp: function () {
     wx.showModal({
@@ -103,7 +95,7 @@ Page({
       success: function (res) { 
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 200) {
+        if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
           })

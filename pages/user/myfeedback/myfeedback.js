@@ -8,7 +8,8 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    messageData:''
+    messageData:'',
+    userinfo:wx.getStorageSync('userinfo'),
   },
   tabSelect(e) {
     this.setData({
@@ -30,9 +31,14 @@ Page({
    */
   onLoad(options) {
     var that = this;
+    var user_id = this.data.userinfo.id
+    const extraData = {
+      user_id: user_id
+    };
     wx.request({
-      url: app.globalData.apiUri + 'feedback/',
+      url: app.globalData.apiUri + 'feedback/by_user',
       method: 'GET',
+      data:extraData,
       success(res) {
         if (res.statusCode == 200) {
           console.log("我的反馈数据获取成功", res.data)

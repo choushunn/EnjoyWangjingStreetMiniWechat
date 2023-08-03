@@ -27,7 +27,6 @@ Page({
             duration: item.duration || 0
           };
         });
-
         // 将选择的媒体文件添加到imgList中
         const imgList = this.data.imgList.concat(mediaList);
         this.setData({
@@ -61,21 +60,26 @@ Page({
       current,
       urls
     });
-  },  
+   
+  },
   onSubmit: function (event) {
-    const formData = event.detail.value;
+    const formData = event.detail.value;  
+     formData.images = JSON.stringify(this.data.imgList);  
     const extraData = {
       // 必须加上用户id
       user: 1,
-      title:'问题上报',
+      title: '问题上报',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'report/',
-      method: 'POST',
-      data: data,
+      // filePath: ,
+      // name: 'file',
+      // formData: data,
+      data:data,
+      method:'POST',
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息

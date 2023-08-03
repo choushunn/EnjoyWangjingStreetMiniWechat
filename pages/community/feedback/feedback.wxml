@@ -6,7 +6,7 @@
 <!-- 标题栏 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 居民意见反馈
+    <text class='cuIcon-titles text-blue '></text> 意见反馈
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -14,46 +14,13 @@
 </view>
 <!-- 意见反馈表单 -->
 <form class="bg-white" bindsubmit="onSubmit">
-  <view class="cu-form-group solid-bottom">
-  <text class="title">反馈类型</text>
-</view>
-<view class="bg-white ">
-  <view class="grid col-3 text-center padding-tb">
-    <view>
-      <checkbox class="round" value="社区服务" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">社区服务</text>
-    </view>
-    <view>
-      <checkbox class="round" value="生活服务" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">生活服务</text>
-    </view>
-    <view>
-      <checkbox class="round" value="产品建议" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">产品建议</text>
-    </view>
-    <view class="margin-top">
-      <checkbox class="round" value="安全分类" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">安全分类</text>
-    </view>
-    <view class="margin-top">
-      <checkbox class="round" value="功能异常" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">功能异常</text>
-    </view>
-    <view class="margin-top">
-      <checkbox class="round" value="其它问题" name="feedbackTypes" bindchange="checkboxChange"></checkbox>
-      <text class="text-xl horizontal">其他问题</text>
-    </view>
-  </view>
-</view>
-
   <!-- 意见描述 -->
   <view class="cu-form-group solid-top">
     <view class="title">意见描述</view>
   </view>
   <view class="cu-form-group padding">
-    <textarea name='suggestion' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入您的建议,我们将及时回复您"></textarea>
+    <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入您的建议,我们将及时回复您"></textarea>
   </view>
-
   <!-- 图片/视频上传 -->
   <view class="cu-bar bg-white solid-top">
     <view class="action">
@@ -74,17 +41,15 @@
       </view>
     </view>
   </view>
-
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
+    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block">提交</button>
   </view>
 </form>
 <!-- 帮助浮窗 -->
 <view class="flex">
   <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
 </view>
-
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

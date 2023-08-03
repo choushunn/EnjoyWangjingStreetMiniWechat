@@ -51,7 +51,7 @@
   <view class="cu-form-group">
     <view class="grid col-4 grid-square flex-sub">
       <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}">
-        <image class="" mode="aspectFill" src="{{item.path}}" bindtap="previewImage" data-src="{{item.path}}" />
+        <image mode="aspectFill" src="{{item.path}}" bindtap="previewImage" data-src="{{item.path}}" />
         <view class="cu-tag bg-red" bindtap="deleteImage" data-index="{{index}}">删除</view>
       </view>
       <view class="solids" bindtap="chooseMedia" wx:if="{{imgList.length<9}}">
@@ -59,10 +59,10 @@
       </view>
     </view>
   </view>
-
   <!-- 地址 -->
   <view class="cu-form-group solid-bottom">
     <view class="title">地址</view>
+    <view class="text-red text-bold">todo:自动获取当前地址</view>
     <input name='address' placeholder="请输入地址"></input>
     <text class="cuIcon-locationfill text-orange"></text>
   </view>
