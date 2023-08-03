@@ -81,7 +81,7 @@ Page({
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
-      user: 1
+      user: wx.getStorageSync('userinfo').id
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象

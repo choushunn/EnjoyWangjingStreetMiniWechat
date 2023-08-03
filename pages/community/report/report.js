@@ -60,14 +60,44 @@ Page({
       current,
       urls
     });
-   
+
   },
   onSubmit: function (event) {
-    const formData = event.detail.value;  
-     formData.images = JSON.stringify(this.data.imgList);  
+    const formData = event.detail.value;
+    // 验证手机号码
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (formData.phone.length == 0) {
+      wx.showToast({
+        title: '输入的手机号为空',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else if (formData.phone.length < 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else if (!myreg.test(formData.phone)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else {
+      wx.showToast({
+        title: '填写正确',
+        icon: 'success',
+        duration: 1500
+      })
+    }
+    formData.images = JSON.stringify(this.data.imgList);
     const extraData = {
       // 必须加上用户id
-      user: 1,
+      user: wx.getStorageSync('userinfo').id,
       title: '问题上报',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
@@ -78,8 +108,8 @@ Page({
       // filePath: ,
       // name: 'file',
       // formData: data,
-      data:data,
-      method:'POST',
+      data: data,
+      method: 'POST',
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息

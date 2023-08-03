@@ -43,7 +43,7 @@ Page({
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
-      user: 1,
+      user: wx.getStorageSync('userinfo').id,
       title:'邻里空间预约',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段

@@ -1,15 +1,16 @@
 // pages/community/repair/form.js
-const app =getApp();
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    index: null,
-    picker: ['事项1', '事项2', '事项3'],
+    index: 0,
+    picker: '',
     imgList: [],
-    item:''
+    item: '',
+    pickerValue: ''
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -71,17 +72,48 @@ Page({
   },
   PickerChange(e) {
     console.log(e);
+
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      picker_id: e.currentTarget.dataset.id
     })
-  },  
+  },
   onSubmit: function (event) {
     const formData = event.detail.value;
-    
+    // 验证手机号码
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (formData.phone.length == 0) {
+      wx.showToast({
+        title: '输入的手机号为空',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else if (formData.phone.length < 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else if (!myreg.test(formData.phone)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'success',
+        duration: 1500
+      })
+      return false;
+    } else {
+      wx.showToast({
+        title: '填写正确',
+        icon: 'success',
+        duration: 1500
+      })
+    }
     const extraData = {
       // 必须加上用户id
-      user: 1
-    }; // 新字段
+      user: wx.getStorageSync('userinfo').id
+    };
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
@@ -90,7 +122,7 @@ Page({
       method: 'POST',
       data: data,
       success: function (res) {
-        console.log("居民服务表单提交数据：",res); // 打印后端API返回的数据
+        console.log("居民服务表单提交数据：", res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {
           wx.showToast({
@@ -112,7 +144,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-  console.log(options)
+    var that = this;
+    var pickerValue = [];
+    wx.request({
+      url: app.globalData.apiUri + 'work_type/',
+      success: function (res) {
+        console.log("工单类型获取成功", res)
+        for (var i = 0; i < res.data.length; i++) {
+          // console.log(res.data[i].name)
+          pickerValue[i] = res.data[i].name;
+        }
+        that.setData({
+          pickerValue: pickerValue,
+          picker: res.data
+        })
+      }
+    })
   },
 
   /**
