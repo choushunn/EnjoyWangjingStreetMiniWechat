@@ -12,6 +12,7 @@
     <!-- 右侧按钮 -->
   </view>
 </view>
+
 <!-- 意见反馈表单 -->
 <form class="bg-white" bindsubmit="onSubmit">
   <!-- 意见描述 -->

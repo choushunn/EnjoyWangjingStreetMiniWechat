@@ -16,12 +16,12 @@
   <!-- 联系人 -->
   <view class="cu-form-group">
     <view class="title">联系人</view>
-    <input name='name' placeholder="请输入联系人"></input>
+    <input name='name' placeholder="请输入联系人" type="text"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
     <view class="title">联系电话</view>
-    <input name='phone' placeholder="请输入联系人电话"></input>
+    <input name='phone' placeholder="请输入联系人电话" type="number" maxlength="11"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86
@@ -30,6 +30,12 @@
         中国大陆
       </view>
     </view>
+  </view>
+   <!-- 地址 -->
+   <view class="cu-form-group solid-bottom">
+    <view class="title">地址</view>
+    <input name='address' placeholder="请输入地址"  type="text"></input>
+    <text class="cuIcon-locationfill text-orange"></text>
   </view>
   <!-- 上报内容 -->
   <view class="cu-form-group">
@@ -59,16 +65,10 @@
       </view>
     </view>
   </view>
-  <!-- 地址 -->
-  <view class="cu-form-group solid-bottom">
-    <view class="title">地址</view>
-    <view class="text-red text-bold">todo:自动获取当前地址</view>
-    <input name='address' placeholder="请输入地址"></input>
-    <text class="cuIcon-locationfill text-orange"></text>
-  </view>
+ 
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block" bindtap="submit_data">提交</button>
+    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block">提交</button>
   </view>
 </form>
 

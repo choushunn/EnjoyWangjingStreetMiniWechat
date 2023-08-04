@@ -10,7 +10,7 @@ Page({
     scrollLeft: 0,
     scroll: 0,
     items: '',
-    userinfo:wx.getStorageSync('userinfo'),
+    userinfo: wx.getStorageSync('userinfo'),
   },
   tabSelect(e) {
     this.setData({
@@ -18,16 +18,16 @@ Page({
       scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
   },
- // 跳转到详情页面
- toDetail(e){
-  console.log(e)
-  var id = e.currentTarget.dataset.item.id
-  var item = JSON.stringify(e.currentTarget.dataset.item)
   // 跳转到详情页面
-  wx.navigateTo({
-    url: '/pages/user/myorder/detail?id=' + id + '&item=' + item,
-  })
-},
+  toDetail(e) {
+    console.log(e)
+    var id = e.currentTarget.dataset.item.id
+    var item = JSON.stringify(e.currentTarget.dataset.item)
+    // 跳转到详情页面
+    wx.navigateTo({
+      url: '/pages/user/myorder/detail?id=' + id + '&item=' + item,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -37,21 +37,21 @@ Page({
       user_id: this.data.userinfo.id
     };
     wx.request({
-      url: app.globalData.apiUri + 'work/by_user',
+      url: app.globalData.apiUri + 'work/by_user/?ordering=-created_at',
       method: 'GET',
-      data:extraData,
+      data: extraData,
       success(res) {
-        if (res.statusCode == 200) {
-          console.log("我的工单数据获取成功", res.data)
-          var items = res.data
-          if (res.statusCode == 200 && res.data.length>0) {
-            that.setData({
-              items: items
-            })
-          } else {
-            // 获取失败
-          }
+
+        console.log("我的工单数据获取成功", res.data)
+        var items = res.data
+        if (res.statusCode == 200 && res.data.length > 0) {
+          that.setData({
+            items: items
+          })
+        } else {
+          // 获取失败
         }
+
       }
     })
   },

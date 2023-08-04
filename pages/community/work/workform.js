@@ -79,9 +79,10 @@ Page({
     })
   },
   onSubmit: function (event) {
+    var that = this
     const formData = event.detail.value;
     // 验证手机号码
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
       wx.showToast({
         title: '输入的手机号为空',
@@ -112,10 +113,12 @@ Page({
     }
     const extraData = {
       // 必须加上用户id
-      user: wx.getStorageSync('userinfo').id
+      user: wx.getStorageSync('userinfo').id,
     };
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
+
     console.log(data); // 打印表单数据对象
+    // console.log(imgList)
     // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'work/',
@@ -124,9 +127,31 @@ Page({
       success: function (res) {
         console.log("居民服务表单提交数据：", res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 201) {
+        if (res.statusCode == 201) {          
+          var work_id = res.data.id
+          var images = that.data.imgList
+          for (var i = 0; i < images.length; i++) {
+            wx.uploadFile({
+              filePath: images[i].path,
+              name: 'image',
+              url: app.globalData.apiUri + 'work_image/',
+              formData: {
+                'ticket': work_id
+              },
+              success(res){
+                console.log(res)
+              }
+            })
+          }
           wx.showToast({
             title: '提交成功',
+            success: function() {
+              setTimeout(function() {
+                wx.navigateBack({
+                 delta:1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     imgList: [],
+    index:0,
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -65,25 +66,25 @@ Page({
   onSubmit: function (event) {
     const formData = event.detail.value;
     // 验证手机号码
-    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
       wx.showToast({
-        title: '输入的手机号为空',
-        icon: 'success',
+        title: '检查电话号码',
+        icon: 'error',
         duration: 1500
       })
       return false;
     } else if (formData.phone.length < 11) {
       wx.showToast({
         title: '手机号长度有误！',
-        icon: 'success',
+        icon: 'error',
         duration: 1500
       })
       return false;
     } else if (!myreg.test(formData.phone)) {
       wx.showToast({
         title: '手机号有误！',
-        icon: 'success',
+        icon: 'error',
         duration: 1500
       })
       return false;
@@ -105,9 +106,6 @@ Page({
     // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'report/',
-      // filePath: ,
-      // name: 'file',
-      // formData: data,
       data: data,
       method: 'POST',
       success: function (res) {
@@ -116,16 +114,28 @@ Page({
         if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
+            success: function() {
+              setTimeout(function() {
+                wx.navigateBack({
+                 delta:1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({
             title: '提交失败',
+            icon:'error'
           })
         }
       },
       fail: function (res) {
         console.log(res.errMsg); // 打印错误信息
         // 处理失败提示信息
+        wx.showToast({
+          title: '提交失败',
+          icon:'error'
+        })
       }
     })
   },

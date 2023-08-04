@@ -89,19 +89,26 @@ Page({
     wx.request({
       url: app.globalData.apiUri + 'feedback/',
       method: 'POST',
-      data: {data,
-        feedbackTypes: this.data.feedbackTypes, 
-      },
+      data: data,
       success: function (res) { 
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {
+          // 上传图像
           wx.showToast({
             title: '提交成功',
+            success: function() {
+              setTimeout(function() {
+                wx.navigateBack({
+                 delta:1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({
             title: '提交失败',
+            icon:'error'
           })
         }
       },
