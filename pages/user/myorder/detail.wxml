@@ -24,7 +24,7 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.ticket_type}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.ticket_type_name}}</view>
   </view>
   <!-- 问题描述 -->
   <view class="cu-bar bg-white solid-bottom">
@@ -44,7 +44,7 @@
   <!-- 分配社工后显示 -->
 
   <!-- 维修信息 -->
-  <view wx:if="{{item.worker}}" class="cu-bar bg-white solid-bottom">
+  <view class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 维修信息
     </view>
@@ -55,7 +55,7 @@
 
   <!-- 社工处理后显示 -->
   <!-- 维修记录 -->
-  <view wx:if="{{item.worker}}" class="cu-bar bg-white solid-bottom">
+  <view class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 维修记录
     </view>

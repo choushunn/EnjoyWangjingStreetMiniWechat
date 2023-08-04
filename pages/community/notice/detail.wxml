@@ -14,6 +14,9 @@
       </view>
       <!-- 内容 -->
       <view class="padding text-left text-indent">{{item.content}}</view>
+
+       <!-- 附件 -->
+       <!-- <view class="padding text-left text-indent solid-top margin-top">附件：{{item.attachment}}</view> -->
       <!-- 时间 -->
       <view class="padding text-right text-indent solid-top margin-top">发布时间：{{item.created_at}}</view>
     </view>

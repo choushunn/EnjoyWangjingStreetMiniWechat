@@ -39,7 +39,7 @@
         </view>
         <view class="content">
           <view class="desc">
-            <view class="text-content solid-bottom">{{item.content}}</view>
+            <view class="text-content solid-bottom">{{item.summary}}</view>
             <view class="flex justify-between margin-top-sm">
               <view class="light text-sm round">{{item.type}}</view>
               <view class="light text-sm round">{{item.created_at}}</view>

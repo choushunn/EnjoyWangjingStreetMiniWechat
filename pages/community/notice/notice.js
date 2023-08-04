@@ -34,13 +34,15 @@ Page({
       url: app.globalData.apiUri + 'notification/',
       method: 'GET',
       success(res) {
-        if (res.statusCode == 200 && res.data>0) {
+        if (res.statusCode == 200 && res.data.length>0) {
           console.log("通知获取成功", res.data)
           var items = res.data
           // 读取成功 
           that.setData({
             items: items
           })
+        }else{
+        console.log(res)
         }
       }
     })

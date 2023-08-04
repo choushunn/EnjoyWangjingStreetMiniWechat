@@ -10,7 +10,7 @@ Page({
     picker: '',
     imgList: [],
     item: '',
-    pickerValue: ''
+    pickerValue: '',
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -150,14 +150,18 @@ Page({
       url: app.globalData.apiUri + 'work_type/',
       success: function (res) {
         console.log("工单类型获取成功", res)
-        for (var i = 0; i < res.data.length; i++) {
-          // console.log(res.data[i].name)
-          pickerValue[i] = res.data[i].name;
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            // console.log(res.data[i].name)
+            pickerValue[i] = res.data[i].name;
+          }
+          that.setData({
+            pickerValue: pickerValue,
+            picker: res.data
+          })
+        } else {
+          console.log("工单类型获取失败")
         }
-        that.setData({
-          pickerValue: pickerValue,
-          picker: res.data
-        })
       }
     })
   },

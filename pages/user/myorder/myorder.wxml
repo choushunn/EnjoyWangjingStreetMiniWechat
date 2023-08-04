@@ -24,7 +24,7 @@
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">
-              <view class="text-cut">{{item.name}}居民服务</view>
+              <view class="text-cut">居民服务-{{item.ticket_type_name}}</view>
               <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待处理':'已结束'}}</view>
             </view>
           </view>

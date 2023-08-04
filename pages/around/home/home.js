@@ -27,13 +27,13 @@ Component({
         url: app.globalData.apiUri + 'system_params/?key=qqmapkey',
         success(res) {
           var key = res.data[0].value
-          // 实例化API核心类
-          qqmapsdk = new QQMapWX({
-            key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
-          });
+          
         }
       })
-
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
+    });
     },
     attached: function () {
       // 开始获取位置信息
@@ -50,9 +50,6 @@ Component({
       wx.navigateTo({
         url: '/pages/around/detail/detail?id=' + id + '&item=' + item,
       })
-    },
-    getLocation() {
-
     },
     // 地图相关
     startLocation() {

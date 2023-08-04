@@ -62,9 +62,9 @@ Page({
               phone_code: this.data.phoneCode
             },
             success: function (res) {
-              console.log('注册返回信息：', res)
-              var response_data =JSON.parse(res.data)
-              if (res.statusCode === 201) {               
+              console.log('注册返回信息：', res)              
+              if (res.statusCode === 201) {      
+                var response_data = JSON.parse(res.data)         
                 console.log('注册接口返回的信息：', response_data)
                 // 登录成功，设置全局用户信息
                 wx.setStorageSync('userinfo', response_data);                
@@ -81,7 +81,7 @@ Page({
               } else {
                 // 注册失败，弹出错误提示
                 wx.showToast({
-                  title: res.data.msg,
+                  title: '当前暂时不能注册',
                   icon: 'none',
                 });
               }

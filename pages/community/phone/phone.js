@@ -46,6 +46,12 @@ Page({
       content: '提供常用的电话',
       showCancel: false,
     });
+  },clickCall(e){
+    console.log(e)
+    let phone=e.currentTarget.dataset.phone;
+    wx.makePhoneCall({//调用拨打电话的函数
+      phoneNumber: phone,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

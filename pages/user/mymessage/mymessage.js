@@ -1,4 +1,5 @@
 // pages/user/mymessage/mymessage.js
+const app = getApp();
 Page({
 
   /**
@@ -7,7 +8,7 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    messageData:'',
+    items:null,
     userinfo:wx.getStorageSync('userinfo'),
   },
   tabSelect(e) {
@@ -20,7 +21,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // this.data.userinfo.id
+    var that = this;
+    const extraData = {
+      user_id: this.data.userinfo.id
+    };
+    wx.request({
+      url: app.globalData.apiUri + 'message/by_user',
+      method: 'GET',
+      data:extraData,
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("我的消息数据获取成功", res.data)
+          var items = res.data
+          if (res.statusCode == 200 && res.data.length>0) {
+            that.setData({
+              items: items
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
   },
 
   /**

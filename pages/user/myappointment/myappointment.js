@@ -62,17 +62,17 @@ Page({
       method: 'GET',
       data:extraData,
       success(res) {
-        if (res.statusCode == 200) {
-          console.log("我的预约获取成功", res.data)
-          var items = res.data
-          if (res.statusCode == 200) {
+  
+          console.log("我的预约获取成功", res.data)          
+          if (res.statusCode == 200 && res.data.length>0) {
+            var items = res.data
             that.setData({
               messageData: items
             })
           } else {
             // 获取失败
           }
-        }
+     
       }
     })
   },

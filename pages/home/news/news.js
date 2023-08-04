@@ -14,7 +14,7 @@ Page({
   toDetail(e) {
     console.log(e)
     var id = e.currentTarget.dataset.item.id
-    var item = e.currentTarget.dataset.item
+    var item = JSON.stringify(e.currentTarget.dataset.item)
     // 跳转到详情页面
     wx.navigateTo({
       url: '/pages/home/news/detail?id=' + id + '&item=' + item,
@@ -31,10 +31,10 @@ Page({
       success(res) {
         if (res.statusCode == 200) {
           console.log("新闻信息获取成功", res.data)
-          var items = res.data
-          if (res.statusCode == 200 && res.data>0) {
+      
+          if (res.statusCode == 200 && res.data.length>0) {
             that.setData({
-              newsData: items
+              newsData: res.data
             })
           } else {
             // 获取失败
