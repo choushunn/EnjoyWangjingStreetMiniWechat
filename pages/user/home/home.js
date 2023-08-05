@@ -4,50 +4,47 @@ Component({
   /**
    * 页面的初始数据
    */
-  data: {    
+  data: {
     defaultAvatarUrl: app.globalData.defaultAvatarUrl,
-    avatarUrl: app.globalData.defaultAvatarUrl,
-    userinfo:wx.getStorageSync('userinfo'),
+    userinfo: null,
     // 我的菜单
     myMenuItems: [{
       icon: 'cardboardfill',
       color: 'red',
       badge: 0,
       name: '我的收藏',
-      url:'/pages/user/myfaver/myfaver'
+      url: '/pages/user/myfaver/myfaver'
     }, {
       icon: 'picfill',
       color: 'yellow',
       badge: 0,
       name: '我的消息',
-      url:'/pages/user/mymessage/mymessage'
+      url: '/pages/user/mymessage/mymessage'
     }, {
       icon: 'noticefill',
       color: 'olive',
       badge: 0,
       name: '我的工单',
-      url:'/pages/user/myorder/myorder'
+      url: '/pages/user/myorder/myorder'
     }, {
       icon: 'upstagefill',
       color: 'cyan',
       badge: 0,
       name: '我的反馈',
-      url:'/pages/user/myfeedback/myfeedback'
+      url: '/pages/user/myfeedback/myfeedback'
     }, {
       icon: 'clothesfill',
       color: 'blue',
       badge: 0,
       name: '我的预约',
-      url:'/pages/user/myappointment/myappointment'
-    }
-   ],
+      url: '/pages/user/myappointment/myappointment'
+    }],
     // 关于菜单
-    aboutMenuItems: [
-      {
+    aboutMenuItems: [{
         id: 1,
         name: '关于我们',
         icon: 'info',
-        color:'cyan',
+        color: 'cyan',
         url: '/pages/user/about/about',
         handler: 'toPage'
       },
@@ -55,7 +52,7 @@ Component({
         id: 2,
         name: '更新日志',
         icon: 'formfill',
-        color:'green',
+        color: 'green',
         url: '/pages/user/logs/logs',
         handler: 'toPage'
       },
@@ -63,7 +60,7 @@ Component({
         id: 3,
         name: '免责声明',
         icon: 'text',
-        color:'cyan',
+        color: 'cyan',
         url: '',
         handler: 'showDisclaimer'
       },
@@ -71,7 +68,7 @@ Component({
         id: 4,
         name: '隐私政策',
         icon: 'safe',
-        color:'cyan',
+        color: 'cyan',
         url: '',
         handler: 'showPrivacyPolicy'
       },
@@ -79,7 +76,7 @@ Component({
         id: 5,
         name: '用户协议',
         icon: 'file',
-        color:'cyan',
+        color: 'cyan',
         url: '',
         handler: 'showUserAgreement'
       },
@@ -87,31 +84,36 @@ Component({
         id: 6,
         name: '赞赏支持',
         icon: 'appreciatefill',
-        color:'red',
+        color: 'red',
         url: '',
         handler: 'showQrcode'
       }
     ]
   },
-  lifetimes:{
-    ready(){
-      const userinfo = wx.getStorageSync('userinfo');
-      console.log(wx.getStorageSync('userinfo'))
-      if (userinfo) {
-        this.setData({
-          userinfo:userinfo,
-          avatarUrl:userinfo.avatar
-        });
-      }else{
-        console.log("当前用户未登录")
-        this.setData({
-          userinfo:'',
-          avatarUrl:app.globalData.defaultAvatarUrl
-        });
-      }
+  lifetimes: {
+    attached() {
+      var that = this
+      wx.request({
+        url: app.globalData.apiUri + 'user/',
+        header: {
+          "authorization": "Bearer " + wx.getStorageSync('token')
+        },
+        method: 'GET',
+        success(res) {
+          console.log("获取用户信息成功：",res)
+          if (res.statusCode == 200) {
+            that.setData({
+              userinfo: res.data[0],
+            });
+          }
+        },
+        fail(res) {
+          console.log("当前用户未登录")
+        }
+      })
     }
   },
-  methods: {    
+  methods: {
     // 跳转到功能页面
     toPage: function (event) {
       var url = event.currentTarget.dataset.url
@@ -119,10 +121,15 @@ Component({
         url: url
       })
     },
-    onLogout(){
-      // 清除用户数据
-      wx.removeStorageSync('username')
-      // 弹出退出成功的提示并跳转到首页
+    toUserinfo(e){
+      var url = e.currentTarget.dataset.url
+      var item = JSON.stringify(e.currentTarget.dataset.userinfo)
+      // 跳转到详情页面
+      wx.navigateTo({
+        url: url+'?item=' + item,
+      })
+    },
+    onLogout() {
       // 刷新页面
       wx.reLaunch({
         url: '/pages/index/index',

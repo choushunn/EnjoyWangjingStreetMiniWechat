@@ -13,7 +13,7 @@
     <view class="action" bindtap="chooseImage">
       <view class="padding">
         <!-- 头像显示 -->
-        <image mode="aspectFill" class="cu-avatar round lg" src="{{avatarUrl}}"></image>
+        <image mode="aspectFill" class="cu-avatar round lg" src="{{userinfo.avatar?userinfo.avatar:avatarUrl}}"></image>
       </view>
     </view>
   </view>
@@ -45,18 +45,9 @@
       <text class="text-grey">性别</text>
     </navigator>
     <view class="action">
-      <block wx:if="{{ userinfo.gender == 1 }}">
-        <text class="text-black text-lg">男</text>
-      </block>
-      <block wx:elif="{{ userinfo.gender == 2 }}">
-        <text class="text-black text-lg">女</text>
-      </block>
-      <block wx:elif="{{ userinfo.gender == 3 }}">
-        <text class="text-black text-lg">保密</text>
-      </block>
-      <block wx:else>
-        <text class="text-black text-lg">暂无</text>
-      </block>
+      
+        <text class="text-black text-lg">{{userinfo.gender?userinfo.gender:'暂无'}}</text>
+  
     </view>
   </view>
   <!-- 地址 -->

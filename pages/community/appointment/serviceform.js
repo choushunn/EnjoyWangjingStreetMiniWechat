@@ -13,6 +13,7 @@ Page({
    */
   data: {
     date: null,
+    currentDate:dateStr,
     appointment_time: null,
     picker_time: null,
     time_index: 0,
@@ -47,6 +48,9 @@ Page({
       url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
       data: data,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息

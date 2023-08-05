@@ -13,11 +13,6 @@ var now = new Date();
 var year = now.getFullYear();
 var month = now.getMonth() + 1;
 var day = now.getDate();
-var hour = now.getHours();
-var minute = now.getMinutes();
-var second = now.getSeconds();
-// 将时间格式化为字符串
-var timeStr =  hour + ':' + minute ;
 var dateStr =  year + '-' + month + '-' + day ;
 Page({
 
@@ -25,12 +20,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: timeStr,
     date: dateStr,
+    currentDate:dateStr,
+    consult_time:null,
+    picker_time:null,
+    time_index:0,
   },
-  TimeChange(e) {
+  timeChange(e) {
     this.setData({
-      time: e.detail.value
+      time_index: e.detail.value
     })
   },
   DateChange(e) {
@@ -39,7 +37,38 @@ Page({
     })
   },
   onSubmit: function (event) {
+
     const formData = event.detail.value;
+    // 验证手机号码
+    var myreg = /^1[3-9]\d{9}$/;
+    if (formData.phone.length == 0) {
+      wx.showToast({
+        title: '检查电话号码',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } else if (formData.phone.length < 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } else if (!myreg.test(formData.phone)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } else {
+      wx.showToast({
+        title: '填写正确',
+        icon: 'success',
+        duration: 1500
+      })
+    }
     const extraData = {
       user: wx.getStorageSync('userinfo').id
     }; // 新字段
@@ -50,12 +79,22 @@ Page({
       url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
       data: data,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
+            success: function () {
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({
@@ -88,7 +127,24 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    var that = this
+    // 获取预约时间放到picker_tiem数组
+    var picker_time = []
+    wx.request({
+      url: app.globalData.apiUri + 'appointment_time/',
+      success(res) {
+        console.log("可用预约时间:", res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            picker_time[i] = res.data[i].time
+          }
+          that.setData({
+            picker_time: picker_time,
+            consult_time: res.data
+          })
+        }
+      }
+    })
   },
 
   /**

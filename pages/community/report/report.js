@@ -66,6 +66,7 @@ Page({
   },
   onSubmit: function (event) {
     const formData = event.detail.value;
+    var that = this
     // 验证手机号码
     var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
@@ -98,8 +99,6 @@ Page({
     }
     formData.images = JSON.stringify(this.data.imgList);
     const extraData = {
-      // 必须加上用户id
-      user: wx.getStorageSync('userinfo').id,
       title: '问题上报',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
@@ -109,24 +108,47 @@ Page({
       url: app.globalData.apiUri + 'report/',
       data: data,
       method: 'POST',
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
-        // 处理成功提示信息
-        if (res.statusCode == 201) {
+         // 处理成功提示信息
+         if (res.statusCode == 201) {          
+          var report_id = res.data.id
+          var images = that.data.imgList
+          for (var i = 0; i < images.length; i++) {
+            wx.uploadFile({
+              filePath: images[i].path,
+              name: 'image',
+              url: app.globalData.apiUri + 'report_image/',
+              formData: {
+                'report': report_id
+              },
+              success(res){
+                console.log(res)               
+              }
+            })
+          }    
           wx.showToast({
             title: '提交成功',
-            success: function() {
+            success(res) {
+              console.log(res)
               setTimeout(function() {
                 wx.navigateBack({
                  delta:1
                 })
               }, 1000);
+            },
+            fail(res){
+              wx.showToast({
+                title: '提交失败',
+              })
             }
-          })
+          })     
         } else {
           wx.showToast({
             title: '提交失败',
-            icon:'error'
           })
         }
       },

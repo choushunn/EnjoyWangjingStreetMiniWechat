@@ -41,19 +41,19 @@
   <!-- 预约日期 -->
   <view class="cu-form-group">
     <view class="title">预约日期</view>
-    <picker name='date' mode="date" value="{{date}}" bindchange="DateChange">
+    <picker name='date' mode="date" start="{{currentDate}}" value="{{date}}" bindchange="DateChange">
       <view class="picker">
         {{date}}
       </view>
     </picker>
   </view>
   <!-- 预约时间 -->
+  <!-- 预约时间 -->
   <view class="cu-form-group">
-    <view class="title">预约时间</view>
-    <picker name='time' mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="TimeChange">
+    <view class="title">预约使用时间</view>
+    <picker name="time" bindchange="timeChange" value="{{consult_time[time_index].id}}" range="{{picker_time}}">
       <view class="picker">
-        <view class="text-red text-bold"> TODO:可选择的时间段</view>
-        {{time}}
+        {{time_index?picker_time[time_index]:'选择预约时间'}}
       </view>
     </picker>
   </view>

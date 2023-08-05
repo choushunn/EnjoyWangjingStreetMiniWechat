@@ -14,32 +14,45 @@ Page({
   // 点击登录按钮
   onLogin() {
     console.log("直接登录")
-    // 发起登录请求
+    // 尝试自动登录
     wx.login({
-      success: res => {
+      success: (res) => {
         wx.request({
-          url: app.globalData.apiUri + 'wx_issuer',
-          method: 'GET',
+          url: that.globalData.apiUri + 'login/',
+          method: 'POST',
           data: {
             js_code: res.code,
           },
           success: res => {
-            console.log(res)
-            // 调用成功后跳转到首页
-            wx.navigateTo({
-              url: '/pages/index/index',
-            });
-            // 保存用户信息到本地
-            if (res.data.code == 200) {
+            console.log('登录返回信息：', res)
+            var response = res.data
+            if (res.statusCode === 200) {
               // 登录成功，设置全局用户信息
-              wx.setStorageSync('userinfo', JSON.stringify(res.data.data.user));
+              wx.setStorageSync('token', response.access);
+
+              setTimeout(function () {
+                wx.showToast({
+                  title: "登录成功！",
+                  icon: 'success',
+                });
+              }, 1000);
+              // 跳转到首页
+              wx.navigateTo({
+                url: '/pages/index/index',
+              });
             } else {
-              // 登录失败，没有用户信息
+              // 登录失败，清除用户信息
+              wx.removeStorageSync('token')
             }
+          },
+          fail: res => {
+            console.log("登录失败：", res)
+            wx.removeStorageSync('token')
           }
         })
       },
-    });
+    })
+
   },
   // 获取用户手机号码
   getPhoneNumber(e) {
@@ -55,34 +68,34 @@ Page({
           wx.uploadFile({
             url: app.globalData.apiUri + 'user/',
             filePath: this.data.avatarUrl,
-            name: 'file',
+            name: 'avatar',
             formData: {
               nickname: this.data.nickname,
               js_code: res.code,
               phone_code: this.data.phoneCode
             },
             success: function (res) {
-              console.log('注册返回信息：', res)              
-              if (res.statusCode === 201) {      
-                var response_data = JSON.parse(res.data)         
+              console.log('注册返回信息：', res)
+              if (res.statusCode === 201) {
+                var response_data = JSON.parse(res.data)
                 console.log('注册接口返回的信息：', response_data)
                 // 登录成功，设置全局用户信息
-                wx.setStorageSync('userinfo', response_data);                
-                wx.showToast({
-                  title: "登录成功！",
-                  icon: 'none',
-                });
+                wx.setStorageSync('token', response.access);
                 setTimeout(function () {
-                  // 跳转到首页
-                  wx.navigateTo({
-                    url: '/pages/index/index',
+                  wx.showToast({
+                    title: "登录成功！",
+                    icon: 'success',
                   });
                 }, 1000);
+                // 跳转到首页
+                wx.navigateTo({
+                  url: '/pages/index/index',
+                });
               } else {
                 // 注册失败，弹出错误提示
                 wx.showToast({
-                  title: '当前暂时不能注册',
-                  icon: 'none',
+                  title: '暂时不能注册',
+                  icon: 'error',
                 });
               }
             },

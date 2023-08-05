@@ -55,14 +55,16 @@ Page({
     var that = this;
     var user_id = this.data.userinfo.id
     const extraData = {
-      user_id: user_id
+      
     };
     wx.request({
       url: app.globalData.apiUri + 'appointment/by_user',
       method: 'GET',
       data:extraData,
-      success(res) {
-  
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
+      success(res) {  
           console.log("我的预约获取成功", res.data)          
           if (res.statusCode == 200 && res.data.length>0) {
             var items = res.data

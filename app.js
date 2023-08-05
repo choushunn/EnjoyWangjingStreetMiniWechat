@@ -23,10 +23,10 @@ App({
     const that = this;
     // 检查 API 是否可用
     wx.request({
-      url: this.globalData.apiUri + 'user/',
+      url: this.globalData.apiUri + 'login/',
       method: 'GET',
       success(res) {
-        console.log(res.statusCode)
+        console.log(res)
         if (res.statusCode !== 200) {
           that.globalData.isApiAvailable = false;
           that.showMaintenanceTip();
@@ -36,10 +36,9 @@ App({
           // 尝试自动登录
           wx.login({
             success: (res) => {
-              console.log(res.code)
               wx.request({
-                url: that.globalData.apiUri + 'login',
-                method: 'POST',
+                url: that.globalData.apiUri + 'login/',
+                method: 'POST',              
                 data: {
                   js_code: res.code,
                 },
@@ -48,15 +47,15 @@ App({
                   var response = res.data
                   if (res.statusCode === 200) {
                     // 登录成功，设置全局用户信息
-                    wx.setStorageSync('userinfo', response);
+                    wx.setStorageSync('token', response.access);
                   } else {
                     // 登录失败，清除用户信息
-                    wx.removeStorageSync('userinfo')
+                    wx.removeStorageSync('token')
                   }
                 },
                 fail: res => {
                   console.log("登录失败：", res)
-                  wx.removeStorageSync('userinfo')
+                  wx.removeStorageSync('token')
                 }
               })
             },
@@ -92,9 +91,9 @@ App({
   // 显示服务维护中的提示
   showMaintenanceTip() {
     wx.showToast({
-      title: '服务维护中，请稍后再试',
-      icon: 'none',
-      duration: 2000,
+      title: '系统维护中',
+      icon: 'error',
+      duration: 3000,
       complete() {
         // 禁用页面上的交互元素
         wx.disableAlertBeforeUnload({

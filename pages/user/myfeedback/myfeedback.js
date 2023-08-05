@@ -31,14 +31,17 @@ Page({
    */
   onLoad(options) {
     var that = this;
-    var user_id = this.data.userinfo.id
+    
     const extraData = {
-      user_id: user_id
+     
     };
     wx.request({
       url: app.globalData.apiUri + 'feedback/by_user',
       method: 'GET',
       data:extraData,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success(res) {
         if (res.statusCode == 200 && res.data.length>0) {
           console.log("我的反馈数据获取成功", res.data)

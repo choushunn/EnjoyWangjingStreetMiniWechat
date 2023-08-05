@@ -118,17 +118,19 @@ Page({
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
 
     console.log(data); // 打印表单数据对象
-    // console.log(imgList)
     // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'work/',
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       method: 'POST',
       data: data,
       success: function (res) {
         console.log("居民服务表单提交数据：", res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {          
-          var work_id = res.data.id
+          var ticket_id = res.data.id
           var images = that.data.imgList
           for (var i = 0; i < images.length; i++) {
             wx.uploadFile({
@@ -136,23 +138,29 @@ Page({
               name: 'image',
               url: app.globalData.apiUri + 'work_image/',
               formData: {
-                'ticket': work_id
+                'ticket': ticket_id
               },
               success(res){
                 console.log(res)
+                wx.showToast({
+                  title: '提交成功',
+                  success(res) {
+                    console.log(res)
+                    setTimeout(function() {
+                      wx.navigateBack({
+                       delta:1
+                      })
+                    }, 1000);
+                  },
+                  fail(res){
+                    wx.showToast({
+                      title: '提交失败',
+                    })
+                  }
+                })
               }
             })
-          }
-          wx.showToast({
-            title: '提交成功',
-            success: function() {
-              setTimeout(function() {
-                wx.navigateBack({
-                 delta:1
-                })
-              }, 1000);
-            }
-          })
+          }         
         } else {
           wx.showToast({
             title: '提交失败',

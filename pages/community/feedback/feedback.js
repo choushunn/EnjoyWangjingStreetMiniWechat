@@ -79,9 +79,10 @@ Page({
     });
   },
   onSubmit: function (event) {
+    var that = this
     const formData = event.detail.value;
     const extraData = {
-      user: wx.getStorageSync('userinfo').id
+      
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
@@ -90,13 +91,32 @@ Page({
       url: app.globalData.apiUri + 'feedback/',
       method: 'POST',
       data: data,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success: function (res) { 
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {
+          var feedback_id = res.data.id
+          var images = that.data.imgList
+          for (var i = 0; i < images.length; i++) {
+            wx.uploadFile({
+              filePath: images[i].path,
+              name: 'image',
+              url: app.globalData.apiUri + 'feedback_image/',
+              formData: {
+                'feedback': feedback_id
+              },
+              success(res){
+                console.log(res)               
+              }
+            })
+          }  
           // 上传图像
           wx.showToast({
             title: '提交成功',
+            icon:'success',
             success: function() {
               setTimeout(function() {
                 wx.navigateBack({

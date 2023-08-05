@@ -23,12 +23,15 @@ Page({
   onLoad(options) {
     var that = this;
     const extraData = {
-      user_id: this.data.userinfo.id
+      
     };
     wx.request({
-      url: app.globalData.apiUri + 'message/by_user',
+      url: app.globalData.apiUri + 'message/',
       method: 'GET',
       data:extraData,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success(res) {
         if (res.statusCode == 200) {
           console.log("我的消息数据获取成功", res.data)

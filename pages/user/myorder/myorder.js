@@ -34,14 +34,16 @@ Page({
   onLoad(options) {
     var that = this;
     const extraData = {
-      user_id: this.data.userinfo.id
+      
     };
     wx.request({
       url: app.globalData.apiUri + 'work/by_user/?ordering=-created_at',
       method: 'GET',
       data: extraData,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success(res) {
-
         console.log("我的工单数据获取成功", res.data)
         var items = res.data
         if (res.statusCode == 200 && res.data.length > 0) {
@@ -51,7 +53,6 @@ Page({
         } else {
           // 获取失败
         }
-
       }
     })
   },

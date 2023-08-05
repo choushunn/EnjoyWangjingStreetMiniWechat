@@ -6,7 +6,7 @@ Page({
    */
   data: {
     avatarUrl: app.globalData.defaultAvatarUrl,
-    userinfo: wx.getStorageSync('userinfo')
+    userinfo:null
   },
   changeNickname(e) {
     console.log(e)
@@ -32,7 +32,19 @@ Page({
             that.setData({
               avatarUrl: res.tempFilePath
             });
+
             // 上传到服务器
+            // wx.uploadFile({
+            //   filePath: res.tempFilePath,
+            //   name: 'avatar',
+            //   method:'PUT',
+            //   url: app.globalData.apiUri+'user/'+that.data.userinfo.id+'/',
+            //   success(res){
+            //     console.log(res)
+            //   },fail(res){
+            //     console.log(res)
+            //   }
+            // })
           }
         })
       }
@@ -53,7 +65,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-   
+    var userinfo = JSON.parse(options.item)
+    this.setData({
+      userinfo: userinfo
+    })
   },
 
   /**
@@ -67,18 +82,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    const userinfo = wx.getStorageSync('userinfo');
-    if (userinfo) {
-      this.setData({
-        userinfo: userinfo,
-        avatarUrl: userinfo.avatar
-      });
-    } else {
-      this.setData({
-        userinfo: '',
-        avatarUrl: app.globalData.defaultAvatarUrl
-      });
-    }
+   
   },
 
   /**
