@@ -25,7 +25,7 @@ Page({
         // console.log(tempFilePath)
         wx.cropImage({
           src: tempFilePath, // 图片路径
-          cropScale: '16:9', // 裁剪比例
+          cropScale: '1:1', // 裁剪比例
           success(res) {
             console.log(res)
             // 将选择的图片路径赋值给avatarUrl变量

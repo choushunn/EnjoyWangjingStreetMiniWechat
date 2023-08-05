@@ -128,10 +128,7 @@ Component({
 toMini(e){
   wx.navigateToMiniProgram({
     appId: 'wx5899bdb8721621d6',
-    path: 'page/index/index',
-    extraData: {
-      foo: 'bar'
-    },
+    path: '',
     envVersion: 'release',
     success(res) {
       // 打开成功
