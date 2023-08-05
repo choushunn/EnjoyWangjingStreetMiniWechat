@@ -31,7 +31,7 @@
       </view>
     </view>
   </block>
-  <image src="/images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  <image src="/images/wave.jpg" mode="scaleToFill" class="gif-wave"></image>
 </view>
 
 <!-- 功能块 -->
