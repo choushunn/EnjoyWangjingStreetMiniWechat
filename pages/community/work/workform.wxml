@@ -41,9 +41,9 @@
   <!-- 服务事项类型 -->
   <view class="cu-form-group">
     <view class="title">类型选择</view>
-    <picker name="ticket_type" bindchange="PickerChange" value="{{picker[index].id}}" range="{{pickerValue}}">
+    <picker name="ticket_type" bindchange="PickerChange" value="{{work_type[type_index].id}}" range="{{picker_type}}">
       <view class="picker">
-        {{index?picker[index].name:'选择类型'}}
+        {{type_index?work_type[type_index].name:'选择类型'}}
       </view>
     </picker>
   </view>

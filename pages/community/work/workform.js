@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    index: 0,
+    type_index: 0,
     picker: '',
     imgList: [],
     item: '',
-    pickerValue: '',
+    picker_type: null,
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -18,6 +18,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
+      sizeType:['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
@@ -72,9 +73,8 @@ Page({
   },
   PickerChange(e) {
     console.log(e);
-
     this.setData({
-      index: e.detail.value,
+      type_index: e.detail.value,
       picker_id: e.currentTarget.dataset.id
     })
   },
@@ -170,7 +170,7 @@ Page({
    */
   onLoad(options) {
     var that = this;
-    var pickerValue = [];
+    var picker_type = [];
     wx.request({
       url: app.globalData.apiUri + 'work_type/',
       success: function (res) {
@@ -178,11 +178,11 @@ Page({
         if (res.statusCode == 200 && res.data.length > 0) {
           for (var i = 0; i < res.data.length; i++) {
             // console.log(res.data[i].name)
-            pickerValue[i] = res.data[i].name;
+            picker_type[i] = res.data[i].name;
           }
           that.setData({
-            pickerValue: pickerValue,
-            picker: res.data
+            picker_type: picker_type,
+            work_type: res.data
           })
         } else {
           console.log("工单类型获取失败")

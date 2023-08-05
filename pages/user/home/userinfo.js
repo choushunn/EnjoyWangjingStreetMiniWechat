@@ -5,8 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl:app.globalData.defaultAvatarUrl,
-    userinfo:wx.getStorageSync('userinfo')
+    avatarUrl: app.globalData.defaultAvatarUrl,
+    userinfo: wx.getStorageSync('userinfo')
+  },
+  changeNickname(e) {
+    console.log(e)
+    var formData = e.detail.value
+  },
+  chooseImage: function () {
+    var that = this
+    wx.chooseMedia({
+      count: 1, // 只能选择一张图片
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'], // 从相册选择
+      sizeType: ['compressed'],
+      success: function (res) {
+        // 选择成功后的逻辑处理
+        var tempFilePath = res.tempFiles[0].tempFilePath;
+        // console.log(tempFilePath)
+        wx.cropImage({
+          src: tempFilePath, // 图片路径
+          cropScale: '16:9', // 裁剪比例
+          success(res) {
+            console.log(res)
+            // 将选择的图片路径赋值给avatarUrl变量
+            that.setData({
+              avatarUrl: res.tempFilePath
+            });
+            // 上传到服务器
+          }
+        })
+      }
+    })
   },
   // 修改信息模态框
   showModal(e) {
@@ -18,23 +48,12 @@ Page({
     this.setData({
       modalName: null
     })
-  },  
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    const userinfo = wx.getStorageSync('userinfo');
-    if (userinfo) {
-      this.setData({
-        userinfo:userinfo,
-        avatarUrl:userinfo.avatar
-      });
-    }else{
-      this.setData({
-        userinfo:'',
-        avatarUrl:app.globalData.defaultAvatarUrl
-      });
-    }
+   
   },
 
   /**
@@ -48,7 +67,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    const userinfo = wx.getStorageSync('userinfo');
+    if (userinfo) {
+      this.setData({
+        userinfo: userinfo,
+        avatarUrl: userinfo.avatar
+      });
+    } else {
+      this.setData({
+        userinfo: '',
+        avatarUrl: app.globalData.defaultAvatarUrl
+      });
+    }
   },
 
   /**

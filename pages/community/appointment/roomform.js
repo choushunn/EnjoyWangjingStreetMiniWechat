@@ -5,11 +5,6 @@ var now = new Date();
 var year = now.getFullYear();
 var month = now.getMonth() + 1;
 var day = now.getDate();
-var hour = now.getHours();
-var minute = now.getMinutes();
-var second = now.getSeconds();
-// 将时间格式化为字符串
-var timeStr = hour + ':' + minute;
 var dateStr = year + '-' + month + '-' + day;
 Page({
 
@@ -17,38 +12,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    time: timeStr,
-    date: dateStr,
-    startTime: "09:00",
-    endTime: "17:00",
-    picker: null,
-    type:0
+    date: null,
+    appointment_time: null,
+    picker_time: null,
+    time_index: 0,
+    appointment_type: null,
+    picker_type: null,
+    type_index: 0,
   },
-  TimeChange(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  DateChange(e) {
+  dateChange(e) {
     this.setData({
       date: e.detail.value
     })
   },
-  PickerChange(e) {
-    console.log(e);
+  typeChange(e) {
     this.setData({
-      type: e.detail.value
+      type_index: e.detail.value
     })
-  },  
+  },
+  timeChange(e) {
+    this.setData({
+      time_index: e.detail.value
+    })
+  },
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
       user: wx.getStorageSync('userinfo').id,
-      title:'邻里空间预约',
+      title: '邻里空间预约',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
-    // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
@@ -59,6 +53,13 @@ Page({
         if (res.statusCode == 201) {
           wx.showToast({
             title: '提交成功',
+            success: function () {
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({
@@ -71,74 +72,6 @@ Page({
         // 处理失败提示信息
       }
     })
-  },
-  StartTimeChange: function(e) {
-    const startTime = new Date('1970/01/01 ' + e.detail.value).getTime(); // 将选择的开始时间转换为时间戳
-    const endTime = new Date('1970/01/01 ' + this.data.endTime).getTime(); // 将选择的结束时间转换为时间戳
-    if (startTime >= endTime) {
-      // 如果选择的开始时间晚于或等于结束时间，则弹出提示
-      wx.showToast({
-        title: '开始时间需早于结束时间',
-        icon: 'none'
-      });
-      // 将选择的时间重置为原来的值
-      this.setData({
-        startTime: this.data.startTime
-      });
-    } else if (startTime < new Date('1970/01/01 09:00').getTime()) {
-      // 如果选择的开始时间早于9:00，则弹出提示
-      wx.showToast({
-        title: '开始时间需在9:00之后',
-        icon: 'none'
-      });
-      // 将选择的时间重置为9:00
-      this.setData({
-        startTime: '09:00'
-      });
-    } else {
-      // 显示当前选择的开始时间
-      wx.showToast({
-        title: '开始时间为 ' + e.detail.value,
-        icon: 'none'
-      });
-      this.setData({
-        startTime: e.detail.value
-      });
-    }
-  },
-  EndTimeChange: function(e) {
-    const startTime = new Date('1970/01/01 ' + this.data.startTime).getTime(); // 将选择的开始时间转换为时间戳
-    const endTime = new Date('1970/01/01 ' + e.detail.value).getTime(); // 将选择的结束时间转换为时间戳
-    if (endTime <= startTime) {
-      // 如果选择的结束时间早于或等于开始时间，则弹出提示
-      wx.showToast({
-        title: '结束时间需晚于开始时间',
-        icon: 'none'
-      });
-      // 将选择的时间重置为原来的值
-      this.setData({
-        endTime: this.data.endTime
-      });
-    } else if (endTime > new Date('1970/01/01 17:00').getTime()) {
-      // 如果选择的结束时间晚于17:00，则弹出提示
-      wx.showToast({
-        title: '结束时间需在17:00之前',
-        icon: 'none'
-      });
-      // 将选择的时间重置为17:00
-      this.setData({
-        endTime: '17:00'
-      });
-    } else {
-      // 显示当前选择的结束时间
-      wx.showToast({
-        title: '结束时间为 ' + e.detail.value,
-        icon: 'none'
-      });
-      this.setData({
-        endTime: e.detail.value
-      });
-    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -158,7 +91,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    var that = this
+    // 获取预约时间放到picker_tiem数组
+    var picker_time = []
+    wx.request({
+      url: app.globalData.apiUri + 'appointment_time/',
+      success(res) {
+        console.log("可用预约时间:", res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            picker_time[i] = res.data[i].time
+          }
+          that.setData({
+            picker_time: picker_time,
+            appointment_time: res.data
+          })
+        }
+      }
+    })
+    // 获取预约事项放到picker_type数组
+    var picker_type = []
+    wx.request({
+      url: app.globalData.apiUri + 'appointment_type/',
+      success(res) {
+        console.log("可用预约类型:", res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            picker_type[i] = res.data[i].name
+          }
+          that.setData({
+            picker_type: picker_type,
+            appointment_type: res.data
+          })
+        }
+      }
+    })
   },
 
   /**

@@ -1,15 +1,10 @@
-// pages/community/appointment/equipment/equipment.js
+// pages/community/appointment/playroom/playroom.js
 const app = getApp();
 var now = new Date();
 // 格式化时间
 var year = now.getFullYear();
 var month = now.getMonth() + 1;
 var day = now.getDate();
-var hour = now.getHours();
-var minute = now.getMinutes();
-var second = now.getSeconds();
-// 将时间格式化为字符串
-var timeStr = hour + ':' + minute;
 var dateStr = year + '-' + month + '-' + day;
 Page({
 
@@ -17,29 +12,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: dateStr,
-    picker:null,
-    time:null,
+    date: null,
+    appointment_time: null,
+    picker_time: null,
+    time_index: 0,
+    appointment_type: null,
+    picker_type: null,
+    type_index: 0,
   },
-  TimeChange(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  DateChange(e) {
+  dateChange(e) {
     this.setData({
       date: e.detail.value
+    })
+  },
+  typeChange(e) {
+    this.setData({
+      type_index: e.detail.value
+    })
+  },
+  timeChange(e) {
+    this.setData({
+      time_index: e.detail.value
     })
   },
   onSubmit: function (event) {
     const formData = event.detail.value;
     const extraData = {
-      user: wx.getStorageSync('userinfo').id
+      user: wx.getStorageSync('userinfo').id,
+      title: '邻里空间预约',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
-    // todo:需要校验表单数据
-    // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
@@ -49,7 +52,14 @@ Page({
         // 处理成功提示信息
         if (res.statusCode == 201) {
           wx.showToast({
-            title: '提交成功，请到个人中心查看详情',
+            title: '提交成功',
+            success: function () {
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
+            }
           })
         } else {
           wx.showToast({
@@ -63,12 +73,11 @@ Page({
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // 获取可用的预约事项
+
   },
 
   /**
@@ -82,7 +91,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    var that = this
+    // 获取预约时间放到picker_tiem数组
+    var picker_time = []
+    wx.request({
+      url: app.globalData.apiUri + 'appointment_time/',
+      success(res) {
+        console.log("可用预约时间:", res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            picker_time[i] = res.data[i].time
+          }
+          that.setData({
+            picker_time: picker_time,
+            appointment_time: res.data
+          })
+        }
+      }
+    })
+    // 获取预约事项放到picker_type数组
+    var picker_type = []
+    wx.request({
+      url: app.globalData.apiUri + 'appointment_type/',
+      success(res) {
+        console.log("可用预约类型:", res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          for (var i = 0; i < res.data.length; i++) {
+            picker_type[i] = res.data[i].name
+          }
+          that.setData({
+            picker_type: picker_type,
+            appointment_type: res.data
+          })
+        }
+      }
+    })
   },
 
   /**

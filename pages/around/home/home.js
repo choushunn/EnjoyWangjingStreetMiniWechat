@@ -20,14 +20,14 @@ Component({
     swiperCurrent: 0, // 当前卡片索引
     // 搜索地点相关
     hot_list: ["餐饮", "学校", "商店", "其他"],
+    mapCtx:''
   },
   lifetimes: {
     created: function () {
       wx.request({
         url: app.globalData.apiUri + 'system_params/?key=qqmapkey',
         success(res) {
-          var key = res.data[0].value
-          
+          // var key = res.data[0].value
         }
       })
     // 实例化API核心类
@@ -38,9 +38,20 @@ Component({
     attached: function () {
       // 开始获取位置信息
       this.startLocation()
+      this.mapCtx = wx.createMapContext('myMap')
     },
   },
   methods: {
+    toAddress(e){
+      console.log(e.currentTarget.dataset.item)
+      var item =e.currentTarget.dataset.item
+      wx.openLocation({
+        'latitude': item.location.lat,
+        'longitude': item.location.lng,
+        scale: 28,
+        name: item.address, //打开后显示的地址名称
+      })
+    },
     // 跳转到详情页
     toDetail(e) {
       console.log(e)
@@ -59,7 +70,7 @@ Component({
       })
       var that = this;
       // 开始监听位置变化
-      wx.startLocationUpdateBackground({
+      wx.startLocationUpdate({
         success: function () {
           // 监听位置变化
           wx.onLocationChange(function (res) {
@@ -92,6 +103,12 @@ Component({
                 longitude: longitude,
                 get_poi: 1,
                 success: function (res) {
+                  // wx.openLocation({
+                  //   latitude: latitude,
+                  //   longitude:latitude,
+                  //   scale: 18
+                  // })
+                  
                   console.log("逆地址解析：", res.result)
                   var _res = res.result;
                   wx.setStorageSync('markersData', _res.pois)

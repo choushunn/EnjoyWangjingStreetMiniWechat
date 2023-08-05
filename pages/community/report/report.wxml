@@ -51,7 +51,7 @@
       图片上传
     </view>
     <view class="action" style="font-size: 30rpx;">
-      {{imgList.length}}/4
+      {{imgList.length}}/9
     </view>
   </view>
   <view class="cu-form-group">

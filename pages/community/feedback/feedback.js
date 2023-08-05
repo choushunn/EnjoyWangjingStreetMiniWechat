@@ -22,6 +22,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
+      sizeType:['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
@@ -35,7 +36,6 @@ Page({
             duration: item.duration || 0
           };
         });
-
         // 将选择的媒体文件添加到imgList中
         const imgList = this.data.imgList.concat(mediaList);
         this.setData({

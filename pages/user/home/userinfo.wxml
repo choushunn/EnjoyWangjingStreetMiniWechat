@@ -10,19 +10,19 @@
       <text class="cuIcon-emojiflashfill text-pink"></text>
       <text class="text-grey">我的头像</text>
     </view>
-    <view class="action">
-      <view class="cu-avatar-group padding">
+    <view class="action" bindtap="chooseImage">
+      <view class="padding">
         <!-- 头像显示 -->
-        <view class="cu-avatar round lg" style="background-image:url({{avatarUrl}});"></view>
+        <image mode="aspectFill" class="cu-avatar round lg" src="{{avatarUrl}}"></image>
       </view>
     </view>
   </view>
   <!-- 昵称 -->
-  <view class="cu-item arrow" bindtap="showModal" data-target="DialogModal1">
-    <navigator class="content" hover-class="none" url="" open-type="redirect">
+  <view class="cu-item arrow" bindtap="showModal" data-target="nicknameModal">
+    <view class="content" >
       <text class="cuIcon-my text-orange"></text>
       <text class="text-grey">昵称</text>
-    </navigator>
+    </view>
     <view class="action">
       <text class="text-black text-lg">{{userinfo.nickname}}</text>
     </view>
@@ -80,7 +80,8 @@
     </view>
   </view>
 </view>
-<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+
+<view class="cu-modal {{modalName=='nicknameModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">修改昵称</view>
@@ -88,17 +89,16 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
+    <form bindsubmit="changeNickname">    
     <view class="margin padding-xl text-left">
-      <input type="text" placeholder="请输入昵称" />
+      <input name="nickname" type="text" placeholder="请输入昵称" />
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
         <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" bindtap="hideModal">确定</button>
+        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
       </view>
     </view>
+  </form>
   </view>
 </view>
-
-<!-- 邮箱地址 -->
-<!-- 身份证号 -->

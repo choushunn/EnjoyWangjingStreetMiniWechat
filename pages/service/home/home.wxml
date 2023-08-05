@@ -12,8 +12,32 @@
 <view class="cu-bar bg-white solid-bottom" style="top:{{CustomBar}}rpx;">
 </view>
 <!-- 功能列表 -->
-<view wx:for="{{categories}}" wx:key="title">
+<view >
   <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-red'></text> 生活缴费
+    </view>
+  </view>
+  <!-- 功能区 -->
+  <view class="grid col-3 bg-white padding-sm solid-bottom">
+    <view class="padding-sm"  >
+      <view class="bg-cyan padding radius-social text-center light" bindtap="toMini">
+        <text class='cuIcon-card' style="font-size: 30px;"></text>
+        <view class="text-lg">电费</view>
+      </view>
+    </view>
+    <view class="padding-sm"  >
+      <view class="bg-red padding radius-social text-center light" bindtap="toMini">
+        <text class='cuIcon-card' style="font-size: 30px;"></text>
+        <view class="text-lg">水费</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 功能列表 -->
+<view wx:for="{{categories}}" wx:key="title">
+  <view class="cu-bar bg-white solid-bottom"  bindtap="toMini">
     <view class='action'>
       <text class='cuIcon-titles text-{{item.iconColor}}'></text> {{item.title}}
     </view>

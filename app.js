@@ -17,6 +17,9 @@ App({
   },
   // 启动时
   onLaunch: function () {
+    wx.setStorageSync('markersData', '')
+    wx.setStorageSync('markers', '')
+    wx.setStorageSync('currentTextData', '')
     const that = this;
     // 检查 API 是否可用
     wx.request({

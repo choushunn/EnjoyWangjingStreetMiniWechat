@@ -15,10 +15,10 @@ Page({
   onLoad(options) {
     var that = this
     wx.request({
-      url: app.globalData.apiUri + 'telephone/',
+      url: app.globalData.apiUri + 'consult_phone/',
       method: 'GET',
       success(res) {
-        if (res.statusCode == 200) {
+        if (res.statusCode == 200 && res.data.length>0) {
           console.log("咨询电话获取成功：",res.data)
           var items = res.data
           // 读取成功      

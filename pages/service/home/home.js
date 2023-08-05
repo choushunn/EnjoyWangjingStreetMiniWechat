@@ -3,33 +3,7 @@ const app = getApp();
 Component({
   data: {
     CustomBar: app.globalData.CustomBar,
-    categories: [{
-        "title": "生活缴费",
-        "iconColor": "orange",
-        elements: [{
-            title: '电费',
-            name: 'layout',
-            color: 'cyan',
-            icon: 'newsfill',
-            url: ''
-          },
-          {
-            title: '水费',
-            name: 'background',
-            color: 'blue',
-            icon: 'servicefill',
-            url: ''
-          },
-
-          {
-            title: '其他费 ',
-            name: 'icon',
-            color: 'mauve',
-            icon: 'moneybag',
-            url: ''
-          },
-        ],
-      },
+    categories: [
       {
         "title": "社区服务",
         "iconColor": "blue",
@@ -38,14 +12,14 @@ Component({
             name: 'background',
             color: 'blue',
             icon: 'wefill',
-            url: '/pages/community/appointment/playroom/playroom'
+            url: '/pages/community/appointment/roomform'
           },
           {
             title: '在线咨询 ',
             name: 'icon',
             color: 'pink',
             icon: 'post',
-            url: '/pages/community/consult/form'
+            url: '/pages/community/consult/consult'
           },
           {
             title: '意见反馈 ',
@@ -92,7 +66,7 @@ Component({
             name: 'icon',
             color: 'green',
             icon: 'sound',
-            url: '/pages/community/repair/repair'
+            url: '/pages/community/work/work'
           },
           {
             title: '社区活动',
@@ -151,7 +125,19 @@ Component({
     }
   },
   methods: {
-
+toMini(e){
+  wx.navigateToMiniProgram({
+    appId: 'wx5899bdb8721621d6',
+    path: 'page/index/index',
+    extraData: {
+      foo: 'bar'
+    },
+    envVersion: 'release',
+    success(res) {
+      // 打开成功
+    }
+  })
+},
     searchIcon(e) {
       console.log("搜索....")
     },

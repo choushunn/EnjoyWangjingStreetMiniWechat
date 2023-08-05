@@ -15,6 +15,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
+      sizeType:['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
