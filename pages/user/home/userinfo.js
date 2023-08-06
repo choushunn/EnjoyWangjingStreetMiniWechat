@@ -11,6 +11,14 @@ Page({
   changeNickname(e) {
     console.log(e)
     var formData = e.detail.value
+    wx.request({
+      url: 'url',
+      method:'PUT',
+      data:formData,
+      success(res){
+          console.log(res)
+      }
+    })
   },
   chooseImage: function () {
     var that = this

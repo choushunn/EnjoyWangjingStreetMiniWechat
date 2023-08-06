@@ -18,7 +18,7 @@ Page({
     wx.login({
       success: (res) => {
         wx.request({
-          url: app.globalData.apiUri + 'login/',
+          url: app.globalData.apiUri + 'user/',
           method: 'POST',
           data: {
             js_code: res.code,
@@ -77,7 +77,7 @@ Page({
       wx.login({
         success: res => {
           wx.uploadFile({
-            url: app.globalData.apiUri + 'login/',
+            url: app.globalData.apiUri + 'user/',
             filePath: this.data.avatarUrl,
             name: 'avatar',
             formData: {

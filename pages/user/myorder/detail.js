@@ -1,4 +1,5 @@
 // pages/user/myorder/detail.js
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -7,7 +8,8 @@ Page({
     count: 5,
     active: 0,
     score: 1,
-    item:''
+    item:'',
+    apiUri:app.globalData.apiUri
   },
   /**
    * 点击评分
