@@ -18,7 +18,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
-      sizeType:['compressed'],
+      sizeType: ['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
@@ -111,25 +111,20 @@ Page({
         duration: 1500
       })
     }
-    const extraData = {
-      // 必须加上用户id
-      user: wx.getStorageSync('userinfo').id,
-    };
-    const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
-
+    const data = Object.assign({}, formData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
       url: app.globalData.apiUri + 'work/',
-      header:{
-        "authorization":"Bearer "+ wx.getStorageSync('token')
+      header: {
+        "authorization": "Bearer " + wx.getStorageSync('token')
       },
       method: 'POST',
       data: data,
       success: function (res) {
         console.log("居民服务表单提交数据：", res); // 打印后端API返回的数据
         // 处理成功提示信息
-        if (res.statusCode == 201) {          
+        if (res.statusCode == 201) {
           var ticket_id = res.data.id
           var images = that.data.imgList
           for (var i = 0; i < images.length; i++) {
@@ -140,19 +135,19 @@ Page({
               formData: {
                 'ticket': ticket_id
               },
-              success(res){
+              success(res) {
                 console.log(res)
                 wx.showToast({
                   title: '提交成功',
                   success(res) {
                     console.log(res)
-                    setTimeout(function() {
+                    setTimeout(function () {
                       wx.navigateBack({
-                       delta:1
+                        delta: 1
                       })
                     }, 1000);
                   },
-                  fail(res){
+                  fail(res) {
                     wx.showToast({
                       title: '提交失败',
                     })
@@ -160,7 +155,7 @@ Page({
                 })
               }
             })
-          }         
+          }
         } else {
           wx.showToast({
             title: '提交失败',
@@ -173,10 +168,48 @@ Page({
       }
     })
   },
+  toMyDetail() {
+    wx.navigateTo({
+      url: '/pages/user/myorder/myorder',
+    })
+  },
+  chooseAddress() {
+    var that = this
+    wx.choosePoi({
+      success(res) {
+        console.log(res)
+        that.setData({
+          address: res.address
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var token = wx.getStorageSync('token')
+    if (!token) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'error',
+        success() {
+          console.log("正在跳转至登录页面")
+        }
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {
     var that = this;
     var picker_type = [];
     wx.request({
@@ -197,35 +230,6 @@ Page({
         }
       }
     })
-  },
-  toMyDetail() {
-    wx.navigateTo({
-      url: '/pages/user/myorder/myorder',
-    })
-  },
-  chooseAddress(){
-    var that =this
-    wx.choosePoi({
-      success(res) {
-        console.log(res)
-        that.setData({
-          address:res.address
-        })
-      }
-    })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
   },
 
   /**

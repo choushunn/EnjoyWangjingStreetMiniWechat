@@ -29,17 +29,18 @@ Page({
             if (res.statusCode === 200) {
               // 登录成功，设置全局用户信息
               wx.setStorageSync('token', response.access);
-              
-              // 跳转到首页
-              wx.reLaunch({
-                url: '/pages/index/index',
+              wx.showToast({
+                title: "登录成功！",
+                icon: 'success',
                 success(){
-                  wx.showToast({
-                    title: "登录成功！",
-                    icon: 'success',
-                  });
+                  setTimeout(function(){
+                    wx.reLaunch({
+                      url: '/pages/index/index',              
+                    })
+                  },1000)                
                 }
-              })
+              });
+              
             } else if(res.statusCode==406){
               // 跳转到首页
               wx.showToast({

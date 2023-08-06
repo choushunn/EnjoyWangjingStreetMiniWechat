@@ -97,7 +97,7 @@ Component({
     ]
   },
   lifetimes: {
-    attached() {
+    created(){
       var that = this
       wx.request({
         url: app.globalData.apiUri + 'user/',
@@ -117,6 +117,9 @@ Component({
           console.log("当前用户未登录")
         }
       })
+    },
+    attached() {
+
     }
   },
   methods: {
@@ -136,8 +139,7 @@ Component({
       })
     },
     onLogout() {
-      // 刷新页面
-      
+      // 刷新页面      
       wx.showModal({
         title: '退出登录',
         content: '',
@@ -149,15 +151,18 @@ Component({
           if (res.confirm) {
             console.log('用户点击确定')
             wx.removeStorageSync('token')
-            wx.reLaunch({
-              url: '/pages/index/index',
+            wx.showToast({
+              title: "退出成功！",
+              icon: 'success',
               success(){
-                wx.showToast({
-                  title: "退出成功！",
-                  icon: 'success',
-                });
+                setTimeout(function(){
+                  wx.reLaunch({
+                    url: '/pages/index/index',              
+                  })
+                },1000)                
               }
-            })
+            });
+            
           }
         }
       })

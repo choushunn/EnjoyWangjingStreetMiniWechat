@@ -75,7 +75,6 @@ Page({
       })
     }
     const extraData = {
-      user: wx.getStorageSync('userinfo').id,
       title: '服务事项预约',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
@@ -113,16 +112,25 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
-  },
   toMyDetail() {
     wx.navigateTo({
       url: '/pages/user/myappointment/myappointment',
     })
+  },
+    /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    var token = wx.getStorageSync('token')
+    if (!token) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'error',
+        success() {
+          console.log("正在跳转至登录页面")
+        }
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
