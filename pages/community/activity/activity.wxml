@@ -13,7 +13,7 @@
             {{item.title}}
           </view>
           <view class="padding-xs">
-            {{item.content}}
+            {{item.summary}}
           </view>
         </view>
       </view>

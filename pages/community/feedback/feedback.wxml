@@ -3,6 +3,14 @@
   <view slot="backText">返回</view>
   <view slot="content">意见反馈</view>
 </cu-custom>
+<view class="cu-bar bg-white solid-bottom margin-tb-sm" bindtap="toMyDetail">
+  <view class='action'>
+    <text class='cuIcon-right text-blue'></text><text>查看我的反馈记录</text>
+  </view>
+  <view class='action'>
+    <text class='cuIcon-forward text-blue '></text>
+  </view>
+</view>
 <!-- 标题栏 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
@@ -17,7 +25,7 @@
 <form class="bg-white" bindsubmit="onSubmit">
   <!-- 意见描述 -->
   <view class="cu-form-group solid-top">
-    <view class="title">意见描述</view>
+    <view class="title"><text class="text-red">*</text>意见描述</view>
   </view>
   <view class="cu-form-group padding">
     <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入您的建议,我们将及时回复您"></textarea>
@@ -25,7 +33,7 @@
   <!-- 图片/视频上传 -->
   <view class="cu-bar bg-white solid-top">
     <view class="action">
-      图片上传
+      图片上传(最多上传9张图)
     </view>
     <view class="action" style="font-size: 30rpx;">
       {{imgList.length}}/9
@@ -33,7 +41,7 @@
   </view>
   <view class="cu-form-group">
     <view class="grid col-4 grid-square flex-sub">
-      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="id">
         <image class="" mode="aspectFill" src="{{item.path}}" bindtap="previewImage" data-src="{{item.path}}" />
         <view class="cu-tag bg-red" bindtap="deleteImage" data-index="{{index}}">删除</view>
       </view>

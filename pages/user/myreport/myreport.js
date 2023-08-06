@@ -1,52 +1,62 @@
-// pages/community/activity/activity.js
+// pages/user/myorder/myorder.js
 const app = getApp();
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    items:''
+    TabCur: 0,
+    scrollLeft: 0,
+    scroll: 0,
+    items: '',
+    userinfo: wx.getStorageSync('userinfo'),
   },
-  showHelp: function () {
-    wx.showModal({
-      title: '帮助信息',
-      content: '社区活动列表',
-      showCancel: false,
-    });
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
   },
   // 跳转到详情页面
-  toDetail(e){
+  toDetail(e) {
     console.log(e)
     var id = e.currentTarget.dataset.item.id
     var item = JSON.stringify(e.currentTarget.dataset.item)
     // 跳转到详情页面
     wx.navigateTo({
-      url: '/pages/community/activity/detail?id=' + id + '&item=' + item,
+      url: '/pages/user/myorder/detail?id=' + id + '&item=' + item,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    var that = this
+    var that = this;
+    const extraData = {
+      
+    };
     wx.request({
-      url: app.globalData.apiUri + 'activity/',
+      url: app.globalData.apiUri + 'report/by_user/?ordering=-created_at',
       method: 'GET',
+      data: extraData,
+      header:{
+        "authorization":"Bearer "+ wx.getStorageSync('token')
+      },
       success(res) {
-        if (res.statusCode == 200 && res.data.length>0) {
-          console.log("活动信息获取成功", res.data)
-          var items = res.data
-          if (res.statusCode==200) {
-            that.setData({
-              items: items
-            })
-          }else{
-            // 获取失败
-          }
+        console.log("我的上报数据获取成功", res.data)
+        var items = res.data
+        if (res.statusCode == 200 && res.data.length > 0) {
+          that.setData({
+            items: items
+          })
+        } else {
+          // 获取失败
         }
       }
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

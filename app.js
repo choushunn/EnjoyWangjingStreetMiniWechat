@@ -9,17 +9,45 @@ App({
     StatusBar: 0,
     Custom: null,
     CustomBar: 0,
-    // apiUri: "http://139.155.139.25:8000/api/v1/", // 配置 API 地址
+    apiUri: "http://139.155.139.25:8000/api/v1/", // 配置 API 地址
     // apiUri:"https://api.enjoywangjing.cn",
-    apiUri: "http://192.168.121.138:8000/api/v1/",
+    // apiUri: "http://192.168.121.138:8000/api/v1/",
     // 默认头像
     defaultAvatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
   },
   // 启动时
   onLaunch: function () {
+    // 小程序自动更新
+if (wx.canIUse("getUpdateManager")) {
+  const updateManager = wx.getUpdateManager()
+  updateManager.onCheckForUpdate(function (res) {
+    console.log("版本更新：",res)
+    // 请求完新版本信息的回调
+    if (res.hasUpdate) {
+      updateManager.onUpdateReady(function () {
+        wx.showModal({
+          title: "更新提示",
+          content: "新版本已经准备好，是否重启应用？",
+          success: function (res) {
+            if (res.confirm) {
+              // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+              updateManager.applyUpdate()
+            }
+          }
+        })
+      })
+      updateManager.onUpdateFailed(function () {
+        // 新的版本下载失败
+        wx.showModal({
+          title: "已经有新版本了哟~",
+          content: "新版本已经上线啦~，请您删除当前小程序，重新搜索打开哟~"
+        })
+      })
+    }
+  })
+}
     wx.setStorageSync('markersData', '')
     wx.setStorageSync('markers', '')
-    wx.setStorageSync('currentTextData', '')
     const that = this;
     // 检查 API 是否可用
     wx.request({

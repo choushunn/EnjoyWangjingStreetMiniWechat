@@ -1,7 +1,7 @@
 <!--pages/user/myfeedback/myfeedback.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">我的反馈</view>
+  <view slot="content">我的上报</view>
 </cu-custom>
 <!-- 类别切换 -->
 <scroll-view scroll-x class="bg-white nav text-left text-lg">
@@ -16,15 +16,15 @@
   </view>
 </scroll-view>
 
-<view wx:if="{{messageData}}">
+<view wx:if="{{items}}}">
   <!-- 消息列表 -->
-  <block wx:for="{{messageData}}" wx:key="id">
+  <block wx:for="{{items}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
       <view class="cu-card article no-card margin-sm" bindtap="toDetail" data-item="{{item}}">
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">
-              <view class="text-cut">我的反馈记录</view>
+              <view class="text-cut">{{item.title}}</view>
               <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待进行':'已结束'}}</view>
             </view>
           </view>
@@ -32,7 +32,7 @@
             <view class="desc">
               <view class="text-content solid-bottom">{{item.content}}</view>
               <view class="flex justify-between margin-top-sm">
-                <view class="light text-sm round">反馈记录</view>
+                <view class="light text-sm round">问题上报记录</view>
                 <view class="light text-sm round">{{item.created_at}}</view>
               </view>
             </view>

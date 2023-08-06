@@ -7,8 +7,8 @@ Page({
    */
   data: {
     imgList: [],
-    index:''
-  },  
+    index: ''
+  },
   showHelp: function () {
     wx.showModal({
       title: '帮助信息',
@@ -22,7 +22,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
-      sizeType:['compressed'],
+      sizeType: ['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
@@ -70,7 +70,7 @@ Page({
       urls
     });
   },
-  checkboxChange: function(event) {
+  checkboxChange: function (event) {
     // 获取被勾选的checkbox的值
     var checkedValues = event.detail.value;
     // 将勾选的值存储到页面的data对象中
@@ -82,7 +82,7 @@ Page({
     var that = this
     const formData = event.detail.value;
     const extraData = {
-      
+
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
@@ -91,10 +91,10 @@ Page({
       url: app.globalData.apiUri + 'feedback/',
       method: 'POST',
       data: data,
-      header:{
-        "authorization":"Bearer "+ wx.getStorageSync('token')
+      header: {
+        "authorization": "Bearer " + wx.getStorageSync('token')
       },
-      success: function (res) { 
+      success: function (res) {
         console.log(res); // 打印后端API返回的数据
         // 处理成功提示信息
         if (res.statusCode == 201) {
@@ -108,19 +108,19 @@ Page({
               formData: {
                 'feedback': feedback_id
               },
-              success(res){
-                console.log(res)               
+              success(res) {
+                console.log(res)
               }
             })
-          }  
+          }
           // 上传图像
           wx.showToast({
             title: '提交成功',
-            icon:'success',
-            success: function() {
-              setTimeout(function() {
+            icon: 'success',
+            success: function () {
+              setTimeout(function () {
                 wx.navigateBack({
-                 delta:1
+                  delta: 1
                 })
               }, 1000);
             }
@@ -128,7 +128,7 @@ Page({
         } else {
           wx.showToast({
             title: '提交失败',
-            icon:'error'
+            icon: 'error'
           })
         }
       },
@@ -138,9 +138,11 @@ Page({
       }
     })
   },
-
-
-
+  toMyDetail() {
+    wx.navigateTo({
+      url: '/pages/user/myfeedback/myfeedback',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

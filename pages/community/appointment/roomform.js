@@ -38,6 +38,37 @@ Page({
   },
   onSubmit: function (event) {
     const formData = event.detail.value;
+    if (formData.name.length == 0) {
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    if (formData.phone.length == 0) {
+      wx.showToast({
+        title: '检查电话号码',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } else if (formData.phone.length < 11) {
+      wx.showToast({
+        title: '手机号长度有误！',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } else if (!myreg.test(formData.phone)) {
+      wx.showToast({
+        title: '手机号有误！',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    } 
+
     const extraData = {
       user: wx.getStorageSync('userinfo').id,
       title: '邻里空间预约',
@@ -83,7 +114,11 @@ Page({
   onLoad(options) {
 
   },
-
+  toMyDetail() {
+    wx.navigateTo({
+      url: '/pages/user/myappointment/myappointment',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

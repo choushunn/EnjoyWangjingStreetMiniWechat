@@ -4,7 +4,6 @@ const app = getApp();
 Page({
   //  页面的初始数据
   data: {
-    userinfo: app.globalData.userinfo,
     avatarUrl: app.globalData.defaultAvatarUrl,
     nickname: "",
     modalName: '',
@@ -13,12 +12,13 @@ Page({
   },
   // 点击登录按钮
   onLogin() {
-    console.log("直接登录")
+    console.log("尝试直接登录")
+    var that =this
     // 尝试自动登录
     wx.login({
       success: (res) => {
         wx.request({
-          url: that.globalData.apiUri + 'login/',
+          url: app.globalData.apiUri + 'login/',
           method: 'POST',
           data: {
             js_code: res.code,
@@ -29,18 +29,29 @@ Page({
             if (res.statusCode === 200) {
               // 登录成功，设置全局用户信息
               wx.setStorageSync('token', response.access);
-
-              setTimeout(function () {
-                wx.showToast({
-                  title: "登录成功！",
-                  icon: 'success',
-                });
-              }, 1000);
+              
               // 跳转到首页
-              wx.navigateTo({
+              wx.reLaunch({
                 url: '/pages/index/index',
+                success(){
+                  wx.showToast({
+                    title: "登录成功！",
+                    icon: 'success',
+                  });
+                }
+              })
+            } else if(res.statusCode==406){
+              // 跳转到首页
+              wx.showToast({
+                title: "请先注册！",
+                icon: 'success',
               });
-            } else {
+              setTimeout(function () {
+                that.setData({
+                  modalName: "Modal"
+                })
+              }, 500);              
+            }else {
               // 登录失败，清除用户信息
               wx.removeStorageSync('token')
             }
@@ -52,7 +63,6 @@ Page({
         })
       },
     })
-
   },
   // 获取用户手机号码
   getPhoneNumber(e) {
@@ -66,7 +76,7 @@ Page({
       wx.login({
         success: res => {
           wx.uploadFile({
-            url: app.globalData.apiUri + 'user/',
+            url: app.globalData.apiUri + 'login/',
             filePath: this.data.avatarUrl,
             name: 'avatar',
             formData: {
@@ -77,8 +87,8 @@ Page({
             success: function (res) {
               console.log('注册返回信息：', res)
               if (res.statusCode === 201) {
-                var response_data = JSON.parse(res.data)
-                console.log('注册接口返回的信息：', response_data)
+                var response = JSON.parse(res.data)
+                console.log('注册接口返回的信息：', response)
                 // 登录成功，设置全局用户信息
                 wx.setStorageSync('token', response.access);
                 setTimeout(function () {
@@ -88,9 +98,9 @@ Page({
                   });
                 }, 1000);
                 // 跳转到首页
-                wx.navigateTo({
+                wx.reLaunch({
                   url: '/pages/index/index',
-                });
+                })
               } else {
                 // 注册失败，弹出错误提示
                 wx.showToast({
@@ -101,16 +111,16 @@ Page({
             },
             fail: () => {
               wx.showToast({
-                title: '登录失败,401',
-                icon: 'none',
+                title: '登录失败，请选择头像',                
+                icon: 'error',
               });
             },
           })
         },
         fail: () => {
           wx.showToast({
-            title: '登录失败,402',
-            icon: 'none',
+            title: '系统维护中',
+            icon: 'error',
           });
         },
       });
@@ -145,17 +155,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // 判断用户是否已经注册
-    if (this.data.userinfo) {
-      // 已经注册直接登录
-      console.log("已经注册，可以直接登录")
-    } else {
-      // 弹出模态框，进行注册
-      console.log("没有注册,弹出注册Modal")
-      this.setData({
-        modalName: "Modal"
-      })
-    }
+  
   },
   // 显示模态框
   showModal(e) {

@@ -21,15 +21,21 @@
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-sm solid-bottom">
     <view class="padding-sm"  >
-      <view class="bg-cyan padding radius-social text-center light" bindtap="toMini">
+      <view class="bg-cyan padding radius-social text-center light" bindtap="toMini" data-appid="wx5899bdb8721621d6">
         <text class='cuIcon-card' style="font-size: 30px;"></text>
         <view class="text-lg">电费</view>
       </view>
     </view>
     <view class="padding-sm"  >
-      <view class="bg-red padding radius-social text-center light" bindtap="toMini">
+      <view class="bg-red padding radius-social text-center light" bindtap="toMini" data-appid="wx5899bdb8721621d6">
         <text class='cuIcon-card' style="font-size: 30px;"></text>
         <view class="text-lg">水费</view>
+      </view>
+    </view>
+    <view class="padding-sm"  >
+      <view class="bg-blue padding radius-social text-center light" bindtap="toMini" data-appid="wx2eec5fb00157a603">
+        <text class='cuIcon-card' style="font-size: 30px;"></text>
+        <view class="text-lg">政务服务</view>
       </view>
     </view>
   </view>

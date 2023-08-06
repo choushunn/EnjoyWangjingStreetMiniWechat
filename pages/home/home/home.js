@@ -12,7 +12,7 @@ Component({
         name: '办事指南',
         color: 'red',
         icon: 'newsfill',
-        url: '/pages/community/phone/phone'
+        url: '/pages/home/home/guideline'
       },
       {
         name: '社区活动',

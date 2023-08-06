@@ -7,7 +7,7 @@ Page({
    */
   data: {
     imgList: [],
-    index:0,
+    index: 0,
   },
   chooseMedia() {
     wx.chooseMedia({
@@ -15,7 +15,7 @@ Page({
       mediaType: ['image', 'video'],
       sourceType: ['album', 'camera'], //可以从相册或相机选择
       camera: 'back',
-      sizeType:['compressed'],
+      sizeType: ['compressed'],
       success: (res) => {
         console.log(res)
         const tempFiles = res.tempFiles;
@@ -108,13 +108,13 @@ Page({
       url: app.globalData.apiUri + 'report/',
       data: data,
       method: 'POST',
-      header:{
-        "authorization":"Bearer "+ wx.getStorageSync('token')
+      header: {
+        "authorization": "Bearer " + wx.getStorageSync('token')
       },
       success: function (res) {
         console.log(res); // 打印后端API返回的数据
-         // 处理成功提示信息
-         if (res.statusCode == 201) {          
+        // 处理成功提示信息
+        if (res.statusCode == 201) {
           var report_id = res.data.id
           var images = that.data.imgList
           for (var i = 0; i < images.length; i++) {
@@ -125,27 +125,27 @@ Page({
               formData: {
                 'report': report_id
               },
-              success(res){
-                console.log(res)               
+              success(res) {
+                console.log(res)
               }
             })
-          }    
+          }
           wx.showToast({
             title: '提交成功',
             success(res) {
               console.log(res)
-              setTimeout(function() {
+              setTimeout(function () {
                 wx.navigateBack({
-                 delta:1
+                  delta: 1
                 })
               }, 1000);
             },
-            fail(res){
+            fail(res) {
               wx.showToast({
                 title: '提交失败',
               })
             }
-          })     
+          })
         } else {
           wx.showToast({
             title: '提交失败',
@@ -157,7 +157,7 @@ Page({
         // 处理失败提示信息
         wx.showToast({
           title: '提交失败',
-          icon:'error'
+          icon: 'error'
         })
       }
     })
@@ -168,6 +168,22 @@ Page({
       content: '填写信息提交问题',
       showCancel: false,
     });
+  },
+  chooseAddress(){
+    var that =this
+    wx.choosePoi({
+      success(res) {
+        console.log(res)
+        that.setData({
+          address:res.address
+        })
+      }
+    })
+  },
+  toMyDetail(){
+    wx.navigateTo({
+      url: '/pages/user/myreport/myreport',
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -187,7 +203,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+   
   },
 
   /**

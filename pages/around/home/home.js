@@ -9,7 +9,7 @@ Component({
     // 地图相关  
     latitude: null,
     longitude: null, // 当前位置的经度
-    currentTextData: null, // 当前定位点的信息   
+    currentLocation: null, // 当前定位点的信息   
     markersData: null, // 获取到的周边POI数据
     markers: null, // 地图上的标记点
     hasLocations: false, // 是否已经获取过周边 POI 数据
@@ -19,8 +19,8 @@ Component({
     cardCur: 0,
     swiperCurrent: 0, // 当前卡片索引
     // 搜索地点相关
-    hot_list: ["餐饮", "学校", "商店", "其他"],
-    mapCtx:''
+    hot_list: ["餐饮", "学校", "商店", "医院", "酒店", "其他"],
+    mapCtx: ''
   },
   lifetimes: {
     created: function () {
@@ -30,21 +30,50 @@ Component({
           // var key = res.data[0].value
         }
       })
-    // 实例化API核心类
-    qqmapsdk = new QQMapWX({
-      key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
-    });
+      // 实例化API核心类
+      qqmapsdk = new QQMapWX({
+        key: 'NXOBZ-I3XHI-2L2GT-U2T6N-4QBDZ-ZKFAS'
+      });
     },
     attached: function () {
+
+    },
+    ready() {
+      var setting
+      wx.getSetting({
+        success(res) {
+          console.log(res)
+          setting = res
+          if (setting.authSetting['scope.userLocation']) {
+
+          }
+        }
+      })
       // 开始获取位置信息
       this.startLocation()
       this.mapCtx = wx.createMapContext('myMap')
-    },
+    }
   },
   methods: {
-    toAddress(e){
+    choosePoi(e) {
+      // wx.choosePoi({
+      //   success(res) {
+      //     console.log(res)
+      //   }
+      // })
+      var that = this
+      wx.chooseLocation({
+        latitude: that.data.currentLocation.latitude,
+        longitude: that.data.currentLocation.longitude,
+        success(res) {
+          console.log(res)
+        }
+      })
+    },
+    // 导航到某个地点
+    toAddress(e) {
       console.log(e.currentTarget.dataset.item)
-      var item =e.currentTarget.dataset.item
+      var item = e.currentTarget.dataset.item
       wx.openLocation({
         'latitude': item.location.lat,
         'longitude': item.location.lng,
@@ -52,7 +81,7 @@ Component({
         name: item.address, //打开后显示的地址名称
       })
     },
-    // 跳转到详情页
+    // 跳转到地点详情页
     toDetail(e) {
       console.log(e)
       var id = e.currentTarget.dataset.item.id
@@ -69,109 +98,78 @@ Component({
         mask: true,
       })
       var that = this;
-      // 开始监听位置变化
-      wx.startLocationUpdate({
-        success: function () {
-          // 监听位置变化
-          wx.onLocationChange(function (res) {
-            console.log("当前地点：", res)
-            var latitude = res.latitude; // 返回纬度
-            var longitude = res.longitude; // 返回经度
-            try {
-              // 判断是否存在缓存数据并且不是重新点击定位按钮触发的
-              var markersData = wx.getStorageSync('markersData');
-              var markers = wx.getStorageSync('markers');
-              var currentTextData = wx.getStorageSync('currentTextData')
-            } catch (e) {
-              markersData = false
-              markers = false
-              currentTextData = null
-            }
-            var hasCachedData = markersData && markers && !that.data.backToCurrentLocation;
-            console.log(hasCachedData)
-            // 如果本地缓存有数据，并且不是重新点击定位按钮触发的，则直接使用缓存数据
-            if (hasCachedData) {
+      wx.getLocation({
+        success(res) {
+          console.log("当前地点：", res)
+          var latitude = res.latitude; // 返回纬度
+          var longitude = res.longitude; // 返回经度
+          // 逆地址解析
+          qqmapsdk.reverseGeocoder({
+            latitude: latitude,
+            longitude: longitude,
+            get_poi: 1,
+            success: function (res) {
               wx.hideLoading()
-              that.setData({
-                markersData: markersData,
-                markers: markers,
-                currentTextData: currentTextData
-              })
-            } else {
-              qqmapsdk.reverseGeocoder({
-                latitude: latitude,
-                longitude: longitude,
-                get_poi: 1,
-                success: function (res) {
-                  // wx.openLocation({
-                  //   latitude: latitude,
-                  //   longitude:latitude,
-                  //   scale: 18
-                  // })
-                  
-                  console.log("逆地址解析：", res.result)
-                  var _res = res.result;
-                  wx.setStorageSync('markersData', _res.pois)
-                  wx.hideLoading()
-                  var mks = [];
-                  // 获取当前位置返回结果，放到mks数组中
-                  mks.push({
-                    title: _res.address,
-                    id: 0,
-                    latitude: _res.location.lat,
-                    longitude: _res.location.lng,
-                    iconPath: '../../../images/amap/marker.png',
-                    width: 20,
-                    height: 30,
-                    callout: { //在markers上展示地址名称，根据需求是否需要
-                      content: res.address,
-                      color: '#000',
-                      display: 'ALWAYS'
-                    }
-                  });
-                  var markers = _res.pois.map(function (item, index) {
-                    return {
-                      id: index,
-                      latitude: item.location.lat,
-                      longitude: item.location.lng,
-                      title: item.title,
-                      address: item.address,
-                      iconPath: '../../../images/amap/marker.png',
-                      width: 20,
-                      height: 30,
-                      callout: {
-                        content: item.title + '\n' + item.address,
-                        color: '#000000',
-                        fontSize: 12,
-                        borderRadius: 10,
-                        bgColor: '#ffffff',
-                        padding: 10,
-                        display: 'BYCLICK'
-                      }
-                    };
-                  });
-                  wx.setStorageSync('markers', markers)
-                  wx.setStorageSync('currentTextData', mks[0])
-                  that.setData({
-                    latitude: _res.location.lat,
-                    longitude: _res.location.lng,
-                    currentTextData: mks[0],
-                    markersData: _res.pois,
-                    markers: markers
-                  });
-                },
-                fail(res) {
-                  console.log(res)
+              console.log("逆地址解析：", res.result)
+              var _res = res.result;
+              wx.setStorageSync('markersData', _res.pois)
+              var markers = [];
+              markers = _res.pois.map(function (item, index) {
+                return {
+                  id: index,
+                  latitude: item.location.lat,
+                  longitude: item.location.lng,
+                  title: item.title,
+                  address: item.address,
+                  iconPath: '../../../images/amap/marker.png',
+                  width: 20,
+                  height: 30,
+                  callout: {
+                    content: item.title + '\n' + item.address,
+                    color: '#000000',
+                    fontSize: 14,
+                    borderRadius: 10,
+                    bgColor: '#ffffff',
+                    padding: 10,
+                    display: 'BYCLICK'
+                  }
+                };
+              });
+              // 获取当前位置返回结果，放到mks数组中
+              var currentLocation = []
+              currentLocation.push({
+                id: 0,
+                latitude: _res.location.lat,
+                longitude: _res.location.lng,
+                title: _res.address,
+                address: _res.address,
+                iconPath: '../../../images/amap/mapicon_navi_s.png',
+                width: 20,
+                height: 30,
+                callout: {
+                  content: res.address,
+                  color: '#000',
+                  fontSize: 12,
+                  borderRadius: 10,
+                  display: 'ALWAYS'
                 }
-              })
+              });
+              wx.setStorageSync('markers', markers)
+              wx.setStorageSync('currentLocation', markers[0])
+              that.setData({
+                latitude: _res.location.lat,
+                longitude: _res.location.lng,
+                currentLocation: currentLocation[0],
+                markersData: _res.pois,
+                markers: markers
+              });
+            },
+            fail(res) {
+              console.log(res)
             }
-          });
-        },
-        fail(res) {
-          console.log(res)
-          wx.hideLoading()
+          })
         }
-      });
+      })
     },
     searchPOI: function (keyword) {
       var that = this;
@@ -216,9 +214,9 @@ Component({
           console.log(res);
           wx.showToast({
             title: '定位太频繁，请稍后重试',
-            icon:'loading',
-            duration:2500,
-            complete(){
+            icon: 'loading',
+            duration: 2500,
+            complete() {
               that.setData({
                 modalName: 'DrawerModalR'
               })
@@ -243,16 +241,10 @@ Component({
     markertap(e) {
       var index = e.markerId;
       console.log(index)
-      this.showMarkerInfo(this.data.markers, index); // 显示标记点的信息
       this.changeMarkerColor(this.data.markers, index); // 改变标记点的颜色
       this.setData({
         cardCur: index, // 更新当前卡片索引
       });
-    },
-    // 显示标记点的信息
-    showMarkerInfo(markers, index) {
-      var marker = markers[index];
-      console.log("标记点信息：", marker);
     },
     // 改变标记点的颜色
     changeMarkerColor(markers, index) {
@@ -270,13 +262,11 @@ Component({
       this.setData({
         cardCur: e.detail.current,
       })
-      this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
       this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
     }, // towerSwiper
     // 初始化towerSwiper
     towerSwiper(name) {
       let list = this.data[name] || [];
-      // let list = this.data[name];
       for (let i = 0; i < list.length; i++) {
         list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
         list[i].mLeft = i - parseInt(list.length / 2)
@@ -337,7 +327,6 @@ Component({
           swiperCurrent: e.detail.current
         })
       }
-      this.showMarkerInfo(this.data.markers, e.detail.current); // 显示下一个标记点的信息
       this.changeMarkerColor(this.data.markers, e.detail.current); // 改变下一个标记点的颜色
     },
     // 显示模态框
@@ -367,11 +356,6 @@ Component({
       console.log(e)
       // 搜索关键字，并替换地图上的点
       this.searchPOI(e.detail.value)
-      // wx.showModal({
-      //   title: '搜索完成',
-      //   content: '',
-      //   showCancel:false,
-      // })
     },
     searchType(e) {
       console.log(e)
@@ -380,5 +364,4 @@ Component({
       this.hideModal(e)
     }
   }
-
 })

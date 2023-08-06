@@ -5,38 +5,23 @@
 </cu-custom>
 <view wx:if="{{item}}">
   <!-- 提交反馈后显示 -->
+    <!-- 反馈时间 -->
+    <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 反馈时间
+    </view>
+  </view>
+  <view class="bg-white solid-bottom">
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.created_at}}</view>
+  </view>
   <!-- 反馈基本信息 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 反馈基本信息
+      <text class="cuIcon-titles text-blue"></text> 我的反馈记录
     </view>
   </view>
   <view class=" bg-white solid-bottom">
-
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.title}}</view>
-
-  </view>
-  <!-- 反馈类型 -->
-  <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 工单类型
-    </view>
-  </view>
-  <view class="bg-white solid-bottom">
-
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
-
-  </view>
-  <!-- 反馈意见描述 -->
-  <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 反馈意见描述
-    </view>
-  </view>
-  <view class="bg-white solid-bottom">
-
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
-
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.content}}</view>
   </view>
 
   <!-- 分配社工后显示 -->
@@ -46,40 +31,13 @@
       <text class="cuIcon-titles text-blue"></text> 反馈受理信息
     </view>
   </view>
-  <view class="bg-white solid-bottom">
- 
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
-
+  <view class="bg-white solid-bottom"> 
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">工作人员回复后显示</view>
   </view>
-  <!-- 社工处理后显示 -->
-  <!-- 反馈记录 -->
+   <!-- 评分 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 反馈记录
-    </view>
-  </view>
-  <view class="bg-white solid-bottom">
-  
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
-
-  </view>
-  <!-- 用户确认后显示 -->
-  <!-- 反馈结果确认 -->
-  <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 反馈结果
-    </view>
-  </view>
-
-  <view class="bg-white solid-bottom">
-   
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.result}}</view>
-
-  </view>
-  <!-- 评分 -->
-  <view class="cu-bar bg-white solid-bottom">
-    <view class="action">
-      <text class="cuIcon-titles text-blue"></text>评分
+      <text class="cuIcon-titles text-blue"></text>服务评价
     </view>
   </view>
   <view class="bg-white solid-bottom">

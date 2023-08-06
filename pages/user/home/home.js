@@ -38,6 +38,12 @@ Component({
       badge: 0,
       name: '我的预约',
       url: '/pages/user/myappointment/myappointment'
+    }, {
+      icon: 'card',
+      color: 'pink',
+      badge: 0,
+      name: '我的上报',
+      url: '/pages/user/myreport/myreport'
     }],
     // 关于菜单
     aboutMenuItems: [{
@@ -61,24 +67,24 @@ Component({
         name: '免责声明',
         icon: 'text',
         color: 'cyan',
-        url: '',
-        handler: 'showDisclaimer'
+        url: '/pages/user/about/disclaimer',
+        handler: 'toPage'
       },
       {
         id: 4,
         name: '隐私政策',
         icon: 'safe',
         color: 'cyan',
-        url: '',
-        handler: 'showPrivacyPolicy'
+        url: '/pages/user/about/privacy',
+        handler: 'toPage'
       },
       {
         id: 5,
         name: '用户协议',
         icon: 'file',
         color: 'cyan',
-        url: '',
-        handler: 'showUserAgreement'
+        url: '/pages/user/about/agreement',
+        handler: 'toPage'
       },
       {
         id: 6,
@@ -131,33 +137,45 @@ Component({
     },
     onLogout() {
       // 刷新页面
-      wx.reLaunch({
-        url: '/pages/index/index',
+      
+      wx.showModal({
+        title: '退出登录',
+        content: '',
+        complete: (res) => {
+          if (res.cancel) {
+            console.log('用户点击取消')
+          }
+      
+          if (res.confirm) {
+            console.log('用户点击确定')
+            wx.removeStorageSync('token')
+            wx.reLaunch({
+              url: '/pages/index/index',
+              success(){
+                wx.showToast({
+                  title: "退出成功！",
+                  icon: 'success',
+                });
+              }
+            })
+          }
+        }
       })
     },
     showDisclaimer: function () {
-      wx.showToast({
-        title: '免责声明',
-        icon: 'none'
-      })
+      
     },
     showPrivacyPolicy: function () {
-      wx.showToast({
-        title: '隐私政策',
-        icon: 'none'
-      })
+      
     },
     showUserAgreement: function () {
-      wx.showToast({
-        title: '用户协议',
-        icon: 'none'
-      })
+     
     },
     showQrcode: function () {
-      wx.showToast({
-        title: '赞赏支持',
-        icon: 'none'
-      })
+     wx.showToast({
+       title: '赞赏支持',
+       icon:'loading'
+     })
     },
   }
 })

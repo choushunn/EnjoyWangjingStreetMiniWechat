@@ -108,7 +108,11 @@ Page({
       }
     })
   },
-
+  toMyDetail() {
+    wx.navigateTo({
+      url: '/pages/user/myappointment/myappointment',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

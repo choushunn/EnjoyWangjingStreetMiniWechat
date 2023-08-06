@@ -126,8 +126,10 @@ Component({
   },
   methods: {
 toMini(e){
+  console.log(e)
+  var appId = e.currentTarget.dataset.appid
   wx.navigateToMiniProgram({
-    appId: 'wx5899bdb8721621d6',
+    appId: appId,
     path: '',
     envVersion: 'release',
     success(res) {

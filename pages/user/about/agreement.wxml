@@ -1,0 +1,16 @@
+<!--pages/user/about/agreement.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack>
+  <view slot="backText">返回</view>
+  <view slot="content">用户协议</view>
+</cu-custom>
+
+<!-- 没有内容时的渲染 -->
+<import src="/pages/template/nodata.wxml" />
+<view class="margin-top">
+  <template is="nodata"></template>
+</view>
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

@@ -6,14 +6,14 @@
 <view class="cu-bar search bg-white map_cover">
   <view class="search-form round">
     <text class="cuIcon-search"></text>
-    <input type="text" confirm-type="search" placeholder="{{currentTextData.title?currentTextData.title:'搜索周边美食、购物、生活服务...'}}" bindconfirm="bindInput" />
+    <input type="text" confirm-type="search" placeholder="{{currentLocation.title?currentLocation.title:'搜索周边美食、购物、生活服务...'}}" bindconfirm="bindInput" bindfocus="choosePoi"/>
     <text class="cuIcon-right"></text>
   </view>
 </view>
 
 <!-- 地图组件 -->
 <view class="map_container">
-  <map class="map" id="myMap" longitude="{{currentTextData.longitude}}" latitude="{{currentTextData.latitude}}" scale="17" bindmarkertap="makertap" markers="{{markers}}" show-compass="true" enable-building="true" show-location bindmarkertap="markertap">
+  <map class="map" id="myMap" longitude="{{currentLocation.longitude}}" latitude="{{currentLocation.latitude}}" scale="17" bindmarkertap="makertap" markers="{{markers}}" show-compass="true" enable-building="true" show-location="true" bindmarkertap="markertap" include-points="true" enable-3D="true">
   </map>
 </view>
 
@@ -78,17 +78,18 @@
     <view class="cu-dialog">
       <scroll-view scroll-y="{{true}}" scroll-with-animation="{{true}}" style="height: 630rpx;">
         <view class="cu-card no-card">
-          <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow text-left margin padding-tb solid-bottom">
-            <view bindtap="toDetail" data-item="{{item}}">
-              <view class="margin-lr margin-tb-xs text-bold">{{item.title}}</view>
-              <view class="margin-lr text-df">
-                <view>{{item.address}}</view>
-                <view class="text-lg"></view>
-                <!-- <view>联系电话：{{item.phone}}</view> -->
+          <view wx:for="{{markersData}}" wx:key="index" class="cu-item shadow padding-tb solid-bottom">
+            <view class="flex">
+              <view class="flex-twice text-left" bindtap="toDetail" data-item="{{item}}">
+                <view class="margin-lr margin-tb-xs text-bold">{{item.title}}</view>
+                <view class="margin-lr text-df">
+                  <view>{{item.address}}</view>
+                  <view class="text-lg"></view>
+                </view>
               </view>
-            </view>
-            <view class="flex justify-end margin-right padding-right">
-              <view class="cu-tag bg-green light round" bindtap="toAddress" data-item="{{item}}">导航到目的地</view>
+              <view class="flex-sub flex align-center justify-end margin-right">                
+                <view class="cu-tag bg-green light round" bindtap="toAddress" data-item="{{item}}">导航到目的地</view>
+              </view>
             </view>
           </view>
         </view>

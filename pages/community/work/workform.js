@@ -198,7 +198,22 @@ Page({
       }
     })
   },
-
+  toMyDetail() {
+    wx.navigateTo({
+      url: '/pages/user/myorder/myorder',
+    })
+  },
+  chooseAddress(){
+    var that =this
+    wx.choosePoi({
+      success(res) {
+        console.log(res)
+        that.setData({
+          address:res.address
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

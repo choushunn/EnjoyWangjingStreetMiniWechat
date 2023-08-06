@@ -6,7 +6,7 @@
 <view class="UCenter-bg">
   <!-- 微信头像 -->
   <view class="padding-xs" data-url="{{userinfo?'/pages/user/home/userinfo':''}}" bindtap="toUserinfo" data-userinfo="{{userinfo}}">    
-    <view class="cu-avatar round xl" style="background-image:url({{userinfo.avatar?userinfo.avatar:defaultAvatar}});">
+    <view class="cu-avatar round xl" style="background-image:url({{userinfo.avatar?userinfo.avatar:defaultAvatarUrl}});">
       <!-- 性别 -->
       <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
