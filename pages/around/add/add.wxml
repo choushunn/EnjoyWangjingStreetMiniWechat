@@ -15,13 +15,13 @@
 <form bindsubmit="onSubmit">
 <!-- 地点名称 -->
 	<view class="cu-form-group">
-		<view class="title">商家名称</view>
-		<input name='name' placeholder="请输入商家名称"></input>
+		<view class="title"><text class="text-red text-bold">*</text>地点名称</view>
+		<input name='name' placeholder="请输入地点名称"></input>
 	</view>
 
 <!-- 联系电话 -->
 	<view class="cu-form-group">
-		<view class="title">联系电话</view>
+		<view class="title"><text class="text-red text-bold">*</text>联系电话</view>
 		<input name='phone' placeholder="请输入联系电话"></input>
 		<view class="cu-capsule radius">
 			<view class="cu-tag bg-blue">
@@ -34,14 +34,14 @@
 	</view>
 <!-- 服务地址 -->
 	<view class="cu-form-group">
-		<view class="title">所在地址</view>
+		<view class="title"><text class="text-red text-bold">*</text>所在地址</view>
 		<input name='address' placeholder="{{item?item.address:'请输入所在地址'}}" value="{{item?item.address:''}}"></input>
 		<text class="cuIcon-locationfill text-orange"></text>
 	</view>
 <!-- 图片上传 -->
   <view class="cu-bar bg-white solid-top text-black">
 		<view class="action">
-			上传当前地点的图片
+			上传当前地点的图片(最多上传4张图)
 		</view>
 		<view class="action" style="font-size: 30rpx;">
 			{{imgList.length}}/4
