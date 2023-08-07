@@ -16,10 +16,10 @@ Page({
     currentDate:dateStr,
     appointment_time: null,
     picker_time: null,
-    time_index: 0,
+    time_index: null,
     appointment_type: null,
     picker_type: null,
-    type_index: 0,
+    type_index: null,
   },
   dateChange(e) {
     this.setData({
@@ -40,12 +40,13 @@ Page({
     const formData = event.detail.value;
     if (formData.name.length == 0) {
       wx.showToast({
-        title: '姓名不能为空',
+        title: '请填写姓名',
         icon: 'error',
         duration: 1500
       })
       return false;
     }
+    var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
       wx.showToast({
         title: '检查电话号码',
@@ -68,6 +69,30 @@ Page({
       })
       return false;
     } 
+    if (!formData.type) {
+      wx.showToast({
+        title: '请选择事项',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    if (!formData.date) {
+      wx.showToast({
+        title: '请选择日期',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    if (!formData.time) {
+      wx.showToast({
+        title: '请选择时间',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
     const extraData = {
       title: '邻里空间预约',
     }; // 新字段

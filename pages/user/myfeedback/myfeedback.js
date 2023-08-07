@@ -36,7 +36,7 @@ Page({
      
     };
     wx.request({
-      url: app.globalData.apiUri + 'feedback/by_user',
+      url: app.globalData.apiUri + 'feedback',
       method: 'GET',
       data:extraData,
       header:{

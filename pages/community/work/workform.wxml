@@ -42,7 +42,7 @@
   <!-- 服务地址 -->
   <view class="cu-form-group">
     <view class="title">所在地址</view>
-    <input type="text" name='address' placeholder="{{currentLocation?currentLocation.title:'请输入地址'}}" value="{{currentLocation?currentLocation.title:''}}" confirm-type="next" value="{{address}}"></input>
+    <input type="text" name='address' placeholder="{{currentLocation?currentLocation.title:'请输入您所在的地址'}}" value="{{currentLocation?currentLocation.title:''}}" confirm-type="next" value="{{address}}"></input>
     <text class="cuIcon-locationfill text-orange" bindtap="chooseAddress"></text>    
   </view>
   <!-- 服务事项类型 -->
@@ -56,10 +56,10 @@
   </view>
   <!-- 问题描述 -->
   <view class="cu-form-group">
-    <view class="title">备注</view>
+    <view class="title">问题描述</view>
   </view>
   <view class="cu-form-group align-start bg-white">
-    <textarea name='description' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="备注"></textarea>
+    <textarea name='description' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入"></textarea>
   </view>
   <!-- 图片上传 -->
   <view class="cu-bar bg-white solid-top">

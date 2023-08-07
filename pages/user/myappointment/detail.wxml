@@ -3,42 +3,29 @@
   <view slot="backText">返回</view>
   <view slot="content">预约详情</view>
 </cu-custom>
-
-<!-- 提交预约信息后显示 -->
-<!-- 预约基本信息 -->
 <view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 预约人姓名
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 基本信息
+    </view>
   </view>
-</view>
-<view class=" bg-white solid-bottom" >
- 
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.name}}</view>
-
-</view>
+  <view class=" bg-white solid-bottom" > 
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">姓名：<text class="text-black text-bold">{{item.name}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系电话：<text class="text-black text-bold">{{item.phone}}</text></view>
+  </view>
 <!-- 预约类型 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 预约类型
+    <text class="cuIcon-titles text-blue"></text> 预约信息
   </view>
 </view>
 <view class="bg-white solid-bottom" >
  
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.type}}</view>
-
+  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">创建时间：<text class="text-black text-bold">{{item.created_at}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">预约事项：<text class="text-black text-bold">{{item.type_name}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">预约日期：<text class="text-black text-bold">{{item.date}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">预约时间：<text class="text-black text-bold">{{item.type_time?item.type_time:'暂无'}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">备注信息：<text class="text-black text-bold">{{item.remark?item.remark:'暂无'}}</text></view>
 </view>
-<!-- 预约详情 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 预约详情
-  </view>
-</view>
-<view class="bg-white solid-bottom" >
-
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.desc}}</view>
-
-</view>
-
 <!-- 分配社工后显示 -->
 <!-- 预约受理信息 -->
 <view class="cu-bar bg-white solid-bottom">
@@ -46,40 +33,13 @@
     <text class="cuIcon-titles text-blue"></text> 预约受理信息
   </view>
 </view>
-<view class="bg-white solid-bottom" >
-
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.service}}</view>
-
-</view>
-<!-- 社工处理后显示 -->
-<!-- 预约记录 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 预约记录
-  </view>
-</view>
-<view class="bg-white solid-bottom" >
-
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.record}}</view>
-
-</view>
-<!-- 用户确认后显示 -->
-<!-- 反馈结果确认 -->
-<view class="cu-bar bg-white solid-bottom">
-  <view class="action">
-    <text class="cuIcon-titles text-blue"></text> 预约结果
-  </view>
-</view>
-
-<view class="bg-white solid-bottom" >
-  <block wx:for="{{messageData}}" wx:key="id">
-  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.result}}</view>
-  </block>
+<view class="bg-white solid-bottom">
+  <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'暂未受理，请耐心等待工作人员处理'}}</view>
 </view>
 <!-- 评分 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class="action">
-    <text class="cuIcon-titles text-blue"></text>评分
+    <text class="cuIcon-titles text-blue"></text>服务评分
   </view>
 </view>
 <view class="bg-white solid-bottom">

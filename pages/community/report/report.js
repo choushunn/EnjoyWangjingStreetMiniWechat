@@ -67,11 +67,19 @@ Page({
   onSubmit: function (event) {
     const formData = event.detail.value;
     var that = this
+    if (formData.name.length == 0) {
+      wx.showToast({
+        title: '请填写姓名',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
     // 验证手机号码
     var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
       wx.showToast({
-        title: '检查电话号码',
+        title: '填写联系电话',
         icon: 'error',
         duration: 1500
       })
@@ -90,12 +98,14 @@ Page({
         duration: 1500
       })
       return false;
-    } else {
+    } 
+    if (formData.content.length == 0) {
       wx.showToast({
-        title: '填写正确',
-        icon: 'success',
+        title: '请填写内容',
+        icon: 'error',
         duration: 1500
       })
+      return false;
     }
     formData.images = JSON.stringify(this.data.imgList);
     const extraData = {

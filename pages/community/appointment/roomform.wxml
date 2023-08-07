@@ -68,7 +68,7 @@
   <!-- 备注信息 -->
   <view class="cu-form-group align-start">
     <view class="title">备注</view>
-    <textarea name="remark" maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="输入备注信息"></textarea>
+    <textarea name="remark" maxlength="-1" disabled="{{modalName!=null}}" placeholder="输入备注信息"></textarea>
   </view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">

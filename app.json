@@ -41,6 +41,7 @@
     "pages/user/myorder/myorder",
     "pages/user/myorder/detail",
     "pages/user/myreport/myreport",
+    "pages/user/myreport/detail",
     "pages/user/login/login",
     "pages/user/chart/chart"
   ],

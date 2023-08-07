@@ -11,24 +11,39 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">反馈时间：<text class="text-black text-bold">{{item.created_at}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系人：<text class="text-black text-bold">{{item.name?item.name:'未填写'}}</text></view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系电话：<text class="text-black text-bold">{{item.phone?item.phone:'未填写'}}</text></view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">地址：<text class="text-black text-bold">{{item.address?item.address:'未填写'}}</text></view>
+  </view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">上报时间：<text class="text-black text-bold">{{item.created_at}}</text></view>
+  </view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-titles text-blue"></text> 上报内容
+    </view>
   </view>
   <view class=" bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">反馈内容：<text class="text-black text-bold">{{item.content}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center"><text class="text-black text-bold">{{item.content}}</text></view>
   </view>
-
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-titles text-blue"></text> 上传图片
     </view>
   </view>
-  <block wx:if="{{item.feedback_images.length>0}}">
+  <block wx:if="{{item.report_images.length>0}}">
     <view class="bg-white solid-bottom" wx:for="{{item.feedback_images}}" wx:key="id">
       <image src="{{item.image?item.iamge:''}}" mode="" />
     </view>
   </block>
   <block wx:else>
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">未上传图片</view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">未上传图片</view>
+    </view>
   </block>
   <!-- 反馈受理信息 -->
   <view class="cu-bar bg-white solid-bottom">

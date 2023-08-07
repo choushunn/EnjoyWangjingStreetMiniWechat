@@ -13,9 +13,10 @@
     </view>
   </view>
   <view class=" bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">申请人：{{item.name}}</view>
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系电话：{{item.phone}}</view>
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">工单类型：{{item.ticket_type_name}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">申请人：<text class="text-black text-bold">{{item.name}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系电话：<text class="text-black text-bold">{{item.phone}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">地址：<text class="text-black text-bold">{{item.address}}</text></view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">工单类型：<text class="text-black text-bold">{{item.ticket_type_name}}</text></view>
   </view>
   <!-- 问题描述 -->
   <view class="cu-bar bg-white solid-bottom">
@@ -24,40 +25,41 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.description}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df text-black text-bold flex align-center">
+      {{item.description}}
+    </view>
   </view>
   <!-- 图片 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 工单图片
+      <text class="cuIcon-titles text-blue"></text> 上传图片
     </view>
   </view>
-  <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center" wx:for="{{item.ticket_images}}">
-    <!-- <image src="{{item.image}}" mode=""/> -->
+  <block wx:if="{{item.ticket_images}}">
+    <view class="bg-white solid-bottom">
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center" wx:for="{{item.ticket_images}}" wx:key="id">
+        <image src="{{item.image}}" mode=""/>
+      </view>
     </view>
-  </view>
-  <!-- <block wx:if="{{item.worker}}"> -->
-  <!-- 社工处理后显示 -->
+  </block>
   <!-- 维修记录 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 维修记录
+      <text class="cuIcon-titles text-blue"></text> 处理记录
     </view>
   </view>
-  <view class="bg-white solid-bottom">   
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'等待处理'}}</view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'等待处理'}}</view>
   </view>
   <!-- 维修结果确认 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">
-      <text class="cuIcon-titles text-blue"></text> 维修结果
+      <text class="cuIcon-titles text-blue"></text> 处理结果
     </view>
   </view>
-  <view class="bg-white solid-bottom">   
-      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'暂无结果'}}</view>
+  <view class="bg-white solid-bottom">
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'暂无结果'}}</view>
   </view>
-<!-- </block> -->
   <!-- 评分 -->
   <view class="cu-bar bg-white solid-bottom">
     <view class="action">

@@ -25,7 +25,7 @@ Page({
     var item = JSON.stringify(e.currentTarget.dataset.item)
     // 跳转到详情页面
     wx.navigateTo({
-      url: '/pages/user/myorder/detail?id=' + id + '&item=' + item,
+      url: '/pages/user/myreport/detail?id=' + id + '&item=' + item,
     })
   },
   /**

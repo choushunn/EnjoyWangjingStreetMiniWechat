@@ -81,12 +81,21 @@ Page({
   onSubmit: function (event) {
     var that = this
     const formData = event.detail.value;
+    console.log(formData)
+    if (formData.name.length == 0) {
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
     // 验证手机号码
     var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
       wx.showToast({
-        title: '输入的手机号为空',
-        icon: 'success',
+        title: '填写联系电话',
+        icon: 'error',
         duration: 1500
       })
       return false;
@@ -104,12 +113,14 @@ Page({
         duration: 1500
       })
       return false;
-    } else {
+    }
+    if (formData.address.length == 0) {
       wx.showToast({
-        title: '填写正确',
-        icon: 'success',
+        title: '地址不能为空',
+        icon: 'error',
         duration: 1500
       })
+      return false;
     }
     const data = Object.assign({}, formData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
