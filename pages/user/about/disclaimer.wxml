@@ -3,11 +3,25 @@
   <view slot="backText">返回</view>
   <view slot="content">免责声明</view>
 </cu-custom>
-<!-- 没有内容时的渲染 -->
-<import src="/pages/template/nodata.wxml" />
-<view class="margin-top">
-  <template is="nodata"></template>
-</view>
+<block wx:if="{{item}}">
+  <scroll-view scroll-y class="scrollPage">
+    <view class='margin-xl bg-white padding-xl radius-lg shadow-lg text-lg'>
+      <view class='text-center margin-bottom text-xl text-bold text-blue'>{{item.title}}</view>
+      <view class='text-content'>
+        <view class="margin-top-lg">Hi！欢迎访问乐享王井街微信小程序！{{item.content}}</view>
+        <view class='margin-top text-right text-blue'>{{item.name}}</view>
+        <view class='margin-top-sm text-right text-blue'>{{item.created_at}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</block>
+<block wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</block>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

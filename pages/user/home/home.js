@@ -161,20 +161,10 @@ Component({
                   })
                 },1000)                
               }
-            });
-            
+            });            
           }
         }
       })
-    },
-    showDisclaimer: function () {
-      
-    },
-    showPrivacyPolicy: function () {
-      
-    },
-    showUserAgreement: function () {
-     
     },
     showQrcode: function () {
      wx.showToast({
