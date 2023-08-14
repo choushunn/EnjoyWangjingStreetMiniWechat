@@ -40,18 +40,47 @@ Component({
     },
     ready() {
       var setting
+      var that = this
+      const systemSetting = wx.getSystemSetting()
+      var systemLocation = systemSetting.locationEnabled
+      console.log("系统定位开关：", systemSetting.locationEnabled)
+      if(!systemLocation){
+        wx.showModal({
+          title: '提示',
+          content: '微信不能确定你的位置，在位置设置中打开定位和无线网络',
+          confirmText:'去设置',
+          success (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              // wx.openSetting({
+              //   success(res){
+
+              //   }
+              // })
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+        return
+      }
       wx.getSetting({
         success(res) {
           console.log(res)
-          setting = res
-          if (setting.authSetting['scope.userLocation']) {
-
+          setting = res.authSetting
+          if (setting['scope.userLocation']) {
+            // 开始获取位置信息           
+            that.startLocation()
+            // this.mapCtx = wx.createMapContext('myMap')
+          }else{
+            wx.showToast({
+              title: '请打开位置权限',
+              icon:'error'
+            })
           }
         }
       })
-      // 开始获取位置信息
-      this.startLocation()
-      this.mapCtx = wx.createMapContext('myMap')
+
     }
   },
   methods: {
@@ -96,7 +125,10 @@ Component({
       wx.showLoading({
         title: '定位中...',
         mask: true,
-      })
+      }) 
+      setTimeout(function(){
+       wx.hideLoading()
+      },1000)
       var that = this;
       wx.getLocation({
         success(res) {
@@ -166,6 +198,21 @@ Component({
             },
             fail(res) {
               console.log(res)
+              wx.hideLoading()
+            }
+          })
+        },fail(res){
+          console.log("定位获取失败：",res)
+          wx.showModal({
+            title: '提示',
+            content: '微信不能确定你的位置，在位置设置中打开定位和无线网络',
+            confirmText:'去设置',
+            success (res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
             }
           })
         }

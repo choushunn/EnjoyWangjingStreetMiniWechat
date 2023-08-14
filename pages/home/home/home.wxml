@@ -38,7 +38,7 @@
 <view wx:if="{{newsData}}" class="cu-timeline radius-lg padding-top-xs">
   <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsData}}" wx:key="item" wx:if="{{index < 5}}">
     <view class="cu-item shadow" bindtap="toDetail" data-item="{{item}}">
-    <!-- 左侧内容 -->
+      <!-- 左侧内容 -->
       <view class="content">
         <view class="desc">
           <view class="text-black text-bold text-lg">{{item.title}}</view>

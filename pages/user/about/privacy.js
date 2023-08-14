@@ -1,4 +1,5 @@
 // pages/user/about/privacy.js
+var app = getApp();
 Page({
 
   /**
@@ -17,7 +18,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.request({
+      // url: app.globalData.apiUri+'pages/',
+      url: 'http://192.168.121.138:8000/api/v1/pages/',
+      method: 'GET',
+      success(res) {
+        console.log(res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          that.setData({
+            item: res.data
+          })
+        }
+      }
+    })
   },
 
   /**

@@ -25,12 +25,14 @@
 <form bindsubmit="onSubmit">
   <!-- 联系人 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">联系人</view>
+    <view class="text-red">*</view>
+    <view class="title">联系人</view>
     <input name='name' placeholder="请输入联系人" type="text" confirm-type="next"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">联系电话</view>
+    <view class="text-red">*</view>
+    <view class="title">联系电话</view>
     <input name='phone' placeholder="请输入联系人电话" type="number" confirm-type="next" maxlength="11"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
@@ -41,10 +43,10 @@
       </view>
     </view>
   </view>
-   <!-- 地址 -->
-   <view class="cu-form-group solid-bottom">
+  <!-- 地址 -->
+  <view class="cu-form-group solid-bottom">
     <view class="title">地址</view>
-    <input name='address' placeholder="请输入地址"  type="text" confirm-type="next" value="{{address}}"></input>
+    <input name='address' placeholder="请输入地址" type="text" confirm-type="next" value="{{address}}"></input>
     <text class="cuIcon-locationfill text-orange" bindtap="chooseAddress"></text>
   </view>
   <!-- 上报内容 -->
@@ -75,7 +77,7 @@
       </view>
     </view>
   </view>
- 
+
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
     <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block">提交</button>

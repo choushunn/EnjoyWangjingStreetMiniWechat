@@ -6,17 +6,64 @@ Page({
    */
   data: {
     avatarUrl: app.globalData.defaultAvatarUrl,
-    userinfo:null
+    userinfo: null
   },
   changeNickname(e) {
+    var that = this
     console.log(e)
     var formData = e.detail.value
+    if (formData.nickname.length <= 0) {
+      wx.showToast({
+        title: '请填写昵称',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
     wx.request({
-      url: 'url',
-      method:'PUT',
-      data:formData,
-      success(res){
-          console.log(res)
+      url: app.globalData.apiUri + 'user/' + that.data.userinfo.id + '/',
+      header: {
+        "authorization": "Bearer " + wx.getStorageSync('token')
+      },
+      method: 'PUT',
+      data: formData,
+      success(res) {
+        console.log(res)
+        if (res.statusCode == 200) {
+          that.setData({
+            modalName: null,
+            userinfo: res.data
+          })
+        }
+      }
+    })
+  },changeAddress(e) {
+    var that = this
+    console.log(e)
+    var formData = e.detail.value
+    if (formData.address.length <= 0) {
+      wx.showToast({
+        title: '请填写地址',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    wx.request({
+      url: app.globalData.apiUri + 'user/' + that.data.userinfo.id + '/',
+      header: {
+        "authorization": "Bearer " + wx.getStorageSync('token')
+      },
+      method: 'PUT',
+      data: formData,
+      success(res) {
+        console.log(res)
+        if (res.statusCode == 200) {
+          that.setData({
+            modalName: null,
+            userinfo: res.data
+          })
+        }
       }
     })
   },
@@ -90,7 +137,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-   
+
   },
 
   /**

@@ -22,12 +22,14 @@
 <form bindsubmit="onSubmit">
   <!-- 预约人 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约人</view>
+    <view class="text-red">*</view>
+    <view class="title">预约人</view>
     <input name="name" placeholder="请输入预约人姓名"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">联系电话</view>
+    <view class="text-red">*</view>
+    <view class="title">联系电话</view>
     <input name="phone" placeholder="请输入联系电话"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
@@ -40,7 +42,8 @@
   </view>
   <!-- 预约事项 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约事项</view>
+    <view class="text-red">*</view>
+    <view class="title">预约事项</view>
     <picker name="type" bindchange="typeChange" value="{{appointment_type[type_index].id}}" range="{{picker_type}}">
       <view class="picker">
         {{type_index?picker_type[type_index]:'请选择预约事项'}}
@@ -49,7 +52,8 @@
   </view>
   <!-- 预约日期 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约日期</view>
+    <view class="text-red">*</view>
+    <view class="title">预约日期</view>
     <picker name="date" mode="date" start="{{currentDate}}" value="{{date}}" bindchange="dateChange">
       <view class="picker">
         {{date?date:'请选择预约日期'}}
@@ -58,7 +62,8 @@
   </view>
   <!-- 预约时间 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约时间</view>
+    <view class="text-red">*</view>
+    <view class="title">预约时间</view>
     <picker name="time" bindchange="timeChange" value="{{appointment_time[time_index].id}}" range="{{picker_time}}">
       <view class="picker">
         {{time_index?picker_time[time_index]:'选择预约时间'}}

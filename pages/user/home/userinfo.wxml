@@ -51,11 +51,11 @@
     </view>
   </view>
   <!-- 地址 -->
-  <view class="cu-item arrow">
-    <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+  <view class="cu-item arrow"  bindtap="showModal" data-target="addressModal">
+    <view class="content" hover-class="none">
       <text class="cuIcon-location text-orange"></text>
       <text class="text-grey">地址</text>
-    </navigator>
+    </view>
     <view class="action">
       <text class="text-black text-lg">{{userinfo.address?userinfo.address:'暂无'}}</text>
     </view>
@@ -83,6 +83,28 @@
     <form bindsubmit="changeNickname">    
     <view class="margin padding-xl text-left">
       <input name="nickname" type="text" placeholder="请输入昵称" />
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+      </view>
+    </view>
+  </form>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='addressModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改地址</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <form bindsubmit="changeAddress">    
+    <view class="margin padding-xl text-left">
+      <input name="address" type="text" placeholder="请输入地址" />
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">

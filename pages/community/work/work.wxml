@@ -15,9 +15,9 @@
 <scroll-view>
   
 
-<view wx:if="{{messageData}}">
+<view wx:if="{{items}}">
   <!-- 消息列表 -->
-  <block wx:for="{{messageData}}" wx:key="id">
+  <block wx:for="{{items}}" wx:key="id">
     <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
       <navigator url="{{item.url}}">
       <view class="cu-card article no-card margin-sm">

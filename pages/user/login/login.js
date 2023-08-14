@@ -13,7 +13,7 @@ Page({
   // 点击登录按钮
   onLogin() {
     console.log("尝试直接登录")
-    var that =this
+    var that = this
     // 尝试自动登录
     wx.login({
       success: (res) => {
@@ -110,15 +110,17 @@ Page({
                 });
               }
             },
-            fail: () => {
+            fail(res) {
+              console.log(res)
               wx.showToast({
-                title: '登录失败，请选择头像',                
+                title: '登录失败，上传文件失败',                
                 icon: 'error',
               });
             },
           })
         },
-        fail: () => {
+        fail(res) {
+          console.log(res)
           wx.showToast({
             title: '系统维护中',
             icon: 'error',
@@ -133,9 +135,8 @@ Page({
   },
   // 获取头像URL
   onChooseAvatar(e) {
-    const {
-      avatarUrl
-    } = e.detail
+    const { avatarUrl } = e.detail
+    console.log("获取头像信息:", e)
     this.setData({
       avatarUrl: avatarUrl,
     })

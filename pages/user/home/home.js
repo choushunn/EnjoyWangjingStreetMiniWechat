@@ -146,8 +146,7 @@ Component({
         complete: (res) => {
           if (res.cancel) {
             console.log('用户点击取消')
-          }
-      
+          }      
           if (res.confirm) {
             console.log('用户点击确定')
             wx.removeStorageSync('token')
