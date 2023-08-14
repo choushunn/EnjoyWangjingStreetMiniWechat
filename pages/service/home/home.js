@@ -3,8 +3,7 @@ const app = getApp();
 Component({
   data: {
     CustomBar: app.globalData.CustomBar,
-    categories: [
-      {
+    categories: [{
         "title": "社区服务",
         "iconColor": "blue",
         elements: [{
@@ -70,7 +69,7 @@ Component({
           },
           {
             title: '社区活动',
-            name: 'icon', 
+            name: 'icon',
             color: 'cyan',
             icon: 'group',
             url: '/pages/community/activity/activity'
@@ -118,29 +117,29 @@ Component({
       }
     ]
   },
-  lifetimes:{
-    created(){
+  lifetimes: {
+    created() {
       // 加载菜单项
       console.log()
     }
   },
   methods: {
-toMini(e){
-  console.log(e)
-  var appId = e.currentTarget.dataset.appid
-  wx.navigateToMiniProgram({
-    appId: appId,
-    path: '',
-    envVersion: 'release',
-    success(res) {
-      // 打开成功
-    }
-  })
-},
+    toMini(e) {
+      console.log(e)
+      var appId = e.currentTarget.dataset.appid
+      wx.navigateToMiniProgram({
+        appId: appId,
+        path: '',
+        envVersion: 'release',
+        success(res) {
+          // 打开成功
+        }
+      })
+    },
     searchIcon(e) {
       console.log("搜索....")
     },
-    toPage(e){
+    toPage(e) {
       var url = e.currentTarget.dataset.url
       wx.navigateTo({
         url: url

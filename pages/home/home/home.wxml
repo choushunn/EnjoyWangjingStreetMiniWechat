@@ -35,8 +35,8 @@
 </view>
 
 <!-- 新闻列表 -->
-<view wx:if="{{newsData}}" class="cu-timeline radius-lg padding-top-xs">
-  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsData}}" wx:key="item" wx:if="{{index < 5}}">
+<view wx:if="{{newsList}}" class="cu-timeline radius-lg padding-top-xs">
+  <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsList}}" wx:key="item" wx:if="{{index < 5}}">
     <view class="cu-item shadow" bindtap="toDetail" data-item="{{item}}">
       <!-- 左侧内容 -->
       <view class="content">
@@ -57,6 +57,27 @@
         <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 150rpx;width: 190rpx;">
         </image>
       </view>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white padding-tb">
+  <view class="cu-bar btn-group">
+  </view>
+</view>
+<!-- 启动页模态框 -->
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style="background-image: url('https://image.meiye.art/FhHGe9NyO0uddb6D4203jevC_gzc?imageMogr2/thumbnail/450x/interlace/1');height: 360rpx;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+      <view class="text-white text-xl">启动通知</view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
     </view>
   </view>
 </view>

@@ -33,18 +33,14 @@ Page({
    */
   onLoad(options) {
     var that = this;
-    const extraData = {
-      
-    };
     wx.request({
       url: app.globalData.apiUri + 'report/by_user/?ordering=-created_at',
       method: 'GET',
-      data: extraData,
       header:{
         "authorization":"Bearer "+ wx.getStorageSync('token')
       },
       success(res) {
-        console.log("我的上报数据获取成功", res.data)
+        console.log("我的上报数据获取成功", res)
         var items = res.data
         if (res.statusCode == 200 && res.data.length > 0) {
           that.setData({

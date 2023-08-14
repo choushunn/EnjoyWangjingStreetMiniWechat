@@ -97,7 +97,7 @@ Component({
     ]
   },
   lifetimes: {
-    created(){
+    created() {
       var that = this
       wx.request({
         url: app.globalData.apiUri + 'user/',
@@ -106,7 +106,7 @@ Component({
         },
         method: 'GET',
         success(res) {
-          console.log("获取用户信息成功：",res)
+          console.log("获取用户信息成功：", res)
           if (res.statusCode == 200) {
             that.setData({
               userinfo: res.data[0],
@@ -130,12 +130,12 @@ Component({
         url: url
       })
     },
-    toUserinfo(e){
+    toUserinfo(e) {
       var url = e.currentTarget.dataset.url
       var item = JSON.stringify(e.currentTarget.dataset.userinfo)
       // 跳转到详情页面
       wx.navigateTo({
-        url: url+'?item=' + item,
+        url: url + '?item=' + item,
       })
     },
     onLogout() {
@@ -146,30 +146,30 @@ Component({
         complete: (res) => {
           if (res.cancel) {
             console.log('用户点击取消')
-          }      
+          }
           if (res.confirm) {
             console.log('用户点击确定')
             wx.removeStorageSync('token')
             wx.showToast({
               title: "退出成功！",
               icon: 'success',
-              success(){
-                setTimeout(function(){
+              success() {
+                setTimeout(function () {
                   wx.reLaunch({
-                    url: '/pages/index/index',              
+                    url: '/pages/index/index',
                   })
-                },1000)                
+                }, 1000)
               }
-            });            
+            });
           }
         }
       })
     },
     showQrcode: function () {
-     wx.showToast({
-       title: '赞赏支持',
-       icon:'loading'
-     })
+      wx.showToast({
+        title: '赞赏支持',
+        icon: 'loading'
+      })
     },
   }
 })

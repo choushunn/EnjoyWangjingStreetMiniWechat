@@ -8,7 +8,7 @@ Page({
   data: {
     TabCur: 0,
     scrollLeft: 0,
-    newsData:''
+    newsList:''
   },
   // 跳转到详情页面
   toDetail(e) {
@@ -34,7 +34,7 @@ Page({
       
           if (res.statusCode == 200 && res.data.length>0) {
             that.setData({
-              newsData: res.data
+              newsList: res.data
             })
           } else {
             // 获取失败

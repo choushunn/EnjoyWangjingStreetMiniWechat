@@ -11,8 +11,8 @@ App({
     CustomBar: 0,
     // apiUri: "http://139.155.139.25:8000/api/v1/", // 配置 API 地址
     // apiUri:"https://api.enjoywangjing.cn/api/v1/",
-    apiUri:"https://api.yfengl.cn/api/v1/",
-    // apiUri: "http://192.168.121.138:8000/api/v1/",
+    // apiUri:"https://api.yfengl.cn/api/v1/",
+    apiUri: "http://192.168.121.138:8000/api/v1/",
     // 默认头像
     defaultAvatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
   },

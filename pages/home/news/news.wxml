@@ -29,11 +29,11 @@
     活动通知
   </view>
 </scroll-view>
-<view wx:if="{{newsData}}">
+<view wx:if="{{newsList}}">
   <block wx:if="{{TabCur >= 0}}">
     <view class="cu-timeline radius-lg padding-top-xs">
       <!-- /pages/home/news/detail -->
-      <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsData}}" wx:key="item" wx:if="{{TabCur == 0 || item.catogory == TabCur}}">
+      <view class="cu-card article no-card margin-top solid-bottom" wx:for="{{newsList}}" wx:key="item" wx:if="{{TabCur == 0 || item.catogory == TabCur}}">
         <view class="cu-item shadow" bindtap="toDetail" data-item="{{item}}">
           <view class="content">
             <view class="desc">

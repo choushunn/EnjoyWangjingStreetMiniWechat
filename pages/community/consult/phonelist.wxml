@@ -13,27 +13,26 @@
 </view>
 
 <view wx:if="{{dianhuadata}}">
-<block wx:for="{{dianhuadata}}" wx:key="id">
-  <view class="cu-card margin-xs no-card">
+  <view wx:for="{{dianhuadata}}" wx:key="id" class="cu-card margin-xs no-card">
     <view class="cu-item shadow">
       <view class="title padding solid-bottom">
         <view class="flex justify-start align-center">
-          <view class="text-cut text-xl">{{item.title}}</view>
+          <view class="text-cut text-xl text-bold">{{item.address}}</view>
         </view>
       </view>
       <view class="padding">
-      <view class="text-lg">{{item.desc}}</view>
-       </view>
-      <view class="title padding solid-top">
+        <view class="text-lg">{{item.content}}</view>        
+      </view>
+      <view class="title padding solid-top" data-phone="{{item.number}}" bindtap="clickCall">
         <view class="flex justify-start align-center">
-        <view class="text-lg text-blue">
-          <view class="cuIcon-dianhua margin-right-xs"></view></view>
-          <view class="text-cut text-lg text-blue">{{item.number}}</view>
+          <view class="text-lg text-blue">
+            <view class="cuIcon-dianhua margin-right-xs"></view>
+          </view>
+          <view class="text-cut text-lg text-blue">{{item.phone}}</view>
         </view>
       </view>
     </view>
   </view>
-</block>
 </view>
 <view wx:else>
   <!-- 没有内容时的渲染 -->

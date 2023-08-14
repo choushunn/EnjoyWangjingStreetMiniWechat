@@ -18,9 +18,6 @@
   <!-- 新闻关键词 -->
   <view class="padding-left-sm flex align-center text-center justify-end solid-top margin-top padding-top">
     <view class="text-gray text-df text-right">发布日期：{{item.created_at}}</view>
-    <!-- <view class="cu-tag bg-red light sm round">关键词</view>
-    <view class="cu-tag bg-red light sm round">关键词</view>
-    <view class="cu-tag bg-red light sm round">关键词</view> -->
   </view>
 </view>
 <view wx:else>

@@ -38,14 +38,12 @@ Component({
       image: 'https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg',
       description: ''
     }],
-    // newsData: [{
-
-    // }],
-    newsData: null
+    newsList: null
   },
   lifetimes: {
     created: function () {
       var that = this;
+      // 请求轮播图数据
       wx.request({
         url: app.globalData.apiUri + 'carousel/', // 后台接口地址
         method: "GET",
@@ -60,6 +58,7 @@ Component({
           }
         },
       });
+      // 请求首页菜单数据
       wx.request({
         url: app.globalData.apiUri + 'menu_category/3/', // 后台接口地址
         method: "GET",
@@ -70,6 +69,7 @@ Component({
           });
         },
       });
+      // 请求首页新闻数据
       wx.request({
         url: app.globalData.apiUri + 'news/', // 后台接口地址
         method: "GET",
@@ -77,7 +77,7 @@ Component({
           console.log("新闻请求成功：", res.data); // 打印后台返回的数据
           if (res.data.length > 0) {
             that.setData({
-              newsData: res.data // 将后台返回的数据绑定到页面的 newsData 变量中
+              newsList: res.data // 将后台返回的数据绑定到页面的 newsList 变量中
             });
           } else {
             console.log("新闻返回数据为空")
@@ -85,6 +85,17 @@ Component({
         },
       });
     },
+    ready: function () {
+      // this.setData({
+      //   modalName: 'Image'
+      // })
+      // var that = this
+      // setTimeout(function () {
+      //   that.setData({
+      //     modalName: null
+      //   })
+      // }, 4000);
+    }
   },
   methods: {
     // 跳转功能页面
@@ -92,6 +103,16 @@ Component({
       var url = e.currentTarget.dataset.url
       wx.navigateTo({
         url: url
+      })
+    },
+    showModal(e) {
+      this.setData({
+        modalName: e.currentTarget.dataset.target
+      })
+    },
+    hideModal(e) {
+      this.setData({
+        modalName: null
       })
     },
     // 跳转到详情页面

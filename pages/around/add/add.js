@@ -1,13 +1,5 @@
 // pages/around/add/add.js
 const app =getApp();
-let loading = false;
-let loadingTop = false;
-const animation = wx.createAnimation({
-  duration: 400,
-  timingFunction: 'ease-out',
-  delay: 0,
-  transformOrigin: '50% 50% 0'
-}); //动画
 Page({
   /**
    * 页面的初始数据
@@ -16,28 +8,8 @@ Page({
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
     imgList: [],
-    show: false,
-    status: '',
-    message: '',
-    time: 0,
-    showTop: false,
-    statusTop: '',
-    messageTop: '',
-    timeTop: 2000,
     item:''
   },
-
-  TimeChange(e) {
-    this.setData({
-      time: e.detail.value
-    })
-  },
-  DateChange(e) {
-    this.setData({
-      date: e.detail.value
-    })
-  },
-
   ChooseImage() {
     wx.chooseMedia({
       count: 4, //默认9
@@ -78,76 +50,14 @@ Page({
       }
     })
   },
-  setShow(status, message, time = 2000, fun = false) {
-    if (loading) {
-      return
-    }
-    loading = true;
-    try {
-      this.setData({
-        status,
-        message,
-        time,
-        show: true,
-      })
-      setTimeout(() => {
-        this.setData({
-          show: false,
-        })
-        loading = false;
-        // 触发回调函数
-        if (fun) {
-          this.end()
-        }
-      }, time)
-    } catch {
-      loading = false;
-    }
-  },
-  setShowTop(statusTop, messageTop, timeTop = 3000) {
-
-    if (loadingTop) {
-      return
-    }
-
-    loadingTop = true;
-    try {
-      this.setData({
-        statusTop,
-        messageTop,
-        timeTop,
-        showTop: true,
-      })
-
-      this.start_animation();
-      setTimeout(() => {
-        this.end_animation();
-        loadingTop = false;
-        this.triggerEvent("end")
-      }, timeTop)
-
-    } catch {
-      loadingTop = false;
-    }
-  },
-  /**
-   * 轻提示回调函数
-   */
-  end() {
-    wx.showToast({
-      title: '触发回调方法',
-    })
-  },
   onSubmit: function (event) {
     const formData = event.detail.value;
-    const extraData = {
-      user: 1
-    }; // 新字段
+    const extraData = {"addressId":"1231"}
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
     // 使用 wx.request 发送数据到后端API
     wx.request({
-      url: app.globalData.apiUri + 'api/v1/community/appointment/',
+      url: app.globalData.apiUri + 'appointment/',
       method: 'POST',
       data: data,
       success: function (res) {

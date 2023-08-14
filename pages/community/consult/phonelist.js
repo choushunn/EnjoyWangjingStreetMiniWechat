@@ -42,7 +42,13 @@ Page({
       }
     })
   },
-
+  clickCall(e){
+    console.log(e)
+    let phone=e.currentTarget.dataset.phone;
+    wx.makePhoneCall({//调用拨打电话的函数
+      phoneNumber: phone,
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

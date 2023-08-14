@@ -37,7 +37,8 @@ Page({
         }
       }
     })
-  },changeAddress(e) {
+  },
+  changeAddress(e) {
     var that = this
     console.log(e)
     var formData = e.detail.value

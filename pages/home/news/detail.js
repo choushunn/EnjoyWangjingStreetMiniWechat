@@ -18,7 +18,7 @@ Page({
     const itemObject = JSON.parse(options.item);
     console.log(itemObject);
     this.setData({
-      item:itemObject
+      item: itemObject
     })
   },
 

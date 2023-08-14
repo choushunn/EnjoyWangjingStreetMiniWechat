@@ -4,6 +4,6 @@
     "user": "/pages/user/home/home",
     "service": "/pages/service/home/home",
     "around": "/pages/around/home/home",
-    "community":"/pages/community/home/home"
+    "community": "/pages/community/home/home"
   }
 }

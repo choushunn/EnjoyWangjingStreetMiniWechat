@@ -138,6 +138,7 @@ Page({
         if (res.statusCode == 201) {
           var ticket_id = res.data.id
           var images = that.data.imgList
+      
           for (var i = 0; i < images.length; i++) {
             wx.uploadFile({
               filePath: images[i].path,
@@ -148,25 +149,26 @@ Page({
               },
               success(res) {
                 console.log(res)
-                wx.showToast({
-                  title: '提交成功',
-                  success(res) {
-                    console.log(res)
-                    setTimeout(function () {
-                      wx.navigateBack({
-                        delta: 1
-                      })
-                    }, 1000);
-                  },
-                  fail(res) {
-                    wx.showToast({
-                      title: '提交失败',
-                    })
-                  }
-                })
+               
               }
             })
           }
+          wx.showToast({
+            title: '提交成功',
+            success(res) {
+              console.log(res)
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
+            },
+            fail(res) {
+              wx.showToast({
+                title: '提交失败',
+              })
+            }
+          })
         } else {
           wx.showToast({
             title: '提交失败',
