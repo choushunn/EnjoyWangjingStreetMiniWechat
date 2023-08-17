@@ -11,7 +11,8 @@ Page({
       "content": "隐私政策的内容",
       "name": "",
       "created_at": "2023/08/12"
-    }
+    },
+    richTextContent: '<p>This is <b>bold</b> and <i>italic</i> text.</p>'
   },
 
   /**

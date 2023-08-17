@@ -6,9 +6,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: ''
+    item: '',
+    nodes: [{
+      name: 'div',
+      attrs: {
+        class: 'div_class',
+        style: 'line-height: 60px; color: #1AAD19;'
+      },
+      children: [{
+        type: 'text',
+        text: 'You never know what you\'re gonna get.'
+      }]
+    }]
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -18,7 +28,7 @@ Page({
     const itemObject = JSON.parse(options.item);
     console.log(itemObject);
     this.setData({
-      item: itemObject
+      item: itemObject,  
     })
   },
 

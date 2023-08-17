@@ -38,7 +38,7 @@
   <block wx:if="{{item.ticket_images}}">
     <view class="bg-white solid-bottom">
       <view class="padding-lr-xl padding-tb-sm text-df flex align-center" wx:for="{{item.ticket_images}}" wx:key="id">
-        <image src="{{item.image}}" mode=""/>
+        <image src="{{item.image}}" mode="" />
       </view>
     </view>
   </block>
@@ -49,7 +49,14 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'等待处理'}}</view>
+    <block wx:if="{{item.worker_info}}">    
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">工作人员已查看</view>
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">姓    名：{{item.worker_info.worker_name}}</view>
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">联系电话：{{item.worker_info.worker_phone}}</view>
+    </block>
+    <block wx:else>
+      <view class="padding-lr-xl padding-tb-sm text-df flex align-center">请等待工作人员处理</view>
+    </block>
   </view>
   <!-- 维修结果确认 -->
   <view class="cu-bar bg-white solid-bottom">
@@ -58,7 +65,7 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'暂无结果'}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.replay?item.updated_at:'暂无结果'}}-{{item.replay?item.replay:'暂无结果'}}</view>
   </view>
   <!-- 评分 -->
   <view class="cu-bar bg-white solid-bottom">

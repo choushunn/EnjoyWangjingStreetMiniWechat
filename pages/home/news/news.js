@@ -1,5 +1,6 @@
 // pages/home/news/news.js
 const app = getApp();
+
 Page({
 
   /**
@@ -12,9 +13,11 @@ Page({
   },
   // 跳转到详情页面
   toDetail(e) {
-    console.log(e)
+    console.log("e:",e)
     var id = e.currentTarget.dataset.item.id
-    var item = JSON.stringify(e.currentTarget.dataset.item)
+    var current_item = e.currentTarget.dataset.item
+    // console.log("item:",item)
+    var item = JSON.stringify(current_item)
     // 跳转到详情页面
     wx.navigateTo({
       url: '/pages/home/news/detail?id=' + id + '&item=' + item,
@@ -30,8 +33,7 @@ Page({
       method: 'GET',
       success(res) {
         if (res.statusCode == 200) {
-          console.log("新闻信息获取成功", res.data)
-      
+          console.log("新闻信息获取成功", res.data)          
           if (res.statusCode == 200 && res.data.length>0) {
             that.setData({
               newsList: res.data
