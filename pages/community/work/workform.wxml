@@ -11,10 +11,21 @@
     <text class='cuIcon-forward text-blue '></text>
   </view>
 </view>
-<!-- 页面标题 -->
-<view class="cu-bar bg-white solid-bottom">
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-blue'></text> 居民服务办理
+    <text class='cuIcon-titles text-orange'></text><text class="text-bold">请仔细阅读受理范围</text>
+  </view>
+  <view class='action'>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom padding">
+  <view class="text">居民服务办理主要是用于.....</view>
+</view>
+
+<!-- 页面标题 -->
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue'></text> <text class="text-bold">居民服务办理</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->

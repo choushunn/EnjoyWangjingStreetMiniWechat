@@ -11,9 +11,20 @@
     <text class='cuIcon-forward text-blue '></text>
   </view>
 </view>
-<view class="cu-bar bg-white solid-bottom">
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 邻里空间预约
+    <text class='cuIcon-titles text-orange'></text><text class="text-bold">请仔细阅读受理范围</text>
+  </view>
+  <view class='action'>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom padding">
+  <view class="text">邻里空间预约主要是用于.....</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue '></text><text class="text-bold">邻里空间预约</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -30,7 +41,7 @@
   <view class="cu-form-group">
     <view class="text-red">*</view>
     <view class="title">联系电话</view>
-    <input name="phone" placeholder="请输入联系电话"  type="number"></input>
+    <input name="phone" placeholder="请输入联系电话" type="number"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86

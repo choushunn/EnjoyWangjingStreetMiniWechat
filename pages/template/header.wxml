@@ -1,6 +1,0 @@
-<template name="header">
-  <cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
-    <view slot="backText">返回</view>
-    <view slot="content">便民资讯{{ddd}}</view>
-  </cu-custom>
-</template>
