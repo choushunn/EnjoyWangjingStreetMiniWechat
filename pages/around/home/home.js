@@ -77,6 +77,7 @@ Component({
               title: '请打开位置权限',
               icon:'error'
             })
+            that.startLocation()
           }
         }
       })
