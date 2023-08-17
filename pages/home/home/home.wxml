@@ -1,6 +1,6 @@
 <!--pages/basics/home/home.wxml-->
 <!-- 顶部标题 -->
-<cu-custom bgColor="bg-gradual-blue">
+<cu-custom bgColor="bg-gradual-red">
   <view slot="content">乐享王井街</view>
 </cu-custom>
 
@@ -26,7 +26,7 @@
 <!-- 新闻bar -->
 <view class="cu-bar bg-white solid-bottom {{isCard?'margin-top':''}}">
   <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 新闻通知
+    <text class='cuIcon-favorfill text-orange'></text>便民资讯
   </view>
   <view class='action text-df' bindtap="toPage" data-url="/pages/home/news/news">
     更多

@@ -1,6 +1,6 @@
 <!--pages/community/home/home.wxml-->
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">社区</view>
+  <view slot="content">社区服务</view>
 </cu-custom>
 <!-- 背景 -->
 <!-- 改为从后台获取 -->

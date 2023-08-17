@@ -1,6 +1,6 @@
 <!--pages/service/home/home.wxml-->
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">便民服务</view>
+  <view slot="content">网上办事</view>
 </cu-custom>
 <!-- 搜索框 -->
 <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">

@@ -11,7 +11,7 @@
       <view class='text-content'>
         <view class="margin-top-lg">Hi！欢迎访问乐享王井街微信小程序！{{item.content}}</view>
         <view class='margin-top text-right text-blue'>{{item.name}}</view>
-        <view class='margin-top-sm text-right text-blue'>{{item.created_at}}</view>
+        <view class='margin-top-sm text-right text-blue'>发布日期：{{item.created_at}}</view>
       </view>
     </view>
   </scroll-view>

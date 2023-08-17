@@ -1,8 +1,9 @@
 <!--pages/home/news/news.wxml-->
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">新闻列表</view>
+  <view slot="content">便民资讯</view>
 </cu-custom>
+
 <!-- 搜素框 -->
 <view class="cu-bar search bg-white margin-0 solid-bottom">
   <view class="search-form round">
@@ -54,7 +55,6 @@
           </view>
         </view>
       </view>
-
     </view>
   </block>
 </view>

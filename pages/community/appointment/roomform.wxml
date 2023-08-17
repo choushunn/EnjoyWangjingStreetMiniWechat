@@ -30,7 +30,7 @@
   <view class="cu-form-group">
     <view class="text-red">*</view>
     <view class="title">联系电话</view>
-    <input name="phone" placeholder="请输入联系电话"></input>
+    <input name="phone" placeholder="请输入联系电话"  type="number"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
         +86

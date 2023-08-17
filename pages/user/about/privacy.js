@@ -8,11 +8,10 @@ Page({
   data: {
     item: {
       "title": "隐私政策",
-      "content": "隐私政策的内容",
+      "content": "1.为提供服务收集使用的个人信息",
       "name": "",
       "created_at": "2023/08/12"
     },
-    richTextContent: '<p>This is <b>bold</b> and <i>italic</i> text.</p>'
   },
 
   /**

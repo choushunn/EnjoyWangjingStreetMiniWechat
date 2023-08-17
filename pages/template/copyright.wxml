@@ -1,6 +1,6 @@
 <template name="copyright">
-<view class='text-sm text-gray justify-center text-center padding margin-bottom'>
-  Copyright © 2023 王井街. All Rights Reserved.
-</view>
-<view class='cu-tabbar-height'> </view>
+  <view class='text-sm text-gray justify-center text-center padding margin-bottom'>
+    Copyright © 2023 王井街. All Rights Reserved.
+  </view>
+  <view class='cu-tabbar-height'> </view>
 </template>

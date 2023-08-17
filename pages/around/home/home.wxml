@@ -1,6 +1,6 @@
 <!--pages/around/home/home.wxml-->
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">乐享王井街</view>
+  <view slot="content">发现周边</view>
 </cu-custom>
 <!-- 搜索组件 -->
 <view class="cu-bar search bg-white map_cover">
