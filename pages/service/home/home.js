@@ -3,9 +3,39 @@ const app = getApp();
 Component({
   data: {
     CustomBar: app.globalData.CustomBar,
+    data1:[{
+      title: '电费',
+      name: '电费',
+      color: 'cyan',
+      icon: 'card',
+      url: '',
+      appid:'wx5899bdb8721621d6',
+    },{
+      title: '水费',
+      name: '水费',
+      color: 'red',
+      icon: 'card',
+      url: '',
+      appid:'wxd2ade0f25a874ee2',
+    },{
+      title: '生活缴费',
+      name: '生活缴费',
+      color: 'orange',
+      icon: 'card',
+      url: '',
+      appid:'wxd2ade0f25a874ee2',
+    },{
+      title: '政务服务',
+      name: '政务服务',
+      color: 'blue',
+      icon: 'card',
+      url: '',
+      appid:'wx2eec5fb00157a603',
+    }],
     categories: [{
         "title": "社区服务",
         "iconColor": "blue",
+   
         elements: [{
             title: '邻里空间',
             name: 'background',
