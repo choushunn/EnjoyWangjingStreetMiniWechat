@@ -10,10 +10,10 @@
   </view>
   <!-- 新闻内容 -->
   <view class="padding-sm text-lg margin-top-sm">
-    <text>{{item.content}}</text>
-    <view class="bg-white margin-tb-sm">
+    <mp-html content="{{item.content}}" markdown="{{true}}"></mp-html>
+    <!-- <view class="bg-white margin-tb-sm">
       <image src="{{item.image}}" mode="aspectFill" class="radius" style="height: 360rpx;"></image>
-    </view>
+    </view> -->
   </view>
   <!-- 新闻关键词 -->
   <view class="padding-left-sm flex align-center text-center justify-end solid-top margin-top padding-top">
