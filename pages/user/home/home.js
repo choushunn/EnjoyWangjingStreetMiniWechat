@@ -166,10 +166,19 @@ Component({
       })
     },
     showQrcode: function () {
+      wx.requestSubscribeMessage({
+        tmplIds: ['QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs', 'QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs'],
+        success(res) {
+          console.log(res)
+        },fail(res){
+          console.log(res)
+        }
+      })
       wx.showToast({
         title: '赞赏支持',
         icon: 'loading'
       })
+
     },
   }
 })
