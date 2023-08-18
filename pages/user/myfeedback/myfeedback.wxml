@@ -30,7 +30,7 @@
           </view>
           <view class="content">
             <view class="desc">
-              <view class="text-content solid-bottom">{{item.content}}</view>
+              <view class="text-content solid-bottom">您 {{item.created_at}} 提交的反馈已记录，点击查看详情。</view>
               <view class="flex justify-between margin-top-sm">
                 <view class="light text-sm round">反馈记录</view>
                 <view class="light text-sm round">{{item.created_at}}</view>

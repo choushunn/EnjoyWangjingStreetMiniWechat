@@ -24,16 +24,16 @@
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">
-              <view class="text-cut">居民服务-{{item.ticket_type_name}}</view>
-              <!-- <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待处理':'已结束'}}</view> -->
+              <view class="text-cut">居民服务</view>
+              <view class="text-cut text-{{item.status?'green':'red'}}">{{item.status}}</view>
             </view>
           </view>
           <view class="content">
             <view class="desc">
-              <view class="text-content solid-bottom">{{item.description}}您的报修已被接单，请耐心等待维修，点击查看详细。</view>
+              <view class="text-content solid-bottom">您<text class="text-black"> {{item.created_at}} </text>预约的 <text class="text-black">{{item.ticket_type_name}}</text> <text class="text-black"> {{item.status}}</text>，点击查看详细。</view>
               <view class="flex justify-between margin-top-sm">
-                <view class="light text-sm round">{{item.type}}居民服务通知</view>
-                <view class="light text-sm round">{{item.created_at}}</view>
+                <view class="light text-sm round">居民服务通知</view>
+                <view class="light text-sm round">{{item.updated_at}}</view>
               </view>
             </view>
           </view>

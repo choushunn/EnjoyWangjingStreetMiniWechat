@@ -58,7 +58,7 @@ Page({
       
     };
     wx.request({
-      url: app.globalData.apiUri + 'appointment/by_user',
+      url: app.globalData.apiUri + 'appointment/',
       method: 'GET',
       data:extraData,
       header:{

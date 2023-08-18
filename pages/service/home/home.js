@@ -31,6 +31,13 @@ Component({
       icon: 'card',
       url: '',
       appid:'wx2eec5fb00157a603',
+    },{
+      title: '医疗健康',
+      name: '医疗健康',
+      color: 'pink',
+      icon: 'card',
+      url: '',
+      appid:'wxb032bc789053daf4',
     }],
     categories: [{
         "title": "社区服务",

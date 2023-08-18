@@ -27,6 +27,16 @@
       <text class="text-black text-lg">{{userinfo.nickname}}</text>
     </view>
   </view>
+    <!-- 昵称 -->
+    <view class="cu-item arrow" bindtap="showModal" data-target="nameModal">
+    <view class="content" >
+      <text class="cuIcon-my text-orange"></text>
+      <text class="text-grey">真实姓名</text>
+    </view>
+    <view class="action">
+      <text class="text-black text-lg">{{userinfo.name?userinfo.name:'暂无'}}</text>
+    </view>
+  </view>
   <!-- 手机号 -->
   <view class="cu-item arrow">
     <navigator class="content" hover-class="none" url="" open-type="redirect">
@@ -64,10 +74,10 @@
   <view class="cu-item arrow">
     <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
       <text class="cuIcon-vipcard text-orange"></text>
-      <text class="text-grey">用户状态</text>
+      <text class="text-grey">用户角色</text>
     </navigator>
     <view class="action">
-      <text class="text-black text-lg">{{userinfo.is_active?userinfo.is_active:'暂无'}}</text>
+      <text class="text-black text-lg">{{userinfo.role?userinfo.role:'暂无'}}</text>
     </view>
   </view>
 </view>

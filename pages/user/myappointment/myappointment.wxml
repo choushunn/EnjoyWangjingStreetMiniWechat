@@ -19,21 +19,21 @@
 <view wx:if="{{messageData}}">
   <!-- 消息列表 -->
   <block wx:for="{{messageData}}" wx:key="id">
-    <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status) || (TabCur == 2 && !item.status)}}">
+    <view wx:if="{{TabCur == 0 || (TabCur == 1 && item.status!=='已完成') || (TabCur == 2 && item.status=='已完成')}}">
         <view class="cu-card article no-card margin-sm" bindtap="toDetail" data-item="{{item}}">
           <view class="cu-item shadow">
             <view class="title">
               <view class="flex justify-between">
                 <view class="text-cut">预约信息</view>
-                <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待进行':'已结束'}}</view>
+                <view class="text-cut text-{{item.status?'green':'red'}}">{{item.status?item.status:'待进行'}}</view>
               </view>
             </view>
             <view class="content">
               <view class="desc">
-                <view class="text-content solid-bottom">您的预约信息已被受理，请耐心等待受理结果，点击查看详细。</view>
+                <view class="text-content solid-bottom">您<text class="text-black"> {{item.created_at}} </text>预约的 <text class="text-black">{{item.type_name}}</text> <text class="text-black"> {{item.status}}</text>，点击查看详细。</view>
                 <view class="flex justify-between margin-top-sm">
                   <view class="light text-sm round">预约结果通知</view>
-                  <view class="light text-sm round">{{item.created_at}}</view>
+                  <view class="light text-sm round">{{item.updated_at}}</view>
                 </view>
               </view>
             </view>

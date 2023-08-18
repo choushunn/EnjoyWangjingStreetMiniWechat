@@ -1,7 +1,7 @@
 <!--pages/user/myfeedback/feedbackmessage.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">反馈详情</view>
+  <view slot="content">上报详情</view>
 </cu-custom>
 <view wx:if="{{item}}">
   <!-- 提交反馈后显示 -->
@@ -52,7 +52,7 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'暂未受理，请耐心等待工作人员处理'}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'上报成功，请耐心等待工作人员处理'}}</view>
   </view>
   <!-- 评分 -->
   <view class="cu-bar bg-white solid-bottom">

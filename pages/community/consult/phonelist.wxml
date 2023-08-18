@@ -17,13 +17,13 @@
     <view class="cu-item shadow">
       <view class="title padding solid-bottom">
         <view class="flex justify-start align-center">
-          <view class="text-cut text-xl text-bold">{{item.address}}</view>
+          <view class="text-cut text-xl text-bold">{{item.title}}</view>
         </view>
       </view>
       <view class="padding">
         <view class="text-lg">{{item.content}}</view>        
       </view>
-      <view class="title padding solid-top" data-phone="{{item.number}}" bindtap="clickCall">
+      <view class="title padding solid-top" data-phone="{{item.phone}}" bindtap="clickCall">
         <view class="flex justify-start align-center">
           <view class="text-lg text-blue">
             <view class="cuIcon-dianhua margin-right-xs"></view>
