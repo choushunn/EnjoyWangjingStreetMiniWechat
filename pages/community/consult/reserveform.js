@@ -20,25 +20,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: dateStr,
+    date: null,
     currentDate:dateStr,
     consult_time:null,
     picker_time:null,
-    time_index:0,
+    time_index:null,
   },
   timeChange(e) {
     this.setData({
       time_index: e.detail.value
     })
   },
-  DateChange(e) {
+  dateChange(e) {
     this.setData({
       date: e.detail.value
     })
   },
   onSubmit: function (event) {
-
     const formData = event.detail.value;
+    if (formData.name.length == 0) {
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
     // 验证手机号码
     var myreg = /^1[3-9]\d{9}$/;
     if (formData.phone.length == 0) {
@@ -62,15 +69,33 @@ Page({
         duration: 1500
       })
       return false;
-    } else {
+    } 
+    if (!formData.content) {
       wx.showToast({
-        title: '填写正确',
-        icon: 'success',
+        title: '请输入内容',
+        icon: 'error',
         duration: 1500
       })
+      return false;
+    }
+    if (!formData.date) {
+      wx.showToast({
+        title: '请选择日期',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    if (!formData.time) {
+      wx.showToast({
+        title: '请选择时间',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
     }
     const extraData = {
-      user: wx.getStorageSync('userinfo').id
+      
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
@@ -144,7 +169,7 @@ Page({
     // 获取预约时间放到picker_tiem数组
     var picker_time = []
     wx.request({
-      url: app.globalData.apiUri + 'appointment_time/',
+      url: app.globalData.apiUri + 'consult_time/',
       success(res) {
         console.log("可用预约时间:", res)
         if (res.statusCode == 200 && res.data.length > 0) {

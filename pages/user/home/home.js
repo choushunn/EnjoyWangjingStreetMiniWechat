@@ -167,17 +167,27 @@ Component({
     },
     showQrcode: function () {
       wx.requestSubscribeMessage({
-        tmplIds: ['QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs', 'QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs'],
+        tmplIds: ['QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs', 'FyttljRvQRug1iwsHgy0mnWbL4HRORJX4LJM_G-Hq7M'],
         success(res) {
-          console.log(res)
-        },fail(res){
-          console.log(res)
+          console.log('调起成功',res);
+          if (res[tempId[0]] === 'accept') {
+              console.log('允许')
+          }
+          if (res[tempId[0]] === 'reject') {
+            console.log('拒绝')
+          }
+        },fail(err){
+          if (err.errCode == 20004) {
+            console.log('关闭小程序主开关')
+          } else {
+            console.log('订阅失败')
+          }
         }
       })
-      wx.showToast({
-        title: '赞赏支持',
-        icon: 'loading'
-      })
+      // wx.showToast({
+      //   title: '赞赏支持',
+      //   icon: 'loading'
+      // })
 
     },
   }

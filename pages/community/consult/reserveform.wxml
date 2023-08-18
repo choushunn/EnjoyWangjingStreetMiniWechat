@@ -60,9 +60,9 @@
   <!-- 预约日期 -->
   <view class="cu-form-group">
     <view class="text-red">*</view><view class="title">预约日期</view>
-    <picker name='date' mode="date" start="{{currentDate}}" value="{{date}}" bindchange="DateChange">
+      <picker name="date" mode="date" start="{{currentDate}}" value="{{date}}" bindchange="dateChange">
       <view class="picker">
-        {{date}}
+        {{date?date:'请选择预约日期'}}
       </view>
     </picker>
   </view>
