@@ -20,7 +20,7 @@
   </view>
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-sm solid-bottom">
-    <view class="padding-sm" wx:for="{{data1}}" wx:key="title">
+    <view class="padding-sm" wx:for="{{elements1}}" wx:key="title">
       <view class="bg-{{item.color}} padding radius-social text-center light" bindtap="toMini" data-appid="{{item.appid}}">
         <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
         <view class="text-lg">{{item.title}}</view>
@@ -28,25 +28,30 @@
     </view>
   </view>
 </view>
-
 <!-- 功能列表 -->
-<view wx:for="{{categories}}" wx:key="title">
-  <view class="cu-bar bg-white solid-bottom" bindtap="toMini">
+<view>
+  <view class="cu-bar bg-white solid-bottom">
     <view class='action'>
-      <text class='cuIcon-titles text-{{item.iconColor}}'></text> {{item.title}}
+      <text class='cuIcon-titles text-green'></text>社区服务
     </view>
   </view>
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-sm solid-bottom">
-    <view class="padding-sm" wx:for="{{item.elements}}" wx:key="title">
-      <view class="bg-{{item.color}} padding radius-social text-center light" ontap="toPage" data-url="{{item.url}}">
+    <!--  -->
+    <view class="padding-sm">
+      <view class="bg-green padding radius-social text-center light"open-type="contact" bindcontact="handleContact" session-from="sessionFrom">
+        <text class='cuIcon-people' style="font-size: 30px;"></text>
+        <view class="text-lg">在线咨询</view>
+      </view>
+    </view>
+    <view class="padding-sm" wx:for="{{elements2}}" wx:key="title">
+      <view class="bg-{{item.color}} padding radius-social text-center light" bindtap="toPage" data-url="{{item.url}}">
         <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
         <view class="text-lg">{{item.title}}</view>
       </view>
     </view>
   </view>
 </view>
-
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

@@ -8,11 +8,11 @@ Page({
     avatarUrl: app.globalData.defaultAvatarUrl,
     userinfo: null
   },
-  changeNickname(e) {
+  changeAddress(e) {
     var that = this
     console.log(e)
     var formData = e.detail.value
-    if (formData.nickname.length <= 0) {
+    if (formData.nickname && formData.nickname.length <= 0) {
       wx.showToast({
         title: '请填写昵称',
         icon: 'error',
@@ -20,29 +20,15 @@ Page({
       })
       return false;
     }
-    wx.request({
-      url: app.globalData.apiUri + 'user/' + that.data.userinfo.id + '/',
-      header: {
-        "authorization": "Bearer " + wx.getStorageSync('token')
-      },
-      method: 'PUT',
-      data: formData,
-      success(res) {
-        console.log(res)
-        if (res.statusCode == 200) {
-          that.setData({
-            modalName: null,
-            userinfo: res.data
-          })
-        }
-      }
-    })
-  },
-  changeAddress(e) {
-    var that = this
-    console.log(e)
-    var formData = e.detail.value
-    if (formData.address.length <= 0) {
+    if (formData.name && formData.name.length <= 0) {
+      wx.showToast({
+        title: '请填写姓名',
+        icon: 'error',
+        duration: 1500
+      })
+      return false;
+    }
+    if (formData.address && formData.address.length <= 0) {
       wx.showToast({
         title: '请填写地址',
         icon: 'error',
@@ -51,7 +37,7 @@ Page({
       return false;
     }
     wx.request({
-      url: app.globalData.apiUri + 'user/' + that.data.userinfo.id + '/',
+      url: app.globalData.apiUri + 'user_update/',
       header: {
         "authorization": "Bearer " + wx.getStorageSync('token')
       },
@@ -59,12 +45,40 @@ Page({
       data: formData,
       success(res) {
         console.log(res)
-        if (res.statusCode == 200) {
-          that.setData({
-            modalName: null,
-            userinfo: res.data
+        if (res.statusCode == 200) {         
+            wx.showToast({
+              title: '修改成功',
+              icon:'success',
+              success: function () {
+                setTimeout(function () {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }, 1000);
+              }
+            })          
+        }else{
+          wx.showToast({
+            title: '修改失败',
+            icon:'error',
+            success: function () {
+              that.hideModal()
+            }
           })
         }
+      },fail(err){
+        console.log(err)
+        wx.showToast({
+          title: '修改失败',
+          icon:'error',
+          success: function () {
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000);
+          }
+        })
       }
     })
   },
@@ -88,19 +102,43 @@ Page({
             that.setData({
               avatarUrl: res.tempFilePath
             });
-
             // 上传到服务器
-            // wx.uploadFile({
-            //   filePath: res.tempFilePath,
-            //   name: 'avatar',
-            //   method:'PUT',
-            //   url: app.globalData.apiUri+'user/'+that.data.userinfo.id+'/',
-            //   success(res){
-            //     console.log(res)
-            //   },fail(res){
-            //     console.log(res)
-            //   }
-            // })
+            wx.uploadFile({
+              filePath: res.tempFilePath,
+              name: 'avatar',
+              url: app.globalData.apiUri+'user_avatar/',
+              header: {
+                "authorization": "Bearer " + wx.getStorageSync('token')
+              },
+              success(res){
+                if(res.statusCode==200){
+                  wx.showToast({
+                    title: '修改成功',
+                    icon:'success',
+                    success: function () {
+                      setTimeout(function () {
+                        wx.navigateBack({
+                          delta: 1
+                        })
+                      }, 1000);
+                    }
+                  })
+                }
+              },fail(res){
+                console.log(res)
+                wx.showToast({
+                  title: '修改失败',
+                  icon:'error',
+                  success: function () {
+                    setTimeout(function () {
+                      wx.navigateBack({
+                        delta: 1
+                      })
+                    }, 1000);
+                  }
+                })
+              }
+            })
           }
         })
       }

@@ -90,9 +90,9 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <form bindsubmit="changeNickname">    
+    <form bindsubmit="changeAddress">    
     <view class="margin padding-xl text-left">
-      <input name="nickname" type="text" placeholder="请输入昵称" />
+      <input name="nickname" type="text" placeholder="请输入昵称" value="{{userinfo.nickname}}"/>
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">
@@ -103,7 +103,27 @@
   </form>
   </view>
 </view>
-
+<view class="cu-modal {{modalName=='nameModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">修改真实姓名</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <form bindsubmit="changeAddress">    
+    <view class="margin padding-xl text-left">
+      <input name="name" type="text" placeholder="请输入真实姓名" value="{{userinfo.name}}"/>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+      </view>
+    </view>
+  </form>
+  </view>
+</view>
 <view class="cu-modal {{modalName=='addressModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
@@ -114,7 +134,7 @@
     </view>
     <form bindsubmit="changeAddress">    
     <view class="margin padding-xl text-left">
-      <input name="address" type="text" placeholder="请输入地址" />
+      <input name="address" type="text" placeholder="请输入地址" value="{{userinfo.address}}"/>
     </view>
     <view class="cu-bar bg-white justify-end">
       <view class="action">

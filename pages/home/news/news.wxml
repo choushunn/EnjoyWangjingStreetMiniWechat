@@ -3,7 +3,6 @@
   <view slot="backText">返回</view>
   <view slot="content">便民资讯</view>
 </cu-custom>
-
 <!-- 搜素框 -->
 <view class="cu-bar search bg-white margin-0 solid-bottom">
   <view class="search-form round">

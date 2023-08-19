@@ -12,9 +12,9 @@
           <view class="padding-xs text-xl">
             {{item.title}}
           </view>
-          <view class="padding-xs">
+          <!-- <view class="padding-xs">
             {{item.summary}}
-          </view>
+          </view> -->
         </view>
       </view>
     </swiper-item>
