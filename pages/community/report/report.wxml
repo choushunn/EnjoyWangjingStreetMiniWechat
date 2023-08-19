@@ -6,16 +6,26 @@
 
 <view class="cu-bar bg-white solid-bottom margin-tb-sm" bindtap="toMyDetail">
   <view class='action'>
-    <text class='cuIcon-right text-blue'></text><text>查看我的上报记录</text>
+    <text class='cuIcon-right text-blue'></text><text class="text-xl">查看我的上报记录</text>
   </view>
   <view class='action'>
     <text class='cuIcon-forward text-blue '></text>
   </view>
 </view>
-
-<view class="cu-bar bg-white solid-bottom">
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 社区问题上报
+    <text class='cuIcon-titles text-orange'></text><text class="text-bold text-xl">请仔细阅读受理范围</text>
+  </view>
+  <view class='action'>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom padding">
+  <view class="text text-xl">问题上报功能用于上报您发现的各种问题，请填写以下信息完成上报。</view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top-sm">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue '></text> <text class="text-xl">社区问题上报</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -60,9 +70,9 @@
   <!-- 图片上传 -->
   <view class="cu-bar bg-white ">
     <view class="action">
-      图片上传(最多上传9张图)
+      <text class="text-xl">图片上传(最多上传9张图)</text>
     </view>
-    <view class="action" style="font-size: 30rpx;">
+    <view class="action" style="font-size: 36rpx;">
       {{imgList.length}}/9
     </view>
   </view>

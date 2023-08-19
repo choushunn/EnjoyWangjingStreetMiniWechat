@@ -120,6 +120,9 @@ Page({
                         wx.navigateBack({
                           delta: 1
                         })
+                        // wx.reLaunch({
+                        //   url: '/pages/user/home/home',
+                        // })
                       }, 1000);
                     }
                   })
@@ -134,6 +137,7 @@ Page({
                       wx.navigateBack({
                         delta: 1
                       })
+                    
                     }, 1000);
                   }
                 })

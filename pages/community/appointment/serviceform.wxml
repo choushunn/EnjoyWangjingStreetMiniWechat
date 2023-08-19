@@ -4,7 +4,7 @@
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom margin-tb-sm" bindtap="toMyDetail">
   <view class='action'>
-    <text class='cuIcon-right text-blue'></text><text>查看我的预约记录</text>
+    <text class='cuIcon-right text-blue'></text><text class="text-xl">查看我的预约记录</text>
   </view>
   <view class='action'>
     <text class='cuIcon-forward text-blue '></text>
@@ -13,18 +13,18 @@
 
 <view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-orange'></text><text class="text-bold">请仔细阅读受理范围</text>
+    <text class='cuIcon-titles text-orange'></text><text class="text-bold text-xl">请仔细阅读受理范围</text>
   </view>
   <view class='action'>
   </view>
 </view>
 <view class="cu-bar bg-white solid-bottom padding">
-  <view class="text">办事预约主要是用于.....</view>
+  <view class="text text-xl">办事预约主要是用于.....</view>
 </view>
 
 <view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-blue'></text> <text class="text-bold">办事预约</text>
+    <text class='cuIcon-titles text-blue'></text> <text class="text-bold text-xl">办事预约</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->

@@ -2958,7 +2958,7 @@ egg-label>span::after {
 .cu-form-group .title {
   text-align: justify;
   padding-right: 30rpx;
-  font-size: 30rpx;
+  font-size: 34rpx;
   position: relative;
   height: 60rpx;
   line-height: 60rpx;
@@ -2989,7 +2989,7 @@ egg-label>span::after {
 
 .cu-form-group.align-start .title {
   height: 1em;
-  margin-top: 32rpx;
+  margin-top: 36rpx;
   line-height: 1em;
 }
 

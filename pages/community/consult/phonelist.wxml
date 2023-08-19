@@ -5,7 +5,7 @@
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> 电话咨询说明
+    <text class='cuIcon-titles text-blue '></text> <text class="text-xl">电话咨询说明</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -28,7 +28,7 @@
           <view class="text-lg text-blue">
             <view class="cuIcon-dianhua margin-right-xs"></view>
           </view>
-          <view class="text-cut text-lg text-blue">{{item.phone}}</view>
+          <view class="text-cut text-xl text-blue ">{{item.phone}}</view>
         </view>
       </view>
     </view>

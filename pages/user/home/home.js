@@ -46,24 +46,8 @@ Component({
       url: '/pages/user/myreport/myreport'
     }],
     // 关于菜单
-    aboutMenuItems: [{
-        id: 1,
-        name: '关于我们',
-        icon: 'info',
-        color: 'cyan',
-        url: '/pages/user/about/about',
-        handler: 'toPage'
-      },
+    aboutMenuItems: [
       {
-        id: 2,
-        name: '更新日志',
-        icon: 'formfill',
-        color: 'green',
-        url: '/pages/user/logs/logs',
-        handler: 'toPage'
-      },
-      {
-        id: 3,
         name: '免责声明',
         icon: 'text',
         color: 'cyan',
@@ -71,7 +55,6 @@ Component({
         handler: 'toPage'
       },
       {
-        id: 4,
         name: '隐私政策',
         icon: 'safe',
         color: 'cyan',
@@ -79,15 +62,26 @@ Component({
         handler: 'toPage'
       },
       {
-        id: 5,
         name: '用户协议',
         icon: 'file',
         color: 'cyan',
         url: '/pages/user/about/agreement',
         handler: 'toPage'
+      },{
+        name: '关于我们',
+        icon: 'info',
+        color: 'cyan',
+        url: '/pages/user/about/about',
+        handler: 'toPage'
       },
       {
-        id: 6,
+        name: '更新日志',
+        icon: 'formfill',
+        color: 'green',
+        url: '/pages/user/logs/logs',
+        handler: 'toPage'
+      },
+      {
         name: '赞赏支持',
         icon: 'appreciatefill',
         color: 'red',

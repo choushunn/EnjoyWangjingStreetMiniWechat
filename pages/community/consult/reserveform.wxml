@@ -5,7 +5,7 @@
 </cu-custom>
 <view class="cu-bar bg-white solid-bottom margin-tb-sm" bindtap="toMyDetail">
   <view class='action'>
-    <text class='cuIcon-right text-blue'></text><text>查看我的咨询记录</text>
+    <text class='cuIcon-right text-blue'></text><text class="text-xl">查看我的咨询记录</text>
   </view>
   <view class='action'>
     <text class='cuIcon-forward text-blue '></text>
@@ -14,17 +14,17 @@
 
 <view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-orange'></text><text class="text-bold">请仔细阅读受理范围</text>
+    <text class='cuIcon-titles text-orange'></text><text class="text-bold text-xl">请仔细阅读受理范围</text>
   </view>
   <view class='action'>
   </view>
 </view>
 <view class="cu-bar bg-white solid-bottom padding">
-  <view class="text">预约咨询主要是用于.....</view>
+  <view class="text text-xl">用于办理到现场咨询的预约，如需预约请仔细填写以下表格中内容，填写完成后，请在预约的时间段内办理。</view>
 </view>
 <view class="cu-bar bg-white solid-bottom margin-top-sm">
   <view class='action'>
-    <text class='cuIcon-titles text-blue '></text> <text class="text-bold">预约咨询表单</text>
+    <text class='cuIcon-titles text-blue '></text> <text class="text-bold text-xl">预约咨询表单</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -33,12 +33,12 @@
 <form bindsubmit="onSubmit">
   <!-- 预约人 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约人</view>
+    <view class="text-red">*</view><view class="text-xl">预约人</view>
     <input name='name' placeholder="请输入预约人姓名"></input>
   </view>
   <!-- 联系电话 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view> <view class="title">联系电话</view>
+    <view class="text-red">*</view> <view class="text-xl">联系电话</view>
     <input name='phone' placeholder="输入联系电话"  type="number"></input>
     <view class="cu-capsule radius">
       <view class="cu-tag bg-blue">
@@ -51,7 +51,7 @@
   </view>
   <!-- 预约内容 -->
   <view class="cu-form-group solid-top">
-    <view class="title"><text class="text-red">*</text>咨询内容</view>
+    <view class="title"><text class="text-red text-xl">*</text>咨询内容</view>
   </view>
   <view class="cu-form-group"> 
     <textarea name='content' maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="请输入咨询内容"></textarea>
@@ -59,7 +59,7 @@
   
   <!-- 预约日期 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约日期</view>
+    <view class="text-red">*</view><view class="text-xl">预约日期</view>
       <picker name="date" mode="date" start="{{currentDate}}" value="{{date}}" bindchange="dateChange">
       <view class="picker">
         {{date?date:'请选择预约日期'}}
@@ -68,7 +68,7 @@
   </view>
   <!-- 预约时间 -->
   <view class="cu-form-group">
-    <view class="text-red">*</view><view class="title">预约时间</view>
+    <view class="text-red">*</view><view class="text-xl">预约时间</view>
     <picker name="time" bindchange="timeChange" value="{{consult_time[time_index].id}}" range="{{picker_time}}">
       <view class="picker">
         {{time_index?picker_time[time_index]:'选择预约时间'}}
@@ -83,7 +83,7 @@
   </view>
   <!-- 保存提交按钮 -->
   <view class="padding bg-white">
-    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block" form-type="submit" bindtap="submit_data">提交</button>
+    <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block text-xl" form-type="submit" bindtap="submit_data">提交</button>
   </view>
 </form>
 

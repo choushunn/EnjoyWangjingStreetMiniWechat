@@ -6,7 +6,7 @@
 <!-- 页面标题 -->
 <view class="cu-bar bg-white solid-bottom">
   <view class='action'>
-    <text class='cuIcon-titles text-blue'></text> 社区服务预约
+    <text class='cuIcon-titles text-blue'></text> <text class="text-xl">社区服务预约</text>
   </view>
   <view class='action'>
     <!-- 右侧按钮 -->
@@ -18,7 +18,7 @@
   <view class="cu-item" wx:for="{{menu}}" wx:key="index">
     <view class="content">
       <text class="{{item.icon}}"></text>
-      <text class="text-grey">{{item.title}}</text>
+      <text class="text-grey text-xl">{{item.title}}</text>
     </view>
     <navigator class="action" url="{{item.url}}">
       <button class="cu-btn round bg-blue shadow">

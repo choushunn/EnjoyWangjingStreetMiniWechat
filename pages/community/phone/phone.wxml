@@ -29,11 +29,11 @@
               <view class="cuIcon-dianhua margin-right-xs"></view>
             </view>
             <view data-phone="{{item.number}}" bindtap="clickCall">
-              <view class="text-cut text-lg text-blue">{{item.number}}</view>
+              <view class="text-cut text-xl text-blue">{{item.number}}</view>
             </view>
           </view>
         </view>
-        <view class="padding-sm text-cut text-sm solid-top">{{item.address?item.address:'暂无'}}</view>
+        <view class="padding-sm text-cut text-lg solid-top">地址：{{item.address?item.address:'暂无'}}</view>
       </view>
     </view>
   </block>
