@@ -12,7 +12,7 @@ Component({
         name: '办事指南',
         color: 'red',
         icon: 'newsfill',
-        url: '/pages/home/home/guideline'
+        url: '/pages/home/guideline'
       },
       {
         name: '社区活动',
@@ -60,7 +60,7 @@ Component({
       });
       // 请求首页菜单数据
       wx.request({
-        url: app.globalData.apiUri + 'menu_category/3/', // 后台接口地址
+        url: app.globalData.apiUri + 'menu_category/?url=home', // 后台接口地址
         method: "GET",
         success: function (res) {
           console.log("菜单请求成功：", res); // 打印后台返回的数据

@@ -149,11 +149,20 @@ Page({
   onLoad(options) {
     var token = wx.getStorageSync('token')
     if (!token) {
-      wx.showToast({
-        title: '请先登录',
-        icon: 'error',
-        success() {
-          console.log("正在跳转至登录页面")
+      wx.showModal({
+        title: '您还未登录',
+        content: '请先登录后办理服务',
+        complete: (res) => {
+          if (res.cancel) {            
+              wx.navigateBack({
+                delta: 1
+              })          
+          }      
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/user/login/login',
+            })
+          }
         }
       })
     }

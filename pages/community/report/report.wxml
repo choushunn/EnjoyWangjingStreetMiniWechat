@@ -78,7 +78,7 @@
   </view>
   <view class="cu-form-group">
     <view class="grid col-4 grid-square flex-sub">
-      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="index">
         <image mode="aspectFill" src="{{item.path}}" bindtap="previewImage" data-src="{{item.path}}" />
         <view class="cu-tag bg-red" bindtap="deleteImage" data-index="{{index}}">删除</view>
       </view>

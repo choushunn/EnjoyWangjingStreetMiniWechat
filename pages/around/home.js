@@ -1,4 +1,4 @@
-import QQMapWX from '../../../libs/qqmap-wx-jssdk.min';
+import QQMapWX from '../../lib/qqmap-wx-jssdk.min';
 // 实例化API核心类
 var qqmapsdk;
 const app = getApp();
@@ -118,7 +118,7 @@ Component({
       var item = JSON.stringify(e.currentTarget.dataset.item)
       // 跳转到详情页面
       wx.navigateTo({
-        url: '/pages/around/detail/detail?id=' + id + '&item=' + item,
+        url: '/pages/around/detail?id=' + id + '&item=' + item,
       })
     },
     // 地图相关
@@ -154,7 +154,7 @@ Component({
                   longitude: item.location.lng,
                   title: item.title,
                   address: item.address,
-                  iconPath: '../../../images/amap/marker.png',
+                  iconPath: '../../assets/images/amap/marker.png',
                   width: 20,
                   height: 30,
                   callout: {
@@ -176,7 +176,7 @@ Component({
                 longitude: _res.location.lng,
                 title: _res.address,
                 address: _res.address,
-                iconPath: '../../../images/amap/mapicon_navi_s.png',
+                iconPath: '../../assets/images/amap/mapicon_navi_s.png',
                 width: 20,
                 height: 30,
                 callout: {
@@ -234,7 +234,7 @@ Component({
               longitude: item.location.lng,
               title: item.title,
               address: item.address,
-              iconPath: '../../../images/amap/marker.png',
+              iconPath: '../../assets/images/amap/marker.png',
               width: 20,
               height: 30,
               callout: {
@@ -297,7 +297,7 @@ Component({
     // 改变标记点的颜色
     changeMarkerColor(markers, index) {
       var newMarkers = markers.map(function (item, i) {
-        item.iconPath = (i == index) ? '../../../images/amap/marker_checked.png' : '../../../images/amap/marker.png';
+        item.iconPath = (i == index) ? '../../assets/images/amap/marker_checked.png' : '../../assets/images/amap/marker.png';
         return item;
       });
       this.setData({
@@ -397,7 +397,7 @@ Component({
       //将对象转为string
       var queryBean = JSON.stringify(this.data.markers[index])
       wx.navigateTo({
-        url: "/pages/around/add/add?details=" + queryBean,
+        url: "/pages/around/add?details=" + queryBean,
       })
     },
     bindInput(e) {

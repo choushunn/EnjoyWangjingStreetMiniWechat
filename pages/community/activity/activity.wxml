@@ -6,7 +6,7 @@
 <view wx:if="{{items}}" class="cu-timeline margin-xs radius-lg padding-top">
   <!-- 滚动图片 -->
   <swiper class="screen-swiper margin-sm square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-    <swiper-item wx:for="{{items}}" wx:key="item">
+    <swiper-item wx:for="{{items}}" wx:key="item"  wx:if="{{index<5}}">
       <view class="bg-img radius" style="background-image: url({{item.image}});height: 310rpx;">
         <view class="padding-xl text-white">
           <view class="padding-xs text-xl">

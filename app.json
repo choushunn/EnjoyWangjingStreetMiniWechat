@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/home/home/home",
-    "pages/home/home/guideline",
-    "pages/home/news/news",
+    "pages/home/home",
+    "pages/home/guideline",
+    "pages/home/news",
     "pages/home/news/detail",
-    "pages/service/home/home",
-    "pages/community/home/home",
+    "pages/service/home",
+    "pages/community/home",
     "pages/community/notice/notice",
     "pages/community/notice/detail",
     "pages/community/activity/activity",
@@ -22,9 +22,9 @@
     "pages/community/report/report",
     "pages/community/phone/phone",
     "pages/community/feedback/feedback",
-    "pages/around/home/home",
-    "pages/around/add/add",
-    "pages/around/detail/detail",
+    "pages/around/home",
+    "pages/around/add",
+    "pages/around/detail",
     "pages/user/home/home",
     "pages/user/home/userinfo",
     "pages/user/logs/logs",
@@ -53,7 +53,7 @@
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/components/colorui/components/cu-custom"
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

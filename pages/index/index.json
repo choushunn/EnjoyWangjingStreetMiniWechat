@@ -1,9 +1,9 @@
 {
   "usingComponents": {
-    "home": "/pages/home/home/home",
+    "home": "/pages/home/home",
     "user": "/pages/user/home/home",
-    "service": "/pages/service/home/home",
-    "around": "/pages/around/home/home",
-    "community": "/pages/community/home/home"
+    "service": "/pages/service/home",
+    "around": "/pages/around/home",
+    "community": "/pages/community/home"
   }
 }

@@ -46,7 +46,7 @@ Component({
       name: '近期新闻',
       color: 'blue',
       icon: 'news',
-      url: '/pages/home/news/news'
+      url: '/pages/home/news'
     }]
   },
   methods: {

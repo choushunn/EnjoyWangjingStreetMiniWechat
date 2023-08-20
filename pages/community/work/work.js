@@ -18,13 +18,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items:'',
+    items: '',
     "menu": [{
       "icon": "cuIcon-btn text-green",
       "title": "居民服务",
       "url": "/pages/community/work/workform"
-    }
-  ]
+    }]
+  },
+  // 跳转到功能页面
+  toPage(e) {
+    var url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    })
   },
   showHelp: function () {
     wx.showModal({

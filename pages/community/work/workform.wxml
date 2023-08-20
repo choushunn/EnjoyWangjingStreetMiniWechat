@@ -19,7 +19,7 @@
   </view>
 </view>
 <view class="cu-bar bg-white solid-bottom padding">
-  <view class="text text-xl">居民服务功能主要用于办理.....</view>
+  <view class="text text-xl">居民服务主要用于办理报修等事项，请填写以下信息。</view>
 </view>
 
 <!-- 页面标题 -->

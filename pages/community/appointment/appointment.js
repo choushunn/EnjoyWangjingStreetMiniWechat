@@ -28,9 +28,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var token = wx.getStorageSync('token')
+    if (!token) {
+      wx.showModal({
+        title: '您还未登录',
+        content: '请先登录后办理服务',
+        complete: (res) => {
+          if (res.cancel) {            
+              wx.navigateBack({
+                delta: 1
+              })          
+          }      
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/user/login/login',
+            })
+          }
+        }
+      })
+    }
   },
-
+  // 跳转到功能页面
+  toPage(e) {
+    var url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

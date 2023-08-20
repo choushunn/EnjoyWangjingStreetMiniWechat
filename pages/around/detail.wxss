@@ -1,7 +1,7 @@
 /* pages/around/details/details.wxss */
-@import "/colorui/main.wxss";
-@import "/colorui/icon.wxss";
-@import "/colorui/animation.wxss";
+@import "/components/colorui/main.wxss";
+@import "/components/colorui/icon.wxss";
+@import "/components/colorui/animation.wxss";
 .cu-good-act {
   overflow: hidden;
   position: relative;

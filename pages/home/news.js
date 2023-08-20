@@ -7,9 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TabCur: 0,
+    TabCur: 1,
     scrollLeft: 0,
-    newsList:''
+    // newsList:'',
+    newsList:{
+      news:'',
+      notice:'',
+      activity:'',
+    }
   },
   // 跳转到详情页面
   toDetail(e) {
@@ -36,7 +41,39 @@ Page({
           console.log("新闻信息获取成功", res.data)          
           if (res.statusCode == 200 && res.data.length>0) {
             that.setData({
-              newsList: res.data
+              'newsList.news': res.data
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
+    wx.request({
+      url: app.globalData.apiUri + 'notification/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("通知信息获取成功", res.data)          
+          if (res.statusCode == 200 && res.data.length>0) {
+            that.setData({
+              'newsList.notice': res.data
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
+    wx.request({
+      url: app.globalData.apiUri + 'activity/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("活动信息获取成功", res.data)          
+          if (res.statusCode == 200 && res.data.length>0) {
+            that.setData({
+              'newsList.activity': res.data
             })
           } else {
             // 获取失败

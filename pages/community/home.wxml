@@ -4,7 +4,7 @@
 </cu-custom>
 <!-- 背景 -->
 <!-- 改为从后台获取 -->
-<image src='/images/banner.jpg' mode='scaleToFill' style="width: 100%;"></image>
+<image src='/assets/images/banner.jpg' mode='scaleToFill' style="width: 100%;"></image>
 <!-- 标题 -->
 <view class="cu-bar bg-white solid-bottom  margin-0 padding-0" style="margin-top: -12rpx;">
   <view class="action  margin-0 padding-0">

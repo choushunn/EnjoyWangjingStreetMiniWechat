@@ -17,9 +17,9 @@
       <text class="cuIcon-phone text-green"></text>
       <text class="text-grey text-xl">电话咨询</text>
     </view>
-    <view class="action">
-      <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/consult/phonelist">点我</navigator>
+    <view class="action" data-url="/pages/community/consult/phonelist" bindtap="toPage">    
+        <button class="cu-btn round bg-blue shadow">
+          <view class="cuIcon-right"></view>点我
       </button>
     </view>
   </view>
@@ -28,9 +28,10 @@
       <text class="cuIcon-time text-red"></text>
       <text class="text-grey text-xl">预约咨询</text>
     </view>
-    <view class="action">
+    <view class="action" data-url="/pages/community/consult/reserveform" bindtap="toPage">
       <button class="cu-btn round bg-blue shadow">
-        <navigator class="cuIcon-right" url="/pages/community/consult/reserveform">点我</navigator>
+        <view class="cuIcon-right"></view>
+       点我
       </button>
     </view>
   </view>

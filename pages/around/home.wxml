@@ -108,7 +108,7 @@
       </view>
     </view>
     <!-- 类别筛选 2-->
-    <view class="cu-bar bg-white solid-bottom">
+    <!-- <view class="cu-bar bg-white solid-bottom">
       <view class='action'>
         <text class='cuIcon-titles text-blue'></text> 范围
       </view>
@@ -121,6 +121,6 @@
           </view>
         </block>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>

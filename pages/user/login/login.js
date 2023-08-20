@@ -9,9 +9,36 @@ Page({
     modalName: '',
     phoneCode: '',
     isRegister: false,
+    isChecked: false,
+  },    
+  // 跳转到功能页面
+  toPage(e){
+    var url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url
+    })
   },
   // 点击登录按钮
   onLogin() {
+    var isChecked = this.data.isChecked
+    console.log(isChecked) 
+    if (!isChecked) {      
+      wx.showModal({
+        title: '提示',
+        content: '请先阅读并同意用户服务协议和隐私政策。',
+        complete: (res) => {
+          if (res.cancel) {
+            
+          }
+      
+          if (res.confirm) {
+            
+          }
+        }
+      })    
+      return;
+    }
+    
     console.log("尝试直接登录")
     var that = this
     // 尝试自动登录
@@ -32,16 +59,16 @@ Page({
               wx.showToast({
                 title: "登录成功！",
                 icon: 'success',
-                success(){
-                  setTimeout(function(){
+                success() {
+                  setTimeout(function () {
                     wx.reLaunch({
-                      url: '/pages/index/index',              
+                      url: '/pages/index/index',
                     })
-                  },1000)                
+                  }, 1000)
                 }
               });
-              
-            } else if(res.statusCode==406){
+
+            } else if (res.statusCode == 406) {
               // 跳转到首页
               wx.showToast({
                 title: "请先注册！",
@@ -51,8 +78,8 @@ Page({
                 that.setData({
                   modalName: "Modal"
                 })
-              }, 500);              
-            }else {
+              }, 500);
+            } else {
               // 登录失败，清除用户信息
               wx.removeStorageSync('token')
             }
@@ -64,6 +91,15 @@ Page({
         })
       },
     })
+  },
+  checkboxChange(e) {
+    console.log(e)
+    if (e.detail.value.length>0) {
+      console.log("已同意")
+      this.setData({
+        isChecked:true
+      })
+    }
   },
   // 获取用户手机号码
   getPhoneNumber(e) {
@@ -113,7 +149,7 @@ Page({
             fail(res) {
               console.log(res)
               wx.showToast({
-                title: '登录失败，上传文件失败',                
+                title: '登录失败，上传文件失败',
                 icon: 'error',
               });
             },
@@ -135,7 +171,9 @@ Page({
   },
   // 获取头像URL
   onChooseAvatar(e) {
-    const { avatarUrl } = e.detail
+    const {
+      avatarUrl
+    } = e.detail
     console.log("获取头像信息:", e)
     this.setData({
       avatarUrl: avatarUrl,
@@ -157,7 +195,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-  
+
   },
   // 显示模态框
   showModal(e) {

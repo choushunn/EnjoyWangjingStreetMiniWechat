@@ -1,4 +1,5 @@
 // pages/user/about/agreement.js
+const app = getApp();
 Page({
 
   /**
@@ -19,7 +20,7 @@ Page({
   onLoad(options) {
     wx.request({
       // url: app.globalData.apiUri+'pages/',
-      url: 'http://192.168.121.138:8000/api/v1/pages/',
+      url: app.globalData.apiUri + 'pages/',
       method: 'GET',
       success(res) {
         console.log(res)

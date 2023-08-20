@@ -24,11 +24,11 @@
       <text class="{{item.icon}}"></text>
       <text class="text-grey text-xl">{{item.title}}</text>
     </view>
-    <navigator class="action" url="{{item.url}}">
+    <view class="action" data-url="{{item.url}}" bindtap="toPage">
       <button class="cu-btn round bg-blue shadow">
         点我<view class="cuIcon-right"></view>
       </button>
-    </navigator>
+    </view>
   </view>
 </view>
 </view>

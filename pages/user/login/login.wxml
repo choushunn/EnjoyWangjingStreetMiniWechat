@@ -6,7 +6,7 @@
   <view class="bg-white radius-lg" style="min-height: 90vh;">
     <view class="padding-tb padding-lr">
       <text class="text-xxl text-black">欢迎使用</text>
-      <text class="text-xxl text-black text-bold">乐享王井街微信小程序</text>
+      <text class="text-xxl text-black text-bold">乐享王井街便民服务</text>
       <view class="text-df padding-top-sm">社区管理，公众服务</view>
     </view>
     <view class="bg-white radius-lg margin-tb-xl">
@@ -16,10 +16,13 @@
     <view class="padding-bottom-xxl padding-top padding-lr text-center">
       <view class="flex flex-column margin-sm justify-center" bindtap='onLogin' data-target="Modal">       
         <button class="cu-btn xxl bg-gradual-blue round">               
-          微信用户一键登录</button>
+          手机号快捷登录</button>
       </view>
       <view class="padding-lr-xl text-center text-gray padding-top-sm text-df">
-        未注册的手机号登录时将自动注册，且代表您已经同意 <text class="solids-bottom">用户协议</text> 和 <text class="solid-bottom">隐私政策</text>
+        <checkbox-group bindchange="checkboxChange">
+        <checkbox class="round green" value="check" checked="{{isChecked}}" style="transform: scale(0.7,0.7);"/>       
+       我已阅读并同意 <text class="solids-bottom  text-green" bindtap="toPage" data-url="/pages/user/about/agreement">用户服务协议</text> 和 <text class="solid-bottom text-green" bindtap="toPage" data-url="/pages/user/about/privacy">隐私政策</text>
+      </checkbox-group>
       </view>
     </view>
   </view>

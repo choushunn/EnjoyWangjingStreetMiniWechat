@@ -7,18 +7,19 @@
 <view wx:if="{{item}}">
   <!-- 有内容时的渲染 -->
   <view class="bg-white padding-xs flex align-center radius-df">
-    <view class="flex-sub text-center">
-      <view class=" text-xl padding solid-bottom">
-      <!-- 标题 -->
+    <view class="flex-sub">
+      <view class=" text-xl padding solid-bottom  text-center">
+        <!-- 标题 -->
         <text class="text-xxl text-bold text-black">{{item.title}}</text>
       </view>
       <!-- 内容 -->
-      <view class="padding text-left text-indent">{{item.content}}</view>
-
-       <!-- 附件 -->
-       <!-- <view class="padding text-left text-indent solid-top margin-top">附件：{{item.attachment}}</view> -->
+      <view class="padding-sm text-lg margin-top-sm text-black">
+        <mp-html content="{{item.content}}" markdown="{{true}}"></mp-html>
+      </view>
+      <!-- 附件 -->
+      <!-- <view class="padding text-left text-indent solid-top margin-top">附件：{{item.attachment}}</view> -->
       <!-- 时间 -->
-      <view class="padding text-right text-indent solid-top margin-top">发布时间：{{item.created_at}}</view>
+      <view class="padding text-right text-indent solid-top margin-top text-df">发布时间：{{item.created_at}}</view>
     </view>
   </view>
 </view>
