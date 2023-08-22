@@ -10,6 +10,17 @@ Page({
     score: 1,
     messageData:''
   },
+   // 预览图片
+   previewImage(e) {
+    const current = e.currentTarget.dataset.src;
+    const urls = this.data.imgList.map((item) => {
+      return item.path;
+    });
+    wx.previewImage({
+      current,
+      urls
+    });
+  },
     /**
    * 点击评分
    */

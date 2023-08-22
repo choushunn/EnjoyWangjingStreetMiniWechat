@@ -24,7 +24,7 @@
   <block wx:if="{{item.feedback_images.length>0}}">
     <view class="bg-white solid-bottom">
       <view class="padding-lr-xl padding-tb-sm text-df flex align-center" wx:for="{{item.feedback_images}}" wx:key="id">
-        <image src="{{item.image?item.image:''}}" mode="" />
+        <image src="{{item.image?item.image:''}}" mode="" bindtap="previewImage" />
       </view>
     </view>
   </block>

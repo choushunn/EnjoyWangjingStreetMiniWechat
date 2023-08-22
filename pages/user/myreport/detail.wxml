@@ -36,8 +36,8 @@
     </view>
   </view>
   <block wx:if="{{item.report_images.length>0}}">
-    <view class="bg-white solid-bottom" wx:for="{{item.feedback_images}}" wx:key="id">
-      <image src="{{item.image?item.iamge:''}}" mode="" />
+    <view class="bg-white solid-bottom" wx:for="{{item.feedback_images}}" wx:key="id" >
+      <image src="{{item.image?item.iamge:''}}" mode="" bindtap="previewImage" />
     </view>
   </block>
   <block wx:else>

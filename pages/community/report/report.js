@@ -62,7 +62,6 @@ Page({
       current,
       urls
     });
-
   },
   onSubmit: function (event) {
     const formData = event.detail.value;
