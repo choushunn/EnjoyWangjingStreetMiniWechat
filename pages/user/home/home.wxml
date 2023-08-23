@@ -22,7 +22,7 @@
   <block wx:else>
     <!-- 登录了就显示欢迎您 -->
     <view class="text-xl text-white">
-      欢迎您, {{userinfo.nickname?userinfo.nickname:'暂未获取'}}
+      欢迎您, {{userinfo.nickname?userinfo.nickname:'请先设置昵称'}}
     </view>
     <!-- 授权微信登录按钮 -->
     <view class="grid padding-sm" bindtap="onLogout">

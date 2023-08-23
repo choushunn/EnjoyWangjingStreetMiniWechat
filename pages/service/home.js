@@ -103,13 +103,20 @@ Component({
   },
   lifetimes: {
     created() {
-      // 加载菜单项
-      // wx.request({
-      //   url: 'url',
-      //   success(res){
-
-      //   }
-      // })
+      var that = this;
+      // 获取后台菜单数据
+      wx.request({
+        url: app.globalData.apiUri + 'menu_category/?url=server',
+        method: "GET",
+        success: function (res) {
+          console.log("办事菜单请求成功：", res.data[0]); 
+          that.setData({
+            elements: res.data[0].items 
+          });
+        },fail:function(res){
+          console.log("社区菜单请求失败：",res)
+        }
+      });
     }
   },
   methods: {

@@ -10,9 +10,9 @@ Page({
     phoneCode: '',
     isRegister: false,
     isChecked: false,
-  },    
+  },
   // 跳转到功能页面
-  toPage(e){
+  toPage(e) {
     var url = e.currentTarget.dataset.url
     wx.navigateTo({
       url: url
@@ -21,24 +21,24 @@ Page({
   // 点击登录按钮
   onLogin() {
     var isChecked = this.data.isChecked
-    console.log(isChecked) 
-    if (!isChecked) {      
+    console.log(isChecked)
+    if (!isChecked) {
       wx.showModal({
         title: '提示',
         content: '请先阅读并同意用户服务协议和隐私政策。',
         complete: (res) => {
           if (res.cancel) {
-            
+
           }
-      
+
           if (res.confirm) {
-            
+
           }
         }
-      })    
+      })
       return;
     }
-    
+
     console.log("尝试直接登录")
     var that = this
     // 尝试自动登录
@@ -74,11 +74,11 @@ Page({
                 title: "请先注册！",
                 icon: 'success',
               });
-              setTimeout(function () {
-                that.setData({
-                  modalName: "Modal"
-                })
-              }, 500);
+              // setTimeout(function () {
+              //   that.setData({
+              //     modalName: "Modal"
+              //   })
+              // }, 500);
             } else {
               // 登录失败，清除用户信息
               wx.removeStorageSync('token')
@@ -94,11 +94,32 @@ Page({
   },
   checkboxChange(e) {
     console.log(e)
-    if (e.detail.value.length>0) {
+    if (e.detail.value.length > 0) {
       console.log("已同意")
       this.setData({
-        isChecked:true
+        isChecked: true
       })
+    }
+  },
+  changeBox(e) {
+    console.log(e)
+    var isChecked = this.data.isChecked
+    console.log(isChecked)
+    if (!isChecked) {
+      wx.showModal({
+        title: '提示',
+        content: '请先阅读并同意用户服务协议和隐私政策。',
+        complete: (res) => {
+          if (res.cancel) {
+
+          }
+
+          if (res.confirm) {
+
+          }
+        }
+      })
+      return;
     }
   },
   // 获取用户手机号码
@@ -112,20 +133,34 @@ Page({
       // 发起注册请求
       wx.login({
         success: res => {
-          wx.uploadFile({
-            url: app.globalData.apiUri + 'user/',
-            filePath: this.data.avatarUrl,
-            name: 'avatar',
-            formData: {
-              nickname: this.data.nickname,
+          wx.request({
+            url: app.globalData.apiUri + 'user_login/',
+            method: "POST",
+            data: {
               js_code: res.code,
               phone_code: this.data.phoneCode
             },
             success: function (res) {
               console.log('注册返回信息：', res)
               if (res.statusCode === 201) {
-                var response = JSON.parse(res.data)
+                var response = res.data
                 console.log('注册接口返回的信息：', response)
+                // 登录成功，设置全局用户信息
+                wx.setStorageSync('token', response.access);
+                setTimeout(function () {
+                  wx.showToast({
+                    title: "登录成功！",
+                    icon: 'success',
+                  });
+                }, 1000);
+                // 跳转到首页
+                wx.reLaunch({
+                  url: '/pages/index/index',
+                })
+              } else if (res.statusCode === 200) {
+                // 用户存在
+                var response = res.data
+                console.log('登录成功返回的信息：', response)
                 // 登录成功，设置全局用户信息
                 wx.setStorageSync('token', response.access);
                 setTimeout(function () {

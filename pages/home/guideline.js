@@ -1,18 +1,37 @@
 // pages/home/home/guideline.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    item: {
+      "title": "用户协议",
+      "content": "用户协议的内容",
+      "name": "",
+      "created_at": "2023/08/12"
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that =this
+    wx.request({
+      // url: app.globalData.apiUri+'pages/',
+      url: app.globalData.apiUri + 'pages/?name=guideline',
+      method: 'GET',
+      success(res) {
+        console.log(res)
+        if (res.statusCode == 200 && res.data.length > 0) {
+          that.setData({
+            item: res.data[0]
+          })
+        }
+      }
+    })
   },
 
   /**

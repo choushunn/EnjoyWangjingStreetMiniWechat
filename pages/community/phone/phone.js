@@ -6,7 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dianhuadata: ''
+    dianhuadata: '',
+    value: false
+  }, // 点击列表,收缩与展示
+  click(event) {
+    const index = event.currentTarget.dataset.index;
+    const {
+      dianhuadata
+    } = this.data;
+    if (dianhuadata[index].checked == true) {
+      dianhuadata[index].checked = false
+    } else {
+      dianhuadata[index].checked = true
+    }
+    this.setData({
+      dianhuadata:dianhuadata
+    });
+  },
+  checkboxChange(e) {
+    this.setData({
+      value: !this.data.value
+    })
   },
   onSearch: function (e) {
     console.log(e)
@@ -32,8 +52,43 @@ Page({
           var items = res.data
           // 读取成功
           if (items.length > 0) {
+            // 转换接口数据为小程序数据结构
+            const convertedData = [];
+
+            for (const key in items) {
+              const item = items[key];
+            
+              // 检查转换后数据数组中是否已存在该类型数据的 name
+              const existingItem = convertedData.find((data) => data.name === item.type);
+            
+              if (existingItem) {
+                // 如果存在，将当前数据添加到已存在的 name 中的 content 数组中
+                existingItem.content.push({
+                  id: item.id,
+                  title: item.title,
+                  number: item.number,
+                  address: item.address
+                });
+              } else {
+                // 如果不存在，创建新的 name 并添加到转换后数据数组中
+                const newItem = {
+                  name: item.type,
+                  content: [{
+                    id: item.id,
+                    title: item.title,
+                    number: item.number,
+                    address: item.address
+                  }],
+                  checked: true
+                };
+                convertedData.push(newItem);
+              }
+            }
+            
+            console.log(convertedData);
+            console.log(that.data.list)
             that.setData({
-              dianhuadata: items
+              dianhuadata: convertedData
             })
           }
         }
@@ -46,10 +101,11 @@ Page({
       content: '提供常用的电话',
       showCancel: false,
     });
-  },clickCall(e){
+  },
+  clickCall(e) {
     console.log(e)
-    let phone=e.currentTarget.dataset.phone;
-    wx.makePhoneCall({//调用拨打电话的函数
+    let phone = e.currentTarget.dataset.phone;
+    wx.makePhoneCall({ //调用拨打电话的函数
       phoneNumber: phone,
     })
   },

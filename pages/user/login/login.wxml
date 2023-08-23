@@ -14,9 +14,10 @@
       </view>
     </view>
     <view class="padding-bottom-xxl padding-top padding-lr text-center">
-      <view class="flex flex-column margin-sm justify-center" bindtap='onLogin' data-target="Modal">       
-        <button class="cu-btn xxl bg-gradual-blue round">               
-          手机号快捷登录</button>
+      <!-- <view class="flex flex-column margin-sm justify-center" bindtap='onLogin' data-target="Modal">        -->
+        <view class="flex flex-column margin-sm justify-center">
+          <button class="cu-btn xxl bg-gradual-blue round" bindtap="changeBox" open-type="{{isChecked?'getPhoneNumber':''}}" bindgetphonenumber="{{isChecked?'getPhoneNumber':''}}">               
+            手机号快捷登录</button>
       </view>
       <view class="padding-lr-xl text-center text-gray padding-top-sm text-df">
         <checkbox-group bindchange="checkboxChange">

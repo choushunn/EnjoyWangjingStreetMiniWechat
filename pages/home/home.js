@@ -9,16 +9,16 @@ Component({
     TabCur: 0,
     scrollLeft: 0,
     elements: [{
-        name: '办事指南',
+        name: '居民公约',
         color: 'red',
         icon: 'newsfill',
         url: '/pages/home/guideline'
       },
       {
-        name: '社区活动',
+        name: '社区新闻',
         color: 'orange',
         icon: 'servicefill',
-        url: '/pages/community/activity/activity'
+        url: '/pages/home/news'
       },
       {
         name: '居民服务',
@@ -64,9 +64,11 @@ Component({
         method: "GET",
         success: function (res) {
           console.log("菜单请求成功：", res); // 打印后台返回的数据
+          if(res.data[0].items.length>0){
           that.setData({
-            elements: res.data.items // 将后台返回的数据绑定到页面的 elements 变量中
+            elements: res.data[0].items // 将后台返回的数据绑定到页面的 elements 变量中
           });
+        }
         },
       });
       // 请求首页新闻数据

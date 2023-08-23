@@ -13,9 +13,6 @@
   </view>
 </view>
 <scroll-view>
-
-  
-
 <view wx:if="{{menu}}">
  <!-- 功能列表 -->
 <view class="cu-list menu sm-border">

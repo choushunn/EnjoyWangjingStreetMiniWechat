@@ -51,7 +51,7 @@ Component({
   },
   methods: {
     // 跳转到功能页面
-    toPage(e){
+    toPage(e) {
       var url = e.currentTarget.dataset.url
       wx.navigateTo({
         url: url
@@ -63,15 +63,20 @@ Component({
       var that = this;
       // 获取后台菜单数据
       wx.request({
-        url: app.globalData.apiUri + 'menu_category/4/',
+        url: app.globalData.apiUri + 'menu_category/?url=community',
         method: "GET",
         success: function (res) {
-          console.log("社区菜单请求成功：", res); 
-          that.setData({
-            elements: res.data.items 
-          });
-        },fail:function(res){
-          console.log("社区菜单请求失败：",res)
+          console.log("社区菜单请求成功：", res);
+          console.log(res.data[0].items)
+          var menu_items = res.data[0]
+          if (menu_items.length>0) {
+            that.setData({
+              elements: menu_items.items
+            });
+          }
+        },
+        fail: function (res) {
+          console.log("社区菜单请求失败：", res)
         }
       });
     },
