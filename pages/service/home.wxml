@@ -37,13 +37,6 @@
   </view>
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-sm solid-bottom">
-    <!--  -->
-    <view class="padding-sm">
-      <view class="bg-green padding radius-social text-center light" bindtap="toPage" data-url="/pages/community/consult/consult">
-        <text class='cuIcon-people' style="font-size: 30px;"></text>
-        <view class="text-lg">在线咨询</view>
-      </view>
-    </view>
     <view class="padding-sm" wx:for="{{elements2}}" wx:key="title">
       <view class="bg-{{item.color}} padding radius-social text-center light" bindtap="toPage" data-url="{{item.url}}">
         <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>

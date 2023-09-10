@@ -23,18 +23,7 @@
       </button>
     </view>
   </view>
-  <view class="cu-item {{menuArrow?'arrow':''}}">
-    <view class="content">
-      <text class="cuIcon-time text-red"></text>
-      <text class="text-grey text-xl">预约咨询</text>
-    </view>
-    <view class="action" data-url="/pages/community/consult/reserveform" bindtap="toPage">
-      <button class="cu-btn round bg-blue shadow">
-        <view class="cuIcon-right"></view>
-       点我
-      </button>
-    </view>
-  </view>
+
   <view class="cu-item {{menuArrow?'arrow':''}}">
     <view class="content">
       <text class="cuIcon-time text-red"></text>
