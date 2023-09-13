@@ -2,6 +2,7 @@
 <cu-custom bgColor="bg-gradual-blue">
   <view slot="content">个人中心</view>
 </cu-custom>
+<privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
 <!-- 用户信息显示块 -->
 <view class="UCenter-bg">
   <!-- 微信头像 -->
@@ -13,9 +14,9 @@
   </view>  
   <block wx:if="{{!userinfo}}">
     <!-- 授权微信登录按钮 -->
-    <view class="grid padding-sm" bindtap="toPage" data-url="/pages/user/login/login">
+    <view class="grid padding-sm">
       <view class="margin-tb-sm text-center">
-        <button class="cu-btn xl round bg-gradual-green">登录/注册</button>
+        <button class="cu-btn xl round bg-gradual-green" bindtap="onLogin" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">登录/注册</button>
       </view>
     </view>
   </block>

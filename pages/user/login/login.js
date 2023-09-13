@@ -10,6 +10,7 @@ Page({
     phoneCode: '',
     isRegister: false,
     isChecked: false,
+    focus: false
   },
   // 跳转到功能页面
   toPage(e) {
@@ -102,26 +103,27 @@ Page({
     }
   },
   changeBox(e) {
-    console.log(e)
-    var isChecked = this.data.isChecked
-    console.log(isChecked)
-    if (!isChecked) {
-      wx.showModal({
-        title: '提示',
-        content: '请先阅读并同意用户服务协议和隐私政策。',
-        complete: (res) => {
-          if (res.cancel) {
 
-          }
+    // console.log(e)
+    // var isChecked = this.data.isChecked
+    // console.log(isChecked)
+    // if (!isChecked) {
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '请先阅读并同意用户服务协议和隐私政策。',
+    //     complete: (res) => {
+    //       if (res.cancel) {
 
-          if (res.confirm) {
+    //       }
 
-          }
-        }
-      })
-      return;
-    }
-  },
+    //       if (res.confirm) {
+
+    //       }
+    //     }
+    //   })
+    //   return;
+    // }
+  }, 
   // 获取用户手机号码
   getPhoneNumber(e) {
     if (e.detail.errMsg == 'getPhoneNumber:ok') {

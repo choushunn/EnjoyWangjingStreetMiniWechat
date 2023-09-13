@@ -5,6 +5,8 @@
     "pages/home/guideline",
     "pages/home/news",
     "pages/home/news/detail",
+    "pages/home/checklist/checklist",
+    "pages/home/checklist/detail",
     "pages/service/home",
     "pages/community/home",
     "pages/community/notice/notice",
@@ -70,5 +72,6 @@
     "chooseAddress",
     "choosePoi"
   ],
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "__usePrivacyCheck__": true
 }

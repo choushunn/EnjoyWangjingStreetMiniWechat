@@ -2,6 +2,7 @@
 <cu-custom bgColor="bg-white" isBack="{{true}}">
   <view slot="content">登录注册</view>
 </cu-custom>
+
 <view class="margin-xs">
   <view class="bg-white radius-lg" style="min-height: 90vh;">
     <view class="padding-tb padding-lr">
@@ -19,12 +20,12 @@
           <button class="cu-btn xxl bg-gradual-blue round" bindtap="changeBox" open-type="{{isChecked?'getPhoneNumber':''}}" bindgetphonenumber="{{isChecked?'getPhoneNumber':''}}">               
             手机号快捷登录</button>
       </view>
-      <view class="padding-lr-xl text-center text-gray padding-top-sm text-df">
+      <!-- <view class="padding-lr-xl text-center text-gray padding-top-sm text-df" >
         <checkbox-group bindchange="checkboxChange">
         <checkbox class="round green" value="check" checked="{{isChecked}}" style="transform: scale(0.7,0.7);"/>       
        我已阅读并同意 <text class="solids-bottom  text-green" bindtap="toPage" data-url="/pages/user/about/agreement">用户服务协议</text> 和 <text class="solid-bottom text-green" bindtap="toPage" data-url="/pages/user/about/privacy">隐私政策</text>
       </checkbox-group>
-      </view>
+      </view> -->
     </view>
   </view>
 </view>
@@ -62,6 +63,8 @@
     </view>
   </view>
 </view>
+
+<privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
 
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

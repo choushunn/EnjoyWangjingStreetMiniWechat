@@ -27,10 +27,10 @@ Component({
         url: '/pages/community/work/work'
       },
       {
-        name: '预约服务',
+        name: '服务清单',
         color: 'pink',
         icon: 'post',
-        url: '/pages/community/appointment/appointment'
+        url: '/pages/home/checklist/checklist'
       },
     ],
     swiperList: [{

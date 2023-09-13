@@ -1,0 +1,94 @@
+<!--pages/home/checklist/detail.wxml-->
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">公共服务清单</view>
+</cu-custom>
+<view wx:if="{{item}}">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">事项名称</text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+   {{item.sxmc}}
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">办理方式</text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+    {{item.blfs}}
+  </view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">服务时间</text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+    {{item.fwsj}}
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">办结时限</text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+    {{item.bjsx}}
+  </view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">服务对象</text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+    {{item.fwdx}}
+  </view>
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <text class='cuIcon-titles text-orange'></text> <text class="text text-gray">所需要件
+      </text>
+    </view>
+    <view class='action'>
+      <!-- 右侧按钮 -->
+    </view>
+  </view>
+  <view class="bg-white padding text-lg solid-bottom">
+    {{item.sxyj}}
+  </view>
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
+<!-- 浮窗 -->
+<view class="flex">
+  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
+  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/work/workform"></navigator>
+</view>
+
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

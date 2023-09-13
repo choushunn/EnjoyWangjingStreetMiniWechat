@@ -1,0 +1,16 @@
+/* index.wxss */
+@import "/components/colorui/main.wxss";
+@import "/components/colorui/icon.wxss";
+
+.modal-container {
+  position: fixed;
+  bottom: 21%;
+  left: 4%;
+  right: 4%;
+  width: 92%;
+  background-color: #fff;
+  padding: 40rpx;
+  box-shadow: 0 -2rpx 4rpx rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+

@@ -1,0 +1,18 @@
+<!-- index.wxml -->
+<view class="modal-container text-lg padding radius" wx:if="{{innerShow}}">
+  <view class="margin-bottom text-bold text-xl text-center">
+    {{title}}
+  </view>
+  <view class="margin-bottom">
+    {{desc1}}<text class="text-blue" bindtap="openPrivacyContract">{{urlTitle}}</text>。
+  </view>
+  <view>  
+    {{desc2}}
+  </view>
+  <view class="padding">
+    <view class="cu-bar btn-group">     
+      <button class="cu-btn bg-gray" id="disagree-btn" bindtap="handleDisagree">不同意</button>
+      <button class="cu-btn bg-red" id="agree-btn" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="handleAgree">同意</button>
+    </view>
+  </view>
+</view>

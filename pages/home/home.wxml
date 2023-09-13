@@ -81,6 +81,7 @@
     </view>
   </view>
 </view>
+
 <!-- 帮助浮窗 -->
 <!-- <view class="flex kefu-question-cover">
   <button class="cu-btn icon round cuIcon-phone text-grey" style="font-size:100%;" open-type="contact" bindcontact="handleContact" session-from="sessionFrom"></button>
