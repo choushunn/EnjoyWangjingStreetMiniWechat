@@ -3,7 +3,7 @@
 <cu-custom bgColor="bg-gradual-red">
   <view slot="content">乐享王井街</view>
 </cu-custom>
-
+<privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
 <!-- 轮播图 -->
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key="id">

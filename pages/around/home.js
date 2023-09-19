@@ -198,7 +198,7 @@ Component({
               });
             },
             fail(res) {
-              console.log(res)
+              console.log("---",res)
               wx.hideLoading()
             }
           })
@@ -280,7 +280,7 @@ Component({
       this.startLocation();
       this.setData({
         backToCurrentLocation: true,
-        cardCur: 0, // 重置卡片索引
+        cardCur: 0, 
         longitude: this.data.markers[this.data.cardCur].longitude,
         latitude: this.data.markers[this.data.cardCur].latitude,
       });

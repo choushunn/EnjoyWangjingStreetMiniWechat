@@ -81,11 +81,7 @@
     <template is="nodata"></template>
   </view>
 </view>
-<!-- 浮窗 -->
-<view class="flex">
-  <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
-  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/work/workform"></navigator>
-</view>
+
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />

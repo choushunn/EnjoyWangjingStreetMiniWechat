@@ -132,6 +132,28 @@ Component({
         TabCur: e.currentTarget.dataset.id,
         scrollLeft: (e.currentTarget.dataset.id - 1) * 60
       })
+    },    
+    agree(e) {
+      console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
+      wx.getClipboardData({
+        success(res) {
+          console.log("getClipboardData success", res)
+        },
+        fail(res) {
+          console.log("getClipboardData fail", res)
+        },
+      })
+    },
+    disagree(e) {
+      console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
+    },
+    toUserinfo(e) {
+      var url = e.currentTarget.dataset.url
+      var item = JSON.stringify(e.currentTarget.dataset.userinfo)
+      // 跳转到详情页面
+      wx.navigateTo({
+        url: url + '?item=' + item,
+      })
     },
     linkNews(e) {
       console.log(e);

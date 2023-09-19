@@ -1,4 +1,5 @@
 // pages/home/checklist/checklist.js
+const app = getApp();
 Page({
 
   /**
@@ -61,7 +62,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    var that = this;
+    wx.request({
+      url: app.globalData.apiUri + 'servicelist/',
+      method: 'GET',
+      success(res) {
+        if (res.statusCode == 200) {
+          console.log("服务清单信息获取成功", res.data)          
+          if (res.statusCode == 200 && res.data.length>0) {
+            that.setData({
+              'menu': res.data
+            })
+          } else {
+            // 获取失败
+          }
+        }
+      }
+    })
   },
 
   /**
