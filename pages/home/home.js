@@ -8,6 +8,73 @@ Component({
   data: {
     TabCur: 0,
     scrollLeft: 0,
+    elements1:[{
+      title: '缴纳电费',
+      name: '缴纳电费',
+      color: 'cyan',
+      icon: 'card',
+      url: '',
+      appid:'wx5899bdb8721621d6',
+    },{
+      title: '缴纳水费',
+      name: '缴纳水费',
+      color: 'red',
+      icon: 'card',
+      url: '',
+      appid:'wxd2ade0f25a874ee2',
+    },{
+      title: '生活缴费',
+      name: '生活缴费',
+      color: 'orange',
+      icon: 'card',
+      url: '',
+      appid:'wxd2ade0f25a874ee2',
+    },{
+      title: '政务服务',
+      name: '政务服务',
+      color: 'blue',
+      icon: 'card',
+      url: '',
+      appid:'wx2eec5fb00157a603',
+    },{
+      title: '医疗健康',
+      name: '医疗健康',
+      color: 'pink',
+      icon: 'card',
+      url: '',
+      appid:'wxb032bc789053daf4',
+    }],
+    elements2: [{
+      title: '预约服务',
+      name: 'icon',
+      color: 'olive',
+      icon: 'dianhua',
+      url: '/pages/community/appointment/appointment'
+    },{
+      title: '咨询服务',
+      name: 'text',
+      color: 'yellow',
+      icon: 'group',
+      url: '/pages/community/consult/consult'
+    },
+    {
+      title: '意见反馈 ',
+      name: 'icon',
+      color: 'brown',
+      icon: 'copy',
+      url: '/pages/community/feedback/feedback'
+    },
+    {
+      title: '问题上报',
+      name: 'background',
+      color: 'orange',
+      icon: 'peoplefill',
+      url: '/pages/community/report/report'
+    },
+    
+    
+    
+  ],
     elements: [{
         name: '居民公约',
         color: 'red',
@@ -15,10 +82,10 @@ Component({
         url: '/pages/home/guideline'
       },
       {
-        name: '社区新闻',
+        name: '便民电话',
         color: 'orange',
         icon: 'servicefill',
-        url: '/pages/home/news'
+        url: '/pages/community/phone/phone'
       },
       {
         name: '居民服务',

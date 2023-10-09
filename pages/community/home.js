@@ -2,17 +2,7 @@
 const app = getApp();
 Component({
   data: {
-    elements: [{
-      name: '通知公告',
-      color: 'olive',
-      icon: 'notice',
-      url: '/pages/community/notice/notice'
-    }, {
-      name: '社区活动',
-      color: 'green',
-      icon: 'group',
-      url: '/pages/community/activity/activity'
-    }, {
+    elements: [  {
       name: '居民服务',
       color: 'cyan',
       icon: 'paint',
@@ -42,12 +32,7 @@ Component({
       color: 'mauve',
       icon: 'question',
       url: '/pages/community/feedback/feedback'
-    }, {
-      name: '近期新闻',
-      color: 'blue',
-      icon: 'news',
-      url: '/pages/home/news'
-    }]
+    },]
   },
   methods: {
     // 跳转到功能页面

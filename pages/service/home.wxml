@@ -11,6 +11,7 @@
 </view>
 <view class="cu-bar bg-white solid-bottom" style="top:{{CustomBar}}rpx;">
 </view>
+
 <!-- 功能列表 -->
 <view>
   <view class="cu-bar bg-white solid-bottom">

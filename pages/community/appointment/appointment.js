@@ -41,7 +41,7 @@ Page({
           }      
           if (res.confirm) {
             wx.navigateTo({
-              url: '/pages/user/login/login',
+              url: '/pages/user/home/home',
             })
           }
         }

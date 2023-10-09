@@ -8,13 +8,7 @@ Component({
     defaultAvatarUrl: app.globalData.defaultAvatarUrl,
     userinfo: null,
     // 我的菜单
-    myMenuItems: [{
-      icon: 'cardboardfill',
-      color: 'red',
-      badge: 0,
-      name: '我的收藏',
-      url: '/pages/user/myfaver/myfaver'
-    }, {
+    myMenuItems: [ {
       icon: 'picfill',
       color: 'yellow',
       badge: 0,
@@ -72,20 +66,6 @@ Component({
         color: 'cyan',
         url: '/pages/user/about/about',
         handler: 'toPage'
-      },
-      {
-        name: '更新日志',
-        icon: 'formfill',
-        color: 'green',
-        url: '/pages/user/logs/logs',
-        handler: 'toPage'
-      },
-      {
-        name: '赞赏支持',
-        icon: 'appreciatefill',
-        color: 'red',
-        url: '',
-        handler: 'showQrcode'
       }
     ]
   },

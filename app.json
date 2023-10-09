@@ -29,7 +29,6 @@
     "pages/around/detail",
     "pages/user/home/home",
     "pages/user/home/userinfo",
-    "pages/user/logs/logs",
     "pages/user/about/about",
     "pages/user/about/disclaimer",
     "pages/user/about/privacy",
@@ -44,7 +43,6 @@
     "pages/user/myorder/detail",
     "pages/user/myreport/myreport",
     "pages/user/myreport/detail",
-    "pages/user/login/login",
     "pages/user/chart/chart"
   ],
   "window": {

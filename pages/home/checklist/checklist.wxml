@@ -17,15 +17,14 @@
     <!-- 功能列表 -->
     <view class="cu-list menu sm-border">
       <view class="cu-item" wx:for="{{menu}}" wx:key="index">
-        <view class="content">
-      
+        <view class="content" bindtap="toDetail" data-item="{{item}}">      
           <text class="cuIcon-btn text-green"></text>
           <text class="text-black text">{{item.sxmc}}</text>
         </view>
         <view class="action" bindtap="toDetail" data-item="{{item}}">
-          <button class="cu-btn round bg-blue shadow">
-            点我<view class="cuIcon-right"></view>
-          </button>
+          <!-- <button class="cu-btn round bg-blue shadow"> -->
+            <view class="cuIcon-right"></view>
+          <!-- </button> -->
         </view>
       </view>
     </view>

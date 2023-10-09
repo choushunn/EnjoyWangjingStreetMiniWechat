@@ -1,5 +1,7 @@
 /* pages/basics/home/home.wxss */
-
+.radius-social-1 {
+	border-radius: 30rpx;
+}
 .kefu-question-cover {
   position: fixed;
   bottom: 15%;
