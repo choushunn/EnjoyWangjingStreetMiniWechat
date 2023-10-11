@@ -26,7 +26,7 @@
   <view class="action text-gray add-action" bindtap="NavChange" data-cur="home">
     <button class="cu-btn cuIcon-home bg-blue shadow"></button>
     <view class="text-df text-{{PageCur=='home'?'green':'gray'}}">
-      王井街社区
+      社区服务
     </view>
   </view>
   <!-- 社区服务 -->

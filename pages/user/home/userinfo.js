@@ -81,6 +81,11 @@ Page({
         })
       }
     })
+  }, onChooseAvatar(e) {
+    const { avatarUrl } = e.detail 
+    this.setData({
+      avatarUrl,
+    })
   },
   chooseImage: function () {
     var that = this

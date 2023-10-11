@@ -10,16 +10,21 @@
       <text class="cuIcon-emojiflashfill text-pink"></text>
       <text class="text-grey">我的头像</text>
     </view>
-    <view class="action" bindtap="chooseImage">
-      <view class="padding">
-        <!-- 头像显示 -->
+    <button  class="custom-button"  open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+      <view class="padding">   
+        <image class="cu-avatar round lg" src="{{avatarUrl}}"></image>
+      </view>
+    </button>
+    <!-- 头像显示 -->
+    <!-- <view class="action" bindtap="chooseImage">
+      <view class="padding">        
         <image mode="aspectFill" class="cu-avatar round lg" src="{{userinfo.avatar?userinfo.avatar:avatarUrl}}"></image>
       </view>
-    </view>
+    </view> -->
   </view>
   <!-- 昵称 -->
   <view class="cu-item arrow" bindtap="showModal" data-target="nicknameModal">
-    <view class="content" >
+    <view class="content">
       <text class="cuIcon-my text-orange"></text>
       <text class="text-grey">昵称</text>
     </view>
@@ -27,9 +32,9 @@
       <text class="text-black text-lg">{{userinfo.nickname}}</text>
     </view>
   </view>
-    <!-- 昵称 -->
-    <view class="cu-item arrow" bindtap="showModal" data-target="nameModal">
-    <view class="content" >
+  <!-- 昵称 -->
+  <view class="cu-item arrow" bindtap="showModal" data-target="nameModal">
+    <view class="content">
       <text class="cuIcon-my text-orange"></text>
       <text class="text-grey">真实姓名</text>
     </view>
@@ -42,7 +47,6 @@
     <navigator class="content" hover-class="none" url="" open-type="redirect">
       <text class="cuIcon-phone text-orange"></text>
       <text class="text-grey">手机号码</text>
-
     </navigator>
     <view class="action">
       <text class="text-black text-lg">{{userinfo.phone}}</text>
@@ -55,13 +59,11 @@
       <text class="text-grey">性别</text>
     </navigator>
     <view class="action">
-      
-        <text class="text-black text-lg">{{userinfo.gender?userinfo.gender:'暂无'}}</text>
-  
+      <text class="text-black text-lg">{{userinfo.gender?userinfo.gender:'暂无'}}</text>
     </view>
   </view>
   <!-- 地址 -->
-  <view class="cu-item arrow"  bindtap="showModal" data-target="addressModal">
+  <view class="cu-item arrow" bindtap="showModal" data-target="addressModal">
     <view class="content" hover-class="none">
       <text class="cuIcon-location text-orange"></text>
       <text class="text-grey">地址</text>
@@ -90,17 +92,17 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <form bindsubmit="changeAddress">    
-    <view class="margin padding-xl text-left">
-      <input name="nickname" type="text" placeholder="请输入昵称" value="{{userinfo.nickname}}"/>
-    </view>
-    <view class="cu-bar bg-white justify-end">
-      <view class="action">
-        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+    <form bindsubmit="changeAddress">
+      <view class="margin padding-xl text-left">
+        <input name="nickname" type="text" type="nickname" placeholder="请输入昵称" value="{{userinfo.nickname}}" />
       </view>
-    </view>
-  </form>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
   </view>
 </view>
 <view class="cu-modal {{modalName=='nameModal'?'show':''}}">
@@ -111,17 +113,17 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <form bindsubmit="changeAddress">    
-    <view class="margin padding-xl text-left">
-      <input name="name" type="text" placeholder="请输入真实姓名" value="{{userinfo.name}}"/>
-    </view>
-    <view class="cu-bar bg-white justify-end">
-      <view class="action">
-        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+    <form bindsubmit="changeAddress">
+      <view class="margin padding-xl text-left">
+        <input name="name" type="text" placeholder="请输入真实姓名" value="{{userinfo.name}}" />
       </view>
-    </view>
-  </form>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
   </view>
 </view>
 <view class="cu-modal {{modalName=='addressModal'?'show':''}}">
@@ -132,16 +134,16 @@
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <form bindsubmit="changeAddress">    
-    <view class="margin padding-xl text-left">
-      <input name="address" type="text" placeholder="请输入地址" value="{{userinfo.address}}"/>
-    </view>
-    <view class="cu-bar bg-white justify-end">
-      <view class="action">
-        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
-        <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+    <form bindsubmit="changeAddress">
+      <view class="margin padding-xl text-left">
+        <input name="address" type="text" placeholder="请输入地址" value="{{userinfo.address}}" />
       </view>
-    </view>
-  </form>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-green margin-left" formType="submit">确定</button>
+        </view>
+      </view>
+    </form>
   </view>
 </view>

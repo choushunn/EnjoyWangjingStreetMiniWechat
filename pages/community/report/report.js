@@ -108,7 +108,7 @@ Page({
     }
     formData.images = JSON.stringify(this.data.imgList);
     const extraData = {
-      title: '问题上报',
+      // title: '问题上报',
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
@@ -139,15 +139,21 @@ Page({
               }
             })
           }
+          wx.requestSubscribeMessage({
+            tmplIds: ['aAuVyMBl3gscHus9WJzI80tADXMnBu48K0f6bMwvNe8'],
+            success (res) { 
+              
+            }
+          })
           wx.showToast({
             title: '提交成功',
             success(res) {
               console.log(res)
-              setTimeout(function () {
-                wx.navigateBack({
-                  delta: 1
-                })
-              }, 1000);
+              // setTimeout(function () {
+              //   wx.navigateBack({
+              //     delta: 1
+              //   })
+              // }, 1000);
             },
             fail(res) {
               wx.showToast({

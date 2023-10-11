@@ -24,7 +24,7 @@
         <view class="cu-item shadow">
           <view class="title">
             <view class="flex justify-between">
-              <view class="text-cut">{{item.title}}</view>
+              <view class="text-cut">{{item.content}}</view>
               <view class="text-cut text-{{item.status?'red':'green'}}">{{item.status?'待进行':'已结束'}}</view>
             </view>
           </view>

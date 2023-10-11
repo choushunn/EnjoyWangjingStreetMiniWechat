@@ -38,7 +38,7 @@
     </view>
   </view>
   <view class="bg-white solid-bottom">
-    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.reply?item.reply:'已反馈成功，请耐心等待工作人员处理'}}</view>
+    <view class="padding-lr-xl padding-tb-sm text-df flex align-center">{{item.replay?item.replay:'已反馈成功，请耐心等待工作人员处理'}}</view>
   </view>
   <!-- 评分 -->
   <view class="cu-bar bg-white solid-bottom">

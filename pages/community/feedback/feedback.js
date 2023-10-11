@@ -82,7 +82,6 @@ Page({
     var that = this
     const formData = event.detail.value;
     const extraData = {
-
     }; // 新字段
     const data = Object.assign({}, formData, extraData); // 合并表单数据和新字段
     console.log(data); // 打印表单数据对象
@@ -110,19 +109,28 @@ Page({
               },
               success(res) {
                 console.log(res)
+               
               }
             })
           }
+         
           // 上传图像
           wx.showToast({
             title: '提交成功',
             icon: 'success',
             success: function () {
-              setTimeout(function () {
-                wx.navigateBack({
-                  delta: 1
-                })
-              }, 1000);
+              // setTimeout(function () {
+              //   wx.navigateBack({
+              //     delta: 1
+              //   })
+              // }, 1000);
+             
+            }
+          })
+          wx.requestSubscribeMessage({
+            tmplIds: ['aAuVyMBl3gscHus9WJzI8wnWUj-rvpVdpdBlkmnJ754'],
+            success (res) { 
+              
             }
           })
         } else {
@@ -131,6 +139,7 @@ Page({
             icon: 'error'
           })
         }
+
       },
       fail: function (res) {
         console.log(res.errMsg); // 打印错误信息

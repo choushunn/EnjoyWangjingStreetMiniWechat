@@ -1,1 +1,5 @@
 /* pages/user/home/userinfo.wxss */
+.custom-button {
+  /* 重置按钮样式为默认值 */
+  all: unset;
+}
