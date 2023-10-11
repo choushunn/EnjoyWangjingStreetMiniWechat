@@ -6,12 +6,12 @@
 <!-- 用户信息显示块 -->
 <view class="UCenter-bg">
   <!-- 微信头像 -->
-  <view class="padding-xs" data-url="{{userinfo?'/pages/user/home/userinfo':''}}" bindtap="toUserinfo" data-userinfo="{{userinfo}}">    
+  <view class="padding-xs" data-url="{{userinfo?'/pages/user/home/userinfo':''}}" bindtap="toUserinfo" data-userinfo="{{userinfo}}">
     <view class="cu-avatar round xl" style="background-image:url({{userinfo.avatar?userinfo.avatar:defaultAvatarUrl}});">
       <!-- 性别 -->
       <view class="cu-tag badge {{index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
-  </view>  
+  </view>
   <block wx:if="{{!userinfo}}">
     <!-- 授权微信登录按钮 -->
     <view class="grid padding-sm">
@@ -43,8 +43,9 @@
         <block wx:if="{{item.badge!=1}}">{{item.badge>99?"99+":item.badge}}</block>
       </view>
     </view>
-    <text>{{item.name}}</text>
+    <text style="font-size: 30rpx;">{{item.name}}</text>
   </view>
+
 </view>
 
 <!-- 功能列表 -->
@@ -53,6 +54,12 @@
     <button class="cu-btn content">
       <text class="cuIcon-{{item.icon}} text-{{item.color}}"></text>
       <text class="text-grey">{{item.name}}</text>
+    </button>
+  </view>
+  <view class="cu-item arrow">
+    <button class='cu-btn content' open-type='feedback'>
+      <text class='cuIcon-write text-cyan text-xl'></text>
+      <text class='text-l text-grey'>意见反馈</text>
     </button>
   </view>
 </view>

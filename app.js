@@ -9,7 +9,7 @@ App({
     StatusBar: 0,
     Custom: null,
     CustomBar: 0,
-    apiUri:"https://api.enjoywangjing.cn/api/v1/",
+    apiUri: "https://api.enjoywangjing.cn/api/v1/",
     // apiUri: "http://127.0.0.1:8000/api/v1/",
     // 默认头像
     defaultAvatarUrl: 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
@@ -23,7 +23,7 @@ App({
         console.log("版本更新：", res)
         // 请求完新版本信息的回调
         if (res.hasUpdate) {
-     
+
         }
       })
       updateManager.onUpdateReady(function () {
@@ -76,6 +76,7 @@ App({
                   if (res.statusCode === 200) {
                     // 登录成功，设置全局用户信息
                     wx.setStorageSync('token', response.access);
+
                   } else {
                     // 登录失败，清除用户信息
                     wx.removeStorageSync('token')
@@ -113,6 +114,22 @@ App({
       that.globalData.networkType = res.networkType;
       // 处理网络状态
       console.log(res.networkType);
+      // 网络断开时进行提示
+      if (!res.isConnected) {
+        wx.showModal({
+          title: '网络连接失败',
+          content: '请检查网络设置',
+          complete: (res) => {
+            if (res.cancel) {
+              
+            }
+        
+            if (res.confirm) {
+              
+            }
+          }
+        })
+      }
     });
     // 其他操作
   },
@@ -148,10 +165,4 @@ App({
       },
     });
   },
-  // 跳转到登录页面
-  navigateToLogin() {
-    // wx.navigateTo({
-    //   url: '/pages/user/login/login',
-    // });
-  }
 })

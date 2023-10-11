@@ -1,0 +1,10 @@
+<view class="notice-bar">
+  <view class="notice-bar__icon-container">
+    <text class="notice-bar__icon">📢</text>
+  </view>
+  <view class="notice-bar__content">
+    <view class="notice-bar__text-container">
+      <text class="notice-bar__text">{{text}}</text>
+    </view>
+  </view>
+</view>

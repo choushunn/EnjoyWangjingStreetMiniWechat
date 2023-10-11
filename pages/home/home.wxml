@@ -3,6 +3,7 @@
 <cu-custom bgColor="bg-gradual-red">
   <view slot="content">乐享王井街</view>
 </cu-custom>
+
 <privacy-popup bind:agree="agree" bind:disagree="disagree"></privacy-popup>
 <!-- 轮播图 -->
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
@@ -11,6 +12,8 @@
     <image src="{{item.image}}" mode="aspectFill"></image>
   </swiper-item>
 </swiper>
+<official-account></official-account>
+<notice-bar text="乐享王井街微信小程序正式上线了,欢迎广大居民提出宝贵的意见。"></notice-bar>
 
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-lr-sm">
@@ -27,38 +30,19 @@
 <view>
   <view class="cu-bar bg-white solid-bottom">
     <view class='action'>
-      <text class='cuIcon-titles text-red'></text>生活服务
+      <text class='cuIcon-titles text-red'></text>网上办事
     </view>
   </view>
   <!-- 功能区 -->
   <view class="grid col-3 bg-white padding-lr-sm solid-bottom">
     <view class="padding-sm" wx:for="{{elements1}}" wx:key="title">
-      <view class="bg-{{item.color}} padding radius-social-1 text-center light" bindtap="toMini" data-appid="{{item.appid}}">
+      <view class="bg-{{item.color}} padding radius-social-1 text-center light" bindtap="{{item.appid ? 'toMini' : 'toPage'}}" data-appid="{{item.appid}}" data-url="{{item.url}}">
         <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
         <view class="text-lg">{{item.title}}</view>
       </view>
     </view>
   </view>
 </view>
-<!-- 功能列表 -->
-<view>
-  <view class="cu-bar bg-white solid-bottom">
-    <view class='action'>
-      <text class='cuIcon-titles text-green'></text>社区服务
-    </view>
-  </view>
-  <!-- 功能区 -->
-  <view class="grid col-3 bg-white padding-lr-sm">
-    <view class="padding-sm" wx:for="{{elements2}}" wx:key="title">
-      <view class="bg-{{item.color}} padding radius-social-1 text-center light" bindtap="toPage" data-url="{{item.url}}">
-        <text class='cuIcon-{{item.icon}}' style="font-size: 30px;"></text>
-        <view class="text-lg">{{item.title}}</view>
-      </view>
-    </view>
-  </view>
-</view>
-
-
 <!-- 启动页模态框 -->
 <view class="cu-modal {{modalName=='Image'?'show':''}}">
   <view class="cu-dialog">
@@ -76,11 +60,6 @@
   </view>
 </view>
 
-<!-- 帮助浮窗 -->
-<!-- <view class="flex kefu-question-cover">
-  <button class="cu-btn icon round cuIcon-phone text-grey" style="font-size:100%;" open-type="contact" bindcontact="handleContact" session-from="sessionFrom"></button>
-</view> -->
-<official-account></official-account>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view style="background-color: white;">

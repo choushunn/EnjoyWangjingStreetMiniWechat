@@ -1,0 +1,40 @@
+.notice-bar {
+  height: 65rpx;
+  line-height: 65rpx;
+  background-color: #fdedd9;
+  padding: 20rpx 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.notice-bar__icon-container {
+  width: 6%;
+  display: flex;
+  align-items: center;
+}
+
+.notice-bar__content {
+  width: 90%;
+  overflow: hidden;
+}
+
+.notice-bar__text-container {
+  white-space: nowrap;
+  animation: scrollText 15s linear infinite;
+}
+
+.notice-bar__text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #f3a73f;
+  font-size: 34rpx;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "privacy-popup":"/components/privacyPopup/privacyPopup"
+    "privacy-popup":"/components/privacyPopup/privacyPopup",
+    "notice-bar":"/components/notice-bar/notice-bar"
   }
 }

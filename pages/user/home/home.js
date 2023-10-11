@@ -102,7 +102,8 @@ Component({
       wx.navigateTo({
         url: url
       })
-    },
+    },    
+    
     onLogin(e) {
       // 检查权限
       // 同意后继续登录
@@ -193,14 +194,6 @@ Component({
     },
     agree(e) {
       console.log("用户同意隐私授权, 接下来可以调用隐私协议中声明的隐私接口")
-      wx.getClipboardData({
-        success(res) {
-          console.log("getClipboardData success", res)
-        },
-        fail(res) {
-          console.log("getClipboardData fail", res)
-        },
-      })
     },
     disagree(e) {
       console.log("用户拒绝隐私授权, 未同意过的隐私协议中的接口将不能调用")
@@ -239,32 +232,6 @@ Component({
           }
         }
       })
-    },
-    showQrcode: function () {
-      wx.requestSubscribeMessage({
-        tmplIds: ['QFNd8u1LfsEDTObY8R5FMj-POgKOnO-vyMfCX0PmAKs', 'FyttljRvQRug1iwsHgy0mnWbL4HRORJX4LJM_G-Hq7M'],
-        success(res) {
-          console.log('调起成功', res);
-          if (res[tempId[0]] === 'accept') {
-            console.log('允许')
-          }
-          if (res[tempId[0]] === 'reject') {
-            console.log('拒绝')
-          }
-        },
-        fail(err) {
-          if (err.errCode == 20004) {
-            console.log('关闭小程序主开关')
-          } else {
-            console.log('订阅失败')
-          }
-        }
-      })
-      // wx.showToast({
-      //   title: '赞赏支持',
-      //   icon: 'loading'
-      // })
-
     },
   }
 })

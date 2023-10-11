@@ -119,18 +119,19 @@ Page({
             title: '提交成功',
             icon: 'success',
             success: function () {
-              // setTimeout(function () {
-              //   wx.navigateBack({
-              //     delta: 1
-              //   })
-              // }, 1000);
-             
+                         
             }
           })
           wx.requestSubscribeMessage({
             tmplIds: ['aAuVyMBl3gscHus9WJzI8wnWUj-rvpVdpdBlkmnJ754'],
             success (res) { 
               
+            },complete(res){
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })                
+              }, 1000);   
             }
           })
         } else {

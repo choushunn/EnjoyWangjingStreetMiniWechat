@@ -97,7 +97,7 @@ Page({
         duration: 1500
       })
       return false;
-    } 
+    }
     if (formData.content.length == 0) {
       wx.showToast({
         title: '请填写内容',
@@ -139,26 +139,30 @@ Page({
               }
             })
           }
-          wx.requestSubscribeMessage({
-            tmplIds: ['aAuVyMBl3gscHus9WJzI80tADXMnBu48K0f6bMwvNe8'],
-            success (res) { 
-              
-            }
-          })
+
           wx.showToast({
             title: '提交成功',
             success(res) {
               console.log(res)
-              // setTimeout(function () {
-              //   wx.navigateBack({
-              //     delta: 1
-              //   })
-              // }, 1000);
+
             },
             fail(res) {
               wx.showToast({
                 title: '提交失败',
               })
+            }
+          })
+          wx.requestSubscribeMessage({
+            tmplIds: ['aAuVyMBl3gscHus9WJzI80tADXMnBu48K0f6bMwvNe8'],
+            success(res) {
+
+            },
+            complete(res) {
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 1000);
             }
           })
         } else {
@@ -184,18 +188,18 @@ Page({
       showCancel: false,
     });
   },
-  chooseAddress(){
-    var that =this
+  chooseAddress() {
+    var that = this
     wx.choosePoi({
       success(res) {
         console.log(res)
         that.setData({
-          address:res.address
+          address: res.address
         })
       }
     })
   },
-  toMyDetail(){
+  toMyDetail() {
     wx.navigateTo({
       url: '/pages/user/myreport/myreport',
     })
@@ -210,11 +214,11 @@ Page({
         title: '您还未登录',
         content: '请先登录后办理服务',
         complete: (res) => {
-          if (res.cancel) {            
-              wx.navigateBack({
-                delta: 1
-              })          
-          }      
+          if (res.cancel) {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
           if (res.confirm) {
             wx.navigateTo({
               url: '/pages/user/home/home',
@@ -236,7 +240,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-   
+
   },
 
   /**

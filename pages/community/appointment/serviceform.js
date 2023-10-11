@@ -112,11 +112,19 @@ Page({
           wx.showToast({
             title: '提交成功',
             success: function () {
+            
+            }
+          })
+          wx.requestSubscribeMessage({
+            tmplIds: ['KgOwnbgPBoKZ4eXGsmZMYTtNoUlVCwFeXlL-gU0udis'],
+            success (res) { 
+              
+            },complete(res){
               setTimeout(function () {
                 wx.navigateBack({
                   delta: 1
-                })
-              }, 1000);
+                })                
+              }, 1000);   
             }
           })
         } else {

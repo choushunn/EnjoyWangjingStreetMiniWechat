@@ -86,6 +86,48 @@ Page({
     this.setData({
       avatarUrl,
     })
+ // 上传到服务器
+ wx.uploadFile({
+  filePath: avatarUrl,
+  name: 'avatar',
+  url: app.globalData.apiUri+'user_avatar/',
+  header: {
+    "authorization": "Bearer " + wx.getStorageSync('token')
+  },
+  success(res){
+    if(res.statusCode==200){
+      wx.showToast({
+        title: '修改成功',
+        icon:'success',
+        success: function () {
+        //   setTimeout(function () {
+        //     wx.navigateBack({
+        //       delta: 1
+        //     })
+        //     // wx.reLaunch({
+        //     //   url: '/pages/user/home/home',
+        //     // })
+        //   }, 1000);
+        }
+      })
+    }
+  },fail(res){
+    console.log(res)
+    wx.showToast({
+      title: '修改失败',
+      icon:'error',
+      success: function () {
+        setTimeout(function () {
+          wx.navigateBack({
+            delta: 1
+          })
+        
+        }, 1000);
+      }
+    })
+  }
+})
+
   },
   chooseImage: function () {
     var that = this

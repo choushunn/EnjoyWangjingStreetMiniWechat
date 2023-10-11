@@ -2,19 +2,10 @@
 <!-- 跳转页面 -->
 <home wx:if="{{PageCur=='home'}}"></home>
 <user wx:if="{{PageCur=='user'}}"></user>
-<!-- <service wx:if="{{PageCur=='service'}}"></service> -->
 <around wx:if="{{PageCur=='around'}}"></around>
-<community wx:if="{{PageCur=='community'}}"></community>
 
 <!-- 底部导航栏 -->
 <view class="cu-bar tabbar bg-white shadow foot">
-  <!-- 办事服务 -->
-  <!-- <view class="action" bindtap="NavChange" data-cur="service">
-    <view class="cuIcon-list line-{{PageCur=='service'?'green':'gray'}}"></view>
-    <view class="text-df text-{{PageCur=='service'?'green':'gray'}}">
-      办事
-    </view>
-  </view> -->
   <!-- 周边服务 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="around">
     <view class="cuIcon-search line-{{PageCur=='around'?'green':'gray'}}">
@@ -29,13 +20,6 @@
       社区服务
     </view>
   </view>
-  <!-- 社区服务 -->
-  <!-- <view class="action text-gray" bindtap="NavChange" data-cur="community">
-    <view class="cuIcon-similar line-{{PageCur=='community'?'green':'gray'}}"></view>
-    <view class="text-df text-{{PageCur=='community'?'green':'gray'}}">
-      社区
-    </view>
-  </view> -->
   <!-- 个人中心 -->
   <view class="action text-gray" bindtap="NavChange" data-cur="user">
     <view class="cuIcon-my line-{{PageCur=='user'?'green':'gray'}}">

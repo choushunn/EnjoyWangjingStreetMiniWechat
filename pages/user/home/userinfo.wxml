@@ -12,7 +12,7 @@
     </view>
     <button  class="custom-button"  open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
       <view class="padding">   
-        <image class="cu-avatar round lg" src="{{avatarUrl}}"></image>
+        <image class="cu-avatar round lg" src="{{userinfo.avatar?userinfo.avatar:avatarUrl}}"></image>
       </view>
     </button>
     <!-- 头像显示 -->
