@@ -1,0 +1,14 @@
+<view class="popup-container" wx:if="{{showPopup}}">
+  <view class="popup-content">
+    <view class="title-bar">
+      <text class="title">长按二维码关注 乐享王井街公众号</text>
+    </view>
+    <image class="qrcode" src="{{qrcodeUrl}}" mode="aspectFit" bindlongpress="recognizeQrCode"></image>
+    <view class="countdown">
+      <text>{{countdown}} 秒后自动关闭</text>
+    </view>
+    <view class="close-icon" bindtap="closePopup">      
+      <text>关闭显示</text>
+    </view>
+  </view>
+</view>

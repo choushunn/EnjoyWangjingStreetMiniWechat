@@ -50,18 +50,19 @@
 
 <!-- 功能列表 -->
 <view class="cu-list menu card-menu margin-top-sm margin-bottom-xl shadow-lg radius">
-  <view wx:for="{{aboutMenuItems}}" wx:key="id" class="cu-item arrow" bindtap="{{item.handler}}" data-url="{{item.url}}">
-    <button class="cu-btn content">
-      <text class="cuIcon-{{item.icon}} text-{{item.color}}"></text>
-      <text class="text-grey">{{item.name}}</text>
-    </button>
-  </view>
   <view class="cu-item arrow">
     <button class='cu-btn content' open-type='feedback'>
       <text class='cuIcon-write text-cyan text-xl'></text>
       <text class='text-l text-grey'>意见反馈</text>
     </button>
   </view>
+  <view wx:for="{{aboutMenuItems}}" wx:key="id" class="cu-item arrow" bindtap="{{item.handler}}" data-url="{{item.url}}">
+    <button class="cu-btn content">
+      <text class="cuIcon-{{item.icon}} text-{{item.color}}"></text>
+      <text class="text-grey">{{item.name}}</text>
+    </button>
+  </view>
+
 </view>
 
 <!-- 底部版权声明 -->

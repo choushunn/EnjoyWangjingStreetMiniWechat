@@ -12,7 +12,7 @@
     <button class="cu-btn bg-green shadow-blur round" bindtap="onSearch">搜索</button>
   </view>
 </view>
-<view class="cu-list margin-top-sm menu" wx:for="{{dianhuadata}}" wx:key="item">
+<view class="cu-list margin-top-xs menu" wx:for="{{dianhuadata}}" wx:key="item">
   <view class="cu-item" bindtap="click" data-index="{{ index }}">
     <view class="content padding-tb-sm">      
       <view><text class="cuIcon-titles text-orange"></text><text class="text-black text-bold text-xl">{{item['name']}}</text></view>
@@ -21,11 +21,11 @@
       <text class="cuIcon-{{item['checked'] ? 'unfold' : 'right'}}"></text>
     </view>
   </view>
-  <view class="cu-card no-card  margin-xs {{item['checked'] ? '' : 'piano-hidden-content'}}" wx:for="{{item.content}}" wx:for-item="child" wx:key="item">
+  <view class="cu-card no-card margin-xs {{item['checked'] ? '' : 'piano-hidden-content'}}" wx:for="{{item.content}}" wx:for-item="child" wx:key="item">
     <view class="cu-item shadow">
       <view class="title padding-sm">
         <view class="flex justify-start align-center">
-          <view class="text-cut text-xl">{{child.title}}</view>
+          <view class="text-cut text-xl text-bold">{{child.title}}</view>
         </view>
       </view>
       <view class="solid-bottom"></view>
@@ -46,29 +46,7 @@
   </view>
 </view>
 <view wx:if="{{dianhuadata}}">
-  <!-- <block wx:for="{{dianhuadata}}" wx:key="id">
-    <view class="cu-card no-card margin-xs">
-      <view class="cu-item shadow">
-        <view class="title padding-sm">
-          <view class="flex justify-start align-center">
-            <view class="text-cut text-xl text-bold">{{item.title}}</view>
-          </view>
-        </view>
-        <view class="solid-bottom"></view>
-        <view class="title padding-sm">
-          <view class="flex justify-start align-center">
-            <view class="text-lg  text-blue">
-              <view class="cuIcon-dianhua margin-right-xs"></view>
-            </view>
-            <view data-phone="{{item.number}}" bindtap="clickCall">
-              <view class="text-cut text-xl text-blue">{{item.number}}</view>
-            </view>
-          </view>
-        </view>
-        <view class="padding-sm text-cut text-lg solid-top">地址：{{item.address?item.address:'暂无'}}</view>
-      </view>
-    </view>
-  </block> -->
+ 
 </view>
 <view wx:else>
   <!-- 没有内容时的渲染 -->

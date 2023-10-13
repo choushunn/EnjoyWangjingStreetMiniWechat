@@ -1,7 +1,3 @@
-/* index.wxss */
-@import "/components/colorui/main.wxss";
-@import "/components/colorui/icon.wxss"; 
-
 .popup-container {
   position: fixed;
   top: 0;
@@ -28,7 +24,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .title {
@@ -36,14 +32,19 @@
   font-weight: bold;
 }
 
-.button-group {
-  display: flex;
-  justify-content: center;
-  margin-top: 40rpx;
-  margin-bottom: 30rpx;
-  width: 100%;
+.qrcode {
+  width: 450rpx;
+  height: 450rpx;
+  margin-bottom: 10rpx;
 }
 
-button {
-  flex: 1;
+.countdown {
+  margin-bottom: 20rpx;
+}
+
+.close-icon {
+  cursor: pointer;
+  color: #999;
+  display: flex;
+  justify-content: flex-end;
 }

@@ -71,7 +71,6 @@ Component({
         url: '/pages/community/report/report'
       },
     ],
-
     elements: [{
         name: '居民公约',
         color: 'red',
@@ -101,8 +100,7 @@ Component({
       type: 'image',
       image: 'https://img1.qunarzz.com/travel/poi/201403/28/daab198c5029a423ddb12cfb.jpg_r_720x400x95_0c4e4c13.jpg',
       description: ''
-    }],
-    newsList: null
+    }]
   },
   lifetimes: {
     created: function () {
@@ -141,6 +139,17 @@ Component({
     }
   },
   methods: {
+    openPopup() {
+      this.setData({
+        showPopup: true
+      });
+    },
+    
+    onClosePopup() {
+      this.setData({
+        showPopup: false
+      });
+    },
     // 跳转功能页面
     toPage(e) {
       var url = e.currentTarget.dataset.url
@@ -168,16 +177,6 @@ Component({
     hideModal(e) {
       this.setData({
         modalName: null
-      })
-    },
-    // 跳转到详情页面
-    toDetail(e) {
-      console.log(e)
-      var id = e.currentTarget.dataset.item.id
-      var item = JSON.stringify(e.currentTarget.dataset.item)
-      // 跳转到详情页面
-      wx.navigateTo({
-        url: '/pages/home/news/detail?id=' + id + '&item=' + item,
       })
     },
     tabSelect(e) {

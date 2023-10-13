@@ -19,7 +19,7 @@
   </view>
 </view>
 <view class="cu-bar bg-white solid-bottom padding">
-  <view class="text text-xl">办事预约主要是用于.....</view>
+  <view class="text text-xl">办事预约可以预约社区民政、城乡环境、安全稳定、人民调解、劳动保障、计划生育以及其他事项的办理.....</view>
 </view>
 
 <view class="cu-bar bg-white solid-bottom margin-top-sm">

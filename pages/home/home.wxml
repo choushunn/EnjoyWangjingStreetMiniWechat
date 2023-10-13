@@ -59,7 +59,7 @@
     </view>
   </view>
 </view>
-
+<qrcode-popup></qrcode-popup>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view style="background-color: white;">
