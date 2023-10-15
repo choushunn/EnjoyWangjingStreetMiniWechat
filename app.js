@@ -34,6 +34,8 @@ App({
             if (res.confirm) {
               // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
               updateManager.applyUpdate()
+            }else{
+              updateManager.applyUpdate()
             }
           }
         })
@@ -42,7 +44,7 @@ App({
         // 新的版本下载失败
         wx.showModal({
           title: "已经有新版本了哟~",
-          content: "新版本已经上线啦~，请您关闭当前小程序，重新搜索打开哟~"
+          content: "新版本已经上线啦~，请您关闭当前小程序，重新搜索打开~"
         })
       })
     }
@@ -125,7 +127,7 @@ App({
             }
         
             if (res.confirm) {
-              
+        
             }
           }
         })
@@ -160,7 +162,7 @@ App({
       complete() {
         // 跳转到登录页面
         wx.navigateTo({
-          url: '/pages/user/login/login',
+          url: '/pages/user/home/home',
         });
       },
     });

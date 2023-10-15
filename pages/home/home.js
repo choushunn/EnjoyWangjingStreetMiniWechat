@@ -8,6 +8,7 @@ Component({
   data: {
     TabCur: 0,
     scrollLeft: 0,
+    noticeMessage: "乐享王井街微信小程序正式上线了,欢迎广大居民提出宝贵的意见。",
     elements1: [{
         title: '缴纳电费',
         name: '缴纳电费',
@@ -144,7 +145,7 @@ Component({
         showPopup: true
       });
     },
-    
+
     onClosePopup() {
       this.setData({
         showPopup: false

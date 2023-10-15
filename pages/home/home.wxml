@@ -13,7 +13,7 @@
   </swiper-item>
 </swiper>
 <official-account></official-account>
-<notice-bar text="乐享王井街微信小程序正式上线了,欢迎广大居民提出宝贵的意见。"></notice-bar>
+<notice-bar text="{{noticeMessage}}"></notice-bar>
 
 <!-- 功能区 -->
 <view class="grid col-2 bg-white padding-lr-sm">

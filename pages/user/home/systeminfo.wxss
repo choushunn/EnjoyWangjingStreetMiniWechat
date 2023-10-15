@@ -1,0 +1,8 @@
+.label {
+  font-weight: bold;
+  width: 120px;
+}
+
+.value {
+  flex: 1;
+}

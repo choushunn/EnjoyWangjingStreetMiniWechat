@@ -1,7 +1,7 @@
 <!--pages/user/about/about.wxml-->
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
   <view slot="backText">返回</view>
-  <view slot="content">关于</view>
+  <view slot="content">关于我们</view>
 </cu-custom>
 <scroll-view scroll-y class="scrollPage">
   <view class='margin-xl bg-white padding-xl radius-lg shadow-lg text-lg'>
@@ -10,7 +10,7 @@
       <view class="margin-top-lg">Hi！欢迎访问乐享王井街微信小程序！</view>
       <view class='margin-top-sm'>乐享王井街微信小程序是便民为民小程序。长期更新，如果您有好的想法，请提出您的建议或意见。</view>
       <view class='margin-top-sm'>更多功能敬请期待！</view>
-      <view class='margin-top text-right text-blue'>王井镇</view>
+      <view class='margin-top text-right text-blue'>王井街社区</view>
       <view class='margin-top-sm text-right text-blue'>2023/07/22</view>
     </view>
   </view>

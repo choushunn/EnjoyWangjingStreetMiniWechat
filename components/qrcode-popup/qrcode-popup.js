@@ -24,7 +24,6 @@ Component({
         }
       }, 1000);
     },
-
     recognizeQrCode(event) {
       const imageUrl = this.data.qrcodeUrl;
       wx.previewImage({
@@ -32,6 +31,7 @@ Component({
         urls: [imageUrl],
         success: (res) => {
           // 预览成功回调
+          console.log('预览图片失败', res);
         },
         fail: (res) => {
           console.log('预览图片失败', res);
@@ -39,16 +39,17 @@ Component({
       });
     }
   },
-
   lifetimes: {
     attached() {
       const hasShownPopup = wx.getStorageSync('hasShownPopup');
-      if (!hasShownPopup) {
+      const oneDayInMilliseconds = 24 * 60 * 60 * 1000; // 1天的毫秒数
+  
+      if (!hasShownPopup || Date.now() - hasShownPopup > oneDayInMilliseconds) {
         this.setData({
           showPopup: true
         });
         this.startCountdown();
-        wx.setStorageSync('hasShownPopup', true);
+        wx.setStorageSync('hasShownPopup', Date.now());
       }
     }
   }

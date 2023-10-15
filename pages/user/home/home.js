@@ -8,7 +8,7 @@ Component({
     defaultAvatarUrl: app.globalData.defaultAvatarUrl,
     userinfo: null,
     // 我的菜单
-    myMenuItems: [ {
+    myMenuItems: [{
       icon: 'picfill',
       color: 'yellow',
       badge: 0,
@@ -41,6 +41,12 @@ Component({
     }],
     // 关于菜单
     aboutMenuItems: [{
+        name: '系统信息',
+        icon: 'settings',
+        color: 'cyan',
+        url: '/pages/user/home/systeminfo',
+        handler: 'toPage'
+      }, {
         name: '免责声明',
         icon: 'text',
         color: 'cyan',
@@ -102,8 +108,8 @@ Component({
       wx.navigateTo({
         url: url
       })
-    },    
-    
+    },
+
     onLogin(e) {
       // 检查权限
       // 同意后继续登录

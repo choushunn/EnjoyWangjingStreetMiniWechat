@@ -25,6 +25,7 @@
     "pages/around/detail",
     "pages/user/home/home",
     "pages/user/home/userinfo",
+    "pages/user/home/systeminfo",    
     "pages/user/about/about",
     "pages/user/about/disclaimer",
     "pages/user/about/privacy",

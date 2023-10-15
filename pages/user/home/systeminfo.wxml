@@ -1,0 +1,54 @@
+<!--pages/user/myorder/myorder.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">系统信息</view>
+</cu-custom>
+
+<view wx:if="{{items}}" class="cu-list menu no-card margin-top-xs margin-bottom-xl shadow-lg">
+  <view class="cu-item">
+    <text class="label">程序名称：</text>
+    <text class="value">{{items.appName}}</text>   
+  </view>
+  <view class="cu-item">
+    <text class="label">小程序版本：</text>
+    <text class="value">{{items.envVersion}}</text>
+    <text class="text-bold text-blue" bind:tap="checkUpdate">检查更新</text> 
+  </view>
+  <view class="cu-item" wx:if="{{items.miniProgramVersion}}">
+    <text class="label">线上小程序版本：</text>
+    <text class="value">{{items.miniProgramVersion}}</text>  
+  </view>
+  <view class="cu-item">
+    <text class="label">微信版本：</text>
+    <text class="value">{{items.version}}</text>
+  </view>
+  <view class="cu-item">
+    <text class="label">基础库版本：</text>
+    <text class="value">{{items.sdkVersion}}</text>
+  </view>
+  <view class="cu-item">
+    <text class="label">系统平台：</text>
+    <text class="value">{{items.platform}}</text>
+  </view>
+  <view class="cu-item">
+    <text class="label">设备信息：</text>
+    <text class="value">{{items.model}}</text>
+  </view>
+  <view class="cu-item">
+    <text class="label">操作系统版本：</text>
+    <text class="value">{{items.system}}</text>
+  </view>
+</view>
+<view wx:else>
+  <!-- 没有内容时的渲染 -->
+  <import src="/pages/template/nodata.wxml" />
+  <view class="margin-top">
+    <template is="nodata"></template>
+  </view>
+</view>
+
+<!-- 底部版权声明 -->
+<import src="/pages/template/copyright.wxml" />
+<view class="margin-top">
+  <template is="copyright"></template>
+</view>

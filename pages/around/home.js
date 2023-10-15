@@ -47,16 +47,26 @@ Component({
       if(!systemLocation){
         wx.showModal({
           title: '提示',
-          content: '微信不能确定你的位置，在位置设置中打开定位和无线网络',
+          content: '微信不能确定你的位置，请打开定位和网络',
           confirmText:'去设置',
           success (res) {
             if (res.confirm) {
               console.log('用户点击确定')
-              // wx.openSetting({
-              //   success(res){
-
-              //   }
-              // })
+              wx.openSetting({
+                success: (res) => {
+                  // 用户在手机系统的网络设置页面操作后的回调
+                  if (res.authSetting['scope.userInfo']) {
+                    // 用户同意授权用户信息，可以进行相应操作
+                  } else {
+                    // 用户拒绝授权用户信息，进行相应处理
+                    wx.showToast({
+                      title: '位置信息未授权',
+                      icon: 'none',
+                      duration: 2000
+                    });
+                  }
+                }
+              });
             } else if (res.cancel) {
               console.log('用户点击取消')
             }
@@ -71,7 +81,7 @@ Component({
           if (setting['scope.userLocation']) {
             // 开始获取位置信息           
             that.startLocation()
-            // this.mapCtx = wx.createMapContext('myMap')
+
           }else{
             wx.showToast({
               title: '请打开位置权限',
@@ -86,17 +96,18 @@ Component({
   },
   methods: {
     choosePoi(e) {
-      // wx.choosePoi({
-      //   success(res) {
-      //     console.log(res)
-      //   }
-      // })
       var that = this
       wx.chooseLocation({
         latitude: that.data.currentLocation.latitude,
         longitude: that.data.currentLocation.longitude,
         success(res) {
           console.log(res)
+          wx.openLocation({
+            'latitude': res.latitude,
+            'longitude': res.longitude,
+            scale: 28,
+            name: res.name, //打开后显示的地址名称
+          })
         }
       })
     },
