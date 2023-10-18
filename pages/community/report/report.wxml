@@ -95,11 +95,7 @@
 </form>
 
 
-<!-- 帮助浮窗 -->
-<view class="flex">
-  <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
-</view>
-
+<help-button helpContent="问题上报"></help-button>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

@@ -50,11 +50,11 @@
   </view>
 </view>
 <!-- 浮窗 -->
-<view class="flex">
+<!-- <view class="flex">
   <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
   <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/appointment/roomform"></navigator>
-</view>
-
+</view> -->
+<help-button helpContent="我的预约记录" showAddButton="{{true}}" addButtonUrl="/pages/community/appointment/roomform"></help-button>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

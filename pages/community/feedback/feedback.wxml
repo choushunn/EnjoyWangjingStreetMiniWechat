@@ -66,10 +66,7 @@
     <button formType="submit" class="cu-btn bg-green margin-tb-sm lg block">提交</button>
   </view>
 </form>
-<!-- 帮助浮窗 -->
-<view class="flex">
-  <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
-</view>
+<help-button helpContent="意见反馈"></help-button>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

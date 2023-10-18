@@ -1,3 +1,4 @@
 {
-
+  "usingComponents": {"help-button": "/components/help-button/help-button"}
+  
 }

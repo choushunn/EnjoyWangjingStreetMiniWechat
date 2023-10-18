@@ -2,7 +2,8 @@
   "usingComponents": {
     "qrcode-popup":"/components/qrcode-popup/qrcode-popup",
     "privacy-popup":"/components/privacyPopup/privacyPopup",
-    "notice-bar":"/components/notice-bar/notice-bar"
+    "notice-bar":"/components/notice-bar/notice-bar",
+    "help-button": "/components/help-button/help-button"
 
   }
 }

@@ -37,11 +37,7 @@
   </view>
 </view>
 
-<!-- 浮窗 -->
-<view class="flex">
-  <view class="cuIcon-questionfill text-gray question-cover" bindtap="showHelp"></view>
-  <navigator class="cuIcon-add bg-blue shadow add-cover" url="/pages/community/consult/reserveform"></navigator>
-</view>
+<help-button helpContent="咨询服务办理" showHelpButton="{{true}}"></help-button>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

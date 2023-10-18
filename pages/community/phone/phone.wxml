@@ -56,9 +56,10 @@
   </view>
 </view>
 <!-- 帮助浮窗 -->
-<view class="flex">
+<!-- <view class="flex">
   <view class="cuIcon-questionfill text-grey help-question-cover" bindtap="showHelp"></view>
-</view>
+</view> -->
+<help-button helpContent="点击电话号码即可拨打。"></help-button>
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />
 <view class="margin-top">

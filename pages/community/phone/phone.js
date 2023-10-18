@@ -95,13 +95,13 @@ Page({
       }
     })
   },
-  showHelp: function () {
-    wx.showModal({
-      title: '帮助信息',
-      content: '提供常用的电话',
-      showCancel: false,
-    });
-  },
+  // showHelp: function () {
+  //   wx.showModal({
+  //     title: '帮助信息',
+  //     content: '提供常用的电话',
+  //     showCancel: false,
+  //   });
+  // },
   clickCall(e) {
     console.log(e)
     let phone = e.currentTarget.dataset.phone;

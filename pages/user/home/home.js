@@ -47,6 +47,12 @@ Component({
         url: '/pages/user/home/systeminfo',
         handler: 'toPage'
       }, {
+        name: '关于我们',
+        icon: 'info',
+        color: 'cyan',
+        url: '/pages/user/about/about',
+        handler: 'toPage'
+      }, {
         name: '免责声明',
         icon: 'text',
         color: 'cyan',
@@ -65,12 +71,6 @@ Component({
         icon: 'file',
         color: 'cyan',
         url: '/pages/user/about/agreement',
-        handler: 'toPage'
-      }, {
-        name: '关于我们',
-        icon: 'info',
-        color: 'cyan',
-        url: '/pages/user/about/about',
         handler: 'toPage'
       }
     ]

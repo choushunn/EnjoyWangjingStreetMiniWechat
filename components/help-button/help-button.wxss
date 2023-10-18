@@ -1,0 +1,27 @@
+.float-button {
+  position: fixed;
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.help-button {
+  background-color: #ff9900;
+  bottom: 15%;
+  right: 5%;
+}
+
+.add-button {
+  background-color: #0099ff;
+  bottom: 24%;
+  right: 5%;
+}
+
+.button-text {
+  color: #ffffff;
+  font-size: 32rpx;
+}

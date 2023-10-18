@@ -1,0 +1,8 @@
+<view>
+  <view wx:if="{{showHelpButton}}" class="float-button help-button" bindtap="showHelp">
+    <text class="button-text">帮助</text>
+  </view>
+  <view wx:if="{{showAddButton}}" class="float-button add-button" bindtap="navigateToDetail">
+    <text class="button-text">新增</text>
+  </view>
+</view>

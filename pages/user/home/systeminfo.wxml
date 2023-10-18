@@ -4,7 +4,7 @@
   <view slot="content">系统信息</view>
 </cu-custom>
 
-<view wx:if="{{items}}" class="cu-list menu no-card margin-top-xs margin-bottom-xl shadow-lg">
+<view wx:if="{{items}}" class="cu-list menu no-card margin-top-xs margin-bottom-xl shadow-lg text-lg">
   <view class="cu-item">
     <text class="label">程序名称：</text>
     <text class="value">{{items.appName}}</text>   

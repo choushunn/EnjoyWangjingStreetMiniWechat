@@ -39,9 +39,10 @@
 </scroll-view>
 
 <!-- 浮窗 -->
-<view class="flex">
+<!-- <view class="flex">
   <view class="cuIcon-questionfill text-grey question-cover" bindtap="showHelp"></view>
-</view>
+</view> -->
+<help-button helpContent="请点击具体事项查看详细内容。"></help-button>
 
 <!-- 底部版权声明 -->
 <import src="/pages/template/copyright.wxml" />

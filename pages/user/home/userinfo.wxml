@@ -3,7 +3,7 @@
   <view slot="backText">返回</view>
   <view slot="content">个人中心</view>
 </cu-custom>
-<view class="cu-list menu sm-border {{menuCard?'card-menu margin-top':''}}">
+<view class="cu-list menu sm-border">
   <!-- 头像 -->
   <view class="cu-item arrow">
     <view class="content">
@@ -15,12 +15,6 @@
         <image class="cu-avatar round lg" src="{{userinfo.avatar?userinfo.avatar:avatarUrl}}"></image>
       </view>
     </button>
-    <!-- 头像显示 -->
-    <!-- <view class="action" bindtap="chooseImage">
-      <view class="padding">        
-        <image mode="aspectFill" class="cu-avatar round lg" src="{{userinfo.avatar?userinfo.avatar:avatarUrl}}"></image>
-      </view>
-    </view> -->
   </view>
   <!-- 昵称 -->
   <view class="cu-item arrow" bindtap="showModal" data-target="nicknameModal">
@@ -29,7 +23,7 @@
       <text class="text-grey">昵称</text>
     </view>
     <view class="action">
-      <text class="text-black text-lg">{{userinfo.nickname}}</text>
+      <input class="text-right" maxlength="10" placeholder="最大输入长度为10" value="{{userinfo.nickname}}" disabled="true"/>
     </view>
   </view>
   <!-- 昵称 -->
@@ -74,7 +68,7 @@
   </view>
   <!-- 身份状态 -->
   <view class="cu-item arrow">
-    <navigator class="content" hover-class="none" url="../list/list" open-type="redirect">
+    <navigator class="content" hover-class="none" open-type="redirect">
       <text class="cuIcon-vipcard text-orange"></text>
       <text class="text-grey">用户角色</text>
     </navigator>
@@ -94,7 +88,7 @@
     </view>
     <form bindsubmit="changeAddress">
       <view class="margin padding-xl text-left">
-        <input name="nickname" type="text" type="nickname" placeholder="请输入昵称" value="{{userinfo.nickname}}" />
+        <input name="nickname" type="nickname" placeholder="请输入昵称" value="{{userinfo.nickname}}" confirm-type="done" />
       </view>
       <view class="cu-bar bg-white justify-end">
         <view class="action">
@@ -115,7 +109,7 @@
     </view>
     <form bindsubmit="changeAddress">
       <view class="margin padding-xl text-left">
-        <input name="name" type="text" placeholder="请输入真实姓名" value="{{userinfo.name}}" />
+        <input name="name" type="text" placeholder="请输入真实姓名" value="{{userinfo.name}}" confirm-type="done" />
       </view>
       <view class="cu-bar bg-white justify-end">
         <view class="action">
@@ -136,7 +130,7 @@
     </view>
     <form bindsubmit="changeAddress">
       <view class="margin padding-xl text-left">
-        <input name="address" type="text" placeholder="请输入地址" value="{{userinfo.address}}" />
+        <input name="address" type="text" placeholder="请输入地址" value="{{userinfo.address}}" confirm-type="done" />
       </view>
       <view class="cu-bar bg-white justify-end">
         <view class="action">

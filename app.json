@@ -7,8 +7,6 @@
     "pages/home/checklist/detail",
     "pages/community/notice/notice",
     "pages/community/notice/detail",
-    "pages/community/activity/activity",
-    "pages/community/activity/detail",
     "pages/community/work/work",
     "pages/community/work/workform",
     "pages/community/appointment/appointment",
