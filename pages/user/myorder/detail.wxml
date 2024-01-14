@@ -67,15 +67,12 @@
   <view class="bg-white solid-bottom">
     <view class="padding-lr-xl padding-tb-sm text-df flex align-center text-bold text-green">
       <!-- {{item.status?item.status:'暂无结果'}} -->
-    <block wx:if="{{item.status==0}}">
-      待处理
+    <block wx:if="{{item.status}}">
+      {{item.status}}
     </block>    
-    <block wx:else="{{item.status==1}}">
+    <block wx:else>
       处理中
     </block>        
-    <block wx:if="{{item.status==2}}">
-      已完成
-    </block>    
     </view>
   </view>
   <!-- 维修结果确认 -->
